@@ -1,0 +1,60 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "Purview/audit-log-activities.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "changes": 2,
+      "patch": "diff --git a/Purview/audit-log-activities.md b/Purview/audit-log-activities.md\nindex 0effc4c..824d4af 100644\n--- a/Purview/audit-log-activities.md\n+++ b/Purview/audit-log-activities.md\n@@ -693,6 +693,8 @@ The following table lists the Microsoft Fabric activities in Power BI that the M\n | Modified OneLake default tier | ModifiedDefaultTier | Modified OneLake default tier. |\r\n | Modified OneLake file soft-delete settings | ModifiedOneLakeFileSoftDeleteSettings | Generated when a workspace admin changes the OneLake file-level soft-delete retention settings (enable/disable, retention period). |\r\n | Planning session upgraded | PlanningSessionUpgraded | Session type is upgraded in planning workload. |\r\n+| Power BI MCP tool called to modify the semantic model. | ModifiedByPowerBIMCP | Power BI MCP tool called to modify the semantic model. |\r\n+| Power BI MCP tool called to read semantic model metadata. | ReadByPowerBIMCP | Power BI MCP tool called to read semantic model metadata. |\r\n | Recover an artifact | ArtifactRecovered | A user recovered a previously soft-deleted artifact, such as a gateway or gateway cluster member, restoring it to active state. |\r\n | Refreshed AWS Databricks Catalog Shortcuts | RefreshedAWSDatabricksCatalogShortcuts | Refreshed AWS Databricks Catalog shortcuts is an AWSDatabricksCatalog activity which is generated when the refresh-catalog-metadata operation re-syncs the already-mirrored shortcuts against the underlying AWS Databricks Unity Catalog. |\r\n | Retrieved artifact's Logical Id | ArtifactLogicalIdRetrieved | Retrieved artifact's Logical Id. |\r\n",
+      "baseCommitSha": "eec8471d0937f98f6eadbe11ede8cdb805385ac0",
+      "commitSha": "63d57ea9f611b6e0d715e1431a896d5fd08966ea",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-07T02:01:08Z",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/audit-log-activities.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/audit-log-activities",
+      "firstSeenAt": "2026-11-07T02:01:08.000Z",
+      "eventId": "purview-docs:63d57ea9f611b6e0d715e1431a896d5fd08966ea:modified:Purview/audit-log-activities.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Mirror Learn: 1 changed",
+        "summary": "Updated Microsoft Purview documentation in Purview/audit-log-activities.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Purview documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Microsoft Purview",
+        "summary": "Updated Microsoft Purview documentation in Purview/audit-log-activities.md.",
+        "sourceFiles": [
+          "Purview/audit-log-activities.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Microsoft Purview",
+        "detail": "Updated Microsoft Purview documentation in Purview/audit-log-activities.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

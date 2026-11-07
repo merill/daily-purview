@@ -1,0 +1,180 @@
+{
+  "version": 3,
+  "generatedAt": "2026-11-07T02:24:21.466Z",
+  "generator": {
+    "model": "deterministic-backfill",
+    "reasoningEffort": "none"
+  },
+  "days": {
+    "2026-11-05": {
+      "headline": "Create Retention Policies leads 4 Purview updates",
+      "overview": "5 November 2026 recorded 4 updated Microsoft Purview documentation changes. The most active areas were Information Protection, Purview, Data Lifecycle.",
+      "adminImpact": "Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.",
+      "keyChanges": [
+        {
+          "title": "Create Retention Policies",
+          "detail": "Updated Microsoft Purview documentation in Purview/create-retention-policies.md.",
+          "product": "Data Lifecycle",
+          "sourceId": "doc-2026-11-05-create-retention-policies-04"
+        },
+        {
+          "title": "Apply Sensitivity Label Automatically",
+          "detail": "Updated Microsoft Purview documentation in Purview/apply-sensitivity-label-automatically.md.",
+          "product": "Information Protection",
+          "sourceId": "doc-2026-11-05-apply-sensitivity-label-automatically-01"
+        },
+        {
+          "title": "Sensitivity Labels Sharepoint Onedrive Files",
+          "detail": "Updated Microsoft Purview documentation in Purview/sensitivity-labels-sharepoint-onedrive-files.md.",
+          "product": "Information Protection",
+          "sourceId": "doc-2026-11-05-sensitivity-labels-sharepoint-onedrive-files-03"
+        },
+        {
+          "title": "Depmod Secure By Default Step3",
+          "detail": "Updated Microsoft Purview documentation in Purview/deploymentmodels/depmod-secure-by-default-step3.md.",
+          "product": "Purview",
+          "sourceId": "doc-2026-11-05-depmod-secure-by-default-step3-02"
+        }
+      ],
+      "generatedBy": "deterministic-backfill",
+      "generatedAt": "2026-11-07T02:24:21.466Z"
+    },
+    "2026-11-06": {
+      "headline": "Apply Sensitivity Label Automatically leads 3 Purview updates",
+      "overview": "6 November 2026 recorded 3 updated Microsoft Purview documentation changes. The most active areas were Information Protection, Audit.",
+      "adminImpact": "Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.",
+      "keyChanges": [
+        {
+          "title": "Apply Sensitivity Label Automatically",
+          "detail": "Updated Microsoft Purview documentation in Purview/apply-sensitivity-label-automatically.md.",
+          "product": "Information Protection",
+          "sourceId": "doc-2026-11-06-apply-sensitivity-label-automatically-02"
+        },
+        {
+          "title": "Audit Log Activities",
+          "detail": "Updated Microsoft Purview documentation in Purview/audit-log-activities.md.",
+          "product": "Audit",
+          "sourceId": "doc-2026-11-06-audit-log-activities-01"
+        },
+        {
+          "title": "Auto Label Simulation Results",
+          "detail": "Updated Microsoft Purview documentation in Purview/auto-label-simulation-results.md.",
+          "product": "Information Protection",
+          "sourceId": "doc-2026-11-06-auto-label-simulation-results-03"
+        }
+      ],
+      "generatedBy": "deterministic-backfill",
+      "generatedAt": "2026-11-07T02:24:21.466Z"
+    },
+    "2026-11-07": {
+      "headline": "Audit Log Activities",
+      "overview": "7 November 2026 recorded 1 updated Microsoft Purview documentation change. The most active areas were Audit.",
+      "adminImpact": "Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.",
+      "keyChanges": [
+        {
+          "title": "Audit Log Activities",
+          "detail": "Updated Microsoft Purview documentation in Purview/audit-log-activities.md.",
+          "product": "Audit",
+          "sourceId": "doc-2026-11-07-audit-log-activities-01"
+        }
+      ],
+      "generatedBy": "deterministic-backfill",
+      "generatedAt": "2026-11-07T02:24:21.466Z"
+    }
+  },
+  "weeks": {
+    "2026-11-02": {
+      "headline": "Create Retention Policies leads 8 Purview updates",
+      "overview": "Week of 2 November 2026 recorded 8 updated Microsoft Purview documentation changes. The most active areas were Information Protection, Audit, Purview.",
+      "adminImpact": "Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.",
+      "keyChanges": [
+        {
+          "title": "Create Retention Policies",
+          "detail": "Updated Microsoft Purview documentation in Purview/create-retention-policies.md.",
+          "product": "Data Lifecycle",
+          "sourceId": "doc-2026-11-05-create-retention-policies-04"
+        },
+        {
+          "title": "Apply Sensitivity Label Automatically",
+          "detail": "Updated Microsoft Purview documentation in Purview/apply-sensitivity-label-automatically.md.",
+          "product": "Information Protection",
+          "sourceId": "doc-2026-11-06-apply-sensitivity-label-automatically-02"
+        },
+        {
+          "title": "Apply Sensitivity Label Automatically",
+          "detail": "Updated Microsoft Purview documentation in Purview/apply-sensitivity-label-automatically.md.",
+          "product": "Information Protection",
+          "sourceId": "doc-2026-11-05-apply-sensitivity-label-automatically-01"
+        },
+        {
+          "title": "Audit Log Activities",
+          "detail": "Updated Microsoft Purview documentation in Purview/audit-log-activities.md.",
+          "product": "Audit",
+          "sourceId": "doc-2026-11-07-audit-log-activities-01"
+        },
+        {
+          "title": "Depmod Secure By Default Step3",
+          "detail": "Updated Microsoft Purview documentation in Purview/deploymentmodels/depmod-secure-by-default-step3.md.",
+          "product": "Purview",
+          "sourceId": "doc-2026-11-05-depmod-secure-by-default-step3-02"
+        }
+      ],
+      "generatedBy": "deterministic-backfill",
+      "generatedAt": "2026-11-07T02:24:21.466Z"
+    }
+  },
+  "months": {
+    "2026-11": {
+      "headline": "Create Retention Policies leads 8 Purview updates",
+      "overview": "November 2026 recorded 8 updated Microsoft Purview documentation changes. The most active areas were Information Protection, Audit, Purview.",
+      "adminImpact": "Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.",
+      "keyChanges": [
+        {
+          "title": "Create Retention Policies",
+          "detail": "Updated Microsoft Purview documentation in Purview/create-retention-policies.md.",
+          "product": "Data Lifecycle",
+          "sourceId": "doc-2026-11-05-create-retention-policies-04"
+        },
+        {
+          "title": "Apply Sensitivity Label Automatically",
+          "detail": "Updated Microsoft Purview documentation in Purview/apply-sensitivity-label-automatically.md.",
+          "product": "Information Protection",
+          "sourceId": "doc-2026-11-06-apply-sensitivity-label-automatically-02"
+        },
+        {
+          "title": "Apply Sensitivity Label Automatically",
+          "detail": "Updated Microsoft Purview documentation in Purview/apply-sensitivity-label-automatically.md.",
+          "product": "Information Protection",
+          "sourceId": "doc-2026-11-05-apply-sensitivity-label-automatically-01"
+        },
+        {
+          "title": "Audit Log Activities",
+          "detail": "Updated Microsoft Purview documentation in Purview/audit-log-activities.md.",
+          "product": "Audit",
+          "sourceId": "doc-2026-11-07-audit-log-activities-01"
+        },
+        {
+          "title": "Depmod Secure By Default Step3",
+          "detail": "Updated Microsoft Purview documentation in Purview/deploymentmodels/depmod-secure-by-default-step3.md.",
+          "product": "Purview",
+          "sourceId": "doc-2026-11-05-depmod-secure-by-default-step3-02"
+        }
+      ],
+      "generatedBy": "deterministic-backfill",
+      "generatedAt": "2026-11-07T02:24:21.466Z"
+    }
+  },
+  "usageByDay": {},
+  "lastRun": {
+    "inputTokens": 0,
+    "outputTokens": 0,
+    "requests": 0,
+    "costUsd": 0
+  },
+  "totalUsage": {
+    "inputTokens": 0,
+    "outputTokens": 0,
+    "requests": 0,
+    "costUsd": 0
+  }
+}

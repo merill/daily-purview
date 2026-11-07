@@ -1,0 +1,150 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "Purview/apply-sensitivity-label-automatically.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/Purview/apply-sensitivity-label-automatically.md b/Purview/apply-sensitivity-label-automatically.md\nindex b5f6b9c..d853c01 100644\n--- a/Purview/apply-sensitivity-label-automatically.md\n+++ b/Purview/apply-sensitivity-label-automatically.md\n@@ -72,7 +72,7 @@ Tip\n - **I want SharePoint default library labels to apply to existing files.** See Apply default sensitivity labels from SharePoint document libraries to existing files.\r\n - **A file wasn't labeled, or has an unexpected label.** Start with Why was — or wasn't — a specific file labeled? to choose the checks for your file. For a reported failure, see [Resolve auto-labeling failures in SharePoint and OneDrive files](/en-us/troubleshoot/microsoft-365/purview/sensitivity-labels/auto-labeling-failures-sharepoint-onedrive).\r\n - **My active policy has stopped matching Exchange email.** See Policy rule fails to load.\r\n-- **I'm hitting a limit** (500,000 files/day, 100 policies, 1,000 explicitly selected SharePoint sites, or 20,000,000 matched files per policy simulation). See How to configure auto-labeling policies for SharePoint, OneDrive, and Exchange, and Use PowerShell for auto-labeling policies to target SharePoint sites by using an adaptive scope.\r\n+- **I'm hitting a limit** (a tenant-wide throughput ceiling of 500,000 files/day, not a guaranteed daily rate; 100 policies; 1,000 explicitly selected SharePoint sites; or 20,000,000 matched files per policy simulation). See How to configure auto-labeling policies for SharePoint, OneDrive, and Exchange, and Use PowerShell for auto-labeling policies to target SharePoint sites by using an adaptive scope.\r\n - **Auto-labeling isn't available in my region.** The **Auto-labeling** page isn't visible in unsupported regions. See the regional availability prerequisite.\r\n - **I want to set a default label for Teams meetings, sites, groups, or Microsoft 365 Copilot.** This article covers files and emails. For container-level default labels (including Teams instant meetings and Meet Now), see [Use sensitivity labels with Microsoft Teams, Microsoft 365 groups, and SharePoint sites](sensitivity-labels-teams-groups-sites). For Copilot default labels, see [Considerations for Microsoft 365 Copilot](ai-m365-copilot-considerations).\r\n \r\n@@ -108,7 +108,7 @@ There are two different methods for automatically applying a sensitivity label t\n         Important\r\n \r\n         PDF labeling must be enabled for your tenant before an auto-labeling policy can process PDFs in SharePoint and OneDrive. Enable it by selecting the **Protect PDFs with Auto-labeling** banner in the Microsoft Purview portal, or by using PowerShell. If PDF labeling isn't enabled, PDFs are skipped entirely: PDFs aren't evaluated or sent for labeling, and no label is applied. For instructions, see [Adding support for PDF](sensitivity-labels-sharepoint-onedrive-files#adding-support-for-pdf).\r\n-    - Maximum of 500,000 automatically labeled files in your tenant per day.\r\n+    - The **absolute maximum throughput** is 500,000 automatically labeled SharePoint and OneDrive files per tenant per day, in aggregate across all auto-labeling policies. This ceiling isn't a guaranteed or consistently expected daily processing rate; actual throughput can be lower.\r\n     - Maximum of 100 auto-labeling policies per tenant. In the portal, each policy can target up to 1,000 explicitly included or excluded SharePoint sites, or up to 100 explicitly included or excluded OneDrive individual users or groups. If you keep the default configuration of **All**, this configuration is exempt from these maximums.\r\n     - For SharePoint, an auto-labeling policy can use an adaptive scope to target sites. For configuration instructions, see Use PowerShell for auto-labeling policies.\r\n     - Existing values for modified, modified by, and the date aren't changed as a result of auto-labeling policies—for both simulation mode and when labels are applied.\r\n@@ -696,7 +696,7 @@ Exchange email isn't included in policy-level labeling progress, **Insights** en\n \r\n To verify labeling for an Exchange email, use [Activity explorer](data-classification-activity-explorer) and filter for the **Sensitivity label applied** activity. Narrow the results by date, sensitivity label, location, and item details, and review **How applied** to verify that the label was applied automatically. Allow [60 to 90 minutes for the activity to appear](data-classification-activity-explorer#when-activities-appear). Activity explorer identifies the resulting label and how it was applied, but doesn't identify the specific auto-labeling policy or rule that applied the label to an Exchange message.\r\n \r\n-The labeling progress includes the files to be labeled or unlabeled by the policy, the affected files for the last seven days, and the total files affected. A maximum of 500,000 SharePoint and OneDrive files can be automatically labeled per tenant per day, across all auto-labeling policies. Use this progress information to see how many files your policy still needs to label.\r\n+The labeling progress includes the files to be labeled or unlabeled by the policy, the affected files for the last seven days, and the total files affected. The **absolute maximum throughput** is 500,000 automatically labeled SharePoint and OneDrive files per tenant per day, in aggregate across all auto-labeling policies. This ceiling isn't a guaranteed or consistently expected daily processing rate; actual throughput can be lower. Use this progress information to see how many files your policy still needs to label.\r\n \r\n When you first turn on your policy, you initially see a value of 0 for files to be labeled until the latest data is retrieved. This progress information updates every 48 hours, so you can expect to see the most current data about every other day. In the earlier policy flyout experience, selecting a policy shows labeling progress by the top 10 sites. The newer full **Overview** page shows **Top 15 sites** instead. The information on the flyout pane might be more current than the aggregated policy information displayed on the **Auto-labeling** main page. To have visibility on all auto-labeling policy progress, use activity explorer for the most up to date information for files and emails that were auto-labeled.\r\n \r\n",
+      "baseCommitSha": "f43108d1870d3ce827dca0eb96c8c74b1702fcdb",
+      "commitSha": "e2a3359585cc4a46e208fc37d59e72a11dd0287e",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-05T12:30:17Z",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/apply-sensitivity-label-automatically.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/apply-sensitivity-label-automatically",
+      "firstSeenAt": "2026-11-05T12:30:17.000Z",
+      "eventId": "purview-docs:e2a3359585cc4a46e208fc37d59e72a11dd0287e:modified:Purview/apply-sensitivity-label-automatically.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Mirror Learn: 3 changed",
+        "summary": "Updated Microsoft Purview documentation in Purview/apply-sensitivity-label-automatically.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "Purview/deploymentmodels/depmod-secure-by-default-step3.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/Purview/deploymentmodels/depmod-secure-by-default-step3.md b/Purview/deploymentmodels/depmod-secure-by-default-step3.md\nindex 5b426c5..24f59fd 100644\n--- a/Purview/deploymentmodels/depmod-secure-by-default-step3.md\n+++ b/Purview/deploymentmodels/depmod-secure-by-default-step3.md\n@@ -37,11 +37,11 @@ source_path: Purview/deploymentmodels/depmod-secure-by-default-step3.md\n cmProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/1dd701e0-441f-4b0a-9806-aa47decc4e35\n - https://authoring-docs-microsoft.poolparty.biz/devrel/9d7be3ef-f27c-4c7f-9eba-67c3cd429995\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/57eae111-0f3b-497e-be07-450fd1409dea\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/7428317a-e6c2-4461-ad3e-8a8ad3608734\n spProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/0a2fc935-5977-4aa6-9f55-0be03bd2acb8\n - https://authoring-docs-microsoft.poolparty.biz/devrel/feeb50f3-b677-44f9-b3a6-5f2f58182b0d\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/ac8bf8ab-8134-4c9a-9f2e-58b31575b492\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/e4f59707-f107-48f2-8d75-0afd91868cd7\n platformId: 3c3bb0a6-d4e3-4566-d4b6-5eddb52d6816\n ---\n \n@@ -85,7 +85,7 @@ You can progressively deploy this strategy with more SITs and trainable classifi\n \r\n ## Simulate auto-labeling sensitive files at rest\r\n \r\n-Service-side auto-labeling labels files at rest in SharePoint and OneDrive, and provides more conditions. It currently supports auto-labeling up to 500,000 files per day in your organization and up to 20,000,000 matched files in a policy simulation.\r\n+Service-side auto-labeling labels files at rest in SharePoint and OneDrive, and provides more conditions. The **absolute maximum throughput** is 500,000 automatically labeled SharePoint and OneDrive files per tenant per day, in aggregate across all auto-labeling policies. This ceiling isn't a guaranteed or consistently expected daily processing rate; actual throughput can be lower. Simulation supports up to 20,000,000 matched files per policy simulation.\r\n \r\n While client-side auto-labeling is limited to sensitive content, service-side auto-labeling adds support for contextual conditions such as:\r\n \r\n",
+      "baseCommitSha": "f43108d1870d3ce827dca0eb96c8c74b1702fcdb",
+      "commitSha": "e2a3359585cc4a46e208fc37d59e72a11dd0287e",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-05T12:30:17Z",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/deploymentmodels/depmod-secure-by-default-step3.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/deploymentmodels/depmod-secure-by-default-step3",
+      "firstSeenAt": "2026-11-05T12:30:17.000Z",
+      "eventId": "purview-docs:e2a3359585cc4a46e208fc37d59e72a11dd0287e:modified:Purview/deploymentmodels/depmod-secure-by-default-step3.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Mirror Learn: 3 changed",
+        "summary": "Updated Microsoft Purview documentation in Purview/deploymentmodels/depmod-secure-by-default-step3.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "Purview/sensitivity-labels-sharepoint-onedrive-files.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/Purview/sensitivity-labels-sharepoint-onedrive-files.md b/Purview/sensitivity-labels-sharepoint-onedrive-files.md\nindex 98f159c..3950e15 100644\n--- a/Purview/sensitivity-labels-sharepoint-onedrive-files.md\n+++ b/Purview/sensitivity-labels-sharepoint-onedrive-files.md\n@@ -43,11 +43,11 @@ source_path: Purview/sensitivity-labels-sharepoint-onedrive-files.md\n cmProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/9d7be3ef-f27c-4c7f-9eba-67c3cd429995\n - https://authoring-docs-microsoft.poolparty.biz/devrel/7428317a-e6c2-4461-ad3e-8a8ad3608734\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/64b65f6c-101f-411a-9b83-9f577fab52d0\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/e93f3d5f-c77d-4365-a7fb-c9f2234416c7\n spProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/feeb50f3-b677-44f9-b3a6-5f2f58182b0d\n - https://authoring-docs-microsoft.poolparty.biz/devrel/e4f59707-f107-48f2-8d75-0afd91868cd7\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/1a667fd1-8145-4b11-af0f-9f5de205a6e5\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/62e8d07a-cc62-4934-b30b-e168a571e51d\n platformId: 7c44350d-0235-3a94-7224-b71cff737f28\n ---\n \n@@ -172,7 +172,7 @@ Sensitivity labels don't support signed PDFs.\n \r\n Important\r\n \r\n-Enabling PDF support can increase the number of files that get automatically labeled by existing auto-labeling policies. The limit is 500,000 automatically labeled SharePoint and OneDrive files per tenant per day, across all auto-labeling policies.\r\n+Enabling PDF support can increase the number of files that get automatically labeled by existing auto-labeling policies. The **absolute maximum throughput** is 500,000 automatically labeled SharePoint and OneDrive files per tenant per day, in aggregate across all auto-labeling policies. This ceiling isn't a guaranteed or consistently expected daily processing rate; actual throughput can be lower.\r\n \r\n To turn on support from the Microsoft Purview portal:\r\n \r\n",
+      "baseCommitSha": "f43108d1870d3ce827dca0eb96c8c74b1702fcdb",
+      "commitSha": "e2a3359585cc4a46e208fc37d59e72a11dd0287e",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-05T12:30:17Z",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/sensitivity-labels-sharepoint-onedrive-files.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/sensitivity-labels-sharepoint-onedrive-files",
+      "firstSeenAt": "2026-11-05T12:30:17.000Z",
+      "eventId": "purview-docs:e2a3359585cc4a46e208fc37d59e72a11dd0287e:modified:Purview/sensitivity-labels-sharepoint-onedrive-files.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Mirror Learn: 3 changed",
+        "summary": "Updated Microsoft Purview documentation in Purview/sensitivity-labels-sharepoint-onedrive-files.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "Purview/create-retention-policies.md",
+      "status": "modified",
+      "additions": 8,
+      "deletions": 5,
+      "changes": 13,
+      "patch": "diff --git a/Purview/create-retention-policies.md b/Purview/create-retention-policies.md\nindex 96c5653..4d94b0b 100644\n--- a/Purview/create-retention-policies.md\n+++ b/Purview/create-retention-policies.md\n@@ -267,10 +267,13 @@ If your organization is using [administrative units](purview-admin-units#permiss\n \r\n ## Separate an existing 'Teams chats and Copilot interactions' policy\r\n \r\n-Previously, retention policies used the location **Teams chats and Copilot interactions** that combined Teams chat and Copilot interactions. There are now separate retention locations for Teams chat and Copilot interactions.\r\n+Previously, retention policies used the location **Teams chats and Copilot interactions** that combined Teams chat and Copilot interactions. Beginning 15th January, 2027, Microsoft Purview will treat 'Teams chats and Copilot interactions\" policy as **Teams-only policies**. After this change is applied to your organization:\r\n \r\n-- You can separate Teams chats from Copilot interactions from an existing retention policy.\r\n-- You can create new retention policies for just Teams chats, or for just Copilot interactions.\r\n+- Microsoft 365 Copilot interactions will no longer be retained or deleted through these legacy Teams policies.\r\n+- This change applies to both previously retained Copilot interactions and new Copilot interactions.\r\n+- Retention behavior for Microsoft Teams content will remain unchanged.\r\n+\r\n+Create a new retention policy explicitly configured for Copilot by selecting **\"Microsoft Copilot Experiences\"** location to maintain the required retention coverage for Copilot interactions.\r\n \r\n Use the following PowerShell commands to separate an existing retention policy for **Teams chats and Copilot interactions**:\r\n \r\n@@ -291,11 +294,11 @@ Use the following PowerShell commands to separate an existing retention policy f\n     Set-AppRetentionCompliancePolicy -Identity “<policy name>” -Applications \"User:M365Copilot\"\r\n     ```\r\n \r\n-For new retention policies, select the new locations, such as **Teams chat** or **Microsoft Copilot Experiences**.\r\n+Please note that doing a Get command on 'Teams chats and Copilot interactions' policies from cmdlet will still show the policy covering teams+copilot i.e. MicrosoftTeams and NOT TeamsChatUserInteractions but while processing; they will ONLY cover Teams Interactions.\r\n \r\n Note\r\n \r\n-If you have existing retention policies for **Teams chats and Copilot interactions**, they continue to be supported, although they can't be edited when your tenant supports the separate locations. At this point, any new retention policies must use the new locations.\r\n+Beginning 15th January, 2027; Teams chats and Copilot interactions policies will continue to govern only Teams content, and will no longer cover **Microsoft 365 Copilot interactions**. Previously retained Copilot interactions also will NOT be covered. Create a new Copilot retention policy if your organization requires retention or deletion controls for this data.\r\n \r\n ## How long it takes for retention policies to take effect\r\n \r\n",
+      "baseCommitSha": "e2a3359585cc4a46e208fc37d59e72a11dd0287e",
+      "commitSha": "9d6012d5e059d84c68b0ed45283923172328d984",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-05T22:07:09Z",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/create-retention-policies.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/create-retention-policies",
+      "firstSeenAt": "2026-11-05T22:07:09.000Z",
+      "eventId": "purview-docs:9d6012d5e059d84c68b0ed45283923172328d984:modified:Purview/create-retention-policies.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Mirror Learn: 1 changed",
+        "summary": "Updated Microsoft Purview documentation in Purview/create-retention-policies.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 2,
+    "totalFiles": 4,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 4 updated, and 0 removed Microsoft Purview documentation files across 2 documentation areas.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Microsoft Purview",
+        "summary": "Updated Microsoft Purview documentation in Purview/apply-sensitivity-label-automatically.md. Updated Microsoft Purview documentation in Purview/sensitivity-labels-sharepoint-onedrive-files.md. Updated Microsoft Purview documentation in Purview/create-retention-policies.md.",
+        "sourceFiles": [
+          "Purview/apply-sensitivity-label-automatically.md",
+          "Purview/sensitivity-labels-sharepoint-onedrive-files.md",
+          "Purview/create-retention-policies.md"
+        ]
+      },
+      {
+        "category": "Doc update",
+        "title": "Deployment models",
+        "summary": "Updated Microsoft Purview documentation in Purview/deploymentmodels/depmod-secure-by-default-step3.md.",
+        "sourceFiles": [
+          "Purview/deploymentmodels/depmod-secure-by-default-step3.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Microsoft Purview",
+        "detail": "Updated Microsoft Purview documentation in Purview/apply-sensitivity-label-automatically.md. Updated Microsoft Purview documentation in Purview/sensitivity-labels-sharepoint-onedrive-files.md. Updated Microsoft Purview documentation in Purview/create-retention-policies.md."
+      },
+      {
+        "category": "Doc update",
+        "headline": "Deployment models",
+        "detail": "Updated Microsoft Purview documentation in Purview/deploymentmodels/depmod-secure-by-default-step3.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

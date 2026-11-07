@@ -1,0 +1,112 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "Purview/audit-log-activities.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 0,
+      "changes": 1,
+      "patch": "diff --git a/Purview/audit-log-activities.md b/Purview/audit-log-activities.md\nindex 7db45ec..0effc4c 100644\n--- a/Purview/audit-log-activities.md\n+++ b/Purview/audit-log-activities.md\n@@ -672,6 +672,7 @@ The following table lists the Microsoft Fabric activities in Power BI that the M\n | Exported a PostgreSQL database schema | ExportPostgreSQLDatabaseSchema | Generated when a user dumps a PostgreSQL database schema through the custom PG schema service (pgschema-based ALM flow). The audit log records caller identity, operation result, and the affected PostgreSQL database artifact. |\r\n | Get Items Sizes | GetItemsSize | Retrieved cached item sizes for the OneLake item-size report. |\r\n | Get connection by tenant admin | GetGatewayClusterDatasourceAsAdmin | A tenant admin retrieved the connection details. |\r\n+| When tenant admin tests the connection status. | GetGatewayClusterDatasourceStatusAsAdmin | When tenant admin tests the connection status. |\r\n | Get on-demand billing limits | GetOnDemandBillingLimits | Generated when a capacity admin opens the On-demand billing page and the current billing categories and their 24-hour compute limits are returned for a Fabric capacity. |\r\n | Get on-demand billing quota | GetOnDemandBillingQuota | Generated when the On-demand billing experience loads and the subscription-level on-demand billing quota usage and limits are retrieved. |\r\n | Get BackupVault's Immutability state. | GetBackupVaultImmutability | Get BackupVault's Immutability state. |\r\n",
+      "baseCommitSha": "c747d198bbf4dc308f9216d1e32812f2fb235a4b",
+      "commitSha": "78efb10abbee30834b23f32c98352abf7b90d7df",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-06T12:13:59Z",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/audit-log-activities.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/audit-log-activities",
+      "firstSeenAt": "2026-11-06T12:13:59.000Z",
+      "eventId": "purview-docs:78efb10abbee30834b23f32c98352abf7b90d7df:modified:Purview/audit-log-activities.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Mirror Learn: 1 changed",
+        "summary": "Updated Microsoft Purview documentation in Purview/audit-log-activities.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "Purview/apply-sensitivity-label-automatically.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 1,
+      "changes": 4,
+      "patch": "diff --git a/Purview/apply-sensitivity-label-automatically.md b/Purview/apply-sensitivity-label-automatically.md\nindex d853c01..d42d831 100644\n--- a/Purview/apply-sensitivity-label-automatically.md\n+++ b/Purview/apply-sensitivity-label-automatically.md\n@@ -13,7 +13,7 @@ manager: laurawi\n audience: Admin\n ms.service: purview\n ms.subservice: purview-information-protection\n-ms.date: 2026-10-14T00:00:00.0000000Z\n+ms.date: 2026-11-06T00:00:00.0000000Z\n ms.collection:\n - purview-compliance\n ms.topic: article\n@@ -445,6 +445,8 @@ Simulation mode also lets you gradually increase the scope of your auto-labeling\n \r\n For details about the newer simulation overview, see [Review simulation results for auto-labeling policies](auto-label-simulation-results). **Sample items**, when displayed, shows the sampled item count. **Contextual summary** is available in supported portal experiences; viewing matched content requires the **Data Classification Content Viewer** role.\r\n \r\n+If simulation shows a failure message or counts marked **(partial)**, see [Failed simulations and partial results](auto-label-simulation-results#failed-simulations-and-partial-results) and [simulation failure troubleshooting](/en-us/troubleshoot/microsoft-365/purview/sensitivity-labels/troubleshoot-auto-labeling-policies#simulation-failed-or-couldnt-be-started). Unavailable workload results aren't zero-match results, and restarting simulation doesn't guarantee that an error is resolved.\r\n+\r\n Finally, you can use simulation mode to provide an approximation of the time needed to run your auto-labeling policy, to help you plan and schedule when to run it without simulation mode.\r\n \r\n Note\r\n",
+      "baseCommitSha": "78efb10abbee30834b23f32c98352abf7b90d7df",
+      "commitSha": "eec8471d0937f98f6eadbe11ede8cdb805385ac0",
+      "commitMessage": "Mirror Learn: 2 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-06T21:36:40Z",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/apply-sensitivity-label-automatically.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/apply-sensitivity-label-automatically",
+      "firstSeenAt": "2026-11-06T21:36:40.000Z",
+      "eventId": "purview-docs:eec8471d0937f98f6eadbe11ede8cdb805385ac0:modified:Purview/apply-sensitivity-label-automatically.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Mirror Learn: 2 changed",
+        "summary": "Updated Microsoft Purview documentation in Purview/apply-sensitivity-label-automatically.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    },
+    {
+      "filename": "Purview/auto-label-simulation-results.md",
+      "status": "modified",
+      "additions": 13,
+      "deletions": 3,
+      "changes": 16,
+      "patch": "diff --git a/Purview/auto-label-simulation-results.md b/Purview/auto-label-simulation-results.md\nindex deaa7ed..97069d6 100644\n--- a/Purview/auto-label-simulation-results.md\n+++ b/Purview/auto-label-simulation-results.md\n@@ -14,7 +14,7 @@ manager: laurawi\n audience: Admin\n ms.service: purview\n ms.subservice: purview-information-protection\n-ms.date: 2026-10-14T00:00:00.0000000Z\n+ms.date: 2026-11-06T00:00:00.0000000Z\n ms.collection:\n - purview-compliance\n ms.topic: article\n@@ -78,9 +78,9 @@ On the **Simulation overview** page, the following key metrics about the policy\n | Field | Description |\r\n | --- | --- |\r\n | **Label** | The sensitivity label that the policy applies to matched items. |\r\n-| **Status** | Simulation status: **Simulation in progress**, **Simulation almost complete**, **Simulation complete**, **Simulation expiring soon**, **Expired**, or **Policy can't be published**. |\r\n+| **Status** | Simulation status: **Simulation in progress**, **Simulation almost complete**, **Simulation complete**, **Simulation expiring soon**, **Expired**, **Policy can't be published**, or **Simulation failed**. If a failure banner is displayed, review it for more information. |\r\n | **Duration** | The length of time the simulation has been running in days and hours. |\r\n-| **Matched items** | The total number of items that matched the policy conditions across all workloads. |\r\n+| **Matched items** | The number of items that matched the policy conditions. A count marked **(partial)** includes only available workload results, not a complete total across all configured workloads. See Failed simulations and partial results. |\r\n | **Sample items** | When displayed, the number of sampled items available for review. Samples are retained for 30 days. See Preserve results before editing or rerunning. |\r\n | **Policy matches per rule** | Shows details about the policy rules and their matches:  - **Total Rules:** the number of rules in the policy, not the number of rules with matches.  - **Total Matches:** the number of items that matched rules. - **Rule name:** the name of the rule in the policy.  - **Matches:** the number of items that matched this rule.  - **Location:** The workload where matches occurred (Exchange, SharePoint, or OneDrive).  Use the per-rule match counts to identify which rules matched and whether each rule produces the expected results. |\r\n | **Matches by source** | A donut chart showing matches distributed across workloads, with an item count and percentage for each of the following workloads:  - **Exchange**: Email messages that matched the policy. Matched Exchange items are based on sampled data and might not represent all mailboxes in the policy scope.  - **SharePoint**: Files in SharePoint sites that matched.  - **OneDrive**: Files in OneDrive accounts that matched. |\r\n@@ -92,6 +92,16 @@ Note\n \r\n The **Matched items** count is an **estimate**, not a count of successfully labeled files. Enforcement results can differ because files or classification results change, other active policies affect the outcome, or labeling fails. For details, see [Simulation doesn't guarantee enforcement](auto-label-classification-simulation#simulation-doesnt-guarantee-enforcement).\r\n \r\n+## Failed simulations and partial results\r\n+\r\n+In portal experiences that display simulation failure messages, **Simulation couldn't be started** means that the request to start a simulation job failed. **Simulation failed** means that a job encountered an error while running. Neither message means that the policy completed simulation with no matches.\r\n+\r\n+Valid results from other workloads can remain available. For example, Exchange can show matches while SharePoint and OneDrive show **Not available**. A count such as **100 (partial)** includes only the available results. Check **Matches by source** and the information icon beside a partial count, when displayed, to understand which results are included. **Not available** isn't a zero-match result.\r\n+\r\n+Before selecting **Restart simulation** in the page header, preserve any available results you need for comparison. Restarting tries the simulation again; it doesn't guarantee a fix. Review the new run's status and workload results before deciding whether the policy is ready to turn on.\r\n+\r\n+For the error messages, recovery steps, and information to collect if a failure persists, see [Simulation failed or couldn't be started](/en-us/troubleshoot/microsoft-365/purview/sensitivity-labels/troubleshoot-auto-labeling-policies#simulation-failed-or-couldnt-be-started). Simulation failures are separate from failures to apply or remove labels after a policy is turned on.\r\n+\r\n ## Preserve results before editing or rerunning\r\n \r\n Before you edit an auto-labeling policy or restart simulation, export any available results that you need for later comparison. Check the exported file before you make changes.\r\n",
+      "baseCommitSha": "78efb10abbee30834b23f32c98352abf7b90d7df",
+      "commitSha": "eec8471d0937f98f6eadbe11ede8cdb805385ac0",
+      "commitMessage": "Mirror Learn: 2 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-06T21:36:40Z",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/auto-label-simulation-results.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/auto-label-simulation-results",
+      "firstSeenAt": "2026-11-06T21:36:40.000Z",
+      "eventId": "purview-docs:eec8471d0937f98f6eadbe11ede8cdb805385ac0:modified:Purview/auto-label-simulation-results.md",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Mirror Learn: 2 changed",
+        "summary": "Updated Microsoft Purview documentation in Purview/auto-label-simulation-results.md.",
+        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "actionRequired": false,
+        "generatedBy": "fallback"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 2,
+    "totalFiles": 3,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 3 updated, and 0 removed Microsoft Purview documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Microsoft Purview",
+        "summary": "Updated Microsoft Purview documentation in Purview/audit-log-activities.md. Updated Microsoft Purview documentation in Purview/apply-sensitivity-label-automatically.md. Updated Microsoft Purview documentation in Purview/auto-label-simulation-results.md.",
+        "sourceFiles": [
+          "Purview/audit-log-activities.md",
+          "Purview/apply-sensitivity-label-automatically.md",
+          "Purview/auto-label-simulation-results.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Microsoft Purview",
+        "detail": "Updated Microsoft Purview documentation in Purview/audit-log-activities.md. Updated Microsoft Purview documentation in Purview/apply-sensitivity-label-automatically.md. Updated Microsoft Purview documentation in Purview/auto-label-simulation-results.md."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

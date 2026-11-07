@@ -1,0 +1,13 @@
+# Daily Purview News
+
+A readable record of what changed across Microsoft Purview documentation.
+
+- [Latest day](https://daily.purview.admin.news/)
+- [Current week](https://daily.purview.admin.news/week/)
+- [Products](https://daily.purview.admin.news/products/)
+- [Topics](https://daily.purview.admin.news/topics/)
+- [Message Center](https://daily.purview.admin.news/message-center/)
+- [Search the archive](https://daily.purview.admin.news/search/)
+- [Compare a Learn page](https://mx.merill.net/)
+- [About](https://daily.purview.admin.news/about/)
+- [RSS](https://daily.purview.admin.news/rss.xml)

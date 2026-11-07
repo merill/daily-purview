@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://daily.purview.admin.news/sitemap.xml
