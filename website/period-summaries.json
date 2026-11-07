@@ -1,73 +1,81 @@
 {
   "days": {
     "2026-11-05": {
-      "headline": "Create Retention Policies leads 4 Purview updates",
-      "overview": "5 November 2026 recorded 4 updated Microsoft Purview documentation changes. The most active areas were Information Protection, Purview, Data Lifecycle.",
-      "adminImpact": "Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.",
+      "headline": "Purview retention splits Copilot coverage; auto-labeling capped at 500,000 files daily",
+      "overview": "Two administrator-relevant updates stand out. Beginning January 15, 2027, the “Teams chats and Copilot interactions” retention location will cover Teams content only, while updated Information Protection guidance defines 500,000 automatically labeled SharePoint and OneDrive files per tenant per day as an absolute aggregate ceiling across all auto-labeling policies, not a guaranteed processing rate. Related Purview pages now reflect the same ceiling.",
+      "adminImpact": "Administrators needing Microsoft 365 Copilot interaction retention should create a separate retention policy using the “Microsoft Copilot Experiences” location. For auto-labeling, plan against one tenant-wide limit across all policies and expect actual throughput to be lower than 500,000 files per day; Teams retention behavior remains unchanged.",
       "keyChanges": [
         {
-          "title": "Create Retention Policies",
-          "detail": "Updated Microsoft Purview documentation in Purview/create-retention-policies.md.",
+          "title": "Teams and Copilot retention coverage separates on January 15, 2027",
+          "detail": "Policies using “Teams chats and Copilot interactions” will apply only to Teams content beginning January 15, 2027. They will no longer retain or delete Microsoft 365 Copilot interactions, including previously retained interactions. Use the separate “Microsoft Copilot Experiences” location when Copilot retention is required.",
           "product": "Data Lifecycle",
           "sourceId": "doc-2026-11-05-create-retention-policies-04"
         },
         {
-          "title": "Apply Sensitivity Label Automatically",
-          "detail": "Updated Microsoft Purview documentation in Purview/apply-sensitivity-label-automatically.md.",
+          "title": "Auto-labeling throughput is an aggregate tenant ceiling, not a rate",
+          "detail": "The limit for automatically labeled SharePoint and OneDrive files is stated as an absolute maximum of 500,000 files per tenant per day across all auto-labeling policies. Actual throughput may be lower, so administrators should assess volume across the tenant rather than treating the figure as an expected daily processing rate.",
           "product": "Information Protection",
           "sourceId": "doc-2026-11-05-apply-sensitivity-label-automatically-01"
-        },
-        {
-          "title": "Sensitivity Labels Sharepoint Onedrive Files",
-          "detail": "Updated Microsoft Purview documentation in Purview/sensitivity-labels-sharepoint-onedrive-files.md.",
-          "product": "Information Protection",
-          "sourceId": "doc-2026-11-05-sensitivity-labels-sharepoint-onedrive-files-03"
-        },
-        {
-          "title": "Depmod Secure By Default Step3",
-          "detail": "Updated Microsoft Purview documentation in Purview/deploymentmodels/depmod-secure-by-default-step3.md.",
-          "product": "Purview",
-          "sourceId": "doc-2026-11-05-depmod-secure-by-default-step3-02"
         }
       ],
-      "generatedBy": "deterministic-backfill",
-      "generatedAt": "2026-11-07T02:24:21.466Z"
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-07T08:57:09.798Z",
+      "usage": {
+        "inputTokens": 1249,
+        "outputTokens": 1304,
+        "costUsd": 0.001815
+      }
     },
     "2026-11-06": {
-      "headline": "Apply Sensitivity Label Automatically leads 3 Purview updates",
-      "overview": "6 November 2026 recorded 3 updated Microsoft Purview documentation changes. The most active areas were Information Protection, Audit.",
-      "adminImpact": "Review the linked Microsoft Learn changes that apply to your managed platforms, policies, applications, and rollout plans. The archive preserves the source diff for verification.",
+      "headline": "DLP adds a control to exclude external emails from Copilot grounding",
+      "overview": "A new admin-configurable Purview DLP control is described for Microsoft 365 Copilot and Copilot Chat. It restricts processing of email from external or untrusted domains while preserving internal data use. The period also adds more precise auto-label simulation troubleshooting and a new audit activity for gateway datasource status tests.",
+      "adminImpact": "Administrators can assess the DLP control against their Copilot data-handling requirements and track the stated public preview and general availability timing. For auto-label simulations, they can distinguish failed jobs from requests that never started, interpret partial results, preserve useful results before restarting, and review workload details before enabling a policy. Audit teams can use the new activity name to identify tenant administrator connection status tests.",
       "keyChanges": [
         {
-          "title": "Apply Sensitivity Label Automatically",
-          "detail": "Updated Microsoft Purview documentation in Purview/apply-sensitivity-label-automatically.md.",
-          "product": "Information Protection",
-          "sourceId": "doc-2026-11-06-apply-sensitivity-label-automatically-02"
+          "title": "DLP can exclude external email from Copilot grounding",
+          "detail": "The Message Center item describes a new admin-configurable DLP control for Microsoft 365 Copilot and Copilot Chat. It excludes email from external or untrusted domains from Copilot grounding while maintaining internal data use; the item lists public preview in June 2026 and general availability in June 2027.",
+          "product": "Purview",
+          "sourceId": "MC1301714"
         },
         {
-          "title": "Audit Log Activities",
-          "detail": "Updated Microsoft Purview documentation in Purview/audit-log-activities.md.",
+          "title": "Auto-label guidance adds failure and partial-result handling",
+          "detail": "The Auto Label Simulation Results article adds the “Simulation failed” status, distinguishes failed jobs from requests that could not start, explains partial workload counts, and provides guidance for reviewing or restarting simulations. Administrators are told to preserve useful results before restarting and review workload details before enabling a policy.",
+          "product": "Information Protection",
+          "sourceId": "doc-2026-11-06-auto-label-simulation-results-03"
+        },
+        {
+          "title": "Audit references gateway datasource status test activity",
+          "detail": "The Audit Log Activities reference now includes GetGatewayClusterDatasourceStatusAsAdmin for tenant administrator connection status tests, giving administrators the activity name needed to identify those tests in audit records.",
           "product": "Audit",
           "sourceId": "doc-2026-11-06-audit-log-activities-01"
         },
         {
-          "title": "Auto Label Simulation Results",
-          "detail": "Updated Microsoft Purview documentation in Purview/auto-label-simulation-results.md.",
+          "title": "Sensitivity-label guidance links simulation failure details",
+          "detail": "Apply Sensitivity Label Automatically now links to guidance for simulation failure messages and results marked “(partial)”. The change helps administrators find the relevant troubleshooting guidance when simulations fail or produce partial results.",
           "product": "Information Protection",
-          "sourceId": "doc-2026-11-06-auto-label-simulation-results-03"
+          "sourceId": "doc-2026-11-06-apply-sensitivity-label-automatically-02"
         }
       ],
-      "generatedBy": "deterministic-backfill",
-      "generatedAt": "2026-11-07T02:24:21.466Z"
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-07T08:57:09.798Z",
+      "usage": {
+        "inputTokens": 1233,
+        "outputTokens": 2163,
+        "costUsd": 0.002842
+      }
     },
     "2026-11-07": {
-      "headline": "Audit Log Activities now lists Power BI MCP model read and modify events",
-      "overview": "The sole update expands the Audit Log Activities reference with two Power BI MCP entries: one for modifying a semantic model and one for reading semantic-model metadata. The documented activity names are ModifiedByPowerBIMCP and ReadByPowerBIMCP.",
-      "adminImpact": "Administrators reviewing Power BI-related audit activity can use these exact names to identify documented semantic-model modification and metadata-read operations.",
+      "headline": "Audit activity reference adds Power BI MCP semantic-model event names",
+      "overview": "The Audit Log Activities documentation now lists events for Power BI MCP tools that modify semantic models and read semantic model metadata.",
+      "adminImpact": "Administrators can use these activity names when reviewing or interpreting audit logs. No action is required.",
       "keyChanges": [
         {
-          "title": "Power BI MCP audit activities added",
-          "detail": "The Audit Log Activities reference now includes “Power BI MCP tool called to modify the semantic model” with activity name ModifiedByPowerBIMCP, and “Power BI MCP tool called to read semantic model metadata” with activity name ReadByPowerBIMCP.",
+          "title": "Power BI MCP activity coverage documented",
+          "detail": "The activity reference adds event names for MCP tools modifying semantic models and reading semantic model metadata.",
           "product": "Audit",
           "sourceId": "doc-2026-11-07-audit-log-activities-01"
         }
@@ -75,47 +83,47 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-07T06:52:09.920Z",
+      "generatedAt": "2026-11-07T08:57:09.798Z",
       "usage": {
-        "inputTokens": 922,
-        "outputTokens": 811,
-        "costUsd": 0.001158
+        "inputTokens": 873,
+        "outputTokens": 437,
+        "costUsd": 0.000699
       }
     }
   },
   "weeks": {
     "2026-11-02": {
-      "headline": "Copilot retention rules shift in 2027 as Purview details DLP and labeling controls",
-      "overview": "The most consequential change is a 15 January 2027 retention deadline: legacy “Teams chats and Copilot interactions” policies will cover Teams content only, leaving Microsoft 365 Copilot interactions outside their retention and deletion scope. The week also brought an announced DLP control for external email processing in Copilot, sharper auto-label simulation guidance, a clarification that 500,000 files per day is a ceiling rather than a service-level rate, and new Power BI MCP audit activity entries.",
-      "adminImpact": "Review existing combined Teams and Copilot retention policies before 15 January 2027. If Copilot interactions require retention or deletion controls, create a policy using the “Microsoft Copilot Experiences” location; do not rely on the cmdlet output for the legacy policy’s apparent scope. Treat auto-label throughput as potentially lower than 500,000 SharePoint and OneDrive files per tenant per day, interpret partial or unavailable simulation results carefully, preserve useful results before restarting a failed simulation, and account for the new Power BI MCP activity names in audit reviews where relevant.",
+      "headline": "Copilot DLP will exclude external email from grounding as retention coverage splits in 2027",
+      "overview": "Purview’s most consequential update is an admin-configurable DLP control that excludes email from external or untrusted domains from Microsoft 365 Copilot and Copilot Chat grounding while preserving internal data use. The Message Center notice lists public preview in June 2026 and general availability in June 2027. Retention guidance separately sets January 15, 2027, as the point when “Teams chats and Copilot interactions” covers Teams content only; the remaining updates are mainly operational guidance for auto-labeling, simulations, and audit review.",
+      "adminImpact": "If Copilot retention coverage is required from January 15, 2027, create a separate retention policy using the “Microsoft Copilot Experiences” location; Teams retention behavior is unchanged. Plan auto-labeling against the 500,000-file-per-tenant-per-day aggregate ceiling across all policies, rather than treating it as a guaranteed rate. Use the added simulation statuses and audit activity names when interpreting results and records.",
       "keyChanges": [
         {
-          "title": "Legacy combined retention policies stop covering Copilot interactions on 15 January 2027",
-          "detail": "Microsoft Purview will treat existing “Teams chats and Copilot interactions” policies as Teams-only beginning 15 January 2027. They will no longer retain or delete previously retained or new Microsoft 365 Copilot interactions, while Teams retention remains unchanged. Create a separate policy using the “Microsoft Copilot Experiences” location when Copilot coverage is required. A cmdlet Get command may still display the legacy policy as covering Teams and Copilot even though processing will cover only Teams.",
-          "product": "Data Lifecycle",
-          "sourceId": "doc-2026-11-05-create-retention-policies-04"
-        },
-        {
-          "title": "DLP will restrict external-email processing in Microsoft 365 Copilot and Copilot Chat",
-          "detail": "A Microsoft 365 Message Center notice describes an admin-configurable Data Loss Prevention control that excludes email from external or untrusted domains from Copilot grounding while continuing to allow internal data use. The announced rollout dates are public preview in June 2026 and general availability in June 2027.",
+          "title": "DLP adds external-email controls for Copilot grounding",
+          "detail": "Microsoft Purview is expanding DLP with an admin-configurable control for Microsoft 365 Copilot and Copilot Chat. It restricts processing of emails from external or untrusted domains, excluding them from Copilot grounding while internal data use continues. The Message Center notice lists public preview in June 2026 and general availability in June 2027.",
           "product": "Purview",
           "sourceId": "MC1301714"
         },
         {
-          "title": "Auto-label simulations distinguish failed jobs and partial results from zero matches",
-          "detail": "Updated simulation guidance adds “Simulation failed” as a status and explains that “Simulation couldn't be started” means the request failed, while “Simulation failed” means the running job encountered an error. A count such as “100 (partial)” includes only available workload results, and “Not available” is not a zero-match result. Available results should be preserved before using Restart simulation.",
-          "product": "Information Protection",
-          "sourceId": "doc-2026-11-06-auto-label-simulation-results-03"
+          "title": "Teams retention location drops Copilot interactions in 2027",
+          "detail": "Beginning January 15, 2027, policies using “Teams chats and Copilot interactions” will apply only to Teams content and will no longer retain or delete Microsoft 365 Copilot interactions, including previously retained interactions. The guidance directs administrators to use a separate “Microsoft Copilot Experiences” location when Copilot retention is required.",
+          "product": "Data Lifecycle",
+          "sourceId": "doc-2026-11-05-create-retention-policies-04"
         },
         {
-          "title": "The 500,000-file auto-label figure is an aggregate ceiling, not a daily guarantee",
-          "detail": "For SharePoint and OneDrive auto-labeling, 500,000 automatically labeled files per tenant per day is the absolute maximum across all auto-labeling policies, not a guaranteed or consistently expected processing rate. Actual throughput can be lower.",
+          "title": "The 500,000-file auto-labeling ceiling applies across all policies",
+          "detail": "Information Protection guidance now defines 500,000 automatically labeled SharePoint and OneDrive files per tenant per day, aggregated across all auto-labeling policies, as an absolute ceiling. It is not a guaranteed processing rate, and actual throughput may be lower.",
           "product": "Information Protection",
           "sourceId": "doc-2026-11-05-apply-sensitivity-label-automatically-01"
         },
         {
-          "title": "Audit activity listings add Power BI MCP semantic-model operations",
-          "detail": "The Audit Log Activities catalog now lists Power BI MCP events for modifying a semantic model (`ModifiedByPowerBIMCP`) and reading semantic-model metadata (`ReadByPowerBIMCP`).",
+          "title": "Simulation results distinguish failed jobs from requests that never started",
+          "detail": "The Auto Label Simulation Results guidance adds the “Simulation failed” status, distinguishes failed jobs from requests that could not start, explains partial workload counts, and provides review and restart guidance. Administrators can preserve useful results before restarting and inspect workload details before enabling a policy.",
+          "product": "Information Protection",
+          "sourceId": "doc-2026-11-06-auto-label-simulation-results-03"
+        },
+        {
+          "title": "Audit references add Power BI MCP semantic-model activities",
+          "detail": "The Audit Log Activities reference now lists events for Power BI MCP tools that modify semantic models and read semantic-model metadata. Administrators can use these activity names when reviewing or interpreting audit records.",
           "product": "Audit",
           "sourceId": "doc-2026-11-07-audit-log-activities-01"
         }
@@ -123,47 +131,47 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-07T06:52:09.920Z",
+      "generatedAt": "2026-11-07T08:57:09.798Z",
       "usage": {
-        "inputTokens": 3840,
-        "outputTokens": 3363,
-        "costUsd": 0.004804
+        "inputTokens": 1823,
+        "outputTokens": 5413,
+        "costUsd": 0.00686
       }
     }
   },
   "months": {
     "2026-11": {
-      "headline": "Legacy Teams-Copilot retention policies lose Copilot coverage in January 2027",
-      "overview": "November’s most consequential administrator change is a dated retention-scope break: from 15 January 2027, legacy “Teams chats and Copilot interactions” policies will cover Teams content only, even though cmdlet output can still appear to show the combined scope. Purview also announced an admin-configurable DLP control to exclude email from external or untrusted domains when Microsoft 365 Copilot and Copilot Chat process data; the message places public preview rollout in June 2026 and general availability in June 2027. Other substantive updates clarify auto-labeling throughput, failed or partial simulations, and Power BI MCP audit activity names.",
-      "adminImpact": "Inventory existing combined Teams and Copilot retention policies before 15 January 2027. If Copilot retention or deletion is required, create a policy explicitly targeting “Microsoft Copilot Experiences” and do not rely on legacy Get output as proof that Copilot remains covered. Treat the 500,000-file auto-labeling figure as an absolute ceiling rather than an expected daily rate, interpret partial or unavailable simulation results as incomplete, and preserve useful results before restarting a failed simulation. Assess the announced external-email DLP control for Copilot governance and include the new Power BI MCP activity names in relevant audit reviews.",
+      "headline": "Copilot DLP targets external-email grounding as retention coverage splits in 2027",
+      "overview": "The period’s most consequential item is an admin-configurable Data Loss Prevention control for Microsoft 365 Copilot and Copilot Chat that excludes emails from external or untrusted domains from Copilot grounding while preserving internal data use; the Message Center notice lists general availability for June 2027. Updated retention guidance separately sets January 15, 2027, as the point when “Teams chats and Copilot interactions” covers Teams content only. Other meaningful updates clarify the tenant-wide auto-labeling ceiling, simulation outcomes, and newly documented audit activity names.",
+      "adminImpact": "If Copilot retention coverage is required from January 15, 2027, create a separate retention policy using the “Microsoft Copilot Experiences” location. Plan SharePoint and OneDrive auto-labeling against the 500,000-file aggregate ceiling across all policies, not as a guaranteed processing rate. Use the added simulation statuses and workload details when evaluating results, and use the new audit activity names when interpreting records.",
       "keyChanges": [
         {
-          "title": "Combined Teams-Copilot retention policies become Teams-only on 15 January 2027",
-          "detail": "Beginning 15 January 2027, existing “Teams chats and Copilot interactions” policies will no longer retain or delete Microsoft 365 Copilot interactions, including interactions retained previously; Teams retention behavior is unchanged. Create a separate policy using the “Microsoft Copilot Experiences” location to maintain Copilot coverage. A cmdlet Get command will still show the legacy policy as covering MicrosoftTeams rather than TeamsChatUserInteractions, although processing will cover only Teams interactions.",
-          "product": "Data Lifecycle",
-          "sourceId": "doc-2026-11-05-create-retention-policies-04"
-        },
-        {
-          "title": "Purview DLP adds planned protection against external email in Copilot",
-          "detail": "The announced admin-configurable DLP control will restrict Microsoft 365 Copilot and Copilot Chat from processing email from external or untrusted domains, excluding those messages from Copilot grounding while continuing to allow internal data use. The Message Center schedule identifies June 2026 for public preview rollout and June 2027 for general availability.",
+          "title": "DLP can exclude external email from Copilot grounding",
+          "detail": "Microsoft Purview is adding an admin-configurable DLP control for Microsoft 365 Copilot and Copilot Chat that prevents emails from external or untrusted domains from being used for Copilot grounding while retaining internal data use. The notice lists public preview in June 2026 and general availability in June 2027.",
           "product": "Purview",
           "sourceId": "MC1301714"
         },
         {
-          "title": "Auto-labeling’s 500,000-file figure is documented as a hard ceiling",
-          "detail": "For SharePoint and OneDrive, the absolute maximum is 500,000 automatically labeled files per tenant per day, aggregated across all auto-labeling policies. The figure is not a guaranteed or consistently expected daily processing rate, and actual throughput can be lower.",
+          "title": "Retention guidance splits Teams and Copilot coverage",
+          "detail": "Beginning January 15, 2027, policies using “Teams chats and Copilot interactions” will apply only to Teams content and will no longer retain or delete Microsoft 365 Copilot interactions, including previously retained interactions. Copilot coverage requires a separate policy using the “Microsoft Copilot Experiences” location.",
+          "product": "Data Lifecycle",
+          "sourceId": "doc-2026-11-05-create-retention-policies-04"
+        },
+        {
+          "title": "Auto-labeling’s 500,000-file figure is an aggregate ceiling",
+          "detail": "The updated guidance identifies 500,000 automatically labeled SharePoint and OneDrive files per tenant per day, across all auto-labeling policies, as an absolute maximum rather than a guaranteed processing rate; actual throughput can be lower.",
           "product": "Information Protection",
           "sourceId": "doc-2026-11-05-apply-sensitivity-label-automatically-01"
         },
         {
-          "title": "Auto-label simulations now distinguish failures from partial results",
-          "detail": "Simulation guidance adds “Simulation failed” and explains that both it and “Simulation couldn’t be started” indicate an error rather than a completed zero-match result. Counts marked “(partial)” include only available workload results; “Not available” is not a zero-match result. Administrators are told to check Matches by source and preserve useful results before selecting Restart simulation, which does not guarantee a fix.",
+          "title": "Simulation results now distinguish failed and partial workloads",
+          "detail": "The simulation guidance adds a “Simulation failed” status, distinguishes failed jobs from requests that could not start, explains partial workload counts, and provides instructions for reviewing or restarting simulations.",
           "product": "Information Protection",
           "sourceId": "doc-2026-11-06-auto-label-simulation-results-03"
         },
         {
-          "title": "Audit activity references add Power BI MCP semantic-model operations",
-          "detail": "The Audit Log Activities reference now lists ModifiedByPowerBIMCP for a Power BI MCP tool modifying a semantic model and ReadByPowerBIMCP for the tool reading semantic-model metadata. These names provide specific activity values to include when reviewing relevant Power BI MCP operations.",
+          "title": "Audit references add Power BI MCP semantic-model events",
+          "detail": "The audit activity reference now lists events for Power BI MCP tools that modify semantic models or read semantic model metadata, giving administrators activity names to use when interpreting audit records.",
           "product": "Audit",
           "sourceId": "doc-2026-11-07-audit-log-activities-01"
         }
@@ -171,38 +179,38 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-07T06:52:09.920Z",
+      "generatedAt": "2026-11-07T08:57:09.798Z",
       "usage": {
-        "inputTokens": 4085,
-        "outputTokens": 3419,
-        "costUsd": 0.00492
+        "inputTokens": 2051,
+        "outputTokens": 2417,
+        "costUsd": 0.003311
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-07T06:52:09.920Z",
+  "generatedAt": "2026-11-07T08:57:09.798Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
   },
   "usageByDay": {
     "2026-11-07": {
-      "inputTokens": 8847,
-      "outputTokens": 7593,
-      "requests": 3,
-      "costUsd": 0.010881
+      "inputTokens": 16076,
+      "outputTokens": 19327,
+      "requests": 8,
+      "costUsd": 0.026408
     }
   },
   "lastRun": {
-    "inputTokens": 8847,
-    "outputTokens": 7593,
-    "requests": 3,
-    "costUsd": 0.010881
+    "inputTokens": 7229,
+    "outputTokens": 11734,
+    "requests": 5,
+    "costUsd": 0.015527
   },
   "totalUsage": {
-    "inputTokens": 8847,
-    "outputTokens": 7593,
-    "requests": 3,
-    "costUsd": 0.010881
+    "inputTokens": 16076,
+    "outputTokens": 19327,
+    "requests": 8,
+    "costUsd": 0.026408
   }
 }

@@ -19,11 +19,12 @@
       "eventId": "purview-docs:78efb10abbee30834b23f32c98352abf7b90d7df:modified:Purview/audit-log-activities.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Mirror Learn: 1 changed",
-        "summary": "Updated Microsoft Purview documentation in Purview/audit-log-activities.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Added audit activity for connection status tests",
+        "summary": "The audit activity reference now includes GetGatewayClusterDatasourceStatusAsAdmin for tenant administrator connection status tests.",
+        "adminImpact": "Administrators can use this activity name to identify these tests in audit records.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -44,11 +45,12 @@
       "eventId": "purview-docs:eec8471d0937f98f6eadbe11ede8cdb805385ac0:modified:Purview/apply-sensitivity-label-automatically.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Mirror Learn: 2 changed",
-        "summary": "Updated Microsoft Purview documentation in Purview/apply-sensitivity-label-automatically.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Added guidance for failed or partial simulations",
+        "summary": "The article now links to guidance for simulation failure messages and results marked “(partial)”; its metadata date was also updated.",
+        "adminImpact": "Administrators can use the linked guidance when simulations fail or produce partial results.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -69,11 +71,12 @@
       "eventId": "purview-docs:eec8471d0937f98f6eadbe11ede8cdb805385ac0:modified:Purview/auto-label-simulation-results.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Mirror Learn: 2 changed",
-        "summary": "Updated Microsoft Purview documentation in Purview/auto-label-simulation-results.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Auto-label simulation results now document failures and partial counts",
+        "summary": "The documentation adds the “Simulation failed” status, distinguishes failed jobs from requests that couldn’t start, explains partial workload counts, and provides guidance for reviewing or restarting simulations.",
+        "adminImpact": "Administrators can interpret incomplete results correctly, preserve useful results before restarting, and review workload details before enabling a policy.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -92,7 +95,7 @@
       {
         "category": "Doc update",
         "title": "Microsoft Purview",
-        "summary": "Updated Microsoft Purview documentation in Purview/audit-log-activities.md. Updated Microsoft Purview documentation in Purview/apply-sensitivity-label-automatically.md. Updated Microsoft Purview documentation in Purview/auto-label-simulation-results.md.",
+        "summary": "The audit activity reference now includes GetGatewayClusterDatasourceStatusAsAdmin for tenant administrator connection status tests. The article now links to guidance for simulation failure messages and results marked “(partial)”; its metadata date was also updated. The documentation adds the “Simulation failed” status, distinguishes failed jobs from requests that couldn’t start, explains partial workload counts, and provides guidance for reviewing or restarting simulations.",
         "sourceFiles": [
           "Purview/audit-log-activities.md",
           "Purview/apply-sensitivity-label-automatically.md",
@@ -104,7 +107,7 @@
       {
         "category": "Doc update",
         "headline": "Microsoft Purview",
-        "detail": "Updated Microsoft Purview documentation in Purview/audit-log-activities.md. Updated Microsoft Purview documentation in Purview/apply-sensitivity-label-automatically.md. Updated Microsoft Purview documentation in Purview/auto-label-simulation-results.md."
+        "detail": "The audit activity reference now includes GetGatewayClusterDatasourceStatusAsAdmin for tenant administrator connection status tests. The article now links to guidance for simulation failure messages and results marked “(partial)”; its metadata date was also updated. The documentation adds the “Simulation failed” status, distinguishes failed jobs from requests that couldn’t start, explains partial workload counts, and provides guidance for reviewing or restarting simulations."
       }
     ],
     "generatedBy": "fallback"

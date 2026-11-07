@@ -19,11 +19,12 @@
       "eventId": "purview-docs:63d57ea9f611b6e0d715e1431a896d5fd08966ea:modified:Purview/audit-log-activities.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Mirror Learn: 1 changed",
-        "summary": "Updated Microsoft Purview documentation in Purview/audit-log-activities.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Audit activity reference adds Power BI MCP events",
+        "summary": "The audit activity documentation now lists events for Power BI MCP tools modifying semantic models and reading semantic model metadata.",
+        "adminImpact": "Administrators can use these activity names when reviewing or interpreting audit logs. No action is required.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -42,7 +43,7 @@
       {
         "category": "Doc update",
         "title": "Microsoft Purview",
-        "summary": "Updated Microsoft Purview documentation in Purview/audit-log-activities.md.",
+        "summary": "The audit activity documentation now lists events for Power BI MCP tools modifying semantic models and reading semantic model metadata.",
         "sourceFiles": [
           "Purview/audit-log-activities.md"
         ]
@@ -52,7 +53,7 @@
       {
         "category": "Doc update",
         "headline": "Microsoft Purview",
-        "detail": "Updated Microsoft Purview documentation in Purview/audit-log-activities.md."
+        "detail": "The audit activity documentation now lists events for Power BI MCP tools modifying semantic models and reading semantic model metadata."
       }
     ],
     "generatedBy": "fallback"

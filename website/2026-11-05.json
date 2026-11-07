@@ -19,11 +19,12 @@
       "eventId": "purview-docs:e2a3359585cc4a46e208fc37d59e72a11dd0287e:modified:Purview/apply-sensitivity-label-automatically.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Mirror Learn: 3 changed",
-        "summary": "Updated Microsoft Purview documentation in Purview/apply-sensitivity-label-automatically.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Auto-labeling throughput limit clarified",
+        "summary": "The documentation now states that 500,000 automatically labeled SharePoint and OneDrive files per tenant per day is an absolute aggregate ceiling across all policies, not a guaranteed processing rate. Actual throughput may be lower.",
+        "adminImpact": "Plan for tenant-wide throughput across all auto-labeling policies and do not treat 500,000 files as an expected daily rate.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -43,12 +44,13 @@
       "firstSeenAt": "2026-11-05T12:30:17.000Z",
       "eventId": "purview-docs:e2a3359585cc4a46e208fc37d59e72a11dd0287e:modified:Purview/deploymentmodels/depmod-secure-by-default-step3.md",
       "englishSummary": {
-        "category": "Doc update",
-        "headline": "Mirror Learn: 3 changed",
-        "summary": "Updated Microsoft Purview documentation in Purview/deploymentmodels/depmod-secure-by-default-step3.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "category": "Feature update",
+        "headline": "Auto-labeling throughput is documented as a tenant-wide limit",
+        "summary": "The documentation now states that the absolute maximum is 500,000 automatically labeled SharePoint and OneDrive files per tenant per day, aggregated across all auto-labeling policies.",
+        "adminImpact": "Use the 500,000-file aggregate ceiling when planning service-side auto-labeling workloads.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -69,11 +71,12 @@
       "eventId": "purview-docs:e2a3359585cc4a46e208fc37d59e72a11dd0287e:modified:Purview/sensitivity-labels-sharepoint-onedrive-files.md",
       "englishSummary": {
         "category": "Doc update",
-        "headline": "Mirror Learn: 3 changed",
-        "summary": "Updated Microsoft Purview documentation in Purview/sensitivity-labels-sharepoint-onedrive-files.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
+        "headline": "Clarified auto-labeling throughput ceiling",
+        "summary": "The documentation now describes 500,000 automatically labeled SharePoint and OneDrive files per tenant per day, across all auto-labeling policies, as the absolute maximum throughput. Related reference links were also updated.",
+        "adminImpact": "Use this aggregate daily ceiling when assessing auto-labeling volume after enabling PDF support.",
         "actionRequired": false,
-        "generatedBy": "fallback"
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     },
     {
@@ -93,12 +96,13 @@
       "firstSeenAt": "2026-11-05T22:07:09.000Z",
       "eventId": "purview-docs:9d6012d5e059d84c68b0ed45283923172328d984:modified:Purview/create-retention-policies.md",
       "englishSummary": {
-        "category": "Doc update",
-        "headline": "Mirror Learn: 1 changed",
-        "summary": "Updated Microsoft Purview documentation in Purview/create-retention-policies.md.",
-        "adminImpact": "Review the underlying documentation change to determine whether it affects tenant configuration or rollout plans.",
-        "actionRequired": false,
-        "generatedBy": "fallback"
+        "category": "Feature update",
+        "headline": "Legacy combined retention policies will no longer cover Copilot interactions",
+        "summary": "Beginning January 15, 2027, policies using “Teams chats and Copilot interactions” will apply only to Teams content. They will no longer retain or delete Microsoft 365 Copilot interactions, including previously retained interactions.",
+        "adminImpact": "If Copilot retention coverage is required, create a separate retention policy using the “Microsoft Copilot Experiences” location. Teams retention behavior is unchanged.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
       }
     }
   ],
@@ -117,7 +121,7 @@
       {
         "category": "Doc update",
         "title": "Microsoft Purview",
-        "summary": "Updated Microsoft Purview documentation in Purview/apply-sensitivity-label-automatically.md. Updated Microsoft Purview documentation in Purview/sensitivity-labels-sharepoint-onedrive-files.md. Updated Microsoft Purview documentation in Purview/create-retention-policies.md.",
+        "summary": "The documentation now states that 500,000 automatically labeled SharePoint and OneDrive files per tenant per day is an absolute aggregate ceiling across all policies, not a guaranteed processing rate. Actual throughput may be lower. The documentation now describes 500,000 automatically labeled SharePoint and OneDrive files per tenant per day, across all auto-labeling policies, as the absolute maximum throughput. Related reference links were also updated. Beginning January 15, 2027, policies using “Teams chats and Copilot interactions” will apply only to Teams content. They will no longer retain or delete Microsoft 365 Copilot interactions, including previously retained interactions.",
         "sourceFiles": [
           "Purview/apply-sensitivity-label-automatically.md",
           "Purview/sensitivity-labels-sharepoint-onedrive-files.md",
@@ -125,9 +129,9 @@
         ]
       },
       {
-        "category": "Doc update",
+        "category": "Feature update",
         "title": "Deployment models",
-        "summary": "Updated Microsoft Purview documentation in Purview/deploymentmodels/depmod-secure-by-default-step3.md.",
+        "summary": "The documentation now states that the absolute maximum is 500,000 automatically labeled SharePoint and OneDrive files per tenant per day, aggregated across all auto-labeling policies.",
         "sourceFiles": [
           "Purview/deploymentmodels/depmod-secure-by-default-step3.md"
         ]
@@ -137,12 +141,12 @@
       {
         "category": "Doc update",
         "headline": "Microsoft Purview",
-        "detail": "Updated Microsoft Purview documentation in Purview/apply-sensitivity-label-automatically.md. Updated Microsoft Purview documentation in Purview/sensitivity-labels-sharepoint-onedrive-files.md. Updated Microsoft Purview documentation in Purview/create-retention-policies.md."
+        "detail": "The documentation now states that 500,000 automatically labeled SharePoint and OneDrive files per tenant per day is an absolute aggregate ceiling across all policies, not a guaranteed processing rate. Actual throughput may be lower. The documentation now describes 500,000 automatically labeled SharePoint and OneDrive files per tenant per day, across all auto-labeling policies, as the absolute maximum throughput. Related reference links were also updated. Beginning January 15, 2027, policies using “Teams chats and Copilot interactions” will apply only to Teams content. They will no longer retain or delete Microsoft 365 Copilot interactions, including previously retained interactions."
       },
       {
-        "category": "Doc update",
+        "category": "Feature update",
         "headline": "Deployment models",
-        "detail": "Updated Microsoft Purview documentation in Purview/deploymentmodels/depmod-secure-by-default-step3.md."
+        "detail": "The documentation now states that the absolute maximum is 500,000 automatically labeled SharePoint and OneDrive files per tenant per day, aggregated across all auto-labeling policies."
       }
     ],
     "generatedBy": "fallback"
