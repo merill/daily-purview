@@ -89,6 +89,34 @@
         "outputTokens": 437,
         "costUsd": 0.000699
       }
+    },
+    "2026-11-09": {
+      "headline": "Purview retires four DSPM partner integrations December 7 as permissions auditing expands",
+      "overview": "Microsoft Purview will retire its Varonis, BigID, Cyera, and OneTrust DSPM integrations for non-Microsoft data sources on December 7, 2026. Separately, Purview is adding two audit operations for role-based access control, with worldwide rollout scheduled from late September through mid-November 2026.",
+      "adminImpact": "Administrators using the affected DSPM integrations should review dependencies before December 7; those integrations will stop ingesting and displaying data, while other DSPM capabilities remain unaffected. The permissions-audit improvements require no action but should provide more visibility for investigating access issues and monitoring compliance.",
+      "keyChanges": [
+        {
+          "title": "Four DSPM partner integrations will retire",
+          "detail": "On December 7, 2026, Purview will retire the Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft data sources. They will no longer ingest or display data; other DSPM capabilities remain unaffected. Microsoft says no action is required, but administrators should review dependencies if they use these integrations.",
+          "product": "Purview",
+          "sourceId": "MC1545691"
+        },
+        {
+          "title": "RBAC permissions auditing gains two operations",
+          "detail": "Purview is adding two new audit operations for role-based access control, improving transparency and troubleshooting for access issues. The enhancement is rolling out worldwide from late September through mid-November 2026 and requires no administrator action.",
+          "product": "Purview",
+          "sourceId": "MC1473155"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-09T23:29:14.883Z",
+      "usage": {
+        "inputTokens": 1039,
+        "outputTokens": 765,
+        "costUsd": 0.001126
+      }
     }
   },
   "weeks": {
@@ -137,58 +165,86 @@
         "outputTokens": 5413,
         "costUsd": 0.00686
       }
-    }
-  },
-  "months": {
-    "2026-11": {
-      "headline": "Copilot DLP targets external-email grounding as retention coverage splits in 2027",
-      "overview": "The period’s most consequential item is an admin-configurable Data Loss Prevention control for Microsoft 365 Copilot and Copilot Chat that excludes emails from external or untrusted domains from Copilot grounding while preserving internal data use; the Message Center notice lists general availability for June 2027. Updated retention guidance separately sets January 15, 2027, as the point when “Teams chats and Copilot interactions” covers Teams content only. Other meaningful updates clarify the tenant-wide auto-labeling ceiling, simulation outcomes, and newly documented audit activity names.",
-      "adminImpact": "If Copilot retention coverage is required from January 15, 2027, create a separate retention policy using the “Microsoft Copilot Experiences” location. Plan SharePoint and OneDrive auto-labeling against the 500,000-file aggregate ceiling across all policies, not as a guaranteed processing rate. Use the added simulation statuses and workload details when evaluating results, and use the new audit activity names when interpreting records.",
+    },
+    "2026-11-09": {
+      "headline": "Purview will retire four DSPM partner integrations for non-Microsoft sources December 7",
+      "overview": "The period brings one consequential retirement and one auditability enhancement: integrations with Varonis, BigID, Cyera, and OneTrust will stop ingesting and displaying non-Microsoft data on December 7, 2026, while Purview adds two audit operations for role-based access control.",
+      "adminImpact": "Administrators using the affected DSPM integrations should review dependencies before December 7, 2026. Microsoft says no action is required otherwise, and other DSPM capabilities remain unaffected. The permissions audit improvements require no action but provide additional information for investigating access issues and monitoring compliance.",
       "keyChanges": [
         {
-          "title": "DLP can exclude external email from Copilot grounding",
-          "detail": "Microsoft Purview is adding an admin-configurable DLP control for Microsoft 365 Copilot and Copilot Chat that prevents emails from external or untrusted domains from being used for Copilot grounding while retaining internal data use. The notice lists public preview in June 2026 and general availability in June 2027.",
+          "title": "Four DSPM partner integrations retire on December 7",
+          "detail": "Microsoft Purview will retire its Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft data sources on December 7, 2026. The integrations will no longer ingest or display data; other DSPM capabilities remain unaffected. Microsoft says no action is required, while advising customers that use these integrations to review dependencies.",
           "product": "Purview",
-          "sourceId": "MC1301714"
+          "sourceId": "MC1545691"
         },
         {
-          "title": "Retention guidance splits Teams and Copilot coverage",
-          "detail": "Beginning January 15, 2027, policies using “Teams chats and Copilot interactions” will apply only to Teams content and will no longer retain or delete Microsoft 365 Copilot interactions, including previously retained interactions. Copilot coverage requires a separate policy using the “Microsoft Copilot Experiences” location.",
-          "product": "Data Lifecycle",
-          "sourceId": "doc-2026-11-05-create-retention-policies-04"
-        },
-        {
-          "title": "Auto-labeling’s 500,000-file figure is an aggregate ceiling",
-          "detail": "The updated guidance identifies 500,000 automatically labeled SharePoint and OneDrive files per tenant per day, across all auto-labeling policies, as an absolute maximum rather than a guaranteed processing rate; actual throughput can be lower.",
-          "product": "Information Protection",
-          "sourceId": "doc-2026-11-05-apply-sensitivity-label-automatically-01"
-        },
-        {
-          "title": "Simulation results now distinguish failed and partial workloads",
-          "detail": "The simulation guidance adds a “Simulation failed” status, distinguishes failed jobs from requests that could not start, explains partial workload counts, and provides instructions for reviewing or restarting simulations.",
-          "product": "Information Protection",
-          "sourceId": "doc-2026-11-06-auto-label-simulation-results-03"
-        },
-        {
-          "title": "Audit references add Power BI MCP semantic-model events",
-          "detail": "The audit activity reference now lists events for Power BI MCP tools that modify semantic models or read semantic model metadata, giving administrators activity names to use when interpreting audit records.",
-          "product": "Audit",
-          "sourceId": "doc-2026-11-07-audit-log-activities-01"
+          "title": "Permissions audit logging gains two RBAC audit operations",
+          "detail": "Purview is adding two new audit operations for role-based access control, improving transparency and troubleshooting for access issues. The enhancement is rolling out worldwide from late September through mid-November 2026 and requires no administrator action.",
+          "product": "Purview",
+          "sourceId": "MC1473155"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-07T08:57:09.798Z",
+      "generatedAt": "2026-11-09T23:29:14.883Z",
       "usage": {
-        "inputTokens": 2051,
-        "outputTokens": 2417,
-        "costUsd": 0.003311
+        "inputTokens": 957,
+        "outputTokens": 842,
+        "costUsd": 0.001202
+      }
+    }
+  },
+  "months": {
+    "2026-11": {
+      "headline": "Purview schedules DSPM partner retirement before Copilot retention rules split in 2027",
+      "overview": "The month’s most consequential deadlines affect DSPM integrations and retention scope. On December 7, 2026, Purview will retire Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft data sources. Beginning January 15, 2027, policies using “Teams chats and Copilot interactions” will cover Teams only, requiring a separate “Microsoft Copilot Experiences” policy for Copilot interactions. Purview also announced a DLP control that excludes external or untrusted email from Microsoft 365 Copilot and Copilot Chat grounding while preserving internal data use; the notice lists June 2026 public preview and June 2027 general availability. Information Protection guidance clarifies a shared auto-labeling ceiling, while audit logging gains two RBAC operations.",
+      "adminImpact": "Review dependencies on the four DSPM integrations before December 7. If Copilot retention coverage is required, create a separate policy using the “Microsoft Copilot Experiences” location before January 15. Plan SharePoint and OneDrive auto-labeling against the tenant-wide aggregate ceiling rather than treating it as a guaranteed processing rate. The permissions audit update requires no action but provides additional information for access investigations.",
+      "keyChanges": [
+        {
+          "title": "Four DSPM partner integrations will stop ingesting non-Microsoft data December 7",
+          "detail": "Purview will retire integrations with Varonis, BigID, Cyera, and OneTrust for non-Microsoft data sources on December 7, 2026. The integrations will no longer ingest or display that data, while other DSPM capabilities remain unaffected. Microsoft says no action is required generally, but administrators using them should review dependencies.",
+          "product": "Purview",
+          "sourceId": "MC1545691"
+        },
+        {
+          "title": "Teams and Copilot retention coverage separates January 15, 2027",
+          "detail": "Beginning January 15, 2027, policies using “Teams chats and Copilot interactions” will apply only to Teams content and will no longer retain or delete Microsoft 365 Copilot interactions, including previously retained interactions. Use a separate retention policy with the “Microsoft Copilot Experiences” location for Copilot coverage.",
+          "product": "Data Lifecycle",
+          "sourceId": "doc-2026-11-05-create-retention-policies-04"
+        },
+        {
+          "title": "DLP will exclude external email from Copilot grounding",
+          "detail": "The new admin-configurable DLP control restricts Microsoft 365 Copilot and Copilot Chat from processing email from external or untrusted domains. Those messages are excluded from Copilot grounding while internal data remains available; the notice lists public preview in June 2026 and general availability in June 2027.",
+          "product": "Purview",
+          "sourceId": "MC1301714"
+        },
+        {
+          "title": "Auto-labeling has a shared 500,000-file daily ceiling",
+          "detail": "Information Protection guidance specifies that 500,000 automatically labeled SharePoint and OneDrive files per tenant per day is an absolute aggregate ceiling across all auto-labeling policies, not a guaranteed processing rate. Actual throughput may be lower.",
+          "product": "Information Protection",
+          "sourceId": "doc-2026-11-05-apply-sensitivity-label-automatically-01"
+        },
+        {
+          "title": "Purview audit gains two RBAC operations for access investigations",
+          "detail": "Permissions audit log improvements add two new audit operations for role-based access control. The worldwide rollout runs from late September through mid-November 2026 and requires no action, but the additional records improve troubleshooting and compliance investigations.",
+          "product": "Purview",
+          "sourceId": "MC1473155"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-09T23:29:14.883Z",
+      "usage": {
+        "inputTokens": 2440,
+        "outputTokens": 3847,
+        "costUsd": 0.005104
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-07T08:57:09.798Z",
+  "generatedAt": "2026-11-09T23:29:14.883Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -199,18 +255,24 @@
       "outputTokens": 19327,
       "requests": 8,
       "costUsd": 0.026408
+    },
+    "2026-11-09": {
+      "inputTokens": 4436,
+      "outputTokens": 5454,
+      "requests": 3,
+      "costUsd": 0.007432
     }
   },
   "lastRun": {
-    "inputTokens": 7229,
-    "outputTokens": 11734,
-    "requests": 5,
-    "costUsd": 0.015527
+    "inputTokens": 4436,
+    "outputTokens": 5454,
+    "requests": 3,
+    "costUsd": 0.007432
   },
   "totalUsage": {
-    "inputTokens": 16076,
-    "outputTokens": 19327,
-    "requests": 8,
-    "costUsd": 0.026408
+    "inputTokens": 20512,
+    "outputTokens": 24781,
+    "requests": 11,
+    "costUsd": 0.03384
   }
 }
