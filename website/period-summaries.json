@@ -119,19 +119,37 @@
       }
     },
     "2026-11-10": {
-      "headline": "DLP adds Intune multi-admin approval for Edge unmanaged-app setup",
-      "overview": "Microsoft Purview DLP is scheduled to improve unmanaged-app setup and activation in Edge for Business starting in late November 2026. The update adds Intune multi-admin approval, clearer status and error information, and coordination tasks between Purview and Intune administrators, with no policy migration required. Insider Risk guidance also now explains how alternate email addresses affect activity and historical activity associations.",
-      "adminImpact": "Purview and Intune administrators can prepare for coordinated setup of the Edge for Business unmanaged-app capability; existing DLP policies do not need to be migrated. Insider Risk administrators can review alternate email addresses and activity details when activity appears under an unexpected profile, while recognizing that changing an address does not correct existing alerts or historical associations.",
+      "headline": "Purview DLP Edge setup will gain Intune multi-admin approval as Cowork enters guidance",
+      "overview": "A late-November 2026 Message Center notice is the period’s main operational change: DLP setup and activation for unmanaged apps in Edge for Business will add Intune multi-admin approval, clearer status and detailed errors, and task coordination between Purview and Intune administrators, with no policy migration. Separate Learn updates bring Cowork into Copilot DLP location and administrative-unit references, define Copilot/Cowork labeling limits, and document how alternate email addresses affect Insider Risk activity associations.",
+      "adminImpact": "Coordinate Purview and Intune administrators for the late-November Edge rollout; no policy migration is required. DLP administrators should account for Cowork when selecting the DLP location and assessing administrative-unit-scoped coverage. DSPM administrators should set expectations around source-label inheritance and its limits, including unsupported user-defined-permission labels, unavailable labels, and files over 50 MB. When Insider Risk activity appears under an unexpected profile, administrators can review alternate email values and activity details; changing an address does not correct existing alerts or historical associations.",
       "keyChanges": [
         {
-          "title": "DLP setup gains Intune approval and clearer activation status",
-          "detail": "Microsoft Purview DLP will improve setup and activation for unmanaged apps in Edge for Business starting in late November 2026. Intune multi-admin approval, detailed errors, clearer status, and task coordination between Purview and Intune administrators are being added; no policy migration is needed.",
+          "title": "Edge for Business DLP setup will add Intune multi-admin approval",
+          "detail": "A Message Center notice says that starting in late November 2026, setup and activation for unmanaged apps in Edge for Business will support Intune multi-admin approval, clearer status, detailed errors, and task coordination between Purview and Intune administrators. No policy migration is needed.",
           "product": "Purview",
           "sourceId": "MC1489971"
         },
         {
-          "title": "Insider Risk documents alternate-email activity associations",
-          "detail": "The Insider Risk Management Activities page now explains that alternate email addresses—including Microsoft Entra ID's Other mail values—are used to associate activity and historical activity with user profiles. Changing an address does not correct existing alerts or historical associations.",
+          "title": "Cowork is now named in the Copilot DLP location guidance",
+          "detail": "The updated DLP location documentation changes the name to “Microsoft Copilot, Copilot Chat, and Copilot Cowork” and adds Cowork to setup guidance, examples, and supported experiences. Administrators configuring DLP should account for Cowork when selecting the location and defining sensitive-data controls; no mandatory action is stated.",
+          "product": "Data Loss Prevention",
+          "sourceId": "doc-2026-11-10-dlp-microsoft365-copilot-location-learn-about-03"
+        },
+        {
+          "title": "Administrative-unit scoping reference now includes Cowork for Copilot and Chat",
+          "detail": "The DLP policy reference states that administrative-unit scoping also applies to Cowork for Microsoft Copilot and Chat policies. This gives administrators a specific Cowork consideration when assessing administrative-unit-scoped DLP coverage; no required action is stated.",
+          "product": "Data Loss Prevention",
+          "sourceId": "doc-2026-11-10-dlp-policy-reference-04"
+        },
+        {
+          "title": "DSPM guidance defines Copilot/Cowork content-label inheritance limits",
+          "detail": "The updated guidance states that new Word, Excel, PowerPoint, Outlook, and PDF content can inherit the source item’s sensitivity label and protection settings. User-defined-permission labels are unsupported, and labeling does not occur when the label is unavailable to the user or the file exceeds 50 MB.",
+          "product": "DSPM",
+          "sourceId": "doc-2026-11-10-ai-copilot-cowork-02"
+        },
+        {
+          "title": "Insider Risk guidance explains alternate-email activity associations",
+          "detail": "The updated page explains that Insider Risk Management uses alternate email addresses, including Microsoft Entra ID’s Other mail values, to associate activity and historical activity with user profiles. Changing an address does not correct existing alerts or historical associations.",
           "product": "Insider Risk",
           "sourceId": "doc-2026-11-10-insider-risk-management-activities-01"
         }
@@ -139,11 +157,11 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-10T10:07:35.392Z",
+      "generatedAt": "2026-11-10T20:55:56.477Z",
       "usage": {
-        "inputTokens": 1096,
-        "outputTokens": 866,
-        "costUsd": 0.001258
+        "inputTokens": 1499,
+        "outputTokens": 3686,
+        "costUsd": 0.004723
       }
     }
   },
@@ -195,31 +213,37 @@
       }
     },
     "2026-11-09": {
-      "headline": "Purview will retire four DSPM partner integrations on December 7, 2026",
-      "overview": "The week’s most consequential change is the retirement of Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft data sources. On December 7, 2026, those integrations will stop ingesting and displaying data, while other DSPM capabilities remain unaffected. Additional updates improve unmanaged-app DLP administration in Edge for Business, expand RBAC audit visibility, and clarify Insider Risk profile associations.",
-      "adminImpact": "Administrators using the retiring DSPM integrations should review dependencies, although Microsoft says no action is required. The Edge for Business DLP update requires no policy migration and improves coordination between Purview and Intune administrators. The audit-log changes require no action. For Insider Risk investigations, administrators can review alternate email addresses and activity details when activity appears under an unexpected profile.",
+      "headline": "Purview sets a December deadline for four DSPM partner integrations",
+      "overview": "Purview will retire Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft data sources on 7 December 2026. Separately, Data Loss Prevention is improving unmanaged-app setup in Edge for Business with Intune multi-admin approval, while permissions auditing gains two new operations. Updated guidance also defines Copilot and Cowork label-inheritance limits and explains Insider Risk profile associations.",
+      "adminImpact": "Review dependencies on the four retiring DSPM integrations before 7 December; those integrations will stop ingesting and displaying data, although other DSPM capabilities remain unaffected. For Edge for Business unmanaged-app DLP, coordinate Purview and Intune administrators as the updated setup rolls out; no policy migration is required. Use the updated DSPM and Insider Risk guidance when assessing labeling coverage or investigating activity associated with an unexpected user profile.",
       "keyChanges": [
         {
-          "title": "Four DSPM partner integrations are scheduled for retirement",
-          "detail": "Microsoft will retire the Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft data sources on December 7, 2026. They will no longer ingest or display data, while other DSPM capabilities remain unaffected. Microsoft says no action is required but advises reviewing dependencies if these integrations are in use.",
+          "title": "Four DSPM partner integrations stop ingesting and displaying data on 7 December",
+          "detail": "Microsoft will retire the Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft data sources on 7 December 2026. The integrations will no longer ingest or display data; other DSPM capabilities remain unaffected. Microsoft says no action is required, but administrators should review dependencies on these integrations.",
           "product": "Purview",
           "sourceId": "MC1545691"
         },
         {
-          "title": "Edge for Business DLP adds clearer setup and Intune approval coordination",
-          "detail": "Starting in late November 2026, unmanaged-app DLP in Edge for Business will improve setup and activation and support Intune multi-admin approval. The update adds clearer status information, detailed errors, and task coordination between Purview and Intune administrators; no policy migration is needed.",
-          "product": "Purview",
+          "title": "Edge for Business unmanaged-app DLP setup adds Intune approval coordination",
+          "detail": "Starting in late November 2026, Purview DLP setup and activation for unmanaged apps in Edge for Business will provide clearer status information, detailed errors, and task coordination between Purview and Intune administrators. Intune multi-admin approval is added, and existing DLP policies do not need to be migrated.",
+          "product": "Data Loss Prevention",
           "sourceId": "MC1489971"
         },
         {
-          "title": "RBAC permissions audit logs gain two new operations",
-          "detail": "Purview is adding two audit operations for role-based access control. The worldwide rollout runs from late September through mid-November 2026 and is intended to improve access-issue investigation, transparency, and compliance monitoring. No administrator action is required.",
+          "title": "Purview permissions auditing gains two new RBAC operations",
+          "detail": "The permissions audit log is being enhanced with two additional audit operations to improve visibility into role-based access control, troubleshooting, and access investigations. The worldwide rollout runs from late September through mid-November 2026 and requires no administrator action.",
           "product": "Purview",
           "sourceId": "MC1473155"
         },
         {
-          "title": "Insider Risk documentation explains alternate-email activity associations",
-          "detail": "The Insider Risk Management Activities page now explains that alternate email addresses, including Microsoft Entra ID’s Other mail values, are used to associate activity and historical activity with user profiles. Changing an address does not correct existing alerts or historical associations; administrators can review alternate addresses and activity details when activity appears under an unexpected profile.",
+          "title": "DSPM guidance defines Cowork content-label inheritance and its limits",
+          "detail": "Updated guidance states that new Word, Excel, PowerPoint, Outlook, and PDF content can inherit the source item's sensitivity label and protection settings. User-defined-permission labels are unsupported, and labeling does not occur when the label is unavailable to the user or the file exceeds 50 MB.",
+          "product": "DSPM",
+          "sourceId": "doc-2026-11-10-ai-copilot-cowork-02"
+        },
+        {
+          "title": "Insider Risk guidance explains alternate-email profile associations",
+          "detail": "The updated Insider Risk page says activity and historical activity can be associated with user profiles through alternate email addresses, including Microsoft Entra ID's Other mail values. Changing an address does not correct existing alerts or historical associations, so administrators should review alternate addresses when activity appears under an unexpected profile.",
           "product": "Insider Risk",
           "sourceId": "doc-2026-11-10-insider-risk-management-activities-01"
         }
@@ -227,47 +251,47 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-10T10:07:35.392Z",
+      "generatedAt": "2026-11-10T20:55:56.477Z",
       "usage": {
-        "inputTokens": 1226,
-        "outputTokens": 1943,
-        "costUsd": 0.002577
+        "inputTokens": 1629,
+        "outputTokens": 2728,
+        "costUsd": 0.003599
       }
     }
   },
   "months": {
     "2026-11": {
-      "headline": "Purview sets December 7 DSPM retirement as Copilot controls expand",
-      "overview": "November’s most consequential changes are a DSPM integration retirement, a Copilot DLP control, and a retention-scope split. Four partner integrations will stop ingesting and displaying non-Microsoft data on December 7, while DLP is expanding to exclude external or untrusted email from Copilot grounding. From January 15, 2027, the “Teams chats and Copilot interactions” retention location will cover Teams content only. Additional updates clarify Edge for Business DLP activation and auto-labeling capacity limits.",
-      "adminImpact": "Review dependencies on the Varonis, BigID, Cyera, or OneTrust integrations if they are in use before December 7; Microsoft states that no action is otherwise required. If Copilot retention coverage is needed after January 15, create a separate policy using the “Microsoft Copilot Experiences” location. Plan SharePoint and OneDrive auto-labeling against the aggregate 500,000-file daily ceiling, rather than treating it as a guaranteed processing rate.",
+      "headline": "Purview sets DSPM retirement deadline while Copilot DLP and retention rules diverge",
+      "overview": "The month’s clearest operational deadline is December 7, 2026, when Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft DSPM data sources will stop ingesting and displaying data. Copilot governance is also splitting: a DLP control will exclude external or untrusted-domain email from Microsoft 365 Copilot and Copilot Chat grounding, while the “Teams chats and Copilot interactions” retention location will cover Teams only from January 15, 2027. Other notable changes add Intune multi-admin approval to unmanaged-app DLP setup in Edge for Business and clarify the tenant-wide auto-labeling ceiling.",
+      "adminImpact": "Review dependencies on the four retiring DSPM integrations before December 7; the notice says no action is required, but those integrations will no longer ingest or display data. If Copilot retention coverage is required after January 15, create a separate policy using the “Microsoft Copilot Experiences” location. Coordinate Purview and Intune administrators for the Edge for Business DLP setup, which requires no policy migration, and plan SharePoint and OneDrive auto-labeling against a 500,000-file aggregate ceiling rather than an expected daily rate.",
       "keyChanges": [
         {
-          "title": "Four DSPM partner integrations stop ingesting and displaying data December 7",
-          "detail": "Microsoft Purview will retire integrations with Varonis, BigID, Cyera, and OneTrust for non-Microsoft data sources. After December 7, 2026, those integrations will no longer ingest or display data; other DSPM capabilities remain unaffected. Microsoft says no action is required, but dependencies should be reviewed where the integrations are used.",
-          "product": "Purview",
+          "title": "Four DSPM partner integrations retire December 7",
+          "detail": "Microsoft Purview will retire Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft data sources on December 7, 2026. They will stop ingesting and displaying data, while other DSPM capabilities remain unaffected.",
+          "product": "DSPM",
           "sourceId": "MC1545691"
         },
         {
-          "title": "DLP can exclude external email from Copilot grounding",
-          "detail": "The new admin-configurable DLP control restricts Microsoft 365 Copilot and Copilot Chat from processing emails from external or untrusted domains. Those emails are excluded from Copilot grounding while internal data remains available. The notice lists public preview in June 2026 and general availability in June 2027.",
-          "product": "Purview",
+          "title": "Copilot DLP will exclude external email from grounding",
+          "detail": "A new admin-configurable DLP control restricts Microsoft 365 Copilot and Copilot Chat from processing email from external or untrusted domains. Those messages are excluded from Copilot grounding while internal data remains available; the notice lists public preview in June 2026 and general availability in June 2027.",
+          "product": "Data Loss Prevention",
           "sourceId": "MC1301714"
         },
         {
-          "title": "Teams retention policies stop covering Copilot interactions January 15",
-          "detail": "Beginning January 15, 2027, policies using “Teams chats and Copilot interactions” will apply only to Teams content and will no longer retain or delete Microsoft 365 Copilot interactions, including previously retained interactions. Microsoft directs administrators needing Copilot retention coverage to the separate “Microsoft Copilot Experiences” location; Teams retention behavior is unchanged.",
+          "title": "Retention policies separate Teams from Copilot interactions",
+          "detail": "Beginning January 15, 2027, policies using “Teams chats and Copilot interactions” will apply only to Teams content and will no longer retain or delete Microsoft 365 Copilot interactions, including previously retained interactions. Copilot coverage requires a separate “Microsoft Copilot Experiences” location.",
           "product": "Data Lifecycle",
           "sourceId": "doc-2026-11-05-create-retention-policies-04"
         },
         {
-          "title": "Edge for Business unmanaged-app DLP adds Intune multi-admin approval",
-          "detail": "Starting in late November 2026, setup and activation for unmanaged-app DLP in Edge for Business will provide clearer status, more detailed errors, and task coordination between Purview and Intune administrators. The update adds Intune multi-admin approval support and requires no policy migration.",
-          "product": "Purview",
+          "title": "Edge for Business unmanaged-app DLP adds Intune approval",
+          "detail": "Starting in late November 2026, unmanaged-app DLP setup and activation in Edge for Business will support Intune multi-admin approval, with clearer status, detailed errors, and coordination tasks between Purview and Intune administrators. Existing policies do not need to be migrated.",
+          "product": "Data Loss Prevention",
           "sourceId": "MC1489971"
         },
         {
-          "title": "Auto-labeling capacity is an aggregate 500,000-file daily ceiling",
-          "detail": "The SharePoint and OneDrive limit is an absolute tenant-wide maximum of 500,000 automatically labeled files per day across all auto-labeling policies, not a guaranteed processing rate. Actual throughput may be lower, so capacity planning must account for all policies together.",
+          "title": "Auto-labeling guidance defines a 500,000-file aggregate ceiling",
+          "detail": "The updated auto-labeling reference describes 500,000 automatically labeled SharePoint and OneDrive files per tenant per day, across all auto-labeling policies, as an absolute ceiling rather than a guaranteed processing rate. Actual throughput may be lower.",
           "product": "Information Protection",
           "sourceId": "doc-2026-11-05-apply-sensitivity-label-automatically-01"
         }
@@ -275,16 +299,16 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-10T10:07:35.392Z",
+      "generatedAt": "2026-11-10T20:55:56.477Z",
       "usage": {
-        "inputTokens": 2751,
-        "outputTokens": 2792,
-        "costUsd": 0.003901
+        "inputTokens": 3159,
+        "outputTokens": 3780,
+        "costUsd": 0.005168
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-10T10:07:35.392Z",
+  "generatedAt": "2026-11-10T20:55:56.477Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -303,22 +327,22 @@
       "costUsd": 0.007432
     },
     "2026-11-10": {
-      "inputTokens": 5073,
-      "outputTokens": 5601,
-      "requests": 3,
-      "costUsd": 0.007736
+      "inputTokens": 11360,
+      "outputTokens": 15795,
+      "requests": 6,
+      "costUsd": 0.021226
     }
   },
   "lastRun": {
-    "inputTokens": 5073,
-    "outputTokens": 5601,
+    "inputTokens": 6287,
+    "outputTokens": 10194,
     "requests": 3,
-    "costUsd": 0.007736
+    "costUsd": 0.01349
   },
   "totalUsage": {
-    "inputTokens": 25585,
-    "outputTokens": 30382,
-    "requests": 14,
-    "costUsd": 0.041576
+    "inputTokens": 31872,
+    "outputTokens": 40576,
+    "requests": 17,
+    "costUsd": 0.055066
   }
 }
