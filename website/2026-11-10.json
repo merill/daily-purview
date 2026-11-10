@@ -1,0 +1,100 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "Purview/insider-risk-management-activities.md",
+      "status": "modified",
+      "additions": 17,
+      "deletions": 5,
+      "changes": 22,
+      "patch": "diff --git a/Purview/insider-risk-management-activities.md b/Purview/insider-risk-management-activities.md\nindex 8da4123..05072d1 100644\n--- a/Purview/insider-risk-management-activities.md\n+++ b/Purview/insider-risk-management-activities.md\n@@ -12,14 +12,14 @@ ms.subservice: purview-insider-risk-management\n ms.topic: how-to\n f1.keywords:\n - NOCSH\n-ms.author: kreagle\n+ms.author: joibarr\n author: k-reagle\n manager: laurawi\n-ms.date: 2026-08-27T00:00:00.0000000Z\n+ms.date: 2026-11-03T00:00:00.0000000Z\n audience: itpro\n ms.collection:\n - purview-compliance\n-ms.custom: msecd-doc-authoring-1024, admindeeplinkCOMPLIANCE, sfi-image-nochange\n+ms.custom: msecd-doc-authoring-1032, admindeeplinkCOMPLIANCE, sfi-image-nochange\n ai-usage: ai-assisted\n locale: en-us\n document_id: dadd3508-a993-e99a-0a41-0d2c669d3f4b\n@@ -38,13 +38,13 @@ monikers: []\n item_type: Content\n source_path: Purview/insider-risk-management-activities.md\n cmProducts:\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n - https://authoring-docs-microsoft.poolparty.biz/devrel/57eae111-0f3b-497e-be07-450fd1409dea\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/46e3c7c4-fe77-4a6e-b40a-44c569819fa5\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/12ed19f9-ebdf-4c8a-8bcd-7a681836774d\n spProducts:\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/ac8bf8ab-8134-4c9a-9f2e-58b31575b492\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/d0c6fab8-2d7d-4bb0-bf40-589e08d7c132\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/3a764584-4f97-452b-8f1d-36f19b12f6ae\n platformId: 58b5d91f-4ed7-0714-5e55-6a33a8dfed73\n ---\n \n@@ -60,6 +60,18 @@ To minimize insider risks in your organization, investigate potentially risky us\n \r\n You can investigate these types of activities by using [User activity reports](insider-risk-management-reports) or with the **Triage Agent in Insider Risk Management** and **Standard alert** dashboards.\r\n \r\n+## How alternate email addresses affect activity association\r\n+\r\n+Insider Risk Management uses alternate email addresses associated with a Microsoft Entra ID user object to associate activity with that user. These addresses include those in **Other mail**, which is also used to populate historical activity. This association helps provide a complete view of activity across alternate-email accounts associated with the Microsoft Entra ID user object.\r\n+\r\n+For example, an administrator account's Microsoft Entra ID user object might list the user's primary-account email address in **Other mail**. In this configuration, activity performed with the primary account can appear under the administrator account's Insider Risk Management profile. The profile under which activity appears doesn't necessarily identify the account that performed the activity.\r\n+\r\n+When investigating activity that appears under an unexpected profile, review the associated alternate email addresses in Microsoft Entra ID and the activity details to understand the account association.\r\n+\r\n+Note\r\n+\r\n+Changing or removing an alternate email address doesn't correct existing alerts or reassociate historical activity.\r\n+\r\n ## Triaging alerts\r\n \r\n Investigate and act on alerts in Insider Risk Management by following these steps:\r\n",
+      "baseCommitSha": "63d57ea9f611b6e0d715e1431a896d5fd08966ea",
+      "commitSha": "0f83047d592573034df2e297c3b721bf5e02c902",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-10 00:19:54 +0000",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/insider-risk-management-activities.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/insider-risk-management-activities",
+      "eventId": "purview-docs:0f83047d592573034df2e297c3b721bf5e02c902:modified:Purview/insider-risk-management-activities.md",
+      "firstSeenAt": "2026-11-10T10:07:28.648Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Documentation explains alternate email activity association",
+        "summary": "The page now explains that Insider Risk Management uses alternate email addresses, including Microsoft Entra ID’s Other mail values, to associate activity and historical activity with user profiles. It also notes that changing an address does not correct existing alerts or historical associations.",
+        "adminImpact": "Administrators can review alternate email addresses and activity details when activity appears under an unexpected profile.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [
+    {
+      "id": "MC1489971",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-11-10",
+      "title": "Microsoft Purview DLP: Improved setup and Intune multi-admin approval support for unmanaged apps in Edge for Business",
+      "summary": "Microsoft Purview DLP will improve setup and activation for unmanaged apps in Edge for Business starting late November 2026, adding support for Intune multi-admin approval. Enhancements include clearer status, detailed errors, and task coordination between Purview and Intune admins, with no policy migration needed.",
+      "product": {
+        "slug": "purview",
+        "name": "Microsoft Purview",
+        "short": "Purview",
+        "learn": "https://learn.microsoft.com/en-us/purview/",
+        "icon": "purview.svg"
+      },
+      "topic": {
+        "slug": "general",
+        "name": "General",
+        "icon": "/assets/topics/general.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC1489971/",
+      "originalUrl": "https://mc.merill.net/message/MC1489971",
+      "body": "<p>Updated November 9, 2026: We have updated the timeline. Thank you for your patience.&nbsp;</p><p><b><b>What and why</b></b></p><p>Beginning in late November 2026, Microsoft Purview will roll out improvements to the setup and activation experience for inline collection and Data Loss Prevention (DLP) policies that protect interactions with unmanaged cloud apps in <i>Microsoft Edge for Business</i>.</p><p>This update adds support for organizations that use Microsoft Intune multi-admin approval and provides clearer status information, more detailed error reporting, and remediation guidance in the <i>Microsoft Purview portal</i>. These enhancements help administrators activate protection more efficiently while preserving existing Intune approval controls.</p><p><b><b>Rollout schedule</b></b></p><ul><li><b>Worldwide:</b> Beginning in <b>late November 2026</b> (previously early November) and expected to complete by <b>early December 2026</b> (previously mid-November)</li></ul><p>The rollout will occur progressively. Until the update reaches your tenant, Microsoft Purview may continue to display the current setup experience or indicate that Intune multi-admin approval is not supported.</p><p><b><b>Impact on your organization</b></b></p><p><i>Who is affected</i></p><ul><li>Organizations using Microsoft Purview collection or DLP policies to monitor and protect supported activities with unmanaged cloud apps in Microsoft Edge for Business</li><li>Organizations using Microsoft Intune multi-admin approval</li><li>Organizations that require coordination between Purview and Intune administrators</li></ul><p><i>Platforms/services</i></p><ul><li>Microsoft Purview</li><li>Microsoft Intune</li><li>Microsoft Edge for Business</li></ul><p><i>What will happen</i></p><ul><li>Microsoft Purview inline protection for unmanaged apps will support tenants that use Intune multi-admin approval.</li><li>Required Intune configuration changes will continue through your existing multi-admin approval process.</li><li>Microsoft Purview will not bypass Intune approval requirements.</li><li>The Microsoft Purview portal will provide clearer setup status information, more detailed error information, and guidance about actions required to complete activation.</li><li>When Intune administrator assistance is required, a Purview administrator can send a task to the appropriate Intune administrator.</li><li>Sending a task does not grant permissions, bypass approval requirements, or automatically complete requested Intune changes.</li><li>Protection may remain pending or inactive until required Intune approvals or administrator actions are completed.</li><li>You do not need to migrate or recreate existing collection or DLP policies.</li><li>This update does not expand supported applications, browsers, activities, licenses, devices, or cloud environments.</li><li>Existing DLP enforcement behavior remains unchanged.</li></ul><p><b><b>Action required and recommendations</b></b></p><p>No action is required before rollout.</p><p>After the update reaches your tenant, if Microsoft Purview indicates that administrator action is required:</p><ul><li>Review the status and error details in the Microsoft Purview portal to identify the required next step.</li><li>In Microsoft Purview, send a task to the appropriate Intune administrator and have that administrator complete the requested action.</li><li>Return to Microsoft Purview, review the request status, and complete any remaining steps.</li><li>Check again after approximately one hour to confirm the supporting configuration and activation status are complete and that the error no longer appears.</li></ul><p>If your organization does not use Intune multi-admin approval and your policies are already active, no action is required.</p><p>For questions or support, contact your Microsoft account representative or Microsoft Support.</p><p><b>Learn more</b></p><ul><li><a href=\"https://learn.microsoft.com/intune/governance/admin-tasks\" rel=\"noopener noreferrer\">Centrally manage Admin Tasks - Microsoft Intune | Microsoft Learn</a></li><li><a href=\"https://learn.microsoft.com/purview/dlp-browser-dlp-learn#policies-for-unmanaged-app-interactions\" rel=\"noopener noreferrer\">Learn about Data Loss Prevention for Cloud Apps in Edge for Business | Microsoft Learn</a></li><li><a href=\"https://learn.microsoft.com/intune/fundamentals/role-based-access-control/multi-admin-approval\" rel=\"noopener noreferrer\">Use Multi Admin Approval in Intune - Microsoft Intune | Microsoft Learn</a></li></ul><p><b><b>Compliance considerations</b></b></p><table><tbody><tr><td><b>Question</b></td><td><b>Answer</b></td></tr><tr><td>Does the change alter how administrators can monitor, report on, or demonstrate compliance activities, for example, through Microsoft Purview or administrator reporting?</td><td>Yes. Administrators will receive clearer setup status information, more detailed error information, remediation guidance, and task-based coordination between Microsoft Purview and Microsoft Intune administrators.</td></tr></tbody></table>",
+      "category": "stayInformed",
+      "services": [
+        "Microsoft Purview"
+      ],
+      "tags": [
+        "Updated message",
+        "Admin impact"
+      ],
+      "startDate": "2026-10-06T23:07:36Z",
+      "endDate": "2027-01-11T08:00:00Z",
+      "lastModifiedDateTime": "2026-11-10T00:12:37.56Z",
+      "version": "2026-11-10T00:12:37.56Z",
+      "eventId": "message-center:MC1489971:2026-11-10T00:12:37.56Z",
+      "firstSeenAt": "2026-11-10T10:07:35.182Z"
+    }
+  ],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Purview documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Microsoft Purview",
+        "summary": "The page now explains that Insider Risk Management uses alternate email addresses, including Microsoft Entra ID’s Other mail values, to associate activity and historical activity with user profiles. It also notes that changing an address does not correct existing alerts or historical associations.",
+        "sourceFiles": [
+          "Purview/insider-risk-management-activities.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Microsoft Purview",
+        "detail": "The page now explains that Insider Risk Management uses alternate email addresses, including Microsoft Entra ID’s Other mail values, to associate activity and historical activity with user profiles. It also notes that changing an address does not correct existing alerts or historical associations."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}
