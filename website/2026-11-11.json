@@ -1,0 +1,58 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [],
+  "deletedFiles": [],
+  "messageCenterItems": [
+    {
+      "id": "MC1381121",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-11-10",
+      "title": "Microsoft Purview | Endpoint Data Loss Prevention: Policy sync and device health AI skill",
+      "summary": "Microsoft Purview Endpoint Data Loss Prevention introduces AI-powered Policy Sync and Device Health skills for real-time visibility into policy deployment and sync issues. Rolling out mid-2027, it helps admins identify impacted devices, root causes, and remediation actions, requiring Security Copilot enabled in the tenant.",
+      "product": {
+        "slug": "purview",
+        "name": "Microsoft Purview",
+        "short": "Purview",
+        "learn": "https://learn.microsoft.com/en-us/purview/",
+        "icon": "purview.svg"
+      },
+      "topic": {
+        "slug": "ai",
+        "name": "AI and Copilot",
+        "icon": "/assets/topics/ai.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC1381121/",
+      "originalUrl": "https://mc.merill.net/message/MC1381121",
+      "body": "<p>Updated November 10, 2026: We have updated the timeline. Thank you for your patience.&nbsp;&nbsp;</p><p><b><b>What and Why</b></b></p><p>We are introducing<b> Policy Sync and Device Health AI skills</b> for <b>Microsoft Purview Endpoint Data Loss Prevention</b>. These AI-powered capabilities provide real-time visibility into policy deployment across devices and help admins quickly identify and resolve sync issues. By using AI to surface root causes and recommend actions, this feature improves troubleshooting efficiency and increases confidence that policies are enforced consistently across devices. This aligns with our enterprise-ready AI approach by delivering intelligent insights within <i>Microsoft Purview</i>.</p><p>This message is associated with <b>Microsoft 365 Roadmap ID <a href=\"https://www.microsoft.com/microsoft-365/roadmap?filters=&amp;searchterms=562016\" rel=\"noopener noreferrer\">562016</a></b>.</p><p><b><b>Rollout Schedule</b></b></p><ul><li>Public Preview: We will begin rolling out early June 2027 and expect to complete by early June 2027.&nbsp;</li><li>Worldwide: We will begin rolling out early July 2027 and expect to complete by rolling out early July 2027</li></ul><p><b><b>Impact on Your Organization</b></b></p><p>Who is affected</p><ul><li>Admins managing <b>Endpoint Data Loss Prevention policies</b> in <i>Microsoft Purview</i></li></ul><p><i>Platforms/Services</i></p><ul><li>Microsoft Purview compliance portal</li><li>Endpoint DLP</li><li>Security Copilot</li></ul><p><i>What will happen</i></p><ul><li>Admins will see new AI-powered insights for policy sync status and device health:&nbsp;</li><li></li><li>Real-time visibility into DLP policy deployment across endpoints will be available:&nbsp;</li><li></li><li>Impacted devices and sync failures will be identified automatically:&nbsp;</li><li></li><li>Root cause explanations and recommended remediation actions will be provided:&nbsp;</li><li></li><li>The experience will be available within DLP policy and device views in <i>Microsoft Purview</i>.</li><li>The feature<b> requires Security Copilot capabilities</b> to be available in the tenant.</li></ul><p><b><b>Action Required/Recommendations</b></b></p><p>No immediate action is required.</p><p>To prepare for this feature:</p><ul><li>Ensure that Security Copilot is enabled in your organization.</li><li>Confirm that Security Compute Units are provisioned to support AI experiences.</li><li>Verify that admins have appropriate permissions to access DLP policies and device views in<i> Microsoft Purview</i>.</li><li>Review the <a href=\"https://sip.compliance.microsoft.com/datalossprevention?viewid=overview&amp;tid=72f988bf-86f1-41af-91ab-2d7cd011db47\" rel=\"noopener noreferrer\">DLP portal</a> to familiarize your team with where the feature will appear.</li><li>Communicate this update to your security and compliance administrators.</li></ul><p><b><b>Compliance considerations</b></b></p><table><tbody><tr><td><b>Question</b></td><td><b>Answer</b></td></tr><tr><td>Does the change introduce or significantly modify AI or machine learning capabilities that interact with or provide access to customer data?</td><td>Yes. The change introduces AI-powered skills that analyze DLP policy sync status and device health, identify impacted devices, and provide root cause insights along with recommended remediation actions.</td></tr><tr><td>Does the change alter how admins can monitor, report on, or demonstrate compliance activities?</td><td>Yes. The change adds new AI-driven insights and visibility into DLP policy deployment and device readiness within <i>Microsoft Purview</i>, enhancing how admins monitor and assess compliance activities.</td></tr></tbody></table>",
+      "category": "stayInformed",
+      "services": [
+        "Microsoft Purview"
+      ],
+      "tags": [
+        "Updated message",
+        "New feature",
+        "User impact",
+        "Admin impact"
+      ],
+      "startDate": "2026-06-05T22:44:55Z",
+      "endDate": "2027-08-16T07:00:00Z",
+      "lastModifiedDateTime": "2026-11-10T18:09:02.977Z",
+      "version": "2026-11-10T18:09:02.977Z",
+      "eventId": "message-center:MC1381121:2026-11-10T18:09:02.977Z",
+      "firstSeenAt": "2026-11-11T09:38:41.129Z"
+    }
+  ],
+  "summary": {
+    "totalCommits": 0,
+    "totalFiles": 0,
+    "authors": []
+  },
+  "englishSummary": {
+    "overview": "No substantive Microsoft Purview documentation changes were detected for this report.",
+    "groups": [],
+    "highlights": [],
+    "generatedBy": "fallback"
+  }
+}
