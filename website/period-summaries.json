@@ -163,6 +163,28 @@
         "outputTokens": 6394,
         "costUsd": 0.007997
       }
+    },
+    "2026-11-12": {
+      "headline": "Purview AI-readiness article adds action-oriented guidance and a four-part admin summary",
+      "overview": "The period brought one Purview update: the AI and Copilot guidance now presents recommendations more directly and adds a Summary section covering Purview’s role in understanding data, protecting sensitive information, investigating risks, and governing AI interactions.",
+      "adminImpact": "Admins preparing for AI apps and agents get clearer guidance for identifying and addressing data-protection gaps before those systems use organizational data.",
+      "keyChanges": [
+        {
+          "title": "AI-readiness guidance is more action-oriented",
+          "detail": "The “Protect Sensitive Data To Get Ready For AI” article now uses action-oriented wording for its recommendations and adds a Summary section explaining how Purview can help admins understand data, protect sensitive information, investigate risks, and govern AI interactions.",
+          "product": "Purview",
+          "sourceId": "doc-2026-11-12-protect-sensitive-data-to-get-ready-for-ai-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-12T21:30:25.978Z",
+      "usage": {
+        "inputTokens": 986,
+        "outputTokens": 664,
+        "costUsd": 0.000994
+      }
     }
   },
   "weeks": {
@@ -213,85 +235,85 @@
       }
     },
     "2026-11-09": {
-      "headline": "Purview retires four DSPM partner integrations for non-Microsoft data December 7",
-      "overview": "Purview's main operational deadline is the December 7, 2026 retirement of Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft data sources. The week also brings late-November Edge for Business DLP setup changes and mid-2027 Endpoint DLP AI skills. Updated guidance clarifies Copilot and Cowork labeling limits, DLP location terminology, and Insider Risk's alternate-email matching.",
-      "adminImpact": "Administrators using the retiring integrations should review dependencies before December 7; the notice says no action is required and other DSPM capabilities are unaffected. DLP administrators should account for Cowork when selecting the Copilot location, while the Edge update requires no policy migration. Security Copilot must be enabled for the later Endpoint DLP skills. Review Copilot and Cowork labeling against the 50 MB, user-availability, and user-defined-permission limitations, and inspect alternate email values when Insider Risk activity appears under an unexpected profile.",
+      "headline": "Purview will retire four DSPM partner integrations on December 7",
+      "overview": "The week’s most consequential change is the December 7, 2026 retirement of Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft data sources; those integrations will stop ingesting and displaying data, while other DSPM capabilities remain unaffected. Purview DLP also has late-November improvements planned for unmanaged apps in Edge for Business, and Endpoint DLP AI skills are slated for mid-2027. Updated Cowork guidance clarifies the DLP location name and content-labeling limitations.",
+      "adminImpact": "Administrators using the retiring DSPM integrations should review dependencies before December 7, although the notice states that no mandatory action is required. Edge for Business DLP setup will require no policy migration and will better coordinate Purview and Intune administrator tasks. The future Endpoint DLP AI skills require Security Copilot enabled in the tenant. DLP administrators should use the updated Cowork location terminology and account for its documented labeling limitations when assessing coverage.",
       "keyChanges": [
         {
-          "title": "Four DSPM partner integrations retire December 7",
-          "detail": "Purview will stop ingesting and displaying data from Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft data sources on December 7, 2026. Other DSPM capabilities remain unaffected; Microsoft says no action is required, but administrators using these integrations should review dependencies.",
-          "product": "Purview",
+          "title": "Four DSPM partner integrations reach a December 7 cutoff",
+          "detail": "On December 7, 2026, Purview will retire integrations with Varonis, BigID, Cyera, and OneTrust for non-Microsoft data sources. They will no longer ingest or display data; other DSPM capabilities remain unaffected. Microsoft says no action is required, but administrators using these integrations should review dependencies.",
+          "product": "Purview DSPM",
           "sourceId": "MC1545691"
         },
         {
-          "title": "Edge unmanaged-app DLP adds Intune multi-admin approval",
-          "detail": "Starting in late November 2026, Purview DLP's setup and activation for unmanaged apps in Edge for Business will gain Intune multi-admin approval, clearer status, detailed errors, and task coordination between Purview and Intune administrators. No policy migration is needed.",
+          "title": "Edge for Business unmanaged-app DLP gets coordinated setup",
+          "detail": "Starting in late November 2026, setup and activation will add clearer status information, detailed errors, Intune multi-admin approval support, and task coordination between Purview and Intune administrators. No policy migration is needed.",
           "product": "Data Loss Prevention",
           "sourceId": "MC1489971"
         },
         {
-          "title": "Endpoint DLP AI troubleshooting skills target mid-2027",
-          "detail": "Purview Endpoint DLP will add Policy Sync and Device Health AI skills for real-time visibility into policy deployment and sync issues, impacted devices, root causes, and remediation actions. The rollout is planned for mid-2027 and requires Security Copilot enabled in the tenant.",
-          "product": "Purview",
+          "title": "Endpoint DLP AI skills are planned for mid-2027",
+          "detail": "The Policy Sync and Device Health skills will provide AI-powered, real-time visibility into policy deployment and synchronization issues, including impacted devices, root causes, and remediation actions. Security Copilot must be enabled in the tenant.",
+          "product": "Purview Endpoint DLP",
           "sourceId": "MC1381121"
         },
         {
-          "title": "Copilot Cowork labeling guidance sets inheritance limits",
-          "detail": "DSPM guidance states that new Word, Excel, PowerPoint, Outlook, and PDF content can inherit the source item's sensitivity label and protection settings. User-defined-permission labels are unsupported, and labeling does not occur when the label is unavailable to the user or the file exceeds 50 MB.",
-          "product": "DSPM",
-          "sourceId": "doc-2026-11-10-ai-copilot-cowork-02"
+          "title": "DLP guidance now names the Cowork location explicitly",
+          "detail": "The documented location name is now “Microsoft Copilot, Copilot Chat, and Copilot Cowork,” with Cowork added to setup guidance, examples, and supported experiences. This is a configuration and terminology update for administrators working with DLP policies.",
+          "product": "Data Loss Prevention",
+          "sourceId": "doc-2026-11-10-dlp-microsoft365-copilot-location-learn-about-03"
         },
         {
-          "title": "Insider Risk clarifies alternate-email profile matching",
-          "detail": "Insider Risk guidance explains that alternate email addresses, including Microsoft Entra ID's Other mail values, associate activity and historical activity with user profiles. Changing an address does not correct existing alerts or historical associations.",
-          "product": "Insider Risk",
-          "sourceId": "doc-2026-11-10-insider-risk-management-activities-01"
+          "title": "Cowork guidance details label inheritance and its limits",
+          "detail": "The guidance states that new Word, Excel, PowerPoint, Outlook, and PDF content can inherit the source item’s sensitivity label and protection settings. User-defined-permission labels are unsupported, and labeling does not occur when the label is unavailable to the user or the file exceeds 50 MB.",
+          "product": "DSPM",
+          "sourceId": "doc-2026-11-10-ai-copilot-cowork-02"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-11T09:38:41.338Z",
+      "generatedAt": "2026-11-12T21:30:25.978Z",
       "usage": {
-        "inputTokens": 1753,
-        "outputTokens": 5274,
-        "costUsd": 0.006679
+        "inputTokens": 1882,
+        "outputTokens": 3510,
+        "costUsd": 0.004588
       }
     }
   },
   "months": {
     "2026-11": {
-      "headline": "Purview retires four DSPM integrations as Copilot retention coverage splits in 2027",
-      "overview": "November's largest operational deadline is 7 December 2026, when Purview retires Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft data; those integrations will stop ingesting and displaying data, while other DSPM capabilities remain. Copilot governance also gets two dated changes: a DLP control excludes external or untrusted-domain email from Copilot grounding, with general availability slated for June 2027, and the combined Teams/Copilot retention location becomes Teams-only on 15 January 2027. A separate Endpoint DLP notice points to mid-2027 AI Policy Sync and Device Health skills requiring Security Copilot. The remaining material is mainly operational clarification, including the tenant-wide auto-labeling ceiling and Cowork-related DLP guidance.",
-      "adminImpact": "Review dependencies on the four DSPM connectors before 7 December if they are in use; the notice says no action is required otherwise. To preserve Copilot retention coverage, create a separate policy using the “Microsoft Copilot Experiences” location before the 15 January change. DLP administrators should account for the renamed Copilot/Cowork location and can prepare for the Edge/Intune approval workflow without migrating policies. Treat 500,000 files as an aggregate ceiling, not expected throughput; the later Endpoint DLP AI skills require Security Copilot.",
+      "headline": "Four DSPM partner integrations retire December 7 as Copilot controls and retention split",
+      "overview": "November’s highest-impact Purview changes set a December 7, 2026 deadline for four DSPM partner integrations, separate Teams retention from Microsoft 365 Copilot interactions on January 15, 2027, and introduce an admin-configurable DLP control that excludes external or untrusted email from Copilot grounding. The period also brought late-November Edge for Business DLP setup improvements, while Information Protection guidance clarified that 500,000 auto-labeled SharePoint and OneDrive files per tenant per day is an absolute aggregate ceiling, not an expected rate. Lower-impact documentation updates clarified Cowork terminology, simulation statuses, and audit activity names.",
+      "adminImpact": "Review dependencies on the Varonis, BigID, Cyera, and OneTrust integrations before December 7; they will stop ingesting and displaying non-Microsoft data, although the notice says no action is required and other DSPM capabilities are unaffected. If Copilot retention is required from January 15, 2027, create a separate policy using the “Microsoft Copilot Experiences” location. Plan auto-labeling across all policies, with actual throughput potentially below the 500,000-file ceiling. Edge for Business DLP setup requires no policy migration and adds coordination between Purview and Intune administrators. The external-email Copilot DLP notice lists public preview in June 2026 and general availability in June 2027; it specifies no separate administrator action.",
       "keyChanges": [
         {
-          "title": "Four non-Microsoft DSPM integrations retire on 7 December",
-          "detail": "Purview will retire the Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft data sources on 7 December 2026. They will stop ingesting and displaying data, while other DSPM capabilities remain unaffected. The notice says no action is required, but organizations using them should review dependencies.",
+          "title": "DSPM partner integrations retire on December 7",
+          "detail": "Microsoft Purview will retire the Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft data sources on December 7, 2026. They will stop ingesting and displaying data, while other DSPM capabilities remain unaffected. The notice says no action is required, but administrators using them should review dependencies.",
           "product": "Purview DSPM",
           "sourceId": "MC1545691"
         },
         {
-          "title": "DLP control targets external email in Copilot grounding",
-          "detail": "The admin-configurable control restricts Microsoft 365 Copilot and Copilot Chat from processing email from external or untrusted domains by excluding that email from Copilot grounding while retaining internal data use. Message Center places public preview in June 2026 and general availability in June 2027.",
-          "product": "Data Loss Prevention",
-          "sourceId": "MC1301714"
-        },
-        {
-          "title": "Retention location separates Teams content from Copilot interactions",
-          "detail": "Beginning 15 January 2027, policies using “Teams chats and Copilot interactions” will apply only to Teams content. They will no longer retain or delete Microsoft 365 Copilot interactions, including previously retained interactions. Copilot coverage requires a separate policy using the “Microsoft Copilot Experiences” location.",
+          "title": "Retention scope separates Teams content from Copilot interactions",
+          "detail": "Beginning January 15, 2027, “Teams chats and Copilot interactions” will apply only to Teams content. It will no longer retain or delete Microsoft 365 Copilot interactions, including previously retained interactions. Copilot coverage requires a separate policy using the “Microsoft Copilot Experiences” location; Teams retention behavior is unchanged.",
           "product": "Data Lifecycle",
           "sourceId": "doc-2026-11-05-create-retention-policies-04"
         },
         {
-          "title": "Edge for Business unmanaged-app DLP setup gains Intune approval workflow",
-          "detail": "Starting in late November 2026, Purview DLP setup and activation for unmanaged apps in Edge for Business adds Intune multi-admin approval, clearer status, detailed errors, and task coordination between Purview and Intune administrators. No policy migration is needed.",
+          "title": "Copilot DLP will exclude external email from grounding",
+          "detail": "The announced admin-configurable DLP control restricts Microsoft 365 Copilot and Copilot Chat from processing emails from external or untrusted domains. Those emails are excluded from Copilot grounding while internal data use continues. The notice lists public preview in June 2026 and general availability in June 2027.",
+          "product": "Purview DLP for Copilot",
+          "sourceId": "MC1301714"
+        },
+        {
+          "title": "Edge for Business DLP adds Intune multi-admin approval",
+          "detail": "Starting in late November 2026, setup and activation for unmanaged apps in Edge for Business will support Intune multi-admin approval, clearer status, detailed errors, and task coordination between Purview and Intune administrators. No policy migration is needed.",
           "product": "Data Loss Prevention",
           "sourceId": "MC1489971"
         },
         {
-          "title": "Auto-labeling limit is an aggregate ceiling, not a daily rate",
-          "detail": "The guidance defines 500,000 automatically labeled SharePoint and OneDrive files per tenant per day, aggregated across all auto-labeling policies, as an absolute maximum rather than a guaranteed processing rate. Actual throughput may be lower.",
+          "title": "Guidance defines auto-labeling’s 500,000-file aggregate ceiling",
+          "detail": "Updated guidance states that 500,000 automatically labeled SharePoint and OneDrive files per tenant per day, aggregated across all auto-labeling policies, is an absolute maximum rather than a guaranteed processing rate. Actual throughput may be lower.",
           "product": "Information Protection",
           "sourceId": "doc-2026-11-05-apply-sensitivity-label-automatically-01"
         }
@@ -299,16 +321,16 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-11T09:38:41.338Z",
+      "generatedAt": "2026-11-12T21:30:25.978Z",
       "usage": {
-        "inputTokens": 3316,
-        "outputTokens": 7502,
-        "costUsd": 0.009666
+        "inputTokens": 3441,
+        "outputTokens": 5996,
+        "costUsd": 0.007883
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-11T09:38:41.338Z",
+  "generatedAt": "2026-11-12T21:30:25.978Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -337,18 +359,24 @@
       "outputTokens": 19170,
       "requests": 3,
       "costUsd": 0.024342
+    },
+    "2026-11-12": {
+      "inputTokens": 6309,
+      "outputTokens": 10170,
+      "requests": 3,
+      "costUsd": 0.013466
     }
   },
   "lastRun": {
-    "inputTokens": 6692,
-    "outputTokens": 19170,
+    "inputTokens": 6309,
+    "outputTokens": 10170,
     "requests": 3,
-    "costUsd": 0.024342
+    "costUsd": 0.013466
   },
   "totalUsage": {
-    "inputTokens": 38564,
-    "outputTokens": 59746,
-    "requests": 20,
-    "costUsd": 0.079408
+    "inputTokens": 44873,
+    "outputTokens": 69916,
+    "requests": 23,
+    "costUsd": 0.092874
   }
 }

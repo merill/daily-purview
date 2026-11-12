@@ -1,0 +1,61 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "Purview/protect-sensitive-data-to-get-ready-for-ai.md",
+      "status": "modified",
+      "additions": 14,
+      "deletions": 8,
+      "changes": 22,
+      "patch": "diff --git a/Purview/protect-sensitive-data-to-get-ready-for-ai.md b/Purview/protect-sensitive-data-to-get-ready-for-ai.md\nindex c4224a8..d36f7d8 100644\n--- a/Purview/protect-sensitive-data-to-get-ready-for-ai.md\n+++ b/Purview/protect-sensitive-data-to-get-ready-for-ai.md\n@@ -52,13 +52,13 @@ AI expands how organizations discover, access, summarize, and act on their data\n \r\n Organizations can accelerate AI adoption by treating data readiness as a continuous operating model rather than a one-time deployment checkpoint. This approach helps ensure that the right people, apps, and agents can access the right data with the right permissions and protections as data, access, and AI usage evolve. Extending the same trusted foundation across supported human activity, AI apps, agents, and models enables organizations to:\r\n \r\n-- Understanding where your sensitive data lives.\r\n-- Gaining visibility into what data AI can access across apps, browsers, on-premises, file shares and other endpoints.\r\n-- Scaling classification, policy creation, investigations, and compliance reporting to AI usage.\r\n-- Ensuring the right permissions and controls are in place to help prevent oversharing.\r\n-- Maintaining consistent protections as data grows and spreads across systems.\r\n-- Proactively identifying and remediating issues before they become data security and/or compliance incidents.\r\n-- Providing measurable proof of data protection to regulators, auditors, executives, and/or customers.\r\n+- Understand where your sensitive data lives.\r\n+- Gain visibility into what data AI can access across apps, browsers, on-premises, file shares and other endpoints.\r\n+- Scale classification, policy creation, investigations, and compliance reporting to AI usage.\r\n+- Ensure the right permissions and controls are in place to help prevent oversharing.\r\n+- Maintain consistent protections as data grows and spreads across systems.\r\n+- Proactively identify and remediate issues before they become data security and/or compliance incidents.\r\n+- Provide measurable proof of data protection to regulators, auditors, executives, and/or customers.\r\n \r\n ## Solution\r\n \r\n@@ -112,4 +112,10 @@ As AI use expands, organizations can strengthen confidence by combining preventi\n - Help increase security ROI by using classification and labeling to scale consistent protection, help reduce manual effort, and help prevent sensitive data from being leaked or overshared.\r\n - Scale AI adoption with confidence by establishing protection for sensitive information as a foundation and continuously addressing data exposure as usage expands.\r\n - Maintain consistent protection at scale so teams can collaborate, adopt AI, an expand data use while policies continue to follow sensitive information across supported systems.\r\n-- Increase executive confidence with demonstratable policy effectiveness and audit readiness across your organization.\n\\ No newline at end of file\n+- Increase executive confidence with demonstratable policy effectiveness and audit readiness across your organization.\r\n+\r\n+## Summary\r\n+\r\n+The recommended actions can help you secure your data, which is foundational to confidently adopting AI. Microsoft Purview can help you understand your data, protect what is sensitive, investigate data risks, and govern AI interactions.\r\n+\r\n+**By prioritizing data readiness, you can help identify and address protection gaps before AI apps and agents put your data to work.**\n\\ No newline at end of file\n",
+      "baseCommitSha": "58e9d77f3a2faea40fb3850caa7c3daa6c514a3e",
+      "commitSha": "5bbbed382dd842cbd56a72a483e86f85bd17006d",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-12 12:53:06 +0000",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/protect-sensitive-data-to-get-ready-for-ai.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/protect-sensitive-data-to-get-ready-for-ai",
+      "eventId": "purview-docs:5bbbed382dd842cbd56a72a483e86f85bd17006d:modified:Purview/protect-sensitive-data-to-get-ready-for-ai.md",
+      "firstSeenAt": "2026-11-12T21:30:20.447Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Added a data-readiness summary for AI adoption",
+        "summary": "The article now uses action-oriented wording for its recommendations and adds a Summary section explaining how Purview can help admins understand data, protect sensitive information, investigate risks, and govern AI interactions.",
+        "adminImpact": "Admins get clearer guidance for identifying and addressing data-protection gaps before AI apps and agents use organizational data.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Purview documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Microsoft Purview",
+        "summary": "The article now uses action-oriented wording for its recommendations and adds a Summary section explaining how Purview can help admins understand data, protect sensitive information, investigate risks, and govern AI interactions.",
+        "sourceFiles": [
+          "Purview/protect-sensitive-data-to-get-ready-for-ai.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Microsoft Purview",
+        "detail": "The article now uses action-oriented wording for its recommendations and adds a Summary section explaining how Purview can help admins understand data, protect sensitive information, investigate risks, and govern AI interactions."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}
