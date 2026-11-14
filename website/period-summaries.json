@@ -219,6 +219,52 @@
         "outputTokens": 3516,
         "costUsd": 0.005416
       }
+    },
+    "2026-11-14": {
+      "headline": "Adaptive scopes add active-only recipient and site-owner filtering in December 2026 preview",
+      "overview": "Two forward-looking rollouts carry the most administrator weight: adaptive scopes will shift to active-only recipient and site-owner evaluation by default, with a December 2026 preview and April 2027 general availability milestone; sensitivity labels for Microsoft Entra cloud security groups begin in mid-January 2027. The documentation updates add targeted operational guidance on Insider Risk group-removal delays, Outlook for Mac version requirements, and failed sensitivity-label audit operations.",
+      "adminImpact": "No immediate action is required for adaptive scopes. For Microsoft Entra security groups, administrators must plan for separate feature enablement and appropriate licensing, while recognizing that applied labels cannot currently be changed or removed. Insider Risk investigations should allow for processing delays and retained alerts or activity. Administrators supporting on-premises mailboxes should verify Outlook for Mac is version 16.112 or later, and use the revised audit operation names in searches and documentation.",
+      "keyChanges": [
+        {
+          "title": "Adaptive scopes default to active lifecycle objects",
+          "detail": "Starting in the December 2026 preview, adaptive scopes will evaluate only active recipients and site owners by default, with options to include inactive or soft-deleted ones. Queries also gain ISO 8601 duration support, and general availability is scheduled for April 2027.",
+          "product": "Purview",
+          "sourceId": "MC1450128"
+        },
+        {
+          "title": "Sensitivity labels reach Microsoft Entra cloud security groups",
+          "detail": "Beginning in mid-January 2027, sensitivity labels can be applied to Microsoft Entra cloud security groups for label-based governance and access policies. The feature must be enabled separately and requires appropriate licensing; labels cannot yet be changed or removed after application.",
+          "product": "Purview",
+          "sourceId": "MC1508238"
+        },
+        {
+          "title": "Insider Risk guidance details delayed group-removal effects",
+          "detail": "Removing a user from an included security group may not immediately stop scoring or alerting. Activities can continue contributing to alerts until processing completes, collected activities remain stored through the activation window, and existing alerts are not automatically removed. Deleted accounts in two departing-user templates continue to be monitored for the rest of that window.",
+          "product": "Insider Risk",
+          "sourceId": "doc-2026-11-14-insider-risk-management-settings-policy-timeframes-06"
+        },
+        {
+          "title": "Outlook for Mac 16.112 supports labels for on-premises mailboxes",
+          "detail": "The sensitivity-label guidance now specifies Outlook for Mac version 16.112 or later for on-premises mailbox support. Other Outlook clients still require Exchange Online, including when working with shared mailboxes.",
+          "product": "Information Protection",
+          "sourceId": "doc-2026-11-14-sensitivity-labels-office-apps-08"
+        },
+        {
+          "title": "Audit reference names failed sensitivity-label operations",
+          "detail": "The documented operation names are now FileSensitivityLabelApplyFailed, FileSensitivityLabelChangeFailed, and FileSensitivityLabelRemoveFailed. Use these names when reviewing or documenting audit events for failed sensitivity-label actions.",
+          "product": "Audit",
+          "sourceId": "doc-2026-11-14-audit-log-activities-04"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-14T09:10:02.780Z",
+      "usage": {
+        "inputTokens": 2290,
+        "outputTokens": 3228,
+        "costUsd": 0.004332
+      }
     }
   },
   "weeks": {
@@ -269,102 +315,102 @@
       }
     },
     "2026-11-09": {
-      "headline": "Purview sets December 7 DSPM retirement as Unified Catalog pages flag no new accounts",
-      "overview": "The clearest operational deadline is December 7, 2026: Microsoft will retire select DSPM integrations for non-Microsoft data sources, ending ingestion and display for Varonis, BigID, Cyera, and OneTrust. A large group of November 13 Learn pages now states that Unified Catalog and classic Purview data governance capabilities are being retired and consolidated in Microsoft Fabric, with new accounts no longer available. Other substantive announcements cover late-November Edge for Business DLP setup changes, mid-2027 Endpoint DLP AI skills, and new RBAC audit operations; the documentation stream largely repeats the governance transition notice.",
-      "adminImpact": "Review dependencies on the four retiring DSPM integrations before December 7. The updated governance pages say new Purview accounts can no longer be created, so avoid planning new deployments around that path. Edge DLP requires no policy migration, Endpoint DLP's planned AI skills require Security Copilot, and the permissions-audit enhancement requires no action.",
+      "headline": "Purview will retire four DSPM partner integrations on December 7",
+      "overview": "The week’s clearest service-impacting change is the December 7, 2026 retirement of four DSPM partner integrations for non-Microsoft data sources. A broad Data Governance documentation sweep now adds notices saying Unified Catalog and classic Purview governance capabilities are being retired and consolidated in Microsoft Fabric and that new accounts can no longer be created. Other Message Center notices schedule adaptive-scope lifecycle controls, sensitivity labels for Microsoft Entra cloud security groups, and improved DLP setup for unmanaged apps in Edge for Business; Endpoint DLP’s Policy Sync and Device Health AI skills are slated for mid-2027 and require Security Copilot. Smaller updates clarify Insider Risk processing delays, the DLP location name “Microsoft Copilot, Copilot Chat, and Copilot Cowork,” and failed sensitivity-label audit operation names.",
+      "adminImpact": "Review dependencies on Varonis, BigID, Cyera, or OneTrust integrations before December 7; if none are used, the DSPM notice requires no action. For new governance work, do not plan on creating new Unified Catalog or classic Purview accounts, and factor the stated Fabric consolidation into roadmap decisions; the supplied documentation gives no migration deadline or procedure. For the announced future controls, verify licensing and separate enablement for Entra group labels. Update DLP configuration references to “Microsoft Copilot, Copilot Chat, and Copilot Cowork” and audit runbooks to use FileSensitivityLabelApplyFailed, FileSensitivityLabelChangeFailed, and FileSensitivityLabelRemoveFailed. Allow for Insider Risk scoring and alerts to continue during processing after group removal.",
       "keyChanges": [
         {
-          "title": "Selected DSPM integrations stop ingesting and displaying data December 7",
-          "detail": "Microsoft will retire the Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft data sources on December 7, 2026. They will no longer ingest or display data, while other DSPM capabilities remain unaffected. Microsoft says no action is required but advises reviewing dependencies on these integrations.",
-          "product": "Purview DSPM",
+          "title": "Four DSPM partner integrations have a December 7 retirement date",
+          "detail": "Microsoft will retire the Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft data sources on December 7, 2026. They will stop ingesting and displaying data; other DSPM capabilities are unaffected. No action is required, but administrators using them should review dependencies.",
+          "product": "DSPM",
           "sourceId": "MC1545691"
         },
         {
-          "title": "Unified Catalog pages add a no-new-account retirement notice",
-          "detail": "The updated Learn overview now states that Unified Catalog and classic Purview data governance capabilities are being retired and consolidated in Microsoft Fabric, and that new accounts can no longer be created. The supplied update does not provide a specific migration procedure or deadline.",
-          "product": "Data Governance / Unified Catalog",
-          "sourceId": "doc-2026-11-13-learn-about-microsoft-purview-unified-catalog-302"
+          "title": "Unified Catalog pages now say new Purview accounts cannot be created",
+          "detail": "The updated Unified Catalog guidance says Unified Catalog and classic Microsoft Purview data governance capabilities, formerly Azure Purview, are being consolidated in Microsoft Fabric and that new accounts can no longer be created. It gives no deadline or specific migration step.",
+          "product": "Data Governance",
+          "sourceId": "doc-2026-11-13-enterprise-glossary-in-unified-catalog-preview-277"
         },
         {
-          "title": "Edge for Business unmanaged-app DLP setup adds Intune multi-admin approval",
-          "detail": "Starting in late November 2026, setup and activation for unmanaged apps in Edge for Business will add Intune multi-admin approval, clearer status, detailed errors, and task coordination between Purview and Intune administrators. No policy migration is required.",
+          "title": "Adaptive scopes will default to active recipients and site owners",
+          "detail": "Starting in December 2026 preview, adaptive scopes will evaluate only active recipients and site owners by default, with options to include inactive or soft-deleted ones; queries will support ISO 8601 durations. General availability is scheduled for April 2027, and no immediate action is required.",
+          "product": "Purview Adaptive Scopes",
+          "sourceId": "MC1450128"
+        },
+        {
+          "title": "Sensitivity labels are coming to Microsoft Entra cloud security groups",
+          "detail": "Starting mid-January 2027, Purview will support applying sensitivity labels to Microsoft Entra cloud security groups for label-based governance and access policies. The feature must be enabled separately and requires appropriate licensing; labels cannot yet be changed or removed once applied.",
+          "product": "Information Protection",
+          "sourceId": "MC1508238"
+        },
+        {
+          "title": "Edge unmanaged-app DLP adds Intune multi-admin approval support",
+          "detail": "Starting late November 2026, Purview DLP will improve setup and activation for unmanaged apps in Edge for Business, add Intune multi-admin approval, and provide clearer status, detailed errors, and coordination between Purview and Intune administrators. No policy migration is needed.",
           "product": "Data Loss Prevention",
           "sourceId": "MC1489971"
-        },
-        {
-          "title": "Endpoint DLP AI skills target mid-2027 and require Security Copilot",
-          "detail": "Endpoint DLP is planned to gain AI-powered Policy Sync and Device Health skills in a mid-2027 rollout. The skills will help identify affected devices, root causes, and remediation actions, and require Security Copilot to be enabled in the tenant.",
-          "product": "Purview Endpoint Data Loss Prevention",
-          "sourceId": "MC1381121"
-        },
-        {
-          "title": "Purview permissions auditing adds two RBAC audit operations",
-          "detail": "The permissions audit log enhancement adds two audit operations for role-based access control, improving transparency and troubleshooting. Worldwide rollout runs from late September through mid-November 2026; Microsoft says no administrator action is required.",
-          "product": "Purview permissions auditing",
-          "sourceId": "MC1473155"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-13T09:58:26.468Z",
+      "generatedAt": "2026-11-14T09:10:02.780Z",
       "usage": {
-        "inputTokens": 10234,
-        "outputTokens": 7939,
-        "costUsd": 0.011574
+        "inputTokens": 10210,
+        "outputTokens": 8935,
+        "costUsd": 0.012764
       }
     }
   },
   "months": {
     "2026-11": {
-      "headline": "Purview sets a December 7 deadline for four DSPM integrations",
-      "overview": "The month’s clearest operational deadline is December 7, 2026, when Microsoft will retire Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft data sources; ingestion and display will stop, while other DSPM capabilities remain unaffected. A broad November 13 documentation update says Unified Catalog and classic Purview data governance capabilities are being retired and consolidated in Microsoft Fabric, and that new accounts can no longer be created. Other notable announcements cover Copilot’s external-email DLP control, late-November Edge for Business setup changes, and mid-2027 Endpoint DLP AI skills; most remaining activity was documentation refreshes.",
-      "adminImpact": "Review dependencies on the four DSPM integrations before December 7. Do not plan new Unified Catalog or classic Purview governance deployments around creating new Purview accounts; account for the stated consolidation in Microsoft Fabric. For the DLP announcements, note the published rollout windows, the Edge update’s lack of a policy-migration requirement, and Security Copilot as a prerequisite for the planned Endpoint DLP AI skills.",
+      "headline": "Purview sets December 7 retirement for four DSPM integrations as governance consolidates in Fabric",
+      "overview": "November was dominated by updated pages, but the material administrator signal is clear: four DSPM partner integrations for non-Microsoft data sources will stop ingesting and displaying data on December 7, 2026. Microsoft Learn also now carries broad guidance stating that Unified Catalog and classic Purview data governance capabilities are being retired and consolidated in Microsoft Fabric, with no new accounts available. Other significant changes cover DLP controls for external email in Copilot, lifecycle-aware adaptive scopes, and sensitivity labels for Microsoft Entra cloud security groups. Smaller updates clarify Insider Risk processing after group removal and rename failed sensitivity-label audit operations.",
+      "adminImpact": "Review dependencies on Varonis, BigID, Cyera, and OneTrust before December 7 if non-Microsoft data sources are involved; the notice says no action is required where these integrations are not used. For new governance work, treat the stated no-new-account and Fabric-consolidation guidance as a planning constraint; the supplied evidence gives no migration deadline or procedure. Track the announced Copilot DLP and adaptive-scope timelines. For Entra group labels, verify licensing and separate enablement, and account for labels not being changeable or removable after application.",
       "keyChanges": [
         {
-          "title": "Four non-Microsoft DSPM integrations retire December 7",
-          "detail": "Microsoft Purview will retire the Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft data sources on December 7, 2026. They will no longer ingest or display data; other DSPM capabilities remain unaffected. Microsoft says no action is required, but advises reviewing dependencies.",
-          "product": "Microsoft Purview DSPM",
+          "title": "Four DSPM partner integrations retire for non-Microsoft sources on December 7",
+          "detail": "Microsoft Purview will retire the Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft data sources on December 7, 2026. They will no longer ingest or display data, while other DSPM capabilities remain unaffected.",
+          "product": "Purview — DSPM partner integrations",
           "sourceId": "MC1545691"
         },
         {
-          "title": "Updated guidance flags no new Purview accounts for Unified Catalog",
-          "detail": "A November 13 FAQ update states that Unified Catalog and classic Microsoft Purview data governance capabilities are being retired and consolidated in Microsoft Fabric, and that new Purview accounts can no longer be created.",
+          "title": "Data Governance pages add no-new-account guidance as capabilities consolidate in Fabric",
+          "detail": "A broad set of Microsoft Learn pages now states that Unified Catalog and classic Purview data governance capabilities are being retired and consolidated in Microsoft Fabric, and that new accounts can no longer be created. The supplied evidence gives no migration deadline or procedure.",
           "product": "Data Governance",
           "sourceId": "doc-2026-11-13-frequently-asked-questions-about-microsoft-purview-data-governance-solutions-48"
         },
         {
           "title": "Copilot DLP will exclude external email from grounding",
-          "detail": "The planned admin-configurable control restricts Microsoft 365 Copilot and Copilot Chat from processing email from external or untrusted domains. Those messages are excluded from Copilot grounding while internal data remains available. The notice lists public preview in June 2026 and general availability in June 2027.",
+          "detail": "The announced admin-configurable DLP control prevents Microsoft 365 Copilot and Copilot Chat from using email from external or untrusted domains for grounding while retaining internal data use. The notice lists public preview in June 2026 and general availability in June 2027.",
           "product": "Data Loss Prevention",
           "sourceId": "MC1301714"
         },
         {
-          "title": "Edge for Business DLP adds coordinated Intune setup",
-          "detail": "Starting in late November 2026, DLP setup and activation for unmanaged apps in Edge for Business will add Intune multi-admin approval support, clearer status and error details, and task coordination between Purview and Intune administrators. No policy migration is required.",
-          "product": "Data Loss Prevention",
-          "sourceId": "MC1489971"
+          "title": "Adaptive scopes will default to active recipients and site owners",
+          "detail": "Adaptive scopes are being updated to evaluate only active recipients and site owners by default, with options to include inactive or soft-deleted objects. Queries will also support ISO 8601 durations; preview rollout starts in December 2026 and general availability in April 2027.",
+          "product": "Purview — Adaptive scopes",
+          "sourceId": "MC1450128"
         },
         {
-          "title": "Endpoint DLP AI skills require Security Copilot",
-          "detail": "Planned for rollout in mid-2027, the Policy Sync and Device Health skills will provide visibility into policy deployment and synchronization problems, including affected devices, root causes, and remediation actions. The capability requires Security Copilot to be enabled in the tenant.",
-          "product": "Endpoint Data Loss Prevention",
-          "sourceId": "MC1381121"
+          "title": "Sensitivity labels are coming to Microsoft Entra cloud security groups",
+          "detail": "Starting in mid-January 2027, sensitivity labels can provide label-based governance and access policies for Microsoft Entra cloud security groups. The feature requires separate enablement and appropriate licensing, and applied labels cannot yet be changed or removed.",
+          "product": "Information Protection — sensitivity labels",
+          "sourceId": "MC1508238"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-13T09:58:26.468Z",
+      "generatedAt": "2026-11-14T09:10:02.780Z",
       "usage": {
-        "inputTokens": 6296,
-        "outputTokens": 3621,
-        "costUsd": 0.005604
+        "inputTokens": 6489,
+        "outputTokens": 7970,
+        "costUsd": 0.010862
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-13T09:58:26.468Z",
+  "generatedAt": "2026-11-14T09:10:02.780Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -405,18 +451,24 @@
       "outputTokens": 27076,
       "requests": 4,
       "costUsd": 0.039041
+    },
+    "2026-11-14": {
+      "inputTokens": 18989,
+      "outputTokens": 20133,
+      "requests": 3,
+      "costUsd": 0.027957
     }
   },
   "lastRun": {
-    "inputTokens": 32747,
-    "outputTokens": 27076,
-    "requests": 4,
-    "costUsd": 0.039041
+    "inputTokens": 18989,
+    "outputTokens": 20133,
+    "requests": 3,
+    "costUsd": 0.027957
   },
   "totalUsage": {
-    "inputTokens": 77620,
-    "outputTokens": 96992,
-    "requests": 27,
-    "costUsd": 0.131915
+    "inputTokens": 96609,
+    "outputTokens": 117125,
+    "requests": 30,
+    "costUsd": 0.159872
   }
 }

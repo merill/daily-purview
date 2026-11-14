@@ -1,0 +1,359 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "Purview/audit-log-activities.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 0,
+      "changes": 2,
+      "patch": "diff --git a/Purview/audit-log-activities.md b/Purview/audit-log-activities.md\nindex 007529a..5eced38 100644\n--- a/Purview/audit-log-activities.md\n+++ b/Purview/audit-log-activities.md\n@@ -2330,6 +2330,7 @@ The following table lists the user and admin activities in Viva Glint that the M\n | Enabled Advanced Configuration Access | UserAdvConfigEnabled | A Company Admin user enabled Advanced Configuration access in Viva Glint. |\r\n | Enabled Glint to Insights integration | GlintToInsightsIntegrationEnabled | A user enabled importing Viva Insights data in Viva Glint |\r\n | Executed Data Apps Job | GlintDataAppsJobRun | Viva Glint Advanced Configuration Data app and Upload activity. |\r\n+| Executed user hard delete | GlintExecutedUserHardDelete | User hard deletion complete in Viva Glint. |\r\n | Exported agentic campaign policy violations | VivaGlintAgenticPolicyViolationsExported | Agentic campaign policy violations export activity. |\r\n | Exported agentic campaign topic analysis | VivaGlintAgenticTopicAnalysisExported | Agentic campaign topic analysis export activity. |\r\n | Exported all agentic campaign data | VivaGlintAgenticAllDataExported | Agentic campaign raw data export activity. |\r\n@@ -2359,6 +2360,7 @@ The following table lists the user and admin activities in Viva Glint that the M\n | Updated agentic policy | PolicyUpdated | An agentic policy was updated. |\r\n | Updated agentic settings | AgenticSettingsUpdated | Agentic settings were updated. |\r\n | Updated Glint to Insights integration | GlintToInsightsIntegrationUpdated | A user updated the configuration for importing Viva Insights data in Viva Glint |\r\n+| Updated retain data for deleted users setting | GlintRetainDeletedUserDataSet | A user updated the configuration for retaining user data after hard deletion. |\r\n | Viewed As | ViewAs | Admins' \"View As\" another user activity. |\r\n \r\n ## Viva Goals activities\r\n",
+      "baseCommitSha": "1a46656537196fb14120bb7f0bb349e1719315ea",
+      "commitSha": "14893acc50033c68888ea75bc3fe05ddc830ed3c",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-14 02:31:03 +0000",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/audit-log-activities.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/audit-log-activities",
+      "eventId": "purview-docs:14893acc50033c68888ea75bc3fe05ddc830ed3c:modified:Purview/audit-log-activities.md",
+      "firstSeenAt": "2026-11-14T09:09:45.085Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Two Viva Glint audit activities added",
+        "summary": "The audit activity documentation now lists events for completed user hard deletion and changes to the setting that retains deleted-user data.",
+        "adminImpact": "Administrators can use these activity names to identify relevant Viva Glint deletion and data-retention events in audit logs.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "Purview/auto-label-insights-tab.md",
+      "status": "modified",
+      "additions": 24,
+      "deletions": 4,
+      "changes": 28,
+      "patch": "diff --git a/Purview/auto-label-insights-tab.md b/Purview/auto-label-insights-tab.md\nindex 11de867..3f96cd2 100644\n--- a/Purview/auto-label-insights-tab.md\n+++ b/Purview/auto-label-insights-tab.md\n@@ -14,7 +14,7 @@ manager: laurawi\n audience: Admin\n ms.service: purview\n ms.subservice: purview-information-protection\n-ms.date: 2026-10-12T00:00:00.0000000Z\n+ms.date: 2026-10-26T00:00:00.0000000Z\n ms.collection:\n - purview-compliance\n ms.topic: article\n@@ -99,16 +99,36 @@ Policy-level enforcement metrics and the **Labeled items** view report only file\n | --- | --- |\r\n | **Sensitivity label** | The sensitivity label applied by the policy. |\r\n | **Status** | The current status of the policy. |\r\n-| **Turn on date** | The activation date and time displayed by the portal. Don't use this field as an immutable record of the policy's first activation. |\r\n-| **Total labeled to date** | The total number of SharePoint and OneDrive files labeled by the policy. |\r\n+| **Turn on date** | The activation date and time displayed by the portal. Don't use this field as an immutable record of the policy's first activation. If the policy was edited after it was turned on, this date can show the most recent edit. |\r\n+| **Total labeled to date** | The number of SharePoint and OneDrive files that have a label applied by this policy. For removal policies, it's the number of files the policy removed the label from. This is a current count, not a running total. It can decrease, for example when labeled files are deleted, and it isn't reset when you edit the policy. Updates aren't immediate. |\r\n | **Duration** | The number of days calculated from the displayed enforcement turn-on date. |\r\n | **Last simulated results** | The results of the most recent simulation before enforcement was turned on. |\r\n | **Completed on** | The date when the most recent simulation completed. |\r\n-| **Count of auto-labeled and failed files** | A donut chart showing files processed in the last 30 days: - **Labeled (green):** Files that were successfully labeled.  - **Failed (red):** Files that matched but couldn't be labeled. |\r\n+| **Count of auto-labeled and failed files** | A donut chart showing this policy's labeling activity in the last 30 days. A file that's labeled more than once is counted each time, so this chart isn't a count of unique files. - **Labeled (green):** Files that were successfully labeled.  - **Failed (red):** Files that matched but couldn't be labeled. |\r\n | **Labeling failures** | The card shows the total number of failed items and the **Top 3 failure reasons**, sorted by volume. For more information, see [Resolve auto-labeling failures in SharePoint and OneDrive files](/en-us/troubleshoot/microsoft-365/purview/sensitivity-labels/auto-labeling-failures-sharepoint-onedrive). |\r\n | **Top 10 sensitive info types** | The table lists the sensitive information types (SITs) most frequently detected when this policy applied labels during the last 30 days. It includes the **Files labeled** count for each SIT. |\r\n | **Labels per source** | To identify whether failures are concentrated to a specific workload, **Labels per source** shows a breakdown of labeled and failed item counts for SharePoint and OneDrive. |\r\n \r\n+## Why Total labeled to date and the 30-day counts differ\r\n+\r\n+These metrics measure different things. Total labeled to date is a current count of files. The 30-day counts show labeling activity.\r\n+\r\n+### Total labeled to date is lower than the 30-day count\r\n+\r\n+This difference is expected when:\r\n+\r\n+- Some files were labeled more than once, for example a label was applied and then changed.\r\n+- Labeled files were deleted. Their earlier activity still appears in the 30-day count.\r\n+\r\n+### Total labeled to date is higher than the 30-day count\r\n+\r\n+This difference is expected when:\r\n+\r\n+- The policy has been on for more than 30 days, so earlier labeling is outside the 30-day window. The displayed turn-on date can show the most recent edit instead of the first time the policy was turned on.\r\n+- Recent activity hasn't appeared yet. Activity data can take time to appear. For more information, see [Get started with Activity explorer](data-classification-activity-explorer).\r\n+\r\n+Total labeled to date might stay higher after a few days for a policy that was turned on less than 30 days ago. If so, contact Microsoft Support.\r\n+\r\n For the daily trend, select **View details** and open **Overview** in the newer full review experience. **Labeling activity overview** shows separate successful and failed series for the last 30 days. For removal policies, the chart is **Label removal activity overview**. This chart isn't part of the newer Insights layout.\r\n \r\n Review failure reasons even when few files fail. Transient infrastructure failures are retried automatically, but configuration, protection, or file format failures might require action regardless of volume. Some unsupported files require no action. Follow the reason-specific guidance in [Resolve auto-labeling failures in SharePoint and OneDrive files](/en-us/troubleshoot/microsoft-365/purview/sensitivity-labels/auto-labeling-failures-sharepoint-onedrive).\r\n",
+      "baseCommitSha": "1a46656537196fb14120bb7f0bb349e1719315ea",
+      "commitSha": "14893acc50033c68888ea75bc3fe05ddc830ed3c",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-14 02:31:03 +0000",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/auto-label-insights-tab.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/auto-label-insights-tab",
+      "eventId": "purview-docs:14893acc50033c68888ea75bc3fe05ddc830ed3c:modified:Purview/auto-label-insights-tab.md",
+      "firstSeenAt": "2026-11-14T09:09:45.098Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Auto-label insights metrics clarified",
+        "summary": "The documentation now explains that total labeled is a current file count, 30-day charts count labeling activity including repeat labeling, and the turn-on date may reflect a recent policy edit. It also explains why these metrics can differ.",
+        "adminImpact": "No action is required. Administrators can use these definitions to interpret portal metrics and investigate expected count differences.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "Purview/technical-reference-details-about-encryption.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 3,
+      "changes": 8,
+      "patch": "diff --git a/Purview/technical-reference-details-about-encryption.md b/Purview/technical-reference-details-about-encryption.md\nindex 3f377c6..34c2efc 100644\n--- a/Purview/technical-reference-details-about-encryption.md\n+++ b/Purview/technical-reference-details-about-encryption.md\n@@ -43,11 +43,11 @@ source_path: Purview/technical-reference-details-about-encryption.md\n cmProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/1dd701e0-441f-4b0a-9806-aa47decc4e35\n - https://authoring-docs-microsoft.poolparty.biz/devrel/e93f3d5f-c77d-4365-a7fb-c9f2234416c7\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/6ab06385-661e-4214-8870-bbe4071c960d\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/0b654e73-5728-4af3-8c2e-17bfbf4c9f23\n spProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/0a2fc935-5977-4aa6-9f55-0be03bd2acb8\n - https://authoring-docs-microsoft.poolparty.biz/devrel/62e8d07a-cc62-4934-b30b-e168a571e51d\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/131ba09e-4280-4ae7-8622-1f9f1c0daad1\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/11529658-843a-40bd-b2f8-5eed118be619\n platformId: 7df9fccf-a8eb-b96a-0834-a82640c8d379\n ---\n \n@@ -162,4 +162,6 @@ Microsoft 365 responds to a connection request by first attempting to connect us\n | TLS\\_ECDHE\\_RSA\\_WITH\\_AES\\_256\\_CBC\\_SHA384 | 1.2 |\r\n | TLS\\_ECDHE\\_RSA\\_WITH\\_AES\\_128\\_CBC\\_SHA256 | 1.2 |\r\n \r\n-[!Note] Legacy TLS cipher suites may appear in external security scans of Exchange Online endpoints due to compatibility requirements for legacy SMTP AUTH client submission protocol. These cipher suites are retained for specific opt-in legacy TLS scenarios and aren't used for standard SMTP connections, which negotiate the strongest mutually supported TLS version and cipher suite.\n\\ No newline at end of file\n+Note\r\n+\r\n+Legacy TLS cipher suites may appear in external security scans of Exchange Online endpoints due to compatibility requirements for legacy SMTP AUTH client submission protocol. These cipher suites are retained for specific opt-in legacy TLS scenarios and aren't used for standard SMTP connections, which negotiate the strongest mutually supported TLS version and cipher suite.\n\\ No newline at end of file\n",
+      "baseCommitSha": "1a46656537196fb14120bb7f0bb349e1719315ea",
+      "commitSha": "14893acc50033c68888ea75bc3fe05ddc830ed3c",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-14 02:31:03 +0000",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/technical-reference-details-about-encryption.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/technical-reference-details-about-encryption",
+      "eventId": "purview-docs:14893acc50033c68888ea75bc3fe05ddc830ed3c:modified:Purview/technical-reference-details-about-encryption.md",
+      "firstSeenAt": "2026-11-14T09:09:45.105Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Encryption documentation updates TLS guidance and references",
+        "summary": "The page updates two authoring links and reformats the note about legacy TLS cipher suites used for opt-in legacy SMTP AUTH scenarios.",
+        "adminImpact": "Administrators reviewing encryption guidance will see updated references and revised presentation of the TLS compatibility information.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "Purview/audit-log-activities.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 3,
+      "changes": 6,
+      "patch": "diff --git a/Purview/audit-log-activities.md b/Purview/audit-log-activities.md\nindex 824d4af..007529a 100644\n--- a/Purview/audit-log-activities.md\n+++ b/Purview/audit-log-activities.md\n@@ -1758,9 +1758,9 @@ The following table lists events recorded in the Microsoft 365 audit log that re\n | Applied sensitivity label to site | SiteSensitivityLabelApplied | A sensitivity label was applied to a SharePoint site, Teams site that isn't group-connected, or a Loop workspace. |\r\n | Changed sensitivity label applied to file | FileSensitivityLabelChangedSensitivityLabelUpdated | A different sensitivity label was applied to an item. The operations for this activity are different depending on how the label was changed: - Office for the web, details pane in a SharePoint document library or the Files tab in Teams, or an auto-labeling policy (FileSensitivityLabelChanged)  - Microsoft 365 apps (SensitivityLabelUpdated). |\r\n | Changed sensitivity label on a site | SiteSensitivityLabelChanged | A different sensitivity label was applied to a SharePoint site, Teams site that isn't group-connected, or a Loop workspace. |\r\n-| Failed to apply file sensitivity label | FileSensitivityLabelAppliedFailed | A sensitivity label failed to be applied to an item by using Office for the web, the details pane in a SharePoint document library or from the Files tab in Teams, or an auto-labeling policy. |\r\n-| Failed to change file sensitivity label | FileSensitivityLabelChangedFailed | A different sensitivity label failed to be applied to an item using Office for the web, the details pane in a SharePoint document library or from the Files tab in Teams, or an auto-labeling policy. |\r\n-| Failed to remove file sensitivity label | FileSensitivityLabelRemovedFailed | A sensitivity label failed to be removed from an item by using Office for the web, the details pane in a SharePoint document library or from the Files tab in Teams, or an auto-labeling policy. |\r\n+| Failed to apply file sensitivity label | FileSensitivityLabelApplyFailed | A sensitivity label failed to be applied to an item by using Office for the web, the details pane in a SharePoint document library or from the Files tab in Teams, or an auto-labeling policy. |\r\n+| Failed to change file sensitivity label | FileSensitivityLabelChangeFailed | A different sensitivity label failed to be applied to an item using Office for the web, the details pane in a SharePoint document library or from the Files tab in Teams, or an auto-labeling policy. |\r\n+| Failed to remove file sensitivity label | FileSensitivityLabelRemoveFailed | A sensitivity label failed to be removed from an item by using Office for the web, the details pane in a SharePoint document library or from the Files tab in Teams, or an auto-labeling policy. |\r\n | Removed sensitivity label from file | FileSensitivityLabelRemoved  SensitivityLabelRemoved | A sensitivity label was removed from an item by using Microsoft 365 apps, Office for the web, the details pane in a SharePoint document library or the Files tab in Teams, an auto-labeling policy, or the [Unlock-SPOSensitivityLabelEncryptedFile](/en-us/powershell/module/microsoft.online.sharepoint.powershell/unlock-sposensitivitylabelencryptedfile) cmdlet. The operations for this activity are different depending on how the label was removed: - Office for the web, details pane in a SharePoint document library or the Files tab in Teams, or an auto-labeling policy (FileSensitivityLabelRemoved)  - Microsoft 365 apps (SensitivityLabelRemoved). |\r\n | Removed sensitivity label from site | SiteSensitivityLabelRemoved | A sensitivity label was removed from a SharePoint site, Teams site that isn't group-connected, or a Loop workspace. |\r\n \r\n",
+      "baseCommitSha": "341a27c4b72a07a47b9619de7022603f938e5873",
+      "commitSha": "1a46656537196fb14120bb7f0bb349e1719315ea",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-13 22:02:34 +0000",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/audit-log-activities.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/audit-log-activities",
+      "eventId": "purview-docs:1a46656537196fb14120bb7f0bb349e1719315ea:modified:Purview/audit-log-activities.md",
+      "firstSeenAt": "2026-11-14T09:09:45.333Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Audit activity names for failed sensitivity-label actions updated",
+        "summary": "The documented operation names changed to FileSensitivityLabelApplyFailed, FileSensitivityLabelChangeFailed, and FileSensitivityLabelRemoveFailed.",
+        "adminImpact": "Use the updated operation names when reviewing or documenting audit events for failed sensitivity-label actions.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "Purview/insider-risk-management-configure.md",
+      "status": "modified",
+      "additions": 10,
+      "deletions": 2,
+      "changes": 12,
+      "patch": "diff --git a/Purview/insider-risk-management-configure.md b/Purview/insider-risk-management-configure.md\nindex abbc31c..620f61f 100644\n--- a/Purview/insider-risk-management-configure.md\n+++ b/Purview/insider-risk-management-configure.md\n@@ -12,10 +12,10 @@ ms.subservice: purview-insider-risk-management\n ms.topic: get-started\n f1.keywords:\n - NOCSH\n-ms.author: kreagle\n+ms.author: joibarr\n author: k-reagle\n manager: laurawi\n-ms.date: 2025-11-14T00:00:00.0000000Z\n+ms.date: 2026-11-13T00:00:00.0000000Z\n audience: itpro\n ms.collection:\n - highpri\n@@ -26,6 +26,8 @@ ms.collection:\n ms.custom:\n - admindeeplinkCOMPLIANCE\n - sfi-ga-nochange\n+- msecd-doc-authoring-1032\n+ai-usage: ai-assisted\n locale: en-us\n document_id: 9ae0ab35-8913-1821-5588-6481b8303445\n document_version_independent_id: 9ae0ab35-8913-1821-5588-6481b8303445\n@@ -44,9 +46,11 @@ item_type: Content\n source_path: Purview/insider-risk-management-configure.md\n cmProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/1dd701e0-441f-4b0a-9806-aa47decc4e35\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n - https://authoring-docs-microsoft.poolparty.biz/devrel/57eae111-0f3b-497e-be07-450fd1409dea\n spProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/0a2fc935-5977-4aa6-9f55-0be03bd2acb8\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/ac8bf8ab-8134-4c9a-9f2e-58b31575b492\n platformId: 66f7c5b0-e0e8-3df7-7fa0-d61dc8477d47\n ---\n@@ -361,6 +365,10 @@ To create a custom trigger or indicator for a non-Microsoft workload, see [Custo\n         Note\r\n \r\n         Guest accounts aren't supported.\r\n+\r\n+        Note\r\n+\r\n+        Removing a user from an included security group can take time to process. Until the service processes the change, activities can continue to receive risk scores and contribute to alerts. Once the service determines that the user is no longer included in the policy, scoring and alerting stop for that policy. Activity monitoring continues for the remainder of the user's existing activation window. Existing alerts and their previously captured data remain. For details and the exception for deleted accounts in specific departing-user templates, see [Set policy timeframes in Insider Risk Management](insider-risk-management-settings-policy-timeframes).\r\n     - **Adaptive scope**. This option appears if you select the **Include specific users and groups** option. Select **Add or edit adaptive scopes** to [apply an adaptive scope to the policy](purview-adaptive-scopes). You must create the adaptive scope before you create or edit the policy. If the policy is also [scoped by one or more admin units](purview-admin-units), the adaptive scopes available to you are limited by the admin units. [Learn how adaptive scopes work together with admin units](purview-adaptive-scopes#how-adaptive-scopes-work-with-microsoft-entra-administrative-units).\r\n     - **Add or edit priority user groups**. This option appears only if you choose the *Data leaks by priority users* template. Select this option, then add or edit priority user groups.\r\n \r\n",
+      "baseCommitSha": "341a27c4b72a07a47b9619de7022603f938e5873",
+      "commitSha": "1a46656537196fb14120bb7f0bb349e1719315ea",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-13 22:02:34 +0000",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/insider-risk-management-configure.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/insider-risk-management-configure",
+      "eventId": "purview-docs:1a46656537196fb14120bb7f0bb349e1719315ea:modified:Purview/insider-risk-management-configure.md",
+      "firstSeenAt": "2026-11-14T09:09:45.340Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Documentation explains delayed processing after group removal",
+        "summary": "The article now states that removing a user from an included security group can take time to process. Until processing completes, the user's activities may continue receiving risk scores and contributing to alerts.",
+        "adminImpact": "Allow for this delay when managing group membership and reviewing insider risk alerts.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "Purview/insider-risk-management-settings-policy-timeframes.md",
+      "status": "modified",
+      "additions": 18,
+      "deletions": 3,
+      "changes": 21,
+      "patch": "diff --git a/Purview/insider-risk-management-settings-policy-timeframes.md b/Purview/insider-risk-management-settings-policy-timeframes.md\nindex 1ec1390..5520715 100644\n--- a/Purview/insider-risk-management-settings-policy-timeframes.md\n+++ b/Purview/insider-risk-management-settings-policy-timeframes.md\n@@ -12,10 +12,10 @@ ms.subservice: purview-insider-risk-management\n ms.topic: how-to\n f1.keywords:\n - NOCSH\n-ms.author: kreagle\n+ms.author: joibarr\n author: k-reagle\n manager: laurawi\n-ms.date: 2026-06-25T00:00:00.0000000Z\n+ms.date: 2026-11-13T00:00:00.0000000Z\n audience: itpro\n ms.collection:\n - highpri\n@@ -23,7 +23,7 @@ ms.collection:\n - m365solution-insiderrisk\n - m365initiative-compliance\n - highpri\n-ms.custom: admindeeplinkCOMPLIANCE, msecd-doc-authoring-1014\n+ms.custom: admindeeplinkCOMPLIANCE, msecd-doc-authoring-1032\n ai-usage: ai-assisted\n locale: en-us\n document_id: 814e5dca-c2de-65ad-a809-69b803fb3a76\n@@ -65,6 +65,21 @@ Policy timeframes in Microsoft Purview Insider Risk Management let you set past\n \r\n     For email activities, the past activity detection period is 10 days.\r\n \r\n+## Group membership changes during the activation window\r\n+\r\n+Removing a user from a security group included in a policy might not immediately stop risk scoring for that user. Membership changes can take time to process. Until the service processes the change, activities can continue to receive risk scores and contribute to alerts.\r\n+\r\n+Once the service determines that the user is no longer included in the policy, scoring and alerting stop for that policy. New activities no longer generate or update alerts for that policy.\r\n+\r\n+The service continues to collect and store activities for the remainder of the user's existing activation window. These activities can appear in Activity Explorer. Group removal doesn't automatically remove existing alerts or their previously captured data.\r\n+\r\n+An exception applies to these policy templates when the user's account has already been deleted:\r\n+\r\n+- *Data theft by departing users*\r\n+- *Security policy violations by departing users*\r\n+\r\n+For these deleted accounts, the service can't verify whether the user is still included in the policy. Monitoring continues during the remaining activation window. Activities received during that window can still result in alerts.\r\n+\r\n ## Configure policy timeframes\r\n \r\n 1. In Insider Risk Management settings, select **Policy timeframes**.\r\n",
+      "baseCommitSha": "341a27c4b72a07a47b9619de7022603f938e5873",
+      "commitSha": "1a46656537196fb14120bb7f0bb349e1719315ea",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-13 22:02:34 +0000",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/insider-risk-management-settings-policy-timeframes.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/insider-risk-management-settings-policy-timeframes",
+      "eventId": "purview-docs:1a46656537196fb14120bb7f0bb349e1719315ea:modified:Purview/insider-risk-management-settings-policy-timeframes.md",
+      "firstSeenAt": "2026-11-14T09:09:45.346Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Group removals may not immediately stop risk scoring",
+        "summary": "The documentation explains that removing a user from an included security group may not immediately stop scoring or alerting. Activities can continue contributing to alerts until processing completes, remain stored through the activation window, and existing alerts are not automatically removed. Deleted accounts in two departing-user templates continue to be monitored for the remaining activation window.",
+        "adminImpact": "Administrators should account for continued scoring, alerting, and activity retention after group removal when interpreting alerts and Activity Explorer data. No configuration change is required.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "Purview/insider-risk-management-users.md",
+      "status": "modified",
+      "additions": 13,
+      "deletions": 3,
+      "changes": 16,
+      "patch": "diff --git a/Purview/insider-risk-management-users.md b/Purview/insider-risk-management-users.md\nindex 5146511..ef06040 100644\n--- a/Purview/insider-risk-management-users.md\n+++ b/Purview/insider-risk-management-users.md\n@@ -12,14 +12,14 @@ ms.subservice: purview-insider-risk-management\n ms.topic: how-to\n f1.keywords:\n - NOCSH\n-ms.author: kreagle\n+ms.author: joibarr\n author: k-reagle\n manager: laurawi\n-ms.date: 2026-06-22T00:00:00.0000000Z\n+ms.date: 2026-11-13T00:00:00.0000000Z\n audience: itpro\n ms.collection:\n - purview-compliance\n-ms.custom: msecd-doc-authoring-1014, admindeeplinkCOMPLIANCE, sfi-image-nochange\n+ms.custom: msecd-doc-authoring-1032, admindeeplinkCOMPLIANCE, sfi-image-nochange\n ai-usage: ai-assisted\n locale: en-us\n document_id: fafa165a-2720-7d2e-ca0c-95f97ad9c6a9\n@@ -181,6 +181,16 @@ Note\n \r\n Removing a user from in-scope status might take several minutes. When the process completes, the user doesn't appear on the **Users dashboard**. If the removed user has active alerts or cases, the user remains on the **Users dashboard** and the user details show that they are no longer in-scope for a policy.\r\n \r\n+### Removing a user from a policy's security group\r\n+\r\n+Removing a user from a security group included in a policy is different from selecting **Stop scoring activity for users**. Group membership changes can take time to process. Until the service processes the change, activities can continue to receive risk scores and contribute to alerts.\r\n+\r\n+Once the service determines that the user is no longer included in the policy, scoring and alerting stop for that policy. Existing alerts no longer receive activity-based updates from that policy.\r\n+\r\n+The service continues to collect and store activities for the remainder of the user's existing activation window. These activities can appear in Activity Explorer. Group removal doesn't automatically remove existing alerts or their previously captured data.\r\n+\r\n+For the deleted-account exception in specific departing-user templates, see [Set policy timeframes in Insider Risk Management](insider-risk-management-settings-policy-timeframes).\r\n+\r\n ## Run automated tasks with Power Automate flows for a user\r\n \r\n Using recommended Power Automate flows, risk investigators and analysts can quickly take action to notify users when they're added to an insider risk policy.\r\n",
+      "baseCommitSha": "341a27c4b72a07a47b9619de7022603f938e5873",
+      "commitSha": "1a46656537196fb14120bb7f0bb349e1719315ea",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-13 22:02:34 +0000",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/insider-risk-management-users.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/insider-risk-management-users",
+      "eventId": "purview-docs:1a46656537196fb14120bb7f0bb349e1719315ea:modified:Purview/insider-risk-management-users.md",
+      "firstSeenAt": "2026-11-14T09:09:45.352Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Documentation clarifies effects of removing users from policy groups",
+        "summary": "The article now explains that group-removal changes may take time to process, during which activities can still receive risk scores and contribute to alerts. After processing, scoring and alerting stop for that policy, while existing alerts and collected activities remain available through the activation window.",
+        "adminImpact": "Administrators should account for processing delays and understand that removing a user from a group does not delete existing alerts or captured activity data.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "Purview/sensitivity-labels-office-apps.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 3,
+      "changes": 8,
+      "patch": "diff --git a/Purview/sensitivity-labels-office-apps.md b/Purview/sensitivity-labels-office-apps.md\nindex 4741942..f518c42 100644\n--- a/Purview/sensitivity-labels-office-apps.md\n+++ b/Purview/sensitivity-labels-office-apps.md\n@@ -40,12 +40,12 @@ item_type: Content\n source_path: Purview/sensitivity-labels-office-apps.md\n cmProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/19e6356c-ba1e-4d22-9557-6222c183f04d\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/e93f3d5f-c77d-4365-a7fb-c9f2234416c7\n - https://authoring-docs-microsoft.poolparty.biz/devrel/3e34b70d-bca0-4369-a01b-71d1edfd427b\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/bcbcbad5-4208-4783-8035-8481272c98b8\n spProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/01e6eca5-e701-4cd9-a21f-56c9258f473e\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/62e8d07a-cc62-4934-b30b-e168a571e51d\n - https://authoring-docs-microsoft.poolparty.biz/devrel/8ca32b3f-fa14-46df-b09a-9c4a591d6396\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/43b2e5aa-8a6d-4de2-a252-692232e5edc8\n platformId: bf2793d4-8d24-9f2d-312f-1e9dc584bc62\n ---\n \n@@ -62,7 +62,9 @@ This article helps you successfully manage sensitivity labels in Office apps. Fo\n \r\n To use sensitivity labels in Office apps, you must use a subscription edition of Office. Use the licensing link at the top of this page to identify eligible plans. Sensitivity labels aren't supported for standalone editions of Office, sometimes called \"Office Perpetual\".\r\n \r\n-For Outlook (Windows, macOS, iOS, Android, and on the web), the mailbox must be hosted in Exchange Online. Sensitivity labels aren't supported for mailboxes that are hosted on-premises. This on-premises limitation also applies to shared mailboxes, even if the users accessing them have mailboxes in Exchange Online.\r\n+For Outlook for Windows, Outlook for iOS and Android, Outlook on the web, and new Outlook for Windows, the mailbox must be hosted in Exchange Online. Sensitivity labels aren't supported for mailboxes that are hosted on-premises.\r\n+\r\n+For Outlook for Mac, sensitivity labels are supported for on-premises mailboxes starting with version 16.112. For other Outlook clients, the on-premises limitation also applies to shared mailboxes, even if the users accessing them have mailboxes in Exchange Online.\r\n \r\n ## Support for sensitivity label capabilities in apps\r\n \r\n",
+      "baseCommitSha": "341a27c4b72a07a47b9619de7022603f938e5873",
+      "commitSha": "1a46656537196fb14120bb7f0bb349e1719315ea",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-13 22:02:34 +0000",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/sensitivity-labels-office-apps.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/sensitivity-labels-office-apps",
+      "eventId": "purview-docs:1a46656537196fb14120bb7f0bb349e1719315ea:modified:Purview/sensitivity-labels-office-apps.md",
+      "firstSeenAt": "2026-11-14T09:09:45.360Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Outlook for Mac supports sensitivity labels with on-premises mailboxes",
+        "summary": "The documentation now states that Outlook for Mac supports sensitivity labels for on-premises mailboxes starting with version 16.112. Other Outlook clients still require Exchange Online, including shared mailboxes.",
+        "adminImpact": "Administrators can account for Outlook for Mac version 16.112 or later when evaluating sensitivity-label support for on-premises mailboxes.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "Purview/sensitivity-labels-versions.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 3,
+      "changes": 8,
+      "patch": "diff --git a/Purview/sensitivity-labels-versions.md b/Purview/sensitivity-labels-versions.md\nindex 53564b1..bb98bd8 100644\n--- a/Purview/sensitivity-labels-versions.md\n+++ b/Purview/sensitivity-labels-versions.md\n@@ -39,12 +39,12 @@ item_type: Content\n source_path: Purview/sensitivity-labels-versions.md\n cmProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/bcbcbad5-4208-4783-8035-8481272c98b8\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/3e34b70d-bca0-4369-a01b-71d1edfd427b\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/19e6356c-ba1e-4d22-9557-6222c183f04d\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/e2c9f30c-00ec-44c0-846c-b20dbfb3283f\n spProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/43b2e5aa-8a6d-4de2-a252-692232e5edc8\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/8ca32b3f-fa14-46df-b09a-9c4a591d6396\n - https://authoring-docs-microsoft.poolparty.biz/devrel/01e6eca5-e701-4cd9-a21f-56c9258f473e\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/702271fe-87d7-4493-828b-2d6fde3de8ab\n 2PlusCloud:\n - M365\n - Azure\n@@ -117,7 +117,7 @@ Note\n \r\n For Windows and the Semi-Annual Enterprise Channel, the minimum supported version numbers might not yet be released. [Learn more](/en-us/officeupdates/update-history-microsoft365-apps-by-date#supported-versions)\r\n \r\n-| Capability | Outlook for Windows | Outlook for Mac | Outlook on iOS | Outlook on Android | Outlook on the web | New Outlook for Windows^\\*^ |\r\n+| Capability | Outlook for Windows | Outlook for Mac^\\*\\*\\*^ | Outlook on iOS | Outlook on Android | Outlook on the web | New Outlook for Windows^\\*^ |\r\n | --- | --- | --- | --- | --- | --- | --- |\r\n | Manually apply, change, or remove label  - [Files and emails](https://support.microsoft.com/office/apply-sensitivity-labels-to-your-files-and-email-in-office-2f96e7cd-d5a4-403b-8bd7-4cc636bae0f9) | Current Channel: 1910+  Monthly Enterprise Channel: 1910+  Semi-Annual Enterprise Channel: 2002+ | 16.21+ | 4.7.1+ | 4.0.39+ | Yes | Yes |\r\n | Manually apply, change, or remove label  - [Calendar items](sensitivity-labels-meetings) | Current Channel: 2302+  Monthly Enterprise Channel: 2302+  Semi-Annual Enterprise Channel: 2402+ | 16.70+ ^\\*\\*^ | 4.2331.0+ | 4.2326.1+ | Yes | Yes |\r\n@@ -188,6 +188,8 @@ Tenant admins must opt in to enable sensitivity labels in OneNote within their t\n \r\n ^\\*\\*^ Requires the [new Outlook for Mac](https://support.microsoft.com/office/the-new-outlook-for-mac-6283be54-e74d-434e-babb-b70cefc77439)\r\n \r\n+^\\*\\*\\*^ For Outlook for Mac, sensitivity labels for on-premises mailboxes require version 16.112 or later.\r\n+\r\n ## Future releases\r\n \r\n For information about new labeling capabilities that are planned for future releases, use the [Microsoft 365 roadmap](https://www.microsoft.com/microsoft-365/roadmap?filters=Microsoft%20Information%20Protection&amp;searchterms=label).\n\\ No newline at end of file\n",
+      "baseCommitSha": "341a27c4b72a07a47b9619de7022603f938e5873",
+      "commitSha": "1a46656537196fb14120bb7f0bb349e1719315ea",
+      "commitMessage": "Mirror Learn: 6 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-13 22:02:34 +0000",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/sensitivity-labels-versions.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/sensitivity-labels-versions",
+      "eventId": "purview-docs:1a46656537196fb14120bb7f0bb349e1719315ea:modified:Purview/sensitivity-labels-versions.md",
+      "firstSeenAt": "2026-11-14T09:09:45.366Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Outlook for Mac version requirement documented",
+        "summary": "The sensitivity labels support table now specifies that Outlook for Mac users with on-premises mailboxes require version 16.112 or later.",
+        "adminImpact": "Administrators should account for this client-version requirement when supporting sensitivity labels for on-premises mailboxes.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [
+    {
+      "id": "MC1450128",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-11-14",
+      "title": "Microsoft Purview: Adaptive scopes add lifecycle status evaluation controls for recipients and site owners",
+      "summary": "Microsoft Purview is updating adaptive scopes to evaluate only active recipients and site owners by default, with options to include inactive or soft-deleted ones. This includes ISO 8601 duration support in queries. Rollout starts December 2026 (preview) and April 2027 (general availability). No immediate action required.",
+      "product": {
+        "slug": "purview",
+        "name": "Microsoft Purview",
+        "short": "Purview",
+        "learn": "https://learn.microsoft.com/en-us/purview/",
+        "icon": "purview.svg"
+      },
+      "topic": {
+        "slug": "general",
+        "name": "General",
+        "icon": "/assets/topics/general.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC1450128/",
+      "originalUrl": "https://mc.merill.net/message/MC1450128",
+      "body": "<p>Updated November 13, 2026: We have updated the timeline. Thank you for your patience.&nbsp;</p><p><b><b>What and why</b></b></p><p>Microsoft Purview is introducing lifecycle status evaluation controls for adaptive scopes. This update gives administrators explicit control over whether active, inactive, and soft-deleted recipients and site owners are included in adaptive scope membership.</p><p>With this change, newly created adaptive scopes will evaluate only active recipients and site owners by default. Administrators can configure adaptive scopes to include inactive and/or soft-deleted recipients and site owners when needed.</p><p>This update also adds support for ISO 8601 duration values for selected date attributes in the adaptive scope advanced query builder.</p><p>This message is associated with Microsoft 365 Roadmap ID <a href=\"https://www.microsoft.com/microsoft-365/roadmap?filters=&amp;searchterms=568785\" rel=\"noopener noreferrer\">568785</a>.</p><p><b><b>Rollout schedule</b></b></p><ul><li><b>Public Preview: </b>Beginning in <b>December 2026</b> (previously mid-September) and expected to complete in <b>December 2026</b> (previously early October)</li><li><b>General Availability (Worldwide):</b> Beginning in <b>April 2027 </b>(previously mid-October 2026) and expected to complete in <b>April 2027</b> (previously mid-November 2026)</li></ul><p><b><b>Impact on your organization</b></b></p><p><i>Who is affected</i></p><ul><li>Microsoft Purview administrators who create or manage adaptive scopes.</li><li>Organizations that use adaptive scopes for Microsoft Purview policy targeting.</li></ul><p><i>Platforms and services</i></p><ul><li>Microsoft Purview</li><li>Adaptive Scopes</li></ul><p><i>What will happen</i></p><p>Existing adaptive scopes will continue to function as they do today and will not be automatically modified as part of this rollout.</p><p>For newly created adaptive scopes:</p><ul><li>Active recipients and site owners will be evaluated by default.</li><li>Inactive and soft-deleted recipients or site owners will not be included unless explicitly configured by an administrator.</li></ul><p></p><p>Administrators will also have the option to update existing adaptive scopes to use explicit lifecycle status evaluation criteria for recipients and site owners.</p><p>Additionally, adaptive scopes will support ISO 8601 duration values for certain date-based attributes in the advanced query builder.</p><p><b><b>Action required and recommendations</b></b></p><p>No action is required before rollout.</p><p>We recommend that administrators:</p><ul><li>Review current adaptive scope configurations and governance requirements.</li><li>Determine whether inactive or soft-deleted recipients and site owners should be included in future adaptive scope definitions.</li><li>Update adaptive scope creation processes and documentation, if applicable, to account for the new lifecycle status settings.</li></ul><p><b>Learn more</b></p><ul><li>(to be updated closer to general availability): <a href=\"https://learn.microsoft.com/purview/purview-adaptive-scopes\" rel=\"noopener noreferrer\">Adaptive scopes | Microsoft Purview | Microsoft Learn</a></li></ul><p><b><b>Compliance considerations</b></b></p><p>No compliance considerations have been identified.</p>",
+      "category": "stayInformed",
+      "services": [
+        "Microsoft Purview"
+      ],
+      "tags": [
+        "Updated message",
+        "New feature",
+        "User impact",
+        "Admin impact"
+      ],
+      "startDate": "2026-08-07T21:53:11Z",
+      "endDate": "2027-05-31T08:00:00Z",
+      "lastModifiedDateTime": "2026-11-14T00:35:18.833Z",
+      "version": "2026-11-14T00:35:18.833Z",
+      "eventId": "message-center:MC1450128:2026-11-14T00:35:18.833Z",
+      "firstSeenAt": "2026-11-14T09:10:02.350Z"
+    },
+    {
+      "id": "MC1508238",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-11-14",
+      "title": "Microsoft Purview | Information Protection: Sensitivity labels for Microsoft Entra security groups",
+      "summary": "Microsoft Purview will enable sensitivity labels for Microsoft Entra cloud security groups starting mid-January 2027. This allows applying label-based governance and access policies to these groups, enhancing protection and compliance. Admins must enable this feature separately and ensure proper licensing; labels cannot yet be changed or removed once applied.",
+      "product": {
+        "slug": "purview",
+        "name": "Microsoft Purview",
+        "short": "Purview",
+        "learn": "https://learn.microsoft.com/en-us/purview/",
+        "icon": "purview.svg"
+      },
+      "topic": {
+        "slug": "classification",
+        "name": "Labels and classification",
+        "icon": "/assets/topics/classification.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC1508238/",
+      "originalUrl": "https://mc.merill.net/message/MC1508238",
+      "body": "<p>Updated November 13, 2026: We have updated the timeline. Thank you for your patience.&nbsp;</p><p><b><b>What and why</b></b></p><p>Microsoft Purview is introducing sensitivity labels for Microsoft Entra cloud security groups. This capability extends label-based protection currently available for Microsoft 365 groups and SharePoint sites to cloud security groups.</p><p>With this change, organizations can apply published Microsoft Purview sensitivity labels directly to security groups and automatically enforce membership and guest access policies when groups are created or labeled. This helps administrators apply governance policies consistently across group types, reduce the risk of oversharing, and support controlled self-service group creation.</p><p>This message is associated with Microsoft 365 Roadmap ID <a href=\"https://www.microsoft.com/microsoft-365/roadmap?filters=&amp;searchterms=568217\" rel=\"noopener noreferrer\">568217</a>.</p><p><b><b>Rollout schedule</b></b></p><ul><li><b>General Availability (Worldwide):</b> Beginning in <b>mid-January 2027</b> (previously mid-November 2026) and expected to complete in <b>mid-January 2027</b> (previously late November 2026)</li></ul><p><b><b>Impact on your organization</b></b></p><p><i>Who is affected</i></p><ul><li>Microsoft Entra administrators</li><li>Microsoft Purview administrators</li><li>Organizations that use or plan to use sensitivity labels to govern access to Microsoft Entra security groups</li></ul><p><i>Platforms and services</i></p><ul><li>Microsoft Purview</li><li>Microsoft Entra ID</li><li>Microsoft Entra admin center</li><li>Azure portal</li><li>Microsoft Graph</li><li>PowerShell</li></ul><p><i>What will happen</i></p><ul><li>Administrators will be able to apply published Microsoft Purview sensitivity labels to cloud security groups during group creation or after a group has been created.</li><li>Labels can be assigned through the Microsoft Entra admin center, Azure portal, PowerShell, or Microsoft Graph.</li><li>Existing sensitivity label functionality for Microsoft 365 groups will remain unchanged.</li><li>Once a sensitivity label is applied to a security group, the label cannot currently be changed or removed. Support for changing assigned labels will be introduced in a future update.</li><li>Sensitivity labels can be used to enforce organizational membership and guest access policies for security groups.</li></ul><p><b><b>Action required and recommendations</b></b></p><p>No action is required to receive this change.</p><ul><li>To use sensitivity labels with Microsoft Entra security groups after rollout:</li><li>Confirm that your organization has eligible licensing, such as Microsoft 365 E3 or Microsoft 365 E5, which includes Microsoft Entra ID P1.</li><li>In the Microsoft Purview portal, publish the sensitivity labels you want to use with the Groups &amp; Sites scope enabled.</li><li>Allow up to 24 hours for labels to synchronize and become available in Microsoft Entra ID.</li><li>Enable sensitivity label support for cloud security groups in your tenant settings.</li><li>If sensitivity labels are already enabled for Microsoft 365 groups, note that cloud security groups require a separate configuration setting and must be enabled independently.</li></ul><p>Consider reviewing your existing sensitivity label policies and governance processes before enabling this feature, particularly because assigned labels cannot currently be changed or removed from security groups.</p><p><b>Learn more</b></p><ul><li><a href=\"https://learn.microsoft.com/entra/identity/users/groups-sensitivity-labels\" rel=\"noopener noreferrer\">Assign sensitivity labels to Microsoft Entra security groups | Microsoft Entra ID | Microsoft Learn</a></li><li><a href=\"https://learn.microsoft.com/purview/sensitivity-labels\" rel=\"noopener noreferrer\">Learn about sensitivity labels | Microsoft Purview | Microsoft Learn</a></li><li><a href=\"https://learn.microsoft.com/purview/sensitivity-labels-teams-groups-sites\" rel=\"noopener noreferrer\">Use sensitivity labels to protect collaborative workspaces (groups and sites) | Microsoft Purview | Microsoft Learn</a></li></ul><p><b><b>Compliance considerations</b></b></p><table><tbody><tr><td>Question</td><td>Answer</td></tr><tr><td>Does the change modify or add to Purview-related capabilities?</td><td>Yes. This update extends Microsoft Purview sensitivity labels to Microsoft Entra security groups, adding a new governance and protection capability for this group type.</td></tr><tr><td>Does the change include an admin control?</td><td>Yes. Administrators must enable sensitivity label support for cloud security groups and manage label publication and assignment through Microsoft Purview and Microsoft Entra administrative controls.</td></tr><tr><td>Does the change alter how admins manage or demonstrate compliance activities?</td><td>Yes. Administrators can use sensitivity labels on cloud security groups to apply and enforce access governance policies, expanding the scope of compliance controls available within Microsoft Purview.</td></tr></tbody></table>",
+      "category": "stayInformed",
+      "services": [
+        "Microsoft 365 suite",
+        "Microsoft Purview"
+      ],
+      "tags": [
+        "Updated message",
+        "New feature",
+        "User impact",
+        "Admin impact"
+      ],
+      "startDate": "2026-10-14T23:20:25Z",
+      "endDate": "2027-02-26T08:00:00Z",
+      "lastModifiedDateTime": "2026-11-14T00:20:47.617Z",
+      "version": "2026-11-14T00:20:47.617Z",
+      "eventId": "message-center:MC1508238:2026-11-14T00:20:47.617Z",
+      "firstSeenAt": "2026-11-14T09:10:02.350Z"
+    }
+  ],
+  "summary": {
+    "totalCommits": 2,
+    "totalFiles": 9,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 9 updated, and 0 removed Microsoft Purview documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Microsoft Purview",
+        "summary": "The audit activity documentation now lists events for completed user hard deletion and changes to the setting that retains deleted-user data. The documentation now explains that total labeled is a current file count, 30-day charts count labeling activity including repeat labeling, and the turn-on date may reflect a recent policy edit. It also explains why these metrics can differ. The page updates two authoring links and reformats the note about legacy TLS cipher suites used for opt-in legacy SMTP AUTH scenarios. The documented operation names changed to FileSensitivityLabelApplyFailed, FileSensitivityLabelChangeFailed, and FileSensitivityLabelRemoveFailed. The article now states that removi",
+        "sourceFiles": [
+          "Purview/audit-log-activities.md",
+          "Purview/auto-label-insights-tab.md",
+          "Purview/technical-reference-details-about-encryption.md",
+          "Purview/audit-log-activities.md",
+          "Purview/insider-risk-management-configure.md",
+          "Purview/insider-risk-management-settings-policy-timeframes.md",
+          "Purview/insider-risk-management-users.md",
+          "Purview/sensitivity-labels-office-apps.md",
+          "Purview/sensitivity-labels-versions.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Microsoft Purview",
+        "detail": "The audit activity documentation now lists events for completed user hard deletion and changes to the setting that retains deleted-user data. The documentation now explains that total labeled is a current file count, 30-day charts count labeling activity including repeat labeling, and the turn-on date may reflect a recent policy edit. It also explains why these metrics can differ. The page updates two authoring links and reformats the note about legacy TLS cipher suites used for opt-in legacy SMTP AUTH scenarios. The documented operation names changed to FileSensitivityLabelApplyFailed, FileSensitivityLabelChangeFailed, and FileSensitivityLabelRemoveFailed. The article now states that removi"
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}
