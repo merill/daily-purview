@@ -265,6 +265,34 @@
         "outputTokens": 3228,
         "costUsd": 0.004332
       }
+    },
+    "2026-11-17": {
+      "headline": "Information Barriers guidance adds explicit-mode Teams steps and 24-hour segment timing",
+      "overview": "Two Microsoft Learn pages were updated. Information Barriers guidance adds a PowerShell procedure for moving Teams-connected Microsoft 365 groups from Implicit to Explicit mode, along with timing and segment-management limits. Sensitivity Labels Versions guidance clarifies that files opened beside a Copilot conversation in the Microsoft Copilot app use the web versions of Word, Excel, or PowerPoint.",
+      "adminImpact": "Information Barriers administrators should allow up to 24 hours for segment stamping, access, and membership changes, and note that site owners and SharePoint administrators cannot manage segments on Explicit-mode Teams-connected sites. For the Microsoft Copilot app scenario, use the Web column when assessing supported sensitivity-label capabilities.",
+      "keyChanges": [
+        {
+          "title": "Explicit-mode Teams configuration gains a documented PowerShell path",
+          "detail": "The Information Barriers Teams guidance now explains how to change a Teams-connected Microsoft 365 group from Implicit to Explicit mode with PowerShell. It also documents segment stamping within 24 hours, segment-based access and membership, segment management, and unsupported transitions from Owner moderated or Open mode.",
+          "product": "Communication Compliance",
+          "sourceId": "doc-2026-11-17-information-barriers-teams-01"
+        },
+        {
+          "title": "Copilot app file guidance points admins to web sensitivity-label support",
+          "detail": "The Sensitivity Labels Versions guidance now specifies that opening an Excel, PowerPoint, or Word file beside a Copilot conversation in the Microsoft Copilot app uses the web versions of those applications. The Web column therefore applies when evaluating supported sensitivity-label capabilities for this scenario.",
+          "product": "Information Protection",
+          "sourceId": "doc-2026-11-17-sensitivity-labels-versions-02"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-17T10:54:16.193Z",
+      "usage": {
+        "inputTokens": 1178,
+        "outputTokens": 1074,
+        "costUsd": 0.001524
+      }
     }
   },
   "weeks": {
@@ -359,58 +387,86 @@
         "outputTokens": 8935,
         "costUsd": 0.012764
       }
+    },
+    "2026-11-16": {
+      "headline": "Teams Explicit mode guidance adds PowerShell conversion limits and 24-hour propagation",
+      "overview": "This was a narrow documentation week with two targeted administrator updates. Information Barriers guidance now documents the PowerShell path from Implicit to Explicit mode for Teams-connected Microsoft 365 groups, including timing and management limits. Sensitivity Labels guidance clarifies that files opened beside a Copilot conversation in the Microsoft Copilot app use the web versions of Word, Excel, and PowerPoint for capability evaluation.",
+      "adminImpact": "For Explicit-mode Teams-connected sites, plan for up to 24 hours for segment stamping and related access changes, and do not expect site owners or SharePoint administrators to manage segments. When assessing sensitivity-label support beside a Copilot conversation, use the Web column for Word, Excel, and PowerPoint.",
+      "keyChanges": [
+        {
+          "title": "Information Barriers adds the Implicit-to-Explicit conversion procedure",
+          "detail": "The updated Teams guidance documents changing a Teams-connected Microsoft 365 group from Implicit to Explicit mode with PowerShell. It also explains segment stamping within 24 hours, segment-based access and membership, segment management, and unsupported transitions from Owner moderated or Open mode.",
+          "product": "Communication Compliance",
+          "sourceId": "doc-2026-11-17-information-barriers-teams-01"
+        },
+        {
+          "title": "Sensitivity Labels guidance applies the Web column to Copilot file scenarios",
+          "detail": "The page now specifies that opening Excel, PowerPoint, or Word files beside a Copilot conversation in the Microsoft Copilot app uses the web versions of those apps. Administrators should therefore use the Web column when evaluating supported sensitivity-label capabilities for this scenario.",
+          "product": "Information Protection",
+          "sourceId": "doc-2026-11-17-sensitivity-labels-versions-02"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-17T10:54:16.193Z",
+      "usage": {
+        "inputTokens": 986,
+        "outputTokens": 880,
+        "costUsd": 0.001253
+      }
     }
   },
   "months": {
     "2026-11": {
-      "headline": "Purview sets December 7 retirement for four DSPM integrations as governance consolidates in Fabric",
-      "overview": "November was dominated by updated pages, but the material administrator signal is clear: four DSPM partner integrations for non-Microsoft data sources will stop ingesting and displaying data on December 7, 2026. Microsoft Learn also now carries broad guidance stating that Unified Catalog and classic Purview data governance capabilities are being retired and consolidated in Microsoft Fabric, with no new accounts available. Other significant changes cover DLP controls for external email in Copilot, lifecycle-aware adaptive scopes, and sensitivity labels for Microsoft Entra cloud security groups. Smaller updates clarify Insider Risk processing after group removal and rename failed sensitivity-label audit operations.",
-      "adminImpact": "Review dependencies on Varonis, BigID, Cyera, and OneTrust before December 7 if non-Microsoft data sources are involved; the notice says no action is required where these integrations are not used. For new governance work, treat the stated no-new-account and Fabric-consolidation guidance as a planning constraint; the supplied evidence gives no migration deadline or procedure. Track the announced Copilot DLP and adaptive-scope timelines. For Entra group labels, verify licensing and separate enablement, and account for labels not being changeable or removable after application.",
+      "headline": "Purview will retire four DSPM partner integrations by December 7",
+      "overview": "The month’s clearest service-impacting change is the December 7, 2026 retirement of Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft data sources; those integrations will stop ingesting and displaying data, while other DSPM capabilities remain unaffected. A coordinated set of Data Governance pages now says Unified Catalog and classic Purview governance capabilities are being retired and consolidated in Microsoft Fabric, with no new accounts available. Other notable updates schedule adaptive-scope lifecycle controls, sensitivity labels for Microsoft Entra cloud security groups, and DLP filtering of external email from Copilot grounding. Smaller guidance changes covered Copilot/Cowork naming, Insider Risk processing delays, audit operation names, and Teams Explicit mode timing.",
+      "adminImpact": "Review dependencies on the four DSPM partners before December 7; the notice requires no action if those integrations are not used. Do not plan new Unified Catalog or classic Purview governance accounts; the supplied documentation gives no migration deadline or procedure. For the scheduled controls, account for adaptive scopes defaulting to active recipients and site owners, enable Entra group labeling separately with the required licensing, and remember that applied labels cannot yet be changed or removed. If external-email filtering is part of the Copilot control strategy, plan around the stated June 2027 general-availability date.",
       "keyChanges": [
         {
-          "title": "Four DSPM partner integrations retire for non-Microsoft sources on December 7",
-          "detail": "Microsoft Purview will retire the Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft data sources on December 7, 2026. They will no longer ingest or display data, while other DSPM capabilities remain unaffected.",
-          "product": "Purview — DSPM partner integrations",
+          "title": "Four DSPM partner integrations retire December 7",
+          "detail": "Microsoft Purview will retire the Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft data sources on December 7, 2026. They will no longer ingest or display data; other DSPM capabilities remain unaffected. Microsoft says no action is required, but administrators should review dependencies.",
+          "product": "DSPM",
           "sourceId": "MC1545691"
         },
         {
-          "title": "Data Governance pages add no-new-account guidance as capabilities consolidate in Fabric",
-          "detail": "A broad set of Microsoft Learn pages now states that Unified Catalog and classic Purview data governance capabilities are being retired and consolidated in Microsoft Fabric, and that new accounts can no longer be created. The supplied evidence gives no migration deadline or procedure.",
+          "title": "Governance pages add a no-new-account warning",
+          "detail": "The updated Enterprise Glossary guidance says Unified Catalog and classic Microsoft Purview data governance capabilities are being retired and consolidated in Microsoft Fabric. New accounts can no longer be created, and the page supplies no migration deadline or specific migration procedure.",
           "product": "Data Governance",
-          "sourceId": "doc-2026-11-13-frequently-asked-questions-about-microsoft-purview-data-governance-solutions-48"
+          "sourceId": "doc-2026-11-13-enterprise-glossary-in-unified-catalog-preview-277"
         },
         {
-          "title": "Copilot DLP will exclude external email from grounding",
-          "detail": "The announced admin-configurable DLP control prevents Microsoft 365 Copilot and Copilot Chat from using email from external or untrusted domains for grounding while retaining internal data use. The notice lists public preview in June 2026 and general availability in June 2027.",
+          "title": "DLP adds external-email controls for Copilot grounding",
+          "detail": "An admin-configurable DLP control restricts Microsoft 365 Copilot and Copilot Chat from processing email from external or untrusted domains, excluding that email from Copilot grounding while retaining internal data use. The notice lists public preview in June 2026 and general availability in June 2027.",
           "product": "Data Loss Prevention",
           "sourceId": "MC1301714"
         },
         {
-          "title": "Adaptive scopes will default to active recipients and site owners",
-          "detail": "Adaptive scopes are being updated to evaluate only active recipients and site owners by default, with options to include inactive or soft-deleted objects. Queries will also support ISO 8601 durations; preview rollout starts in December 2026 and general availability in April 2027.",
-          "product": "Purview — Adaptive scopes",
+          "title": "Adaptive scopes gain active-status defaults and ISO 8601 durations",
+          "detail": "Beginning with the December 2026 preview rollout and April 2027 general availability, adaptive scopes will evaluate only active recipients and site owners by default. Administrators can include inactive or soft-deleted principals, and queries gain ISO 8601 duration support.",
+          "product": "Purview",
           "sourceId": "MC1450128"
         },
         {
-          "title": "Sensitivity labels are coming to Microsoft Entra cloud security groups",
-          "detail": "Starting in mid-January 2027, sensitivity labels can provide label-based governance and access policies for Microsoft Entra cloud security groups. The feature requires separate enablement and appropriate licensing, and applied labels cannot yet be changed or removed.",
-          "product": "Information Protection — sensitivity labels",
+          "title": "Sensitivity labels are scheduled for Entra cloud security groups",
+          "detail": "Starting in mid-January 2027, sensitivity labels can be applied to Microsoft Entra cloud security groups for label-based governance and access policies. The feature requires separate enablement and appropriate licensing, and labels cannot yet be changed or removed after application.",
+          "product": "Information Protection",
           "sourceId": "MC1508238"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-14T09:10:02.780Z",
+      "generatedAt": "2026-11-17T10:54:16.193Z",
       "usage": {
-        "inputTokens": 6489,
-        "outputTokens": 7970,
-        "costUsd": 0.010862
+        "inputTokens": 6698,
+        "outputTokens": 5168,
+        "costUsd": 0.007541
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-14T09:10:02.780Z",
+  "generatedAt": "2026-11-17T10:54:16.193Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -457,18 +513,24 @@
       "outputTokens": 20133,
       "requests": 3,
       "costUsd": 0.027957
+    },
+    "2026-11-17": {
+      "inputTokens": 8862,
+      "outputTokens": 7122,
+      "requests": 3,
+      "costUsd": 0.010319
     }
   },
   "lastRun": {
-    "inputTokens": 18989,
-    "outputTokens": 20133,
+    "inputTokens": 8862,
+    "outputTokens": 7122,
     "requests": 3,
-    "costUsd": 0.027957
+    "costUsd": 0.010319
   },
   "totalUsage": {
-    "inputTokens": 96609,
-    "outputTokens": 117125,
-    "requests": 30,
-    "costUsd": 0.159872
+    "inputTokens": 105471,
+    "outputTokens": 124247,
+    "requests": 33,
+    "costUsd": 0.170191
   }
 }
