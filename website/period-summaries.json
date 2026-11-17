@@ -267,31 +267,49 @@
       }
     },
     "2026-11-17": {
-      "headline": "Information Barriers guidance adds explicit-mode Teams steps and 24-hour segment timing",
-      "overview": "Two Microsoft Learn pages were updated. Information Barriers guidance adds a PowerShell procedure for moving Teams-connected Microsoft 365 groups from Implicit to Explicit mode, along with timing and segment-management limits. Sensitivity Labels Versions guidance clarifies that files opened beside a Copilot conversation in the Microsoft Copilot app use the web versions of Word, Excel, or PowerPoint.",
-      "adminImpact": "Information Barriers administrators should allow up to 24 hours for segment stamping, access, and membership changes, and note that site owners and SharePoint administrators cannot manage segments on Explicit-mode Teams-connected sites. For the Microsoft Copilot app scenario, use the Web column when assessing supported sensitivity-label capabilities.",
+      "headline": "Adaptive protection preview targets 120-day labels for high-risk-user deletions",
+      "overview": "Data Lifecycle Management’s Adaptive protection integration is the standout capability change: the public preview automatically applies retention labels to content deleted by elevated-risk users for 120 days, with general availability listed for early 2027. Other meaningful updates cover 2027 PST Import planning, a Teams Information Barriers procedure, Clipchamp label inheritance, and more precise auto-label reporting guidance.",
+      "adminImpact": "The main planning points are the 120-day retention behavior, Azure permissions and mailbox prerequisites for PST Import, and up to 24 hours for Information Barriers segment stamping after an Implicit-to-Explicit conversion. Admins reviewing Clipchamp should check the `EnableSensitivityLabelForVideoFiles` tenant value. Reporting teams should treat Auto Label Insights activity as operations rather than distinct files and account for its refresh cadence and 30-day window.",
       "keyChanges": [
         {
-          "title": "Explicit-mode Teams configuration gains a documented PowerShell path",
-          "detail": "The Information Barriers Teams guidance now explains how to change a Teams-connected Microsoft 365 group from Implicit to Explicit mode with PowerShell. It also documents segment stamping within 24 hours, segment-based access and membership, segment management, and unsupported transitions from Owner moderated or Open mode.",
-          "product": "Communication Compliance",
+          "title": "Adaptive protection integrates with Data Lifecycle Management",
+          "detail": "The public-preview integration automatically applies retention labels to content deleted by elevated-risk users for 120 days. Microsoft lists general availability for early 2027 and describes the setup as requiring minimal administrator configuration.",
+          "product": "Data Lifecycle Management / Adaptive protection",
+          "sourceId": "MC791110"
+        },
+        {
+          "title": "Azure PST Import is scheduled to begin in April 2027",
+          "detail": "Admins will import PST files from Azure Blob Storage into Exchange Online mailboxes through PowerShell, with readiness analysis and import batching. The rollout requires specified Azure permissions and mailbox prerequisites, and imported data remains subject to existing retention and audit policies.",
+          "product": "Data Lifecycle Management",
+          "sourceId": "MC1455013"
+        },
+        {
+          "title": "Information Barriers guidance documents Explicit-mode Teams conversion",
+          "detail": "The updated guidance explains how to change a Teams-connected Microsoft 365 group from Implicit to Explicit mode with PowerShell. It documents segment-based access and membership, up to 24 hours for segment stamping, and the restriction that site owners and SharePoint admins cannot manage segments on Explicit-mode Teams-connected sites. Owner moderated and Open modes cannot be transitioned.",
+          "product": "Communication Compliance — Information Barriers",
           "sourceId": "doc-2026-11-17-information-barriers-teams-01"
         },
         {
-          "title": "Copilot app file guidance points admins to web sensitivity-label support",
-          "detail": "The Sensitivity Labels Versions guidance now specifies that opening an Excel, PowerPoint, or Word file beside a Copilot conversation in the Microsoft Copilot app uses the web versions of those applications. The Web column therefore applies when evaluating supported sensitivity-label capabilities for this scenario.",
+          "title": "Clipchamp labeling is tied to EnableSensitivityLabelForVideoFiles",
+          "detail": "The revised sensitivity-label guidance says `EnableSensitivityLabelForVideoFiles` controls labeling for Clipchamp projects and whether exported MP4 files inherit the project’s label. Administrators should use the tenant’s current setting value when assessing the effect.",
           "product": "Information Protection",
-          "sourceId": "doc-2026-11-17-sensitivity-labels-versions-02"
+          "sourceId": "doc-2026-11-17-sensitivity-labels-sharepoint-onedrive-files-05"
+        },
+        {
+          "title": "Auto Label Insights separates progress from recorded activity",
+          "detail": "The updated guidance distinguishes periodically refreshed labeling progress from recorded labeling activity over the last 30 days. Activity counts labeling operations rather than distinct files, and the documentation points admins to the newer full review experience for daily trends.",
+          "product": "Information Protection",
+          "sourceId": "doc-2026-11-17-auto-label-insights-tab-04"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-17T10:54:16.193Z",
+      "generatedAt": "2026-11-17T22:30:59.310Z",
       "usage": {
-        "inputTokens": 1178,
-        "outputTokens": 1074,
-        "costUsd": 0.001524
+        "inputTokens": 2074,
+        "outputTokens": 8398,
+        "costUsd": 0.010492
       }
     }
   },
@@ -389,84 +407,102 @@
       }
     },
     "2026-11-16": {
-      "headline": "Teams Explicit mode guidance adds PowerShell conversion limits and 24-hour propagation",
-      "overview": "This was a narrow documentation week with two targeted administrator updates. Information Barriers guidance now documents the PowerShell path from Implicit to Explicit mode for Teams-connected Microsoft 365 groups, including timing and management limits. Sensitivity Labels guidance clarifies that files opened beside a Copilot conversation in the Microsoft Copilot app use the web versions of Word, Excel, and PowerPoint for capability evaluation.",
-      "adminImpact": "For Explicit-mode Teams-connected sites, plan for up to 24 hours for segment stamping and related access changes, and do not expect site owners or SharePoint administrators to manage segments. When assessing sensitivity-label support beside a Copilot conversation, use the Web column for Word, Excel, and PowerPoint.",
+      "headline": "Purview Adaptive protection preview adds 120-day retention for elevated-risk deletions",
+      "overview": "Data Lifecycle Management’s Adaptive protection integration is the week’s clearest capability change: the public preview applies retention labels to content deleted by elevated-risk users for 120 days, with general availability listed for early 2027. Other notices set out a future DLP workflow improvement for unmanaged apps in Edge for Business and an Azure PST Import path, while documentation adds operational guidance for Clipchamp labeling and Teams Information Barriers.",
+      "adminImpact": "Administrators evaluating the preview should account for its 120-day retention-label behavior. The Edge DLP update requires no prior action and leaves existing policies unchanged. Plan Explicit-mode Teams group changes around the documented 24-hour segment-stamping window, check the tenant value of `EnableSensitivityLabelForVideoFiles` for Clipchamp scenarios, and note that PST imports require specific Azure permissions and mailbox prerequisites.",
       "keyChanges": [
         {
-          "title": "Information Barriers adds the Implicit-to-Explicit conversion procedure",
-          "detail": "The updated Teams guidance documents changing a Teams-connected Microsoft 365 group from Implicit to Explicit mode with PowerShell. It also explains segment stamping within 24 hours, segment-based access and membership, segment management, and unsupported transitions from Owner moderated or Open mode.",
-          "product": "Communication Compliance",
-          "sourceId": "doc-2026-11-17-information-barriers-teams-01"
+          "title": "Adaptive protection adds a 120-day deletion safeguard in public preview",
+          "detail": "Data Lifecycle Management’s public-preview integration automatically applies retention labels to content deleted by elevated-risk users for 120 days. The message lists general availability for early 2027 and says the setup is minimal.",
+          "product": "Purview",
+          "sourceId": "MC791110"
         },
         {
-          "title": "Sensitivity Labels guidance applies the Web column to Copilot file scenarios",
-          "detail": "The page now specifies that opening Excel, PowerPoint, or Word files beside a Copilot conversation in the Microsoft Copilot app uses the web versions of those apps. Administrators should therefore use the Web column when evaluating supported sensitivity-label capabilities for this scenario.",
+          "title": "Edge for Business DLP gains clearer multi-admin approval coordination",
+          "detail": "The planned unmanaged-app workflow adds clearer status, error reporting, and task coordination for Intune multi-admin approval. Rollout starts January 2027; no prior action is required, existing policies remain unchanged, and Intune approvals continue as before.",
+          "product": "Purview",
+          "sourceId": "MC1489971"
+        },
+        {
+          "title": "Azure PST Import outlines PowerShell ingestion from Blob Storage to Exchange Online",
+          "detail": "The notice describes importing PST files from Azure Blob Storage into Exchange Online mailboxes with PowerShell, readiness analysis, and import batching. It requires specific Azure permissions and mailbox prerequisites, while imported data remains subject to existing retention and audit policies.",
+          "product": "Purview",
+          "sourceId": "MC1455013"
+        },
+        {
+          "title": "Clipchamp guidance maps one tenant setting to project and MP4 labels",
+          "detail": "The updated Information Protection guidance says `EnableSensitivityLabelForVideoFiles` controls Clipchamp project labeling and whether exported MP4 files inherit the project’s label. Administrators should use the tenant’s current value when assessing those outcomes.",
           "product": "Information Protection",
-          "sourceId": "doc-2026-11-17-sensitivity-labels-versions-02"
+          "sourceId": "doc-2026-11-17-sensitivity-labels-sharepoint-onedrive-files-05"
+        },
+        {
+          "title": "Teams Information Barriers guidance adds explicit-mode conversion timing and limits",
+          "detail": "The updated page gives PowerShell instructions to change a Teams-connected Microsoft 365 group from Implicit to Explicit mode and says segment stamping can take up to 24 hours. It also documents segment-based access and membership, unsupported transitions from Owner moderated or Open mode, and the inability of site owners or SharePoint admins to manage segments on Explicit-mode Teams-connected sites.",
+          "product": "Communication Compliance",
+          "sourceId": "doc-2026-11-17-information-barriers-teams-01"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-17T10:54:16.193Z",
+      "generatedAt": "2026-11-17T22:30:59.310Z",
       "usage": {
-        "inputTokens": 986,
-        "outputTokens": 880,
-        "costUsd": 0.001253
+        "inputTokens": 1882,
+        "outputTokens": 5628,
+        "costUsd": 0.00713
       }
     }
   },
   "months": {
     "2026-11": {
-      "headline": "Purview will retire four DSPM partner integrations by December 7",
-      "overview": "The month’s clearest service-impacting change is the December 7, 2026 retirement of Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft data sources; those integrations will stop ingesting and displaying data, while other DSPM capabilities remain unaffected. A coordinated set of Data Governance pages now says Unified Catalog and classic Purview governance capabilities are being retired and consolidated in Microsoft Fabric, with no new accounts available. Other notable updates schedule adaptive-scope lifecycle controls, sensitivity labels for Microsoft Entra cloud security groups, and DLP filtering of external email from Copilot grounding. Smaller guidance changes covered Copilot/Cowork naming, Insider Risk processing delays, audit operation names, and Teams Explicit mode timing.",
-      "adminImpact": "Review dependencies on the four DSPM partners before December 7; the notice requires no action if those integrations are not used. Do not plan new Unified Catalog or classic Purview governance accounts; the supplied documentation gives no migration deadline or procedure. For the scheduled controls, account for adaptive scopes defaulting to active recipients and site owners, enable Entra group labeling separately with the required licensing, and remember that applied labels cannot yet be changed or removed. If external-email filtering is part of the Copilot control strategy, plan around the stated June 2027 general-availability date.",
+      "headline": "Purview will retire four DSPM integrations while governance guidance points to Fabric",
+      "overview": "November's clearest service-impacting deadline is December 7, when Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft DSPM sources stop ingesting and displaying data. Separately, a coordinated set of Data Governance pages now says Unified Catalog and classic Purview governance capabilities are being retired and consolidated in Microsoft Fabric, with new accounts unavailable. Other material changes include Data Lifecycle Management's Adaptive protection integration, which applies retention labels to elevated-risk deletions for 120 days; a DLP control that can exclude external email from Copilot grounding; and adaptive scopes defaulting to active recipients and site owners.",
+      "adminImpact": "Review use of the four DSPM partner integrations before December 7; if none are in use, the notice says no action is required. For new Unified Catalog or classic Purview governance work, do not assume a new-account path or a documented migration deadline—the supplied pages provide no migration procedure. For the announced controls, account for the 120-day retention-label behavior, decide whether the external-email Copilot restriction fits policy when available, and check adaptive-scope queries if inactive or soft-deleted recipients or site owners must remain in scope.",
       "keyChanges": [
         {
-          "title": "Four DSPM partner integrations retire December 7",
-          "detail": "Microsoft Purview will retire the Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft data sources on December 7, 2026. They will no longer ingest or display data; other DSPM capabilities remain unaffected. Microsoft says no action is required, but administrators should review dependencies.",
-          "product": "DSPM",
+          "title": "December 7 retirement ends four non-Microsoft DSPM partner feeds",
+          "detail": "Microsoft Purview will retire the Varonis, BigID, Cyera, and OneTrust DSPM integrations for non-Microsoft data sources on December 7, 2026. The integrations will no longer ingest or display data, while other DSPM capabilities remain unaffected. Microsoft says no action is required, but customers using these feeds should review dependencies.",
+          "product": "Microsoft Purview DSPM",
           "sourceId": "MC1545691"
         },
         {
-          "title": "Governance pages add a no-new-account warning",
-          "detail": "The updated Enterprise Glossary guidance says Unified Catalog and classic Microsoft Purview data governance capabilities are being retired and consolidated in Microsoft Fabric. New accounts can no longer be created, and the page supplies no migration deadline or specific migration procedure.",
+          "title": "Governance guidance now says new Purview accounts cannot be created",
+          "detail": "Updated guidance for Unified Catalog and classic Microsoft Purview data governance capabilities states that they are being retired and consolidated in Microsoft Fabric, and that new accounts can no longer be created. The supplied guidance gives no migration deadline or procedure; one updated page says existing capabilities remain available during the transition.",
           "product": "Data Governance",
-          "sourceId": "doc-2026-11-13-enterprise-glossary-in-unified-catalog-preview-277"
+          "sourceId": "doc-2026-11-13-self-service-policies-for-azure-sql-database-preview-156"
         },
         {
-          "title": "DLP adds external-email controls for Copilot grounding",
-          "detail": "An admin-configurable DLP control restricts Microsoft 365 Copilot and Copilot Chat from processing email from external or untrusted domains, excluding that email from Copilot grounding while retaining internal data use. The notice lists public preview in June 2026 and general availability in June 2027.",
+          "title": "Adaptive protection adds 120-day retention for elevated-risk deletions",
+          "detail": "Data Lifecycle Management's Adaptive protection integration is described as a public preview capability with general availability in early 2027. It automatically applies retention labels for 120 days to content deleted by elevated-risk users and requires minimal administrator setup.",
+          "product": "Data Lifecycle Management",
+          "sourceId": "MC791110"
+        },
+        {
+          "title": "Copilot DLP can exclude external email from grounding",
+          "detail": "A new admin-configurable DLP control restricts Microsoft 365 Copilot and Copilot Chat from processing email from external or untrusted domains for grounding, while internal data remains usable. The notice lists public preview in June 2026 and general availability in June 2027.",
           "product": "Data Loss Prevention",
           "sourceId": "MC1301714"
         },
         {
-          "title": "Adaptive scopes gain active-status defaults and ISO 8601 durations",
-          "detail": "Beginning with the December 2026 preview rollout and April 2027 general availability, adaptive scopes will evaluate only active recipients and site owners by default. Administrators can include inactive or soft-deleted principals, and queries gain ISO 8601 duration support.",
-          "product": "Purview",
+          "title": "Adaptive scopes will default to active recipients and site owners",
+          "detail": "The planned adaptive-scopes update will evaluate only active recipients and site owners by default, with options to include inactive or soft-deleted objects. Queries will support ISO 8601 durations; preview begins in December 2026 and general availability is planned for April 2027.",
+          "product": "Microsoft Purview adaptive scopes",
           "sourceId": "MC1450128"
-        },
-        {
-          "title": "Sensitivity labels are scheduled for Entra cloud security groups",
-          "detail": "Starting in mid-January 2027, sensitivity labels can be applied to Microsoft Entra cloud security groups for label-based governance and access policies. The feature requires separate enablement and appropriate licensing, and labels cannot yet be changed or removed after application.",
-          "product": "Information Protection",
-          "sourceId": "MC1508238"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-17T10:54:16.193Z",
+      "generatedAt": "2026-11-17T22:30:59.310Z",
       "usage": {
-        "inputTokens": 6698,
-        "outputTokens": 5168,
-        "costUsd": 0.007541
+        "inputTokens": 6685,
+        "outputTokens": 6752,
+        "costUsd": 0.009439
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-17T10:54:16.193Z",
+  "generatedAt": "2026-11-17T22:30:59.310Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -515,22 +551,22 @@
       "costUsd": 0.027957
     },
     "2026-11-17": {
-      "inputTokens": 8862,
-      "outputTokens": 7122,
-      "requests": 3,
-      "costUsd": 0.010319
+      "inputTokens": 19503,
+      "outputTokens": 27900,
+      "requests": 6,
+      "costUsd": 0.037381
     }
   },
   "lastRun": {
-    "inputTokens": 8862,
-    "outputTokens": 7122,
+    "inputTokens": 10641,
+    "outputTokens": 20778,
     "requests": 3,
-    "costUsd": 0.010319
+    "costUsd": 0.027062
   },
   "totalUsage": {
-    "inputTokens": 105471,
-    "outputTokens": 124247,
-    "requests": 33,
-    "costUsd": 0.170191
+    "inputTokens": 116112,
+    "outputTokens": 145025,
+    "requests": 36,
+    "costUsd": 0.197253
   }
 }

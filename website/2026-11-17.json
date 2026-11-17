@@ -52,27 +52,266 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "Purview/apply-sensitivity-label-automatically.md",
+      "status": "modified",
+      "additions": 5,
+      "deletions": 1,
+      "changes": 6,
+      "patch": "diff --git a/Purview/apply-sensitivity-label-automatically.md b/Purview/apply-sensitivity-label-automatically.md\nindex d42d831..0fd1017 100644\n--- a/Purview/apply-sensitivity-label-automatically.md\n+++ b/Purview/apply-sensitivity-label-automatically.md\n@@ -13,7 +13,7 @@ manager: laurawi\n audience: Admin\n ms.service: purview\n ms.subservice: purview-information-protection\n-ms.date: 2026-11-06T00:00:00.0000000Z\n+ms.date: 2026-11-13T00:00:00.0000000Z\n ms.collection:\n - purview-compliance\n ms.topic: article\n@@ -802,6 +802,10 @@ Use the main **Auto-labeling** page to review labeling activity across your poli\n \r\n These views count label-applied and label-changed activity for SharePoint and OneDrive files associated with your auto-labeling policies. They don't include Exchange email. Use them to spot activity trends, not to measure remaining daily capacity or the number of unique files currently labeled or protected.\r\n \r\n+A file can contribute more than one recorded labeling operation in the selected time window. Activity doesn't count every access, scan, evaluation, or retry, and deleting a file doesn't remove its historical activity. These counts aren't directly interchangeable with the periodically refreshed **Total labeled to date** progress report on the **Insights** tab.\r\n+\r\n+For metric definitions and reporting guidance, see [Compare progress and labeling activity](auto-label-insights-tab#compare-progress-and-labeling-activity). If counts differ or a report is unavailable or partial, see [Troubleshoot auto-labeling count mismatches](/en-us/troubleshoot/microsoft-365/purview/sensitivity-labels/troubleshoot-auto-labeling-policies#numbers-dont-agree-or-exchange-activity-is-missing). Missing or partial reporting doesn't mean that zero files were labeled.\r\n+\r\n ### Policy rule fails to load\r\n \r\n In rare cases, a malformed rule in an auto-labeling policy can prevent the policy from loading correctly. The most common symptom is that Exchange messages stop matching an otherwise enabled auto-labeling policy, and there might not be any item-level labeling failure to review because the rule never loaded in the first place.\r\n",
+      "baseCommitSha": "0d7b2f3d008be593e700af731c8f80f4a3c1eba0",
+      "commitSha": "8a9a46be13669ffa58f890780ef367c1c8c62495",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-17 13:35:25 +0000",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/apply-sensitivity-label-automatically.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/apply-sensitivity-label-automatically",
+      "eventId": "purview-docs:8a9a46be13669ffa58f890780ef367c1c8c62495:modified:Purview/apply-sensitivity-label-automatically.md",
+      "firstSeenAt": "2026-11-17T22:30:50.674Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Clarified auto-labeling activity count definitions",
+        "summary": "The article now explains that a file can contribute multiple recorded labeling operations, that activity excludes some accesses, scans, evaluations, and retries, and that deleting a file does not remove historical activity. It also links to metric guidance and troubleshooting for count discrepancies or incomplete reports.",
+        "adminImpact": "Use the updated definitions and guidance when interpreting auto-labeling activity metrics and investigating mismatched counts.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "Purview/auto-label-insights-tab.md",
+      "status": "modified",
+      "additions": 24,
+      "deletions": 22,
+      "changes": 46,
+      "patch": "diff --git a/Purview/auto-label-insights-tab.md b/Purview/auto-label-insights-tab.md\nindex 3f96cd2..28678bb 100644\n--- a/Purview/auto-label-insights-tab.md\n+++ b/Purview/auto-label-insights-tab.md\n@@ -14,7 +14,7 @@ manager: laurawi\n audience: Admin\n ms.service: purview\n ms.subservice: purview-information-protection\n-ms.date: 2026-10-26T00:00:00.0000000Z\n+ms.date: 2026-11-16T00:00:00.0000000Z\n ms.collection:\n - purview-compliance\n ms.topic: article\n@@ -89,7 +89,7 @@ Note\n \r\n Exchange matched-item counts are estimates based on sampled data.\r\n \r\n-**Enforcement mode:** When the policy is actively labeling files, the Insights tab shows 30-day operational metrics. **Insights** shows the following metrics about the policy:\r\n+**Enforcement mode:** When the policy is actively labeling files, the Insights tab shows reported progress and labeling activity. Progress is periodically refreshed, while activity covers the last 30 days. These measures aren't directly interchangeable.\r\n \r\n Note\r\n \r\n@@ -100,39 +100,41 @@ Policy-level enforcement metrics and the **Labeled items** view report only file\n | **Sensitivity label** | The sensitivity label applied by the policy. |\r\n | **Status** | The current status of the policy. |\r\n | **Turn on date** | The activation date and time displayed by the portal. Don't use this field as an immutable record of the policy's first activation. If the policy was edited after it was turned on, this date can show the most recent edit. |\r\n-| **Total labeled to date** | The number of SharePoint and OneDrive files that have a label applied by this policy. For removal policies, it's the number of files the policy removed the label from. This is a current count, not a running total. It can decrease, for example when labeled files are deleted, and it isn't reset when you edit the policy. Updates aren't immediate. |\r\n+| **Total labeled to date** | Reported labeling progress for SharePoint and OneDrive, based on periodically refreshed stored item and signal state for the policy. This isn't an immutable lifetime operation count or a real-time inventory of distinct files currently protected by the policy. |\r\n | **Duration** | The number of days calculated from the displayed enforcement turn-on date. |\r\n-| **Last simulated results** | The results of the most recent simulation before enforcement was turned on. |\r\n+| **Last simulated results** | Estimated matches from the most recent simulation before enforcement was turned on. These estimates aren't a fixed target for enforcement. |\r\n | **Completed on** | The date when the most recent simulation completed. |\r\n-| **Count of auto-labeled and failed files** | A donut chart showing this policy's labeling activity in the last 30 days. A file that's labeled more than once is counted each time, so this chart isn't a count of unique files. - **Labeled (green):** Files that were successfully labeled.  - **Failed (red):** Files that matched but couldn't be labeled. |\r\n-| **Labeling failures** | The card shows the total number of failed items and the **Top 3 failure reasons**, sorted by volume. For more information, see [Resolve auto-labeling failures in SharePoint and OneDrive files](/en-us/troubleshoot/microsoft-365/purview/sensitivity-labels/auto-labeling-failures-sharepoint-onedrive). |\r\n+| **Count of auto-labeled and failed files** | A donut chart of recorded labeling operations in the last 30 days, not distinct files: - **Labeled (green):** Successful labeling operations. - **Failed (red):** Failed labeling operations.The combined total includes both successful and failed operations. A file can contribute more than once, including a failure followed by a success. |\r\n+| **Labeling failures** | The card summarizes failed labeling activity in the last 30 days and shows the **Top 3 failure reasons**, sorted by volume. For more information, see [Resolve auto-labeling failures in SharePoint and OneDrive files](/en-us/troubleshoot/microsoft-365/purview/sensitivity-labels/auto-labeling-failures-sharepoint-onedrive). |\r\n | **Top 10 sensitive info types** | The table lists the sensitive information types (SITs) most frequently detected when this policy applied labels during the last 30 days. It includes the **Files labeled** count for each SIT. |\r\n-| **Labels per source** | To identify whether failures are concentrated to a specific workload, **Labels per source** shows a breakdown of labeled and failed item counts for SharePoint and OneDrive. |\r\n+| **Labels per source** | A breakdown of successful and failed labeling activity in the last 30 days for SharePoint and OneDrive. Use it to identify whether failures are concentrated in a specific workload. |\r\n \r\n-## Why Total labeled to date and the 30-day counts differ\r\n+For the daily trend, select **View details** and open **Overview** in the newer full review experience. **Labeling activity overview** shows separate successful and failed operation counts for the last 30 days, not distinct-file counts. For removal policies, the chart is **Label removal activity overview**. This chart isn't part of the newer Insights layout.\r\n \r\n-These metrics measure different things. Total labeled to date is a current count of files. The 30-day counts show labeling activity.\r\n+Review failure reasons even when few files fail. Transient infrastructure failures are retried automatically, but configuration, protection, or file format failures might require action regardless of volume. Some unsupported files require no action. Follow the reason-specific guidance in [Resolve auto-labeling failures in SharePoint and OneDrive files](/en-us/troubleshoot/microsoft-365/purview/sensitivity-labels/auto-labeling-failures-sharepoint-onedrive).\r\n \r\n-### Total labeled to date is lower than the 30-day count\r\n+Note\r\n \r\n-This difference is expected when:\r\n+The Insights tab provides less data for non-Microsoft locations.\r\n \r\n-- Some files were labeled more than once, for example a label was applied and then changed.\r\n-- Labeled files were deleted. Their earlier activity still appears in the 30-day count.\r\n+## Compare progress and labeling activity\r\n \r\n-### Total labeled to date is higher than the 30-day count\r\n+Labeling activity counts recorded operations in the selected time window, not every file access, scan, evaluation, or retry. **Total labeled to date** uses refreshed stored state rather than a history of operations. Editing a policy doesn't necessarily reset its progress.\r\n+\r\n+Before comparing counts, align the policy, workloads, scope, filters, UTC interval, observation time, and reporting freshness. Compare successful activity with successful progress, not the donut's combined successful-plus-failed total. A displayed **Turn on date** isn't proof of first-ever enforcement; check the policy's creation, enablement, and change history.\r\n \r\n-This difference is expected when:\r\n+### Total labeled to date is lower than the 30-day count\r\n \r\n-- The policy has been on for more than 30 days, so earlier labeling is outside the 30-day window. The displayed turn-on date can show the most recent edit instead of the first time the policy was turned on.\r\n-- Recent activity hasn't appeared yet. Activity data can take time to appear. For more information, see [Get started with Activity explorer](data-classification-activity-explorer).\r\n+Repeated actual labeling operations can count the same file more than once, for example when a label is applied and later changed. Deleting a file doesn't remove its historical activity. Changes to stored state, including file deletions, can reduce refreshed progress. Independent reporting delays or incomplete reports can also affect the comparison.\r\n \r\n-Total labeled to date might stay higher after a few days for a policy that was turned on less than 30 days ago. If so, contact Microsoft Support.\r\n+### Total labeled to date is higher than the 30-day count\r\n \r\n-For the daily trend, select **View details** and open **Overview** in the newer full review experience. **Labeling activity overview** shows separate successful and failed series for the last 30 days. For removal policies, the chart is **Label removal activity overview**. This chart isn't part of the newer Insights layout.\r\n+Older activity can fall outside the activity window while still contributing to progress. Recent activity can also be delayed or missing from a report. For activity reporting information, see [Get started with Activity explorer](data-classification-activity-explorer).\r\n \r\n-Review failure reasons even when few files fail. Transient infrastructure failures are retried automatically, but configuration, protection, or file format failures might require action regardless of volume. Some unsupported files require no action. Follow the reason-specific guidance in [Resolve auto-labeling failures in SharePoint and OneDrive files](/en-us/troubleshoot/microsoft-365/purview/sensitivity-labels/auto-labeling-failures-sharepoint-onedrive).\r\n+If first-ever enforcement is verified to be within the last 30 days, older activity outside the window doesn't explain the gap. Check reporting freshness and completeness, how progress is calculated, and how failures are treated. Don't assume that successful activity must always equal or exceed reported progress, or that every mismatch is expected.\r\n \r\n-Note\r\n+### Choose a measure for reporting\r\n+\r\n+Use activity to report recent labeling operations and **Total labeled to date** to report progress as of its latest refresh. Neither measure alone proves the number of distinct files currently protected. Unavailable or partial reports don't mean that zero files were labeled.\r\n \r\n-The Insights tab provides less data for non-Microsoft locations.\n\\ No newline at end of file\n+For comparison examples and diagnostic and escalation guidance, see [Troubleshoot auto-labeling count mismatches](/en-us/troubleshoot/microsoft-365/purview/sensitivity-labels/troubleshoot-auto-labeling-policies#numbers-dont-agree-or-exchange-activity-is-missing).\n\\ No newline at end of file\n",
+      "baseCommitSha": "0d7b2f3d008be593e700af731c8f80f4a3c1eba0",
+      "commitSha": "8a9a46be13669ffa58f890780ef367c1c8c62495",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-17 13:35:25 +0000",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/auto-label-insights-tab.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/auto-label-insights-tab",
+      "eventId": "purview-docs:8a9a46be13669ffa58f890780ef367c1c8c62495:modified:Purview/auto-label-insights-tab.md",
+      "firstSeenAt": "2026-11-17T22:30:50.692Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Auto-label Insights metrics are more clearly defined",
+        "summary": "The documentation now distinguishes periodically refreshed labeling progress from recorded labeling activity over the last 30 days. It clarifies that activity counts operations rather than distinct files, updates metric definitions, and points to the newer full review experience for daily trends.",
+        "adminImpact": "Use the metrics carefully when assessing policy results: align scopes, filters, time windows, and reporting freshness, and review failure reasons even when volumes are low.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "Purview/sensitivity-labels-sharepoint-onedrive-files.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 14,
+      "changes": 18,
+      "patch": "diff --git a/Purview/sensitivity-labels-sharepoint-onedrive-files.md b/Purview/sensitivity-labels-sharepoint-onedrive-files.md\nindex 3950e15..064193d 100644\n--- a/Purview/sensitivity-labels-sharepoint-onedrive-files.md\n+++ b/Purview/sensitivity-labels-sharepoint-onedrive-files.md\n@@ -111,7 +111,7 @@ Uploading a labeled Office document, and then extracting and displaying that sen\n \r\n ### Video support (MP4 files and Clipchamp projects)\r\n \r\n-Enable sensitivity label support for MP4 files by using the SharePoint Online PowerShell setting `EnableSensitivityLabelForVideoFiles`. The same setting also controls labeling for Clipchamp projects after the update described in that subsection reaches your tenant.\r\n+Enable sensitivity label support for MP4 files by using the SharePoint Online PowerShell setting `EnableSensitivityLabelForVideoFiles`. The same setting also controls sensitivity label behavior for Clipchamp projects.\r\n \r\n MP4 files support manually applying sensitivity labels, but can't be labeled automatically or by default. Additionally, MP4 files can [automatically inherit a sensitivity label from a Teams meeting](sensitivity-labels-meetings#policy-settings-meetings).\r\n \r\n@@ -129,9 +129,7 @@ Sensitivity labels that apply encryption must be configured with the [Assign per\n \r\n #### Clipchamp projects\r\n \r\n-In Clipchamp, a project's sensitivity label can restrict actions in the editor and be inherited by an exported MP4.\r\n-\r\n-An update extends `EnableSensitivityLabelForVideoFiles` to Clipchamp project labeling and label inheritance on MP4 exports. Check your tenant's current value, then review the before-and-after behavior below to understand the effect on your organization.\r\n+In Clipchamp, a project's sensitivity label can restrict actions in the editor. `EnableSensitivityLabelForVideoFiles` controls whether Clipchamp applies or changes project labels and whether MP4 exports inherit the project's label. Check your tenant's current value, then use the following table to understand its effect on projects and exports.\r\n \r\n [Connect to SharePoint Online PowerShell](/en-us/powershell/sharepoint/sharepoint-online/connect-sharepoint-online) and run:\r\n \r\n@@ -139,21 +137,13 @@ An update extends `EnableSensitivityLabelForVideoFiles` to Clipchamp project lab\n Get-SPOTenant | Select-Object EnableSensitivityLabelForVideoFiles\r\n ```\r\n \r\n-Note\r\n-\r\n-The update announced in Message Center post MC1454399 is rolling out worldwide from mid-September 2026, with completion expected in mid-October 2026. The schedule doesn't confirm availability for an individual tenant.\r\n-\r\n-**Before the change reaches your tenant**, `EnableSensitivityLabelForVideoFiles` controls MP4 labeling support in SharePoint and OneDrive, but not project labeling in the Clipchamp editor. Even when the setting is `$false`, Clipchamp can apply your organization's default sensitivity label and pass a project's label to an MP4 export.\r\n-\r\n-**After the change reaches your tenant**, `EnableSensitivityLabelForVideoFiles` also controls sensitivity label behavior for `.clipchamp` projects:\r\n-\r\n-| Setting and project state after rollout | Project labels and imported media | New MP4 exports |\r\n+| Setting and project state | Project labels and imported media | New MP4 exports |\r\n | --- | --- | --- |\r\n | `$true` | Your organization's default label policy applies. Supported label changes and imports are subject to label, protection, and permission checks. | Inherit the project's label, if one is applied. |\r\n | `$false`, project is unlabeled | No default label or label changes; the picker is hidden. Importing supported protected or non-protected labeled media requires acknowledgment that neither the project nor its export inherits the source label. | Don't inherit a label from the project. |\r\n | `$false`, project already has a valid label | The existing label and restrictions remain, but label changes are blocked. Imports retain the same checks as for `$true`, but imports that require a project label upgrade are blocked. | Don't inherit the project's label or restrictions from that label. Clipchamp warns before exporting without the label. |\r\n \r\n-Users still need permission to access and use source media and to export the project. After the change reaches a tenant with the setting at `$false`, users can share or download new, unlabeled MP4 exports from Clipchamp, subject to other permissions and policies. Existing project restrictions and previously exported MP4 files are unchanged.\r\n+Users still need permission to access and use source media and to export the project. When the setting is `$false`, users can share or download new, unlabeled MP4 exports from Clipchamp, subject to other permissions and policies. Existing project restrictions and previously exported MP4 files are unchanged.\r\n \r\n If your organization requires labels on Clipchamp projects and their exports, use `$true` and review the applicable default label policy. The setting applies across the tenant, or the connected geo-location in a Multi-Geo organization; review its effect before changing it.\r\n \r\n",
+      "baseCommitSha": "0d7b2f3d008be593e700af731c8f80f4a3c1eba0",
+      "commitSha": "8a9a46be13669ffa58f890780ef367c1c8c62495",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-17 13:35:25 +0000",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/sensitivity-labels-sharepoint-onedrive-files.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/sensitivity-labels-sharepoint-onedrive-files",
+      "eventId": "purview-docs:8a9a46be13669ffa58f890780ef367c1c8c62495:modified:Purview/sensitivity-labels-sharepoint-onedrive-files.md",
+      "firstSeenAt": "2026-11-17T22:30:50.702Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Sensitivity label setting now governs Clipchamp projects",
+        "summary": "The `EnableSensitivityLabelForVideoFiles` setting now controls Clipchamp project labeling and whether exported MP4 files inherit the project’s label.",
+        "adminImpact": "Review the setting’s current tenant value to understand its effect on Clipchamp projects and new MP4 exports.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
-  "messageCenterItems": [],
+  "messageCenterItems": [
+    {
+      "id": "MC791110",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-11-17",
+      "title": "Microsoft Purview | Data Lifecycle Management: New integration with Adaptive protection",
+      "summary": "Microsoft Purview is introducing a public preview of Adaptive protection integration with Data Lifecycle Management, rolling out June-July 2024, with general availability in early 2027. It auto-applies retention labels to content deleted by elevated risk users for 120 days, requiring minimal admin setup.",
+      "product": {
+        "slug": "purview",
+        "name": "Microsoft Purview",
+        "short": "Purview",
+        "learn": "https://learn.microsoft.com/en-us/purview/",
+        "icon": "purview.svg"
+      },
+      "topic": {
+        "slug": "general",
+        "name": "General",
+        "icon": "/assets/topics/general.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC791110/",
+      "originalUrl": "https://mc.merill.net/message/MC791110",
+      "body": "<p>Updated November 17, 2026: We have updated the timeline. Thank you for your patience.</p><p>Coming soon for Microsoft Purview: We are announcing the public preview of the integration of Adaptive protection with Data Lifecycle Management (DLM) to help you find the right balance to protect against data sabotage while enabling productivity. This new integration leverages DLM features to provide an additional control for Adaptive protection that automatically preserves items deleted by a user with an elevated risk level, so items can be restored if needed.</p><p>This message is associated with Microsoft 365 Roadmap ID <a href=\"https://www.microsoft.com/microsoft-365/roadmap?filters=&amp;searchterms=392839\" rel=\"noopener noreferrer\">392839</a>.</p><p><b>When this will happen:</b></p><p>Public preview: We will begin rolling out in late June 2024 (previously early May) and expect to complete by late July 2024 (previously mid-July).</p><p>General Availability:&nbsp;&nbsp;We will begin rolling out late January 2027 (previously late December 2026) and expect to complete by late February 2027 (previously mid-January).</p><p><b>How this will affect your organization:</b></p><p>After the rollout, and after you enable Adaptive protection for your tenant, the retention label and auto-apply policy for data lifecycle management will be automatically created for you. This policy will automatically include elevated risk users identified by Microsoft Purview | Insider Risk Management solution. If these users delete content from Microsoft SharePoint, Microsoft OneDrive, or Microsoft Exchange, a retention label is automatically applied to that content to retain it for 120 days. Retention labels are automatically applied to unlabeled content deleted by these users. When these users are no longer at the elevated risk level, they are automatically removed from the DLM policy, and the system will no longer keep a copy of content they delete. Any content copies previously retained when the user had an elevated risk level will be kept for the 120 days as specified by the retention label.</p><p>Unlike other retention labeling scenarios, users do not see the retention label, and you do not need to create or manage the retention label or policy. At this time, you can't change the retention period or assign different policies based on the different risk levels, or for different locations. The single retention label and auto-labeling policy for your tenant is not visible in the Microsoft Purview compliance portal.</p><p><b>What you need to do to prepare:</b></p><p>Learn more: <a href=\"https://learn.microsoft.com/purview/retention#dynamically-mitigate-the-risk-of-accidental-or-malicious-deletes\" rel=\"noopener noreferrer\">Learn about retention policies &amp; labels to retain or delete | Microsoft Learn</a></p><p>If you're using Adaptive protection and want to automatically retain content deleted by elevated risk users, follow these steps to turn on this new integration.</p><ol><li>Sign in to the <a href=\"https://compliance.microsoft.com/\" rel=\"noopener noreferrer\">Microsoft Purview compliance portal</a>.</li><li>Navigate to <i>Data lifecycle management &gt; Microsoft 365 &gt; Adaptive protection settings</i> in the top right corner.</li><li>Turn the setting ON and select <i>Save</i>.</li></ol><p></p><p></p><p></p><p>If you’re not using Adaptive protection already, turn on Adaptive protection and the new feature will be enabled along with Adaptive protection.</p><p>This rollout will happen automatically by the specified date with no admin action required before the rollout. You may want to notify your users about this change and update any relevant documentation as appropriate.</p>",
+      "category": "stayInformed",
+      "services": [
+        "Microsoft 365 suite",
+        "Microsoft Purview"
+      ],
+      "tags": [
+        "Updated message",
+        "New feature",
+        "Admin impact"
+      ],
+      "startDate": "2024-05-08T00:10:41Z",
+      "endDate": "2027-03-31T08:00:00Z",
+      "lastModifiedDateTime": "2026-11-17T18:09:20.787Z",
+      "version": "2026-11-17T18:09:20.787Z",
+      "eventId": "message-center:MC791110:2026-11-17T18:09:20.787Z",
+      "firstSeenAt": "2026-11-17T22:30:59.030Z"
+    },
+    {
+      "id": "MC1455013",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-11-17",
+      "title": "Microsoft Purview: Data Lifecycle Management- Azure PST Import",
+      "summary": "Azure PST Import enables Microsoft 365 admins to import PST files from Azure Blob Storage into Exchange Online mailboxes using PowerShell. The process includes readiness analysis, import batching, and compliance with existing retention and audit policies. Rollout begins April 2027, requiring specific Azure permissions and mailbox prerequisites.",
+      "product": {
+        "slug": "purview",
+        "name": "Microsoft Purview",
+        "short": "Purview",
+        "learn": "https://learn.microsoft.com/en-us/purview/",
+        "icon": "purview.svg"
+      },
+      "topic": {
+        "slug": "general",
+        "name": "General",
+        "icon": "/assets/topics/general.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC1455013/",
+      "originalUrl": "https://mc.merill.net/message/MC1455013",
+      "body": "<p>Updated November 17, 2026: We have updated the timeline. Thank you for your patience.&nbsp;</p><p><b>What and Why:</b></p><p></p><p><b>Azure PST Import</b> provides a structured, PowerShell-based way for administrators to import PST files stored in <b>Azure Blob Storage</b> into <b>Exchange Online mailboxes</b>, which are commonly used to store archived Outlook mailbox content. This capability helps organizations migrate historical email data in a controlled and auditable way by validating readiness before importing and by providing reports throughout the process. The process starts by creating an Azure PST Import endpoint to establish the connection between Azure storage and Exchange Online. Administrators then run a migration batch in <b>Analyze</b> mode to review readiness and validate the input before proceeding. Once the analysis results are reviewed, they use those results to create and start the import batch, which begins importing the PST files into the specified mailboxes.</p><p></p><p>This message is associated with Microsoft 365 Roadmap ID <a href=\"https://www.microsoft.com/en-us/microsoft-365/roadmap?rtc=1%26filters%3D&amp;searchterms=565865#Roadmap\" rel=\"noopener noreferrer\">565865</a></p><p><b>Rollout Schedule:</b></p><p>Global: We will begin rolling out early April 2027 (previously early December 2026) and expect to complete by late April 2027 (previously late December 2026).</p><p><b>Impact on your organization:</b></p><p><i>Who is affected</i></p><ul><li>Microsoft 365 administrators managing <b>Exchange Online</b></li><li>Administrators using <b>Microsoft Purview Data Lifecycle Management</b></li><li>Organizations that import PST files into user or archive mailboxes</li></ul><p><i>What will happen</i></p><ul><li>Administrators complete the Azure PST Import process using <b>PowerShell cmdlets only</b>.</li><li>The workflow includes:<ul><li>Creating an Azure PST Import migration endpoint</li><li>Running a migration batch in <b>Analyze</b> mode to validate readiness</li><li>Reviewing analysis results and reports</li><li>Creating and starting the <b>import</b> batch</li><li>Performing post-import cleanup</li></ul></li><li>This experience is<b> not available through a graphical user interface (GUI)</b>.</li><li>Existing mailbox prerequisites and quotas are validated before importing begins.</li><li>There is<b> no direct user impact</b>; the feature is admin-driven.</li></ul><p><b>Action Required / Recommendations:</b></p><p></p><ul><li>Ensure your <b>Azure storage account and container exist</b> and are reachable; the endpoint creation cmdlet validates both during setup.</li><li>Grant the <b>Storage Blob Data Reader </b>role to the <b>Office 365 Import Service</b> app on the target storage account. Without this permission, creating the Azure PST Import endpoint will fail.</li><li>Prepare your <b>batch input files (XML and/or CSV) </b>and run the migration batch in <b>Analyze</b> mode first so the service can validate readiness before importing.</li><li>Confirm analysis prerequisites for target mailboxes:<ul><li>Appropriate license assigned</li><li>Mailbox is not inactive or soft-deleted</li><li>Recipient type is <b>UserMailbox</b></li><li>Archive is enabled if importing to archive</li><li>Quota validations (ArchiveQuota / RecoverableItemsQuota) occur during analysis</li></ul></li><li>Validate PST files ahead of time:<ul><li>Analysis verifies that all specified PST files exist</li><li>PST file size is validated during analysis</li></ul></li></ul><p>For detailed cmdlet usage and guidance, review the Azure PST Import documentation on Microsoft Learn.</p><p><b><b>Compliance considerations:</b></b></p><table><tbody><tr><td>Question</td><td>Answer</td></tr><tr><td>Does the change alter how existing customer data is processed, stored, or accessed?</td><td>Yes. The feature enables administrators to import existing customer email data contained in PST files into Exchange Online mailboxes, where the data is then stored and processed according to existing Exchange Online behaviors.</td></tr><tr><td>Does the change store customer data, and if so, where is it stored?</td><td>Yes. PST file contents are imported into Exchange Online mailboxes within the customer’s Microsoft 365 tenant and are stored according to the tenant’s data residency and storage configuration.</td></tr><tr><td>Does the change modify retention policies, holds, or deletion workflows?</td><td>Yes. Once imported, mailbox data becomes subject to any existing Microsoft Purview retention policies, retention labels, holds, and deletion workflows already configured for the target mailboxes.</td></tr><tr><td>Does the change affect audit logging capabilities?</td><td>Yes. Administrative actions related to PST import and the resulting mailbox changes are logged using existing Exchange Online and Microsoft Purview audit logging mechanisms.</td></tr><tr><td>Does the change alter how admins can monitor or demonstrate compliance?</td><td>Yes. Administrators can use existing Exchange Online and Microsoft Purview reporting and audit tools to monitor PST import activity and demonstrate compliance after the data is imported.</td></tr><tr><td>Does the change include an admin control?</td><td>Yes. The feature is controlled through administrator access to PowerShell cmdlets and Azure role assignments, including permissions on the Azure storage account used for PST import.</td></tr></tbody></table>",
+      "category": "stayInformed",
+      "services": [
+        "Microsoft Purview"
+      ],
+      "tags": [
+        "Updated message",
+        "New feature",
+        "Admin impact"
+      ],
+      "startDate": "2026-08-14T21:32:20Z",
+      "endDate": "2027-05-31T07:00:00Z",
+      "lastModifiedDateTime": "2026-11-17T18:02:14.39Z",
+      "version": "2026-11-17T18:02:14.39Z",
+      "eventId": "message-center:MC1455013:2026-11-17T18:02:14.39Z",
+      "firstSeenAt": "2026-11-17T22:30:59.030Z"
+    },
+    {
+      "id": "MC1281505",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-11-17",
+      "title": "Microsoft Purview: Data Lifecycle Management- Azure PST Import",
+      "summary": "Azure PST Import enables Microsoft 365 admins to import PST files from Azure Blob Storage into Exchange Online mailboxes using PowerShell. It includes readiness analysis, reporting, and post-import cleanup. Rollout is delayed to early 2027. Imported data follows existing retention, compliance, and audit policies, with no user impact.",
+      "product": {
+        "slug": "purview",
+        "name": "Microsoft Purview",
+        "short": "Purview",
+        "learn": "https://learn.microsoft.com/en-us/purview/",
+        "icon": "purview.svg"
+      },
+      "topic": {
+        "slug": "general",
+        "name": "General",
+        "icon": "/assets/topics/general.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC1281505/",
+      "originalUrl": "https://mc.merill.net/message/MC1281505",
+      "body": "<p>Updated November 17, 2026: We have updated the timeline. Thank you for your patience.&nbsp;</p><p><b><b>Introduction</b></b></p><p><b>Azure PST Import</b> provides a structured, PowerShell-based way for administrators to import PST files stored in <b>Azure Blob Storage</b> into <b>Exchange Online mailboxes</b>, which are commonly used to store archived Outlook mailbox content. This capability helps organizations migrate historical email data in a controlled and auditable way by validating readiness before importing and by providing reports throughout the process. The process starts by creating an Azure PST Import endpoint to establish the connection between Azure storage and Exchange Online. Administrators then run a migration batch in <b>Analyze</b> mode to review readiness and validate the input before proceeding. Once the analysis results are reviewed, they use those results to create and start the import batch, which begins importing the PST files into the specified mailboxes.</p><p>This message is associated with <b>Microsoft 365 Roadmap ID <a href=\"https://www.microsoft.com/microsoft-365/roadmap?filters=&amp;searchterms=557559\" rel=\"noopener noreferrer\">557559</a></b>.</p><p><b><b>When this will happen</b></b></p><ul><li>Public Preview: We will begin rolling out <b>mid-January 2027</b> (previously mid-October 2026) and expect to complete by <b>mid-February 2027</b> (previously<b> </b>late October 2026).</li><li>Worldwide: We will begin rolling out <b>early March 2027</b> (previously late January) and expect to complete by <b>late March 2027</b> (previously late February).</li></ul><p><b><b>How this affects your organization</b></b></p><p><i>Who is affected</i></p><ul><li>Microsoft 365 administrators managing <b>Exchange Online</b></li><li>Administrators using <b>Microsoft Purview Data Lifecycle Management</b></li><li>Organizations that import PST files into user or archive mailboxes</li></ul><p><i>What will happen</i></p><ul><li>Administrators complete the Azure PST Import process using <b>PowerShell cmdlets only</b>.</li><li>The workflow includes:<ul><li>Creating an Azure PST Import migration endpoint</li><li>Running a migration batch in <b>Analyze</b> mode to validate readiness</li><li>Reviewing analysis results and reports</li><li>Creating and starting the <b>import</b> batch</li><li>Performing post-import cleanup</li></ul></li><li>This experience is<b> not available through a graphical user interface (GUI)</b>.</li><li>Existing mailbox prerequisites and quotas are validated before importing begins.</li><li>There is<b> no direct user impact</b>; the feature is admin-driven.</li></ul><p><b><b>What you can do to prepare</b></b></p><ul><li>Ensure your <b>Azure storage account and container exist</b> and are reachable; the endpoint creation cmdlet validates both during setup.</li><li>Grant the <b>Storage Blob Data Reader </b>role to the <b>Office 365 Import Service</b> app on the target storage account. Without this permission, creating the Azure PST Import endpoint will fail.</li><li>Prepare your <b>batch input files (XML and/or CSV) </b>and run the migration batch in <b>Analyze</b> mode first so the service can validate readiness before importing.</li><li>Confirm analysis prerequisites for target mailboxes:<ul><li>Appropriate license assigned</li><li>Mailbox is not inactive or soft-deleted</li><li>Recipient type is <b>UserMailbox</b></li><li>Archive is enabled if importing to archive</li><li>Quota validations (ArchiveQuota / RecoverableItemsQuota) occur during analysis</li></ul></li><li>Validate PST files ahead of time:<ul><li>Analysis verifies that all specified PST files exist</li><li>PST file size is validated during analysis</li></ul></li></ul><p>For detailed cmdlet usage and guidance, review the Azure PST Import documentation on Microsoft Learn.</p><p><b><b>Compliance considerations</b></b></p><table><tbody><tr><td>Question</td><td>Answer</td></tr><tr><td>Does the change alter how existing customer data is processed, stored, or accessed?</td><td>Yes. The feature enables administrators to import existing customer email data contained in PST files into Exchange Online mailboxes, where the data is then stored and processed according to existing Exchange Online behaviors.</td></tr><tr><td>Does the change store customer data, and if so, where is it stored?</td><td>Yes. PST file contents are imported into Exchange Online mailboxes within the customer’s Microsoft 365 tenant and are stored according to the tenant’s data residency and storage configuration.</td></tr><tr><td>Does the change modify retention policies, holds, or deletion workflows?</td><td>Yes. Once imported, mailbox data becomes subject to any existing Microsoft Purview retention policies, retention labels, holds, and deletion workflows already configured for the target mailboxes.</td></tr><tr><td>Does the change affect audit logging capabilities?</td><td>Yes. Administrative actions related to PST import and the resulting mailbox changes are logged using existing Exchange Online and Microsoft Purview audit logging mechanisms.</td></tr><tr><td>Does the change alter how admins can monitor or demonstrate compliance?</td><td>Yes. Administrators can use existing Exchange Online and Microsoft Purview reporting and audit tools to monitor PST import activity and demonstrate compliance after the data is imported.</td></tr><tr><td>Does the change include an admin control?</td><td>Yes. The feature is controlled through administrator access to PowerShell cmdlets and Azure role assignments, including permissions on the Azure storage account used for PST import.</td></tr></tbody></table>",
+      "category": "stayInformed",
+      "services": [
+        "Microsoft Purview"
+      ],
+      "tags": [
+        "Updated message",
+        "New feature",
+        "User impact",
+        "Admin impact"
+      ],
+      "startDate": "2026-04-15T23:29:09Z",
+      "endDate": "2027-04-30T07:00:00Z",
+      "lastModifiedDateTime": "2026-11-17T17:58:01.04Z",
+      "version": "2026-11-17T17:58:01.04Z",
+      "eventId": "message-center:MC1281505:2026-11-17T17:58:01.04Z",
+      "firstSeenAt": "2026-11-17T22:30:59.030Z"
+    },
+    {
+      "id": "MC1489971",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-11-17",
+      "title": "Microsoft Purview DLP: Improved setup and Intune multi-admin approval support for unmanaged apps in Edge for Business",
+      "summary": "Microsoft Purview DLP will enhance setup and activation for unmanaged apps in Edge for Business, supporting Intune multi-admin approval with clearer status, error reporting, and task coordination. Rollout starts January 2027, requiring no prior action; existing policies remain unchanged and Intune approvals continue as before.",
+      "product": {
+        "slug": "purview",
+        "name": "Microsoft Purview",
+        "short": "Purview",
+        "learn": "https://learn.microsoft.com/en-us/purview/",
+        "icon": "purview.svg"
+      },
+      "topic": {
+        "slug": "general",
+        "name": "General",
+        "icon": "/assets/topics/general.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC1489971/",
+      "originalUrl": "https://mc.merill.net/message/MC1489971",
+      "body": "<p>Updated November 17, 2026: We have updated the timeline. Thank you for your patience.&nbsp;</p><p><b><b>What and why</b></b></p><p>Beginning in late November 2026, Microsoft Purview will roll out improvements to the setup and activation experience for inline collection and Data Loss Prevention (DLP) policies that protect interactions with unmanaged cloud apps in <i>Microsoft Edge for Business</i>.</p><p>This update adds support for organizations that use Microsoft Intune multi-admin approval and provides clearer status information, more detailed error reporting, and remediation guidance in the <i>Microsoft Purview portal</i>. These enhancements help administrators activate protection more efficiently while preserving existing Intune approval controls.</p><p><b><b>Rollout schedule</b></b></p><ul><li><b>Worldwide:</b> Beginning in <b>early January 2027</b> (previously late November 2026) and expected to complete by <b>end of January 2027 </b>(previously early December 2026)</li></ul><p>The rollout will occur progressively. Until the update reaches your tenant, Microsoft Purview may continue to display the current setup experience or indicate that Intune multi-admin approval is not supported.</p><p><b><b>Impact on your organization</b></b></p><p><i>Who is affected</i></p><ul><li>Organizations using Microsoft Purview collection or DLP policies to monitor and protect supported activities with unmanaged cloud apps in Microsoft Edge for Business</li><li>Organizations using Microsoft Intune multi-admin approval</li><li>Organizations that require coordination between Purview and Intune administrators</li></ul><p><i>Platforms/services</i></p><ul><li>Microsoft Purview</li><li>Microsoft Intune</li><li>Microsoft Edge for Business</li></ul><p><i>What will happen</i></p><ul><li>Microsoft Purview inline protection for unmanaged apps will support tenants that use Intune multi-admin approval.</li><li>Required Intune configuration changes will continue through your existing multi-admin approval process.</li><li>Microsoft Purview will not bypass Intune approval requirements.</li><li>The Microsoft Purview portal will provide clearer setup status information, more detailed error information, and guidance about actions required to complete activation.</li><li>When Intune administrator assistance is required, a Purview administrator can send a task to the appropriate Intune administrator.</li><li>Sending a task does not grant permissions, bypass approval requirements, or automatically complete requested Intune changes.</li><li>Protection may remain pending or inactive until required Intune approvals or administrator actions are completed.</li><li>You do not need to migrate or recreate existing collection or DLP policies.</li><li>This update does not expand supported applications, browsers, activities, licenses, devices, or cloud environments.</li><li>Existing DLP enforcement behavior remains unchanged.</li></ul><p><b><b>Action required and recommendations</b></b></p><p>No action is required before rollout.</p><p>After the update reaches your tenant, if Microsoft Purview indicates that administrator action is required:</p><ul><li>Review the status and error details in the Microsoft Purview portal to identify the required next step.</li><li>In Microsoft Purview, send a task to the appropriate Intune administrator and have that administrator complete the requested action.</li><li>Return to Microsoft Purview, review the request status, and complete any remaining steps.</li><li>Check again after approximately one hour to confirm the supporting configuration and activation status are complete and that the error no longer appears.</li></ul><p>If your organization does not use Intune multi-admin approval and your policies are already active, no action is required.</p><p>For questions or support, contact your Microsoft account representative or Microsoft Support.</p><p><b>Learn more</b></p><ul><li><a href=\"https://learn.microsoft.com/intune/governance/admin-tasks\" rel=\"noopener noreferrer\">Centrally manage Admin Tasks - Microsoft Intune | Microsoft Learn</a></li><li><a href=\"https://learn.microsoft.com/purview/dlp-browser-dlp-learn#policies-for-unmanaged-app-interactions\" rel=\"noopener noreferrer\">Learn about Data Loss Prevention for Cloud Apps in Edge for Business | Microsoft Learn</a></li><li><a href=\"https://learn.microsoft.com/intune/fundamentals/role-based-access-control/multi-admin-approval\" rel=\"noopener noreferrer\">Use Multi Admin Approval in Intune - Microsoft Intune | Microsoft Learn</a></li></ul><p><b><b>Compliance considerations</b></b></p><table><tbody><tr><td><b>Question</b></td><td><b>Answer</b></td></tr><tr><td>Does the change alter how administrators can monitor, report on, or demonstrate compliance activities, for example, through Microsoft Purview or administrator reporting?</td><td>Yes. Administrators will receive clearer setup status information, more detailed error information, remediation guidance, and task-based coordination between Microsoft Purview and Microsoft Intune administrators.</td></tr></tbody></table>",
+      "category": "stayInformed",
+      "services": [
+        "Microsoft Purview"
+      ],
+      "tags": [
+        "Updated message",
+        "Admin impact"
+      ],
+      "startDate": "2026-10-06T23:07:36Z",
+      "endDate": "2027-03-01T08:00:00Z",
+      "lastModifiedDateTime": "2026-11-17T17:21:44.683Z",
+      "version": "2026-11-17T17:21:44.683Z",
+      "eventId": "message-center:MC1489971:2026-11-17T17:21:44.683Z",
+      "firstSeenAt": "2026-11-17T22:30:59.030Z"
+    }
+  ],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 2,
+    "totalCommits": 2,
+    "totalFiles": 5,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 2 updated, and 0 removed Microsoft Purview documentation files across 1 documentation area.",
+    "overview": "Today's report includes 0 new, 5 updated, and 0 removed Microsoft Purview documentation files across 1 documentation area.",
     "groups": [
       {
         "category": "New feature",
         "title": "Microsoft Purview",
-        "summary": "The page adds instructions for changing a Teams-connected Microsoft 365 group from Implicit to Explicit mode with PowerShell. It documents segment stamping within 24 hours, segment-based access and membership, segment management, and unsupported transitions from Owner moderated or Open mode. The guidance now explains that opening Excel, PowerPoint, or Word files beside a Copilot conversation in the Microsoft Copilot app uses the web versions of those apps, so the Web column applies.",
+        "summary": "The page adds instructions for changing a Teams-connected Microsoft 365 group from Implicit to Explicit mode with PowerShell. It documents segment stamping within 24 hours, segment-based access and membership, segment management, and unsupported transitions from Owner moderated or Open mode. The guidance now explains that opening Excel, PowerPoint, or Word files beside a Copilot conversation in the Microsoft Copilot app uses the web versions of those apps, so the Web column applies. The article now explains that a file can contribute multiple recorded labeling operations, that activity excludes some accesses, scans, evaluations, and retries, and that deleting a file does not remove historica",
         "sourceFiles": [
           "Purview/information-barriers-teams.md",
-          "Purview/sensitivity-labels-versions.md"
+          "Purview/sensitivity-labels-versions.md",
+          "Purview/apply-sensitivity-label-automatically.md",
+          "Purview/auto-label-insights-tab.md",
+          "Purview/sensitivity-labels-sharepoint-onedrive-files.md"
         ]
       }
     ],
@@ -80,7 +319,7 @@
       {
         "category": "New feature",
         "headline": "Microsoft Purview",
-        "detail": "The page adds instructions for changing a Teams-connected Microsoft 365 group from Implicit to Explicit mode with PowerShell. It documents segment stamping within 24 hours, segment-based access and membership, segment management, and unsupported transitions from Owner moderated or Open mode. The guidance now explains that opening Excel, PowerPoint, or Word files beside a Copilot conversation in the Microsoft Copilot app uses the web versions of those apps, so the Web column applies."
+        "detail": "The page adds instructions for changing a Teams-connected Microsoft 365 group from Implicit to Explicit mode with PowerShell. It documents segment stamping within 24 hours, segment-based access and membership, segment management, and unsupported transitions from Owner moderated or Open mode. The guidance now explains that opening Excel, PowerPoint, or Word files beside a Copilot conversation in the Microsoft Copilot app uses the web versions of those apps, so the Web column applies. The article now explains that a file can contribute multiple recorded labeling operations, that activity excludes some accesses, scans, evaluations, and retries, and that deleting a file does not remove historica"
       }
     ],
     "generatedBy": "fallback"
