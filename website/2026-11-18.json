@@ -1,0 +1,221 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "Purview/edisc-ref-api-guide.md",
+      "status": "modified",
+      "additions": 22,
+      "deletions": 5,
+      "changes": 27,
+      "patch": "diff --git a/Purview/edisc-ref-api-guide.md b/Purview/edisc-ref-api-guide.md\nindex d7d1905..a17761b 100644\n--- a/Purview/edisc-ref-api-guide.md\n+++ b/Purview/edisc-ref-api-guide.md\n@@ -11,7 +11,7 @@ f1.keywords:\n ms.author: chvukosw\n author: chvukosw\n manager: laurawi\n-ms.date: 2026-05-06T00:00:00.0000000Z\n+ms.date: 2026-11-17T00:00:00.0000000Z\n audience: Admin\n ms.topic: article\n ms.service: purview\n@@ -44,9 +44,11 @@ source_path: Purview/edisc-ref-api-guide.md\n cmProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/57eae111-0f3b-497e-be07-450fd1409dea\n - https://authoring-docs-microsoft.poolparty.biz/devrel/5fc61396-d075-4560-aece-fdbda73d243f\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n spProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/ac8bf8ab-8134-4c9a-9f2e-58b31575b492\n - https://authoring-docs-microsoft.poolparty.biz/devrel/ad9437c1-8cda-4537-ad69-b4b263652e13\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n platformId: f43a19d0-da76-df87-c64f-e1fd370a1aed\n ---\n \n@@ -186,6 +188,10 @@ $CasesAsObjects | ft displayname,id,status\n \r\n You can configure the Microsoft Purview eDiscovery API to enable the programmatic download of export packages and the reports from an export process in an eDiscovery case.\r\n \r\n+Important\r\n+\r\n+App-based authentication for eDiscovery export downloads through Microsoft Graph is currently not supported in Government Community Cloud (GCC). This limitation is specific to export downloads and isn't a general restriction on app-based authentication for eDiscovery APIs.\r\n+\r\n ### Prerequisites for Microsoft Purview eDiscovery API\r\n \r\n Before you execute the configuration steps in this section, complete and validate the configuration detailed in the Microsoft Graph API section. Extend the previously registered app in Microsoft Entra ID to include the required permissions to achieve programmatic download of the export package.\r\n@@ -224,10 +230,10 @@ Complete the following steps:\n \r\n     If this is the first time using Microsoft Graph PowerShell cmdlets, you might be prompted to consent to required permissions.\r\n \r\n-    To register the **MicrosoftPurviewEDiscovery** app, run the following PowerShell commands:\r\n+    To register the **MicrosoftPurviewEDiscovery** app, run the following PowerShell commands. Replace `<MicrosoftPurviewEDiscovery application ID>` with the Application ID of the MicrosoftPurviewEDiscovery app, not the Application (client) ID of your own registered app. Use this same MicrosoftPurviewEDiscovery application ID in the export-token scope in the example download scripts.\r\n \r\n     ```powershell\r\n-    $spId = @{\"AppId\" = \"00001111-aaaa-2222-bbbb-3333cccc4444\" }\r\n+    $spId = @{\"AppId\" = \"<MicrosoftPurviewEDiscovery application ID>\" }\r\n     ```\r\n \r\n     ```powershell\r\n@@ -330,6 +336,17 @@ Because the Microsoft Purview eDiscovery API is separate from Microsoft Graph AP\n \r\n The following example scripts can be used as a reference when developing your own scripts to enable the programmatic download of the export packages.\r\n \r\n+Use the following values for the authentication parameters in both scripts:\r\n+\r\n+| Parameter or placeholder | Value |\r\n+| --- | --- |\r\n+| `tenantId` | The Directory (tenant) ID of your Microsoft Entra tenant. |\r\n+| `appId` | The Application (client) ID of your own registered app, configured with the permissions in Step 2. This value is passed to `ClientId` for both Microsoft Graph and export-token authentication. |\r\n+| `appSecret` or `certPath` | The client secret value or the certificate store path for your own registered app. |\r\n+| `<MicrosoftPurviewEDiscovery application ID>` | The Application ID of the **MicrosoftPurviewEDiscovery** Microsoft application registered in Step 1. Find this value in **Microsoft Entra ID** &gt; **Enterprise applications** &gt; **MicrosoftPurviewEDiscovery** &gt; **Overview** &gt; **Application ID**. Don't use the Object ID or your own app's Application (client) ID. |\r\n+\r\n+In each script, replace `<MicrosoftPurviewEDiscovery application ID>` in the export-token scope and retain the `/.default` suffix. This scope identifies the Microsoft Purview eDiscovery API that receives the token. In the certificate example, the `Scope` entry in `$connectionDetails` uses this value, while `ClientId` remains your own registered app's ID.\r\n+\r\n #### Connecting with a client secret\r\n \r\n If you configured your app to use a client secret, use the following example script as a reference to download the export package and reports programmatically. Copy the contents into Notepad and save it as `DownloadExportUsingApp.ps1`.\r\n@@ -377,7 +394,7 @@ if (-not(Get-MgContext)) {\n }\r\n \r\n Write-Host \"Connect with credentials of a ediscovery admin (token for export)\"\r\n-$exportToken = Get-MsalToken -ClientId $appId -Scopes \"00001111-aaaa-2222-bbbb-3333cccc4444/.default\" -TenantId $tenantId -RedirectUri \"http://localhost\" -ClientSecret $password\r\n+$exportToken = Get-MsalToken -ClientId $appId -Scopes \"<MicrosoftPurviewEDiscovery application ID>/.default\" -TenantId $tenantId -RedirectUri \"http://localhost\" -ClientSecret $password\r\n \r\n $uri = \"/v1.0/security/cases/ediscoveryCases/$($caseId)/operations/$($exportId)\"\r\n \r\n@@ -461,7 +478,7 @@ $connectionDetails = @{\n     'TenantId'          = $tenantId\r\n     'ClientId'          = $appID\r\n     'ClientCertificate' = $ClientCert\r\n-    'Scope' = \"00001111-aaaa-2222-bbbb-3333cccc4444/.default\"\r\n+    'Scope' = \"<MicrosoftPurviewEDiscovery application ID>/.default\"\r\n }\r\n \r\n $exportToken = Get-MsalToken @connectionDetails\r\n",
+      "baseCommitSha": "8a9a46be13669ffa58f890780ef367c1c8c62495",
+      "commitSha": "71cd88cbf756ffc599e27d92e45d59b38d4f8852",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-17 23:34:57 +0000",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/edisc-ref-api-guide.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/edisc-ref-api-guide",
+      "eventId": "purview-docs:71cd88cbf756ffc599e27d92e45d59b38d4f8852:modified:Purview/edisc-ref-api-guide.md",
+      "firstSeenAt": "2026-11-18T10:24:31.961Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "eDiscovery export authentication guidance updated",
+        "summary": "The guide adds a GCC limitation for app-based authentication when downloading eDiscovery exports through Microsoft Graph and clarifies the application IDs, scopes, and authentication parameters required by the scripts.",
+        "adminImpact": "Administrators using these scripts should replace placeholder values with the correct MicrosoftPurviewEDiscovery application ID. GCC administrators cannot use app-based authentication for export downloads.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "Purview/edisc-search-teams-data.md",
+      "status": "modified",
+      "additions": 34,
+      "deletions": 8,
+      "changes": 42,
+      "patch": "diff --git a/Purview/edisc-search-teams-data.md b/Purview/edisc-search-teams-data.md\nindex 8a4f471..6944945 100644\n--- a/Purview/edisc-search-teams-data.md\n+++ b/Purview/edisc-search-teams-data.md\n@@ -59,13 +59,15 @@ You can use eDiscovery and the Microsoft Graph Explorer to search for and delete\n \r\n Microsoft Teams chat data is stored in separate copies, one for compliance purposes (used by tools like eDiscovery) and one for user access.\r\n \r\n-- **Soft delete or hard delete operations** remove the user copy permanently and can't be recovered for user use.\r\n-- **Cmdlet-based purges** of Teams messages can remove the compliance copy of Teams messages, but the user copy remains visible. After the compliance copy is deleted, eDiscovery can no longer remove the user-visible message. Verify Teams messages carefully before purging and avoid using cmdlets to purge Teams messages (the user copy isn't deleted).\r\n+- **Soft delete or hard delete operations** remove the user copy permanently and can't be recovered for user use. **Important**\r\n \r\n-    - If you use cmdlets, review the export report and exclude Teams items. Deletes are only performed on the compliance copy and don't remove copies from user viewing. Deleting only the compliance copy also prevents any future deletion when using Microsoft Graph APIs.\r\n-    - If you use Microsoft Graph to review the report and ensure Teams items being deleted are intentional, there's no recovery of the items after the deletion is complete.\r\n+Cmdlet-based purges of Teams messages remove only the **compliance**\\*\\* **copy** **stored** **in** **the** \\*\\***mailbox**. The Teams message isn't removed from the Teams service and remains visible to the user. After the compliance copy is deleted, eDiscovery can no longer remove the user-visible Teams message. Avoid using cmdlets to purge Teams messages.\r\n \r\n-To ensure complete removal of items, plan your purge strategy carefully and understand which copy each deletion method targets.\r\n+- **If**\\*\\* **you** **use** \\*\\***cmdlets**, review the export report and exclude Teams messages from the purge. Cmdlet-based purges remove only the compliance copy and don't remove the message from the Teams service.\r\n+\r\n+    - **If**\\*\\* **you** **use** **Microsoft** \\*\\***Graph**, review the report and verify that the Teams messages identified for deletion are intended to be deleted before performing the purge. When the purge targets `teamsMessages`, the Teams messages are permanently deleted and can't be recovered.\r\n+\r\n+        To ensure complete removal of items, plan your purge strategy carefully and understand which copy each deletion method targets.\r\n \r\n Tip\r\n \r\n@@ -174,11 +176,35 @@ Next, retrieve the ID of the search that contains the chat messages you want to\n \r\n After you confirm the correct case and search IDs, use the following request to purge the matching chat messages.\r\n \r\n-1. In Graph Explorer, run the following POST request to delete the items returned by the search that you created in Step 2. Use the value `https://graph.microsoft.com/v1.0/security/cases/ediscoveryCases/{ediscoveryCaseID}/searches/{ediscoverySearchID}/purgeData` in the address bar of the request query, where *{ediscoveryCaseID}* and *{ediscoverySearchID}* are the IDs that you obtained in the previous procedures.\r\n+1. In Graph Explorer, set the request method to **POST** and enter the following endpoint to delete the items returned by the search that you created in Step 2. `https://graph.microsoft.com/v1.0/security/cases/ediscoveryCases/{ediscoveryCaseID}/searches/{ediscoverySearchID}/purgeData` where *{ediscoveryCaseID}* and *{ediscoverySearchID}* are the IDs that you obtained in the previous procedures.\r\n+\r\n+    With this command, you must provide a request body that specifies the **purge**\\*\\* **area to target (`mailboxes` or `teamsMessages`) and the purge** \\*\\***type** (`recoverable` or `permanentlyDelete`).\r\n+\r\n+    ```json\r\n+    {\r\n+     \"purgeType\": \"permanentlyDelete\",\r\n+     \"purgeAreas\": \"teamsMessages\"\r\n+    }\r\n+    ```\r\n+\r\n+    **Important:**\r\n+\r\n+    **A.**\\*\\* **`purgeAreas`** **specifies** **the** **target** **for** **the** **purge** \\*\\***request.**\r\n+\r\n+    - To purge **Microsoft**\\*\\* **Teams** \\*\\***messages**, set `purgeAreas` to `teamsMessages`.\r\n+    - To purge \\*\\*Only **the** **compliance** **copy** **of** **a** **Teams** **message** **stored** **in** **the** **user's** \\*\\***mailbox**, set `purgeAreas` to `mailboxes`.\r\n+    - Purging the compliance copy from the mailbox doesn't remove the message from the Teams service. The message remains visible to the user in Teams.\r\n+    - If both the **Teams**\\*\\* **message** **and** **its** **compliance** **copy need to be purged, use separate** **purge** \\*\\***requests**. Purge `teamsMessages` first, followed by `mailboxes`. Don't specify a combined value such as `mailboxes,`` ``teamsMessages`.\r\n+    - The order is important because after the compliance copy is purged from the mailbox, the Teams message can no longer be purged through eDiscovery.\r\n+\r\n+    **B.**\\*\\* **The** **effect** **of** **`purgeType`** **depends** **on** **the** **selected** \\*\\***`purgeAreas`.**\r\n+\r\n+    - When `purgeAreas` is set to `mailboxes`, `purgeType` determines whether mailbox items are deleted using `recoverable` or `permanentlyDelete`.\r\n+    - When `purgeAreas` is set to `teamsMessages`, Teams messages are **permanently**\\*\\* **deleted** **regardless** **of** **whether** **`purgeType`** **is** **set** **to** **`recoverable`** \\*\\*\\*\\*or`permanentlyDelete`\\*\\*. In either case, the Teams messages can't be recovered.\r\n \r\n-    If the POST request is successful, an HTTP response code is displayed in a green banner stating that the request was accepted.\r\n+    If the POST request is successfully accepted, the API returns an **HTTP**\\*\\* **`202`**\\*\\*\\*\\*`Accepted`\\*\\* response. The response includes a `Location` header that provides the URL for checking the status of the purge operation.\r\n \r\n-For more information about purgeData, see [sourceCollection: purgeData](/en-us/graph/api/ediscovery-sourcecollection-purgedata).\r\n+    For more information about this operation, including request-body parameters and examples, see [ediscoverySearch: purgeData](/en-us/graph/api/security-ediscoverysearch-purgedata).\r\n \r\n ### Delete chat messages with PowerShell\r\n \r\n",
+      "baseCommitSha": "8a9a46be13669ffa58f890780ef367c1c8c62495",
+      "commitSha": "71cd88cbf756ffc599e27d92e45d59b38d4f8852",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-17 23:34:57 +0000",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/edisc-search-teams-data.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/edisc-search-teams-data",
+      "eventId": "purview-docs:71cd88cbf756ffc599e27d92e45d59b38d4f8852:modified:Purview/edisc-search-teams-data.md",
+      "firstSeenAt": "2026-11-18T10:24:31.975Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Teams purge guidance now distinguishes mailbox and Teams message deletion",
+        "summary": "The documentation now specifies that `teamsMessages` purges permanently delete Teams messages, regardless of `purgeType`. Mailbox and Teams purges require separate requests, with Teams purged first; the API returns a `202 Accepted` response with a status URL.",
+        "adminImpact": "Administrators using Graph must select the correct purge area, avoid combined values, and follow the required order to prevent irreversible or incomplete deletion.",
+        "actionRequired": true,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "Purview/information-barriers.md",
+      "status": "modified",
+      "additions": 10,
+      "deletions": 4,
+      "changes": 14,
+      "patch": "diff --git a/Purview/information-barriers.md b/Purview/information-barriers.md\nindex 64545b0..4bee32f 100644\n--- a/Purview/information-barriers.md\n+++ b/Purview/information-barriers.md\n@@ -41,12 +41,12 @@ item_type: Content\n source_path: Purview/information-barriers.md\n cmProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/63959238-cb90-4871-a33d-4a5519097e47\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/9d7be3ef-f27c-4c7f-9eba-67c3cd429995\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/12ed19f9-ebdf-4c8a-8bcd-7a681836774d\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/1bb724a6-ed07-4064-971d-80071e714f16\n spProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/78d87f42-5582-4a6b-90be-7db2f12b34e6\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/feeb50f3-b677-44f9-b3a6-5f2f58182b0d\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/3a764584-4f97-452b-8f1d-36f19b12f6ae\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/b9e0ece8-b7ea-432b-9fb5-167c6aef3222\n platformId: 6d06616f-058a-cf05-12ce-cce3cb585099\n ---\n \n@@ -146,6 +146,12 @@ If your organization uses [*legacy* mode](information-barriers-multi-segment#che\n \r\n Before you define and apply IB policies, remove all existing Exchange address book policies in your organization. IB policies rely on address book policies, and existing ABPs aren't compatible with the ABPs that IB creates. To remove your existing address book policies, see [Remove an address book policy in Exchange Online](/en-us/exchange/address-books/address-book-policies/remove-an-address-book-policy?toc=%2Fpurview%2Ftoc.json&amp;bc=%2Fpurview%2Fbreadcrumb%2Ftoc.json). When you enable IB policies and enable hierarchical address book, all users not included in an IB segment see the [hierarchical address book](/en-us/exchange/address-books/hierarchical-address-books/hierarchical-address-books?toc=%2Fpurview%2Ftoc.json&amp;bc=%2Fpurview%2Fbreadcrumb%2Ftoc.json) in Exchange Online.\r\n \r\n+### Information Barriers and Agent Builder experience\r\n+\r\n+Agent Builder provides an easy way to build Declarative agent in Microsoft 365. It offers an immediate, interactive AI development experience that suits quick and straightforward projects.\r\n+\r\n+Agent builder honors IB policies in the people picker experience. With IB support in Agent builder, when an IB user searches for other users in the people picker, they won’t see users they’re restricted from communicating and collaborating with per IB policy. This restriction prevents users from conflicting segments to share an agent with each other. Users can continue to access agents that was previously shared with them. However, any new sharing experience via people picker will be allowed only with the users who can collaborate with each other per IB policy.\r\n+\r\n ## Ready to get started?\r\n \r\n - [Get started with Information Barriers](information-barriers-policies): Define segments and create your first IB policies.\r\n",
+      "baseCommitSha": "8a9a46be13669ffa58f890780ef367c1c8c62495",
+      "commitSha": "71cd88cbf756ffc599e27d92e45d59b38d4f8852",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-17 23:34:57 +0000",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/information-barriers.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/information-barriers",
+      "eventId": "purview-docs:71cd88cbf756ffc599e27d92e45d59b38d4f8852:modified:Purview/information-barriers.md",
+      "firstSeenAt": "2026-11-18T10:24:31.984Z",
+      "englishSummary": {
+        "category": "New feature",
+        "headline": "Information Barriers support documented for Agent Builder",
+        "summary": "The documentation adds that Agent Builder honors Information Barriers policies in its people picker, hiding users whom a user is restricted from communicating or collaborating with.",
+        "adminImpact": "Administrators should expect Information Barriers restrictions to apply when users search for people in Agent Builder.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "Purview/register-scan-saps4hana-source.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/Purview/register-scan-saps4hana-source.md b/Purview/register-scan-saps4hana-source.md\nindex a67a64c..437efc3 100644\n--- a/Purview/register-scan-saps4hana-source.md\n+++ b/Purview/register-scan-saps4hana-source.md\n@@ -112,7 +112,7 @@ When object is deleted from the data source, currently the subsequent scan won't\n \r\n     Note\r\n \r\n-    Scanning SAP ECC is a memory intensive operation, you're recommended to install Self-hosted Integration Runtime on a machine with at least 128 GB RAM.\r\n+    Scanning SAP S/4HANA is a memory intensive operation, you're recommended to install Self-hosted Integration Runtime on a machine with at least 128 GB RAM.\r\n - Deploy the metadata extraction ABAP function module on the SAP server by following the steps mentioned in [ABAP functions deployment guide](abap-functions-deployment-guide). You need an ABAP developer account to create the RFC function module on the SAP server. For scan execution, the user account requires sufficient permissions to connect to the SAP server and execute the following RFC function modules:\r\n \r\n     - STFC\\_CONNECTION (check connectivity)\r\n",
+      "baseCommitSha": "8a9a46be13669ffa58f890780ef367c1c8c62495",
+      "commitSha": "71cd88cbf756ffc599e27d92e45d59b38d4f8852",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-17 23:34:57 +0000",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/register-scan-saps4hana-source.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/register-scan-saps4hana-source",
+      "eventId": "purview-docs:71cd88cbf756ffc599e27d92e45d59b38d4f8852:modified:Purview/register-scan-saps4hana-source.md",
+      "firstSeenAt": "2026-11-18T10:24:31.993Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "SAP S/4HANA scan memory guidance is clarified",
+        "summary": "The documentation now identifies SAP S/4HANA, rather than SAP ECC, as the memory-intensive scan requiring a recommended Self-hosted Integration Runtime machine with at least 128 GB of RAM.",
+        "adminImpact": "Review Self-hosted Integration Runtime sizing for SAP S/4HANA scans against the 128 GB RAM recommendation.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [
+    {
+      "id": "MC1558038",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-11-17",
+      "title": "Microsoft Purview | Data Loss Prevention: Network data security integration with Azure Firewall",
+      "summary": "Microsoft Purview integrates Data Loss Prevention with Azure Firewall to protect sensitive network traffic, including text, files, and AI interactions. Rolling out from mid-November 2026 (preview) to late April 2027 (general availability), it enables automatic tenant activation, policy configuration, and enhanced risk management without disrupting existing policies.",
+      "product": {
+        "slug": "purview",
+        "name": "Microsoft Purview",
+        "short": "Purview",
+        "learn": "https://learn.microsoft.com/en-us/purview/",
+        "icon": "purview.svg"
+      },
+      "topic": {
+        "slug": "general",
+        "name": "General",
+        "icon": "/assets/topics/general.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC1558038/",
+      "originalUrl": "https://mc.merill.net/message/MC1558038",
+      "body": "<p><b><b>What and why</b></b></p><p>Microsoft Purview is expanding network layer data security controls with Azure Firewall. This integration helps organizations detect and protect sensitive data in supported network traffic, including text, files, and AI interactions. Organizations can apply Data Loss Prevention (DLP) policies to traffic from servers, virtual machines, and other endpoints to help prevent unauthorized sharing with cloud applications through browsers, applications, and APIs.</p><p></p><p><b><b>Rollout schedule</b></b></p><ul><li><b>Public Preview:</b> We will begin rolling out in <b>mid-November 2026 </b>and expect to complete by <b>mid-December 2026</b>.</li><li><b>General Availability (Worldwide):</b> Beginning in <b>late March 2027</b> and expect to complete by <b>late April 2027</b>.</li></ul><p></p><p><b><b>Impact on your organization</b></b></p><p><i>Who is affected</i></p><ul><li>Organizations using Microsoft Purview Data Loss Prevention and Azure Firewall to protect sensitive data in network traffic</li></ul><p><i>Platforms and services</i></p><ul><li>Microsoft Purview Data Loss Prevention</li><li>Azure Firewall</li><li>Microsoft Purview Insider Risk Management</li><li>Microsoft Defender</li></ul><p><i>What will happen</i></p><ul><li>This integration will become available automatically in your tenant as it rolls out.</li><li>Administrators can configure DLP policies to protect text and files sent and received through supported network traffic from servers, virtual machines, and other endpoints.</li><li>Policies can help prevent unauthorized sharing of sensitive data with cloud applications through browsers, applications, and APIs.</li><li>DLP policies can apply to traffic generated by background services and automated workloads.</li><li>The integration will provide activity signals to Microsoft Purview Insider Risk Management to help identify risky user behavior.</li><li>Alert management and investigation will be supported across Microsoft Purview and Microsoft Defender.</li><li>Existing Microsoft Purview inline web traffic policies applied to the network will continue to work without interruption.</li></ul><p></p><p><b><b>Action required and recommendations</b></b></p><p>No action is required for this capability to become available in your tenant. Configuration is required before your organization can use it.</p><p></p><p>Administrators who want to use this capability should:</p><ul><li>Review the prerequisites and configuration guidance in the documentation linked below.</li><li>Create DLP policies to protect sensitive data in supported network traffic, as appropriate for their organization.</li></ul><p></p><p><b>Learn more</b></p><ul><li><b>To be updated</b> <a href=\"https://learn.microsoft.com/purview/dlp-network-data-security-learn\" rel=\"noopener noreferrer\">Learn about Microsoft Purview Network Data Security | Microsoft Learn</a></li></ul><p></p><p><b><b>Compliance considerations</b></b></p><p>This change extends Microsoft Purview DLP capabilities to supported network traffic and introduces additional activity signals for security monitoring and investigation.</p><p></p><p>Organizations should review their existing data protection, monitoring, and compliance requirements before configuring policies.</p>",
+      "category": "stayInformed",
+      "services": [
+        "Microsoft Purview"
+      ],
+      "tags": [
+        "New feature",
+        "User impact",
+        "Admin impact"
+      ],
+      "startDate": "2026-11-17T23:02:27Z",
+      "endDate": "2027-05-30T07:00:00Z",
+      "lastModifiedDateTime": "2026-11-17T23:02:46.433Z",
+      "version": "2026-11-17T23:02:46.433Z",
+      "eventId": "message-center:MC1558038:2026-11-17T23:02:46.433Z",
+      "firstSeenAt": "2026-11-18T10:24:53.304Z"
+    },
+    {
+      "id": "MC1558037",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-11-17",
+      "title": "Microsoft Purview | Data Loss Prevention: Protection for local AI agent interactions",
+      "summary": "Microsoft Purview Data Loss Prevention is expanding to protect sensitive data in supported local AI agent interactions, allowing administrators to apply DLP policies to agent prompts, responses, and tool interactions. Public preview starts late January 2027, with general availability by late April 2027. No action is required to enable this feature.",
+      "product": {
+        "slug": "purview",
+        "name": "Microsoft Purview",
+        "short": "Purview",
+        "learn": "https://learn.microsoft.com/en-us/purview/",
+        "icon": "purview.svg"
+      },
+      "topic": {
+        "slug": "ai",
+        "name": "AI and Copilot",
+        "icon": "/assets/topics/ai.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC1558037/",
+      "originalUrl": "https://mc.merill.net/message/MC1558037",
+      "body": "<p><b><b>What and why</b></b></p><p>Microsoft Purview Data Loss Prevention (DLP) is expanding inline protection to supported local AI agents, helping organizations safeguard sensitive data across human-to-agent and agent-to-tool interactions. Organizations can configure DLP policies with sensitive information type (SIT)-based controls to detect sensitive information in prompt text and files and block policy-violating data movement during prompt processing and at supported tool interaction points.</p><p></p><p><b><b>Rollout schedule</b></b></p><ul><li><b>Public Preview:</b><span> We will begin rolling out in </span><b>late January 2027</b><span> and expect to complete by </span><b>late February 2027</b><span>.</span></li><li><b>General Availability:</b><span> We will begin rolling out in </span><b>late March 2027</b><span> and expect to complete by </span><b>late April 2027</b><span>.</span></li></ul><p></p><p><b><b>Impact on your organization</b></b></p><p><i>Who is affected</i></p><ul><li>Organizations with the required licensing that use Microsoft Purview Data Loss Prevention to protect sensitive information in supported local AI agent interactions</li></ul><p><i>Platforms and services</i></p><ul><li>Microsoft Purview Data Loss Prevention</li><li>Supported local AI agents</li><li>Custom enterprise applications and devices</li></ul><p><i>What will happen</i></p><ul><li>This feature will become available automatically to tenants with the required licensing as it rolls out.</li><li>Administrators will be able to select a new <b>Agents</b> location in custom enterprise applications and devices DLP policies to scope policies to local agents.</li><li>Administrators can apply DLP policies to supported local agents to audit and protect agent-to-human and agent-to-tool interactions.</li></ul><p></p><p><b></b></p><p></p><p></p><p><b><b>Action required and recommendations</b></b></p><p>No action is required for the feature to become available to eligible tenants.</p><p>We recommend that administrators:</p><ul><li>Review existing DLP policies and determine whether policies should be scoped to supported local agents.</li><li>Review the prerequisites before configuring DLP protection for local agent interactions.</li><li>Determine the appropriate DLP protections for your organization's sensitive information.</li></ul><p></p><p><b>Learn more</b></p><ul><li><a href=\"https://go.microsoft.com/fwlink/?LinkId=2385900\" rel=\"noopener noreferrer\">Learn about data loss prevention | Microsoft Learn</a></li></ul><p></p><p><b><b>Compliance considerations</b></b></p><table><tbody><tr><td>Question</td><td>Answer</td></tr><tr><td>Does the change alter how existing customer data is processed, stored, or accessed?</td><td>Yes. DLP protection is expanded to supported local agent interactions, including prompts, responses, files, and tool interactions.</td></tr><tr><td>Does the change introduce or significantly modify AI/ML or agent capabilities that interact with or provide access to customer data?</td><td>Yes. The change adds DLP protection for supported interactions involving local AI agents and enterprise information.</td></tr><tr><td>Does the change modify Purview DLP policies or enforcement?</td><td>Yes. Administrators can scope custom enterprise applications and devices DLP policies to a new <b>Agents</b> location and use DLP policies to audit and protect supported local agent interactions.</td></tr><tr><td>Does the change include an admin control?</td><td>Yes. Administrators configure the protection through Microsoft Purview DLP policies by selecting the <b>Agents</b> location and applying supported DLP controls.</td></tr></tbody></table>",
+      "category": "stayInformed",
+      "services": [
+        "Microsoft Purview"
+      ],
+      "tags": [
+        "New feature",
+        "User impact",
+        "Admin impact"
+      ],
+      "startDate": "2026-11-17T23:01:41Z",
+      "endDate": "2027-05-30T07:00:00Z",
+      "lastModifiedDateTime": "2026-11-17T23:02:06.043Z",
+      "version": "2026-11-17T23:02:06.043Z",
+      "eventId": "message-center:MC1558037:2026-11-17T23:02:06.043Z",
+      "firstSeenAt": "2026-11-18T10:24:53.304Z"
+    }
+  ],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 4,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 4 updated, and 0 removed Microsoft Purview documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Microsoft Purview",
+        "summary": "The guide adds a GCC limitation for app-based authentication when downloading eDiscovery exports through Microsoft Graph and clarifies the application IDs, scopes, and authentication parameters required by the scripts. The documentation now specifies that `teamsMessages` purges permanently delete Teams messages, regardless of `purgeType`. Mailbox and Teams purges require separate requests, with Teams purged first; the API returns a `202 Accepted` response with a status URL. The documentation adds that Agent Builder honors Information Barriers policies in its people picker, hiding users whom a user is restricted from communicating or collaborating with. The documentation now identifies SAP S/",
+        "sourceFiles": [
+          "Purview/edisc-ref-api-guide.md",
+          "Purview/edisc-search-teams-data.md",
+          "Purview/information-barriers.md",
+          "Purview/register-scan-saps4hana-source.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Microsoft Purview",
+        "detail": "The guide adds a GCC limitation for app-based authentication when downloading eDiscovery exports through Microsoft Graph and clarifies the application IDs, scopes, and authentication parameters required by the scripts. The documentation now specifies that `teamsMessages` purges permanently delete Teams messages, regardless of `purgeType`. Mailbox and Teams purges require separate requests, with Teams purged first; the API returns a `202 Accepted` response with a status URL. The documentation adds that Agent Builder honors Information Barriers policies in its people picker, hiding users whom a user is restricted from communicating or collaborating with. The documentation now identifies SAP S/"
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}
