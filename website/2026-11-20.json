@@ -1,0 +1,61 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "Purview/data-governance-known-issues.md",
+      "status": "modified",
+      "additions": 2,
+      "deletions": 1,
+      "changes": 3,
+      "patch": "diff --git a/Purview/data-governance-known-issues.md b/Purview/data-governance-known-issues.md\nindex 5317bc3..3501040 100644\n--- a/Purview/data-governance-known-issues.md\n+++ b/Purview/data-governance-known-issues.md\n@@ -11,7 +11,7 @@ ms.author: chvukosw\n author: chvukosw\n manager: laurawi\n ms.reviewer: jife\n-ms.date: 2026-10-13T00:00:00.0000000Z\n+ms.date: 2026-11-19T00:00:00.0000000Z\n ai-usage: ai-assisted\n ms.custom: msecd-doc-authoring-1030\n audience: Admin\n@@ -81,6 +81,7 @@ If you need further assistance, contact Microsoft support.\n | 2 | Enterprise glossary filters don’t interact.Filters in the enterprise glossary don't automatically update based on other filter selections. | 9/6/2024 | Fixed | 9/26/2024 |\r\n | 3 | Data asset metadata don’t autorefresh.Data assets within data products don’t automatically reflect owner, description, or lineage updates made in the Data Map. They need to be manually refreshed in the **Catalog management &gt; Data products** section by selecting **Refresh** in the asset details page. | 9/6/2024 | Active |  |\r\n | 4 | Linked objectives and key results (OKRs) don't show in data product search.Published OKRs that are linked to data products don't display in the data product details page within the **Discovery &gt; Data products** search experience today. | 9/6/2024 | Active |  |\r\n+| 5 | **Large lineage responses can cause asset details to fail to load.** In the Microsoft Purview portal, opening an asset's **Overview (Details)** page can return HTTP 500 with `CorruptedWebSocketFrameException: Max frame length exceeded` when the backend Data Map lineage query exceeds its response-message size limit. | 11/19/2026 | Active |  |\r\n \r\n ## Health management issues\r\n \r\n",
+      "baseCommitSha": "9538bacb80607b71ae9aac9466c8dc1baa272872",
+      "commitSha": "8bf25eea2593007658f02e591e54b90d1ed75c81",
+      "commitMessage": "Mirror Learn: 1 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-19 23:07:51 +0000",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/data-governance-known-issues.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/data-governance-known-issues",
+      "eventId": "purview-docs:8bf25eea2593007658f02e591e54b90d1ed75c81:modified:Purview/data-governance-known-issues.md",
+      "firstSeenAt": "2026-11-20T10:13:38.472Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Known issue added for large lineage responses",
+        "summary": "The known-issues documentation now reports that an asset’s Overview (Details) page can return HTTP 500 when a Data Map lineage query exceeds the response frame limit.",
+        "adminImpact": "Admins can use this information to recognize asset-details loading failures associated with large lineage responses.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 1,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 1 updated, and 0 removed Microsoft Purview documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Microsoft Purview",
+        "summary": "The known-issues documentation now reports that an asset’s Overview (Details) page can return HTTP 500 when a Data Map lineage query exceeds the response frame limit.",
+        "sourceFiles": [
+          "Purview/data-governance-known-issues.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Microsoft Purview",
+        "detail": "The known-issues documentation now reports that an asset’s Overview (Details) page can return HTTP 500 when a Data Map lineage query exceeds the response frame limit."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}

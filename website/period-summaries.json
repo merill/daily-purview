@@ -379,6 +379,28 @@
         "outputTokens": 476,
         "costUsd": 0.000779
       }
+    },
+    "2026-11-20": {
+      "headline": "Data Governance flags HTTP 500 errors from oversized Data Map lineage responses",
+      "overview": "The period was quiet, with one substantive Data Governance update: the known-issues guidance now records a failure mode affecting asset details pages.",
+      "adminImpact": "Admins can use the documented symptom—an HTTP 500 on an asset’s Overview (Details) page—to recognize failures associated with Data Map lineage queries that exceed the response frame limit. No remediation is specified in the supplied evidence.",
+      "keyChanges": [
+        {
+          "title": "Known issue affects asset Overview (Details) pages",
+          "detail": "The Data Governance Known Issues article now reports that an asset’s Overview (Details) page can return HTTP 500 when a Data Map lineage query exceeds the response frame limit.",
+          "product": "Data Governance",
+          "sourceId": "doc-2026-11-20-data-governance-known-issues-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-20T10:13:45.069Z",
+      "usage": {
+        "inputTokens": 1021,
+        "outputTokens": 576,
+        "costUsd": 0.000895
+      }
     }
   },
   "weeks": {
@@ -475,85 +497,85 @@
       }
     },
     "2026-11-16": {
-      "headline": "Purview DLP extends to Azure Firewall, local AI agents, and non-Microsoft apps",
-      "overview": "The period’s main development is a staged expansion of Purview DLP: Azure Firewall protection enters preview from mid-November 2026, local AI-agent protection is scheduled for preview in late January 2027, and DLP plus auto-labeling for connected non-Microsoft apps is planned for mid-March 2027. Separately, Data Lifecycle Management is being integrated with Adaptive protection so content deleted by elevated-risk users can receive 120-day retention labels. The clearest operational warning is in eDiscovery guidance: Teams-message purges are permanently destructive and must be handled separately from mailbox purges.",
-      "adminImpact": "Most featured capabilities are future rollouts. Azure Firewall integration is described as automatically activating for tenants without disrupting existing policies, while local AI-agent protection requires no action to enable. The external-app capability will use Defender for Cloud Apps connectors and be managed in Purview. For eDiscovery, administrators must target the correct purge area, submit separate Teams and mailbox requests, and process Teams purges first because `teamsMessages` deletion is permanent.",
+      "headline": "Purview schedules DLP coverage for Azure Firewall, local agents, and external apps",
+      "overview": "Purview’s main product announcements expand Data Loss Prevention across three fronts: Azure Firewall traffic, supported local AI-agent prompts, responses and tool interactions, and non-Microsoft applications through Defender for Cloud Apps connectors. Azure Firewall preview rollout starts in mid-November 2026 with general availability targeted for late April 2027; local-agent preview begins in late January 2027 with general availability by late April; and direct Purview policy management for connected apps starts in mid-March 2027. A separate Data Lifecycle Management preview describes automatic 120-day retention-label application to content deleted by elevated-risk users. Updated eDiscovery guidance also makes Teams purge behavior explicit, distinguishing mailbox compliance-copy purges from permanent Graph deletion of Teams messages.",
+      "adminImpact": "The Azure Firewall notice describes automatic tenant activation without disrupting existing policies, while the local AI-agent notice says no action is required to enable protection. External-app coverage depends on Defender for Cloud Apps connectors and later Purview policy management. For the lifecycle preview, the stated behavior is automatic 120-day labeling. For eDiscovery, administrators must select the purge area carefully: Graph deletion of teamsMessages is permanent, and mailbox and Teams copies require separate requests.",
       "keyChanges": [
         {
-          "title": "DLP network protection adds Azure Firewall integration",
-          "detail": "Purview DLP is rolling out an Azure Firewall integration from mid-November 2026 in preview to late April 2027 for general availability. It covers sensitive network traffic, including text, files, and AI interactions, and the notice describes automatic tenant activation, policy configuration, and no disruption to existing policies.",
+          "title": "DLP-Azure Firewall integration enters preview ahead of late-April 2027 general availability",
+          "detail": "The integration protects sensitive network traffic, including text, files, and AI interactions. Rollout is scheduled from mid-November 2026 in preview through late April 2027 for general availability; the notice says tenant activation is automatic and existing policies are not disrupted.",
           "product": "Purview",
           "sourceId": "MC1558038"
         },
         {
-          "title": "Local AI-agent prompts, responses, and tool interactions enter DLP scope",
-          "detail": "The expansion covers supported local AI agent interactions across prompts, responses, and tool interactions. Public preview is scheduled for late January 2027 and general availability for late April 2027; the notice says no action is required to enable it.",
+          "title": "DLP extends to supported local AI-agent prompts, responses, and tool interactions",
+          "detail": "Administrators will be able to apply DLP policies to the named local-agent interactions. Public preview starts in late January 2027, with general availability by late April 2027; the notice says no action is required to enable the capability.",
           "product": "Purview",
           "sourceId": "MC1558037"
         },
         {
-          "title": "Purview will manage DLP and auto-labeling for connected non-Microsoft apps",
-          "detail": "Through Microsoft Defender for Cloud Apps connectors, support will extend to apps such as Google Workspace, Box, and Salesforce. Administrators are slated to manage the policies directly in Purview starting in mid-March 2027.",
+          "title": "Defender for Cloud Apps connectors extend DLP and auto-labeling to external applications",
+          "detail": "Purview will support DLP and auto-labeling for applications including Google Workspace, Box, and Salesforce through Microsoft Defender for Cloud Apps connectors. Policy management is scheduled to become available directly in Purview from mid-March 2027.",
           "product": "Purview",
           "sourceId": "MC1449180"
         },
         {
-          "title": "Adaptive protection links elevated-risk deletion to 120-day retention",
-          "detail": "The Data Lifecycle Management integration is announced as a public preview and is expected to reach general availability in early 2027. It automatically applies retention labels to content deleted by elevated-risk users for 120 days, with minimal administrator setup described.",
+          "title": "Data Lifecycle Management preview applies 120-day labels to elevated-risk deletions",
+          "detail": "The announced Adaptive protection integration automatically applies retention labels to content deleted by elevated-risk users for 120 days. The notice describes minimal administrator setup and lists general availability for early 2027.",
           "product": "Purview",
           "sourceId": "MC791110"
         },
         {
-          "title": "eDiscovery guidance makes Teams-message purges permanently destructive",
-          "detail": "The updated guidance specifies that Graph `teamsMessages` purges permanently delete Teams messages regardless of `purgeType`. Mailbox and Teams purges require separate requests, with Teams handled first; the API returns `202 Accepted` and a status URL.",
+          "title": "eDiscovery guidance separates mailbox-copy purges from permanent Teams deletion",
+          "detail": "The updated guidance says cmdlet purges affect only mailbox compliance copies, while Graph purges targeting `teamsMessages` permanently delete Teams messages regardless of `purgeType`. Separate requests are required to purge both copies.",
           "product": "eDiscovery",
-          "sourceId": "doc-2026-11-18-edisc-search-teams-data-02"
+          "sourceId": "doc-2026-11-19-edisc-search-teams-data-01"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-19T10:32:21.586Z",
+      "generatedAt": "2026-11-20T10:13:45.069Z",
       "usage": {
-        "inputTokens": 2914,
-        "outputTokens": 4431,
-        "costUsd": 0.0059
+        "inputTokens": 3026,
+        "outputTokens": 6114,
+        "costUsd": 0.007942
       }
     }
   },
   "months": {
     "2026-11": {
-      "headline": "Unified Catalog account creation ends as DSPM integrations retire and DLP expands",
-      "overview": "Updated guidance now states that Microsoft Purview Unified Catalog and classic data governance capabilities are being retired and consolidated in Microsoft Fabric, with no new accounts available. Separately, four DSPM partner integrations will stop ingesting and displaying non-Microsoft data on December 7, 2026. The other major theme is staged DLP expansion across Azure Firewall, local AI agents, and connected non-Microsoft applications; much of the remaining documentation activity repeated the governance retirement notice across related pages.",
-      "adminImpact": "Do not plan new Unified Catalog or classic Purview governance accounts; the supplied guidance provides no migration deadline or specific migration procedure. Review dependencies on Varonis, BigID, Cyera, or OneTrust integrations before December 7; tenants not using them require no action according to the notice. For DLP planning, note the staged rollouts: Azure Firewall protection begins preview rollout in mid-November 2026 with automatic tenant activation, local AI-agent protection enters preview in late January 2027 with no enablement action required, and non-Microsoft app coverage uses Defender for Cloud Apps connectors from mid-March 2027.",
+      "headline": "Unified Catalog guidance cites no new accounts as Purview DLP expands",
+      "overview": "November was dominated by Data Governance updates—292 of 348 records—with a broad set of Unified Catalog and classic Purview pages now carrying language that those capabilities are being retired and consolidated in Microsoft Fabric and that new accounts can no longer be created. The sharper product changes were the December 7 retirement of Varonis, BigID, Cyera, and OneTrust DSPM integrations and a DLP expansion roadmap spanning Azure Firewall, Copilot external-email grounding, connected non-Microsoft apps, and local AI-agent interactions. Smaller operational edits clarified Insider Risk processing after group removal, GCC eDiscovery authentication, failed-label audit names, and the new Copilot/Cowork DLP location.",
+      "adminImpact": "Review dependencies on Varonis, BigID, Cyera, and OneTrust before December 7; the retirement notice says no action is required where those integrations are not used. For new governance planning, account for the stated no-new-account path and Fabric consolidation; the supplied governance updates give no migration deadline or procedure. For DLP planning, Azure Firewall activation is described as automatic without disrupting existing policies, non-Microsoft app coverage depends on Defender for Cloud Apps connectors, and the local-agent notice requires no enablement action.",
       "keyChanges": [
         {
-          "title": "Unified Catalog and classic governance consolidate in Microsoft Fabric",
-          "detail": "Updated Enterprise Glossary guidance states that Unified Catalog and classic Microsoft Purview data governance capabilities are being retired and consolidated in Microsoft Fabric. New accounts can no longer be created, and the page provides no migration deadline or specific migration step.",
-          "product": "Data Governance",
-          "sourceId": "doc-2026-11-13-enterprise-glossary-in-unified-catalog-preview-277"
-        },
-        {
           "title": "Four DSPM partner integrations retire on December 7",
-          "detail": "Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft data sources will no longer ingest or display data after December 7, 2026. Other DSPM capabilities remain unaffected; administrators using these integrations should review dependencies before the retirement date.",
-          "product": "DSPM",
+          "detail": "Microsoft will retire the Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft data sources on December 7, 2026. They will stop ingesting or displaying data; other DSPM capabilities remain unaffected, and the notice says no action is required, although dependencies should be reviewed.",
+          "product": "Purview DSPM integrations",
           "sourceId": "MC1545691"
         },
         {
-          "title": "DLP adds Azure Firewall protection for network data",
-          "detail": "The Azure Firewall integration protects sensitive network traffic, including text, files, and AI interactions. Preview rollout starts in mid-November 2026 and general availability is scheduled for late April 2027; tenant activation is automatic and existing policies are not disrupted.",
+          "title": "Unified Catalog guidance now states retirement and no new accounts",
+          "detail": "The updated protection-policy guidance says Unified Catalog and classic Microsoft Purview data governance capabilities are being retired and consolidated in Microsoft Fabric, and that new accounts can no longer be created. Administrators should account for that stated restriction when planning new governance deployments.",
+          "product": "Data Governance",
+          "sourceId": "doc-2026-11-13-get-started-with-protection-policies-preview-43"
+        },
+        {
+          "title": "DLP extends to Azure Firewall traffic in scheduled preview",
+          "detail": "The announcement describes DLP protection for sensitive network traffic through Azure Firewall, including text, files, and AI interactions. Preview rollout starts in mid-November 2026 and general availability is targeted for late April 2027; tenant activation is automatic and existing policies are not disrupted.",
           "product": "Data Loss Prevention",
           "sourceId": "MC1558038"
         },
         {
-          "title": "DLP extends coverage to local AI agent interactions",
-          "detail": "Public preview is scheduled for late January 2027, with general availability by late April 2027. Administrators will be able to apply DLP policies to prompts, responses, and tool interactions in supported local AI agents, with no action required to enable the feature.",
+          "title": "DLP can exclude external email from Copilot grounding",
+          "detail": "The announced admin-configurable control restricts Microsoft 365 Copilot and Copilot Chat from processing emails from external or untrusted domains. Those emails are excluded from Copilot grounding while internal data use continues; public preview is listed for June 2026 and general availability for June 2027.",
           "product": "Data Loss Prevention",
-          "sourceId": "MC1558037"
+          "sourceId": "MC1301714"
         },
         {
-          "title": "DLP and auto-labeling reach connected non-Microsoft apps",
-          "detail": "Purview will support DLP and auto-labeling for applications such as Google Workspace, Box, and Salesforce through Microsoft Defender for Cloud Apps connectors. Policy management directly in Purview is scheduled to begin in mid-March 2027.",
+          "title": "Purview adds DLP and auto-labeling support for connected non-Microsoft apps",
+          "detail": "Starting in mid-March 2027, administrators will be able to manage DLP and auto-labeling in Purview for apps such as Google Workspace, Box, and Salesforce through Microsoft Defender for Cloud Apps connectors.",
           "product": "Data Loss Prevention",
           "sourceId": "MC1449180"
         }
@@ -561,16 +583,16 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-19T10:32:21.586Z",
+      "generatedAt": "2026-11-20T10:13:45.069Z",
       "usage": {
-        "inputTokens": 6747,
-        "outputTokens": 5586,
-        "costUsd": 0.008053
+        "inputTokens": 6773,
+        "outputTokens": 10524,
+        "costUsd": 0.013983
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-19T10:32:21.586Z",
+  "generatedAt": "2026-11-20T10:13:45.069Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -635,18 +657,24 @@
       "outputTokens": 10493,
       "requests": 3,
       "costUsd": 0.014732
+    },
+    "2026-11-20": {
+      "inputTokens": 10820,
+      "outputTokens": 17214,
+      "requests": 3,
+      "costUsd": 0.022821
     }
   },
   "lastRun": {
-    "inputTokens": 10701,
-    "outputTokens": 10493,
+    "inputTokens": 10820,
+    "outputTokens": 17214,
     "requests": 3,
-    "costUsd": 0.014732
+    "costUsd": 0.022821
   },
   "totalUsage": {
-    "inputTokens": 148662,
-    "outputTokens": 183567,
-    "requests": 45,
-    "costUsd": 0.250014
+    "inputTokens": 159482,
+    "outputTokens": 200781,
+    "requests": 48,
+    "costUsd": 0.272835
   }
 }
