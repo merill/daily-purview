@@ -429,6 +429,28 @@
         "outputTokens": 4522,
         "costUsd": 0.006646
       }
+    },
+    "2026-11-24": {
+      "headline": "Priority Cleanup now requires approval before permanent deletion of legal-hold content",
+      "overview": "Data Lifecycle guidance now requires explicit administrator approval before deleting items subject to legal holds. It also documents that deleted SharePoint and OneDrive content bypasses recycle bins, while an inaccessible protected copy may remain for up to 90 days; recovery is exceptional, support-mediated, and not guaranteed.",
+      "adminImpact": "Obtain explicit approval before disposing of legally held items, and assess the documented recovery limitations before approving permanent deletion.",
+      "keyChanges": [
+        {
+          "title": "Legal-hold deletion requires explicit approval",
+          "detail": "The Priority Cleanup guidance adds an explicit administrator-approval requirement for deleting items subject to legal holds. It also states that SharePoint and OneDrive deletions bypass recycle bins and may leave an inaccessible protected copy for up to 90 days, with recovery exceptional, support-mediated, and not guaranteed.",
+          "product": "Data Lifecycle",
+          "sourceId": "doc-2026-11-24-priority-cleanup-permanent-deletion-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-24T01:45:19.619Z",
+      "usage": {
+        "inputTokens": 1048,
+        "outputTokens": 451,
+        "costUsd": 0.000751
+      }
     }
   },
   "weeks": {
@@ -569,58 +591,80 @@
         "outputTokens": 9282,
         "costUsd": 0.013227
       }
-    }
-  },
-  "months": {
-    "2026-11": {
-      "headline": "Purview governance shifts to Fabric as four DSPM integrations retire December 7",
-      "overview": "November’s most consequential update is a transition notice across Unified Catalog and classic Purview data governance: updated guidance says those capabilities are being retired and consolidated in Microsoft Fabric, and new accounts can no longer be created. Separately, Microsoft will stop ingesting or displaying non-Microsoft data through Varonis, BigID, Cyera, and OneTrust DSPM integrations on December 7, 2026. The period also introduced planned DLP coverage for Copilot email grounding and Azure Firewall network traffic, plus sensitivity labels for Microsoft Entra cloud security groups.",
-      "adminImpact": "Do not plan new Unified Catalog or classic data governance accounts, and review dependencies on the four DSPM integrations before December 7. For Entra security-group labels, verify licensing and separate enablement before applying labels because they cannot yet be changed or removed. The cited governance guidance supplies no migration deadline or specific migration procedure.",
+    },
+    "2026-11-23": {
+      "headline": "Priority Cleanup guidance adds approval before deleting legally held content",
+      "overview": "An updated Data Lifecycle page now instructs administrators to obtain explicit approval before permanently deleting items subject to legal holds. It also states that SharePoint and OneDrive deletions bypass recycle bins, an inaccessible protected copy may remain for up to 90 days, and recovery is exceptional, support-mediated, and not guaranteed.",
+      "adminImpact": "Obtain explicit approval before disposing of legally held items, and review the documented recovery limitations before approving permanent deletion.",
       "keyChanges": [
         {
-          "title": "Unified Catalog guidance ends the new-account path and points governance to Fabric",
-          "detail": "The updated Enterprise Glossary guidance says Microsoft Purview Unified Catalog and classic Purview data governance capabilities, formerly Azure Purview, are being consolidated in Microsoft Fabric; new accounts can no longer be created. It gives no migration deadline or specific migration step.",
-          "product": "Data Governance",
-          "sourceId": "doc-2026-11-13-enterprise-glossary-in-unified-catalog-preview-277"
-        },
-        {
-          "title": "Four DSPM partner integrations stop handling non-Microsoft data on December 7",
-          "detail": "On December 7, 2026, the Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft data sources will no longer ingest or display data. Other DSPM capabilities remain unaffected; review dependencies if these integrations are in use.",
-          "product": "Purview",
-          "sourceId": "MC1545691"
-        },
-        {
-          "title": "DLP adds a control to keep external email out of Copilot grounding",
-          "detail": "The new admin-configurable control excludes email from external or untrusted domains from Microsoft 365 Copilot and Copilot Chat grounding while preserving internal-data use. The notice lists public preview in June 2026 and general availability in June 2027.",
-          "product": "Data Loss Prevention",
-          "sourceId": "MC1301714"
-        },
-        {
-          "title": "DLP extends protection to Azure Firewall network traffic in preview",
-          "detail": "The Azure Firewall integration begins rolling out in preview in mid-November 2026 and is scheduled for general availability by late April 2027. It covers sensitive network traffic including text, files, and AI interactions; tenant activation is automatic, and existing policies are not disrupted.",
-          "product": "Data Loss Prevention",
-          "sourceId": "MC1558038"
-        },
-        {
-          "title": "Sensitivity labels reach Microsoft Entra cloud security groups",
-          "detail": "Starting in mid-January 2027, sensitivity labels can be applied to Microsoft Entra cloud security groups for label-based governance and access policies. The feature must be enabled separately with appropriate licensing, and applied labels cannot yet be changed or removed.",
-          "product": "Information Protection",
-          "sourceId": "MC1508238"
+          "title": "Legal-hold deletion approval and recovery limits",
+          "detail": "The Priority Cleanup guidance now requires explicit administrator approval for deletion of items subject to legal holds. For SharePoint and OneDrive content, it explains that deletion bypasses recycle bins; an inaccessible protected copy may be retained for up to 90 days, while recovery is exceptional, support-mediated, and not guaranteed.",
+          "product": "Data Lifecycle",
+          "sourceId": "doc-2026-11-24-priority-cleanup-permanent-deletion-01"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-21T10:10:59.854Z",
+      "generatedAt": "2026-11-24T01:45:19.619Z",
       "usage": {
-        "inputTokens": 6729,
-        "outputTokens": 4788,
-        "costUsd": 0.007091
+        "inputTokens": 858,
+        "outputTokens": 566,
+        "costUsd": 0.000851
+      }
+    }
+  },
+  "months": {
+    "2026-11": {
+      "headline": "Unified Catalog account creation ends as Purview schedules DSPM partner retirements",
+      "overview": "November's consequential change is a governance transition: updated Unified Catalog and classic Purview data-governance pages now say those capabilities are being retired and consolidated in Microsoft Fabric, and that new accounts can no longer be created. A separate service notice schedules the December 7, 2026 retirement of Varonis, BigID, Cyera, and OneTrust DSPM integrations for non-Microsoft data sources. Protection updates add an Azure Firewall DLP integration and schedule adaptive scopes to default to active recipients and site owners. The period was heavily weighted toward repeated Data Governance guidance updates.",
+      "adminImpact": "Review whether any workloads depend on the four named DSPM connectors before December 7; the retirement notice says no action is needed otherwise and other DSPM capabilities are unaffected. Do not plan new Unified Catalog or classic Purview governance accounts; the updates identify Fabric as the consolidation direction, but the supplied material does not provide a migration procedure. Treat the Azure Firewall integration and adaptive-scope behavior as scheduled rollouts: the former moves from preview in mid-November 2026 to general availability in late April 2027, while the latter previews in December 2026 and reaches general availability in April 2027. For eDiscovery export scripts in GCC, use the documented MicrosoftPurviewEDiscovery application ID, scopes, and authentication parameters;",
+      "keyChanges": [
+        {
+          "title": "Unified Catalog guidance closes the path to new Purview governance accounts",
+          "detail": "Updated Unified Catalog guidance now states that Unified Catalog and classic Purview data-governance capabilities are being retired and consolidated in Microsoft Fabric. New Purview accounts can no longer be created, changing the planning baseline for new governance deployments.",
+          "product": "Data Governance",
+          "sourceId": "doc-2026-11-13-data-governance-report-in-unified-catalog-preview-297"
+        },
+        {
+          "title": "Four DSPM partner integrations stop ingesting data on December 7",
+          "detail": "The Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft data sources will no longer ingest or display data when Microsoft retires them on December 7, 2026. Other DSPM capabilities remain unaffected.",
+          "product": "DSPM",
+          "sourceId": "MC1545691"
+        },
+        {
+          "title": "DLP adds Azure Firewall coverage for network traffic",
+          "detail": "The Azure Firewall integration covers sensitive network traffic, including text, files, and AI interactions. The notice schedules preview rollout from mid-November 2026 and general availability by late April 2027, with automatic tenant activation and no disruption to existing policies.",
+          "product": "Data Loss Prevention",
+          "sourceId": "MC1558038"
+        },
+        {
+          "title": "Adaptive scopes will default to active recipients and site owners",
+          "detail": "Starting with preview in December 2026, adaptive scopes will evaluate only active recipients and site owners by default. Administrators can include inactive or soft-deleted recipients and site owners, and queries will support ISO 8601 durations; general availability is scheduled for April 2027.",
+          "product": "Purview Adaptive Scopes",
+          "sourceId": "MC1450128"
+        },
+        {
+          "title": "GCC eDiscovery export guidance adds an authentication limitation",
+          "detail": "The API guide states that GCC administrators cannot use app-based authentication when downloading eDiscovery exports through Microsoft Graph. It also clarifies the required application IDs, scopes, and authentication parameters, including use of the MicrosoftPurviewEDiscovery application ID instead of placeholders.",
+          "product": "eDiscovery",
+          "sourceId": "doc-2026-11-18-edisc-ref-api-guide-01"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-24T01:45:19.619Z",
+      "usage": {
+        "inputTokens": 6841,
+        "outputTokens": 9399,
+        "costUsd": 0.012647
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-21T10:10:59.854Z",
+  "generatedAt": "2026-11-24T01:45:19.619Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -697,18 +741,24 @@
       "outputTokens": 18592,
       "requests": 3,
       "costUsd": 0.026965
+    },
+    "2026-11-24": {
+      "inputTokens": 8747,
+      "outputTokens": 10416,
+      "requests": 3,
+      "costUsd": 0.014249
     }
   },
   "lastRun": {
-    "inputTokens": 23273,
-    "outputTokens": 18592,
+    "inputTokens": 8747,
+    "outputTokens": 10416,
     "requests": 3,
-    "costUsd": 0.026965
+    "costUsd": 0.014249
   },
   "totalUsage": {
-    "inputTokens": 182755,
-    "outputTokens": 219373,
-    "requests": 51,
-    "costUsd": 0.2998
+    "inputTokens": 191502,
+    "outputTokens": 229789,
+    "requests": 54,
+    "costUsd": 0.314049
   }
 }
