@@ -431,37 +431,49 @@
       }
     },
     "2026-11-24": {
-      "headline": "Priority Cleanup guidance adds legal-hold approval and recovery limits",
-      "overview": "Data Lifecycle’s Priority Cleanup guidance now documents explicit administrator approval before deleting items under legal hold. It also says SharePoint and OneDrive deletions bypass recycle bins, may leave an inaccessible protected copy for up to 90 days, and have exceptional, support-mediated, non-guaranteed recovery. Information Protection updates add per-SKU licensing and shared-location role guidance for automatic sensitivity labeling, along with label-precedence and failure-code guidance.",
-      "adminImpact": "Require explicit approval before disposing of legally held items and treat recovery as uncertain. Before configuring auto-labeling, check the current per-SKU matrix and role-specific coverage—especially for SharePoint owners and members—and use the documented precedence and failure-code guidance when defaults and policies conflict.",
+      "headline": "Azure Firewall prerequisites expand as Purview documents rolling adaptive-scope date filters",
+      "overview": "The strongest updates are operational guidance for Data Loss Prevention, DSPM, and Purview adaptive scopes. Network Data Security material now spells out Azure Firewall integration prerequisites and coverage, while a new adaptive-scope article documents rolling date filters for users, Microsoft 365 groups, and SharePoint sites. Information Protection adds per-SKU licensing and label-interaction detail for auto-labeling. Data Lifecycle’s priority-cleanup procedure now sets explicit approval and recovery conditions for permanent deletion involving legal holds.",
+      "adminImpact": "Administrators configuring the documented Azure Firewall integrations should verify required Purview licensing, Azure Firewall Premium with the AI Security add-on enabled on all policy-associated firewalls, and a supported region; the guidance says pay-as-you-go setup is not required. For adaptive scopes, custom SharePoint date properties need site metadata and managed-property mapping. Labeling teams should check the current per-SKU matrix and label-interaction guidance. Priority cleanup now requires explicit approval for legally held items, with recovery exceptional, support-mediated, and not guaranteed.",
       "keyChanges": [
         {
-          "title": "Automatic labeling guidance adds per-SKU and role-specific licensing detail",
-          "detail": "The Apply Sensitivity Label Automatically page now directs administrators to the current per-SKU licensing matrix, explains requirements by shared-location role, and covers interactions with library defaults and existing labels. It also adds policy failure-code troubleshooting guidance.",
-          "product": "Information Protection",
-          "sourceId": "doc-2026-11-24-apply-sensitivity-label-automatically-02"
+          "title": "DLP Network Data Security guidance specifies Azure Firewall prerequisites",
+          "detail": "The updated Network Data Security article documents Azure Firewall integration, including required Purview licensing, Azure Firewall Premium with the AI Security add-on, and a supported-region prerequisite. It says Azure Firewall and Microsoft Entra Global Secure Access support all activities and actions, and neither requires pay-as-you-go setup.",
+          "product": "Data Loss Prevention",
+          "sourceId": "doc-2026-11-24-learn-about-microsoft-purview-network-data-security-07"
         },
         {
-          "title": "SharePoint default-label guidance maps inheritance and policy precedence",
-          "detail": "The updated page explains label inheritance and the interaction and precedence between library default labels and content-based auto-labeling policies. It adds conflict troubleshooting and documents the eligible premium subscription requirement.",
-          "product": "Information Protection",
-          "sourceId": "doc-2026-11-24-sensitivity-labels-sharepoint-default-label-03"
+          "title": "DSPM collection-policy guidance adds Azure Firewall as an integration option",
+          "detail": "The collection-policy deployment guidance now lists Azure Firewall as an integration, says Microsoft Purview pay-as-you-go billing is not required for it, and links to configuration instructions.",
+          "product": "DSPM",
+          "sourceId": "doc-2026-11-24-collection-policies-create-deploy-policy-05"
         },
         {
-          "title": "Priority Cleanup documents legal-hold approval and constrained recovery",
-          "detail": "The guidance now requires explicit administrator approval before deleting items subject to legal holds. Deleted SharePoint and OneDrive content bypasses recycle bins; an inaccessible protected copy may remain for up to 90 days, while recovery is exceptional, support-mediated, and not guaranteed.",
+          "title": "Adaptive-scope guidance documents rolling date filters across users, groups, and sites",
+          "detail": "A new article explains supported properties and query syntax for rolling date filters on users, Microsoft 365 groups, and SharePoint sites. Custom SharePoint dates require site metadata and managed-property mapping, and retention settings remain separate.",
+          "product": "Purview",
+          "sourceId": "doc-2026-11-24-use-relative-date-filters-in-adaptive-scopes-01"
+        },
+        {
+          "title": "Information Protection guidance ties auto-labeling to licensing and label interactions",
+          "detail": "The auto-labeling page now points to the current per-SKU licensing matrix, separates requirements by shared-location role, and explains interactions with library defaults and existing labels. It also adds policy failure-code guidance, with specific licensing implications for SharePoint owners and members.",
+          "product": "Information Protection",
+          "sourceId": "doc-2026-11-24-apply-sensitivity-label-automatically-03"
+        },
+        {
+          "title": "Priority Cleanup guidance now requires approval before deleting legally held items",
+          "detail": "The procedure explicitly requires administrator approval for items under legal hold. Deleted SharePoint and OneDrive content bypasses recycle bins; an inaccessible protected copy may remain for up to 90 days, while recovery is exceptional, support-mediated, and not guaranteed.",
           "product": "Data Lifecycle",
-          "sourceId": "doc-2026-11-24-priority-cleanup-permanent-deletion-01"
+          "sourceId": "doc-2026-11-24-priority-cleanup-permanent-deletion-02"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-24T12:44:02.422Z",
+      "generatedAt": "2026-11-24T23:34:08.270Z",
       "usage": {
-        "inputTokens": 1319,
-        "outputTokens": 2508,
-        "costUsd": 0.003273
+        "inputTokens": 2119,
+        "outputTokens": 9717,
+        "costUsd": 0.012084
       }
     }
   },
@@ -605,85 +617,85 @@
       }
     },
     "2026-11-23": {
-      "headline": "Priority cleanup nears general availability alongside SharePoint retention archiving",
-      "overview": "Purview’s priority cleanup workflow is slated for general availability in early December 2026 after a preview that began in mid-August. It will let administrators hard-delete specified OneDrive and SharePoint content with eDiscovery administrator approval, overriding retention policies. The period also covers SharePoint retention archiving, which moves inactive files to Microsoft 365 Archive while preserving compliance and discoverability but excluding the content from Copilot indexing. The supplied archive notices cite different rollout timing—September 2026 in one notice and mid-January 2027 in another. Information Protection guidance focuses on SKU licensing, shared-location roles, label precedence, and troubleshooting failure codes.",
-      "adminImpact": "Priority cleanup requires explicit setup and eDiscovery approval. Administrators should also account for the updated deletion guidance: legally held items require explicit approval, deleted SharePoint and OneDrive content bypasses recycle bins, and an inaccessible protected copy may remain for up to 90 days; recovery is exceptional, support-mediated, and not guaranteed. For retention archiving, policy configuration is required and archived content will not be included in Copilot indexing. For auto-labeling, verify the applicable per-SKU licenses—particularly for SharePoint owners and members—and use the documented precedence and failure-code guidance when troubleshooting.",
+      "headline": "Purview priority cleanup brings hard deletion with legal-hold approval and recovery limits",
+      "overview": "The week’s clearest operational change is the Microsoft Purview Data Lifecycle Management priority cleanup workflow. It allows specific OneDrive and SharePoint content to be hard-deleted while overriding retention policies, with eDiscovery administrator approval; Microsoft schedules general availability for early December 2026 after a mid-August preview rollout. Companion guidance makes the deletion consequences explicit: legal-hold items require approval, recycle bins are bypassed, a protected copy may remain inaccessible for up to 90 days, and recovery is exceptional and not guaranteed. Purview also adds SharePoint archiving under retention, while Data Loss Prevention documentation adds Azure Firewall prerequisites and Information Protection guidance tightens auto-labeling licensing and precedence details.",
+      "adminImpact": "Prepare the priority-cleanup setup and approval path for the early-December general availability window; do not assume recycle-bin or support recovery after permanent deletion. For SharePoint Archive, plan the required retention-policy configuration and account for archived content being excluded from Copilot indexing. For Network Data Security, assign the required Purview licenses, enable the AI Security add-on on every policy-associated Azure Firewall, and use a supported region. For auto-labeling, verify role-specific licenses—especially for SharePoint owners and members—and use the documented precedence and failure-code guidance.",
       "keyChanges": [
         {
-          "title": "Priority cleanup is scheduled for general availability in early December",
-          "detail": "A Purview Data Lifecycle Management workflow is described as rolling out in preview from mid-August 2026 and reaching general availability in early December 2026. It supports hard deletion of specific OneDrive and SharePoint content, can override retention policies, and requires explicit administrator setup plus eDiscovery administrator approval.",
+          "title": "Priority cleanup workflow moves toward general availability",
+          "detail": "Microsoft Purview Data Lifecycle Management is introducing a workflow to hard-delete specific OneDrive and SharePoint content while overriding retention policies. It requires explicit administrator setup and eDiscovery administrator approval. The notice places the preview rollout in mid-August 2026 and general availability in early December 2026.",
           "product": "Purview",
           "sourceId": "MC1261587"
         },
         {
-          "title": "Retention policies gain SharePoint archiving to Microsoft 365 Archive",
-          "detail": "A Message Center notice says inactive SharePoint files can be archived under retention policies beginning in mid-January 2027. Archived files move to Microsoft 365 Archive, remain compliant and discoverable, and are excluded from Copilot indexing; administrator configuration is required.",
+          "title": "Permanent-deletion guidance sets legal-hold and recovery boundaries",
+          "detail": "The updated guidance requires explicit administrator approval before deleting items subject to legal holds. Deleted SharePoint and OneDrive content bypasses recycle bins; an inaccessible protected copy may be retained for up to 90 days, and recovery is exceptional, support-mediated, and not guaranteed.",
+          "product": "Data Lifecycle",
+          "sourceId": "doc-2026-11-24-priority-cleanup-permanent-deletion-02"
+        },
+        {
+          "title": "Retention policies will support Archive for inactive SharePoint files",
+          "detail": "Purview Data Lifecycle Management will add an Archive option to retention policies, moving inactive SharePoint files to Microsoft 365 Archive while preserving compliance and discoverability. Archived content is excluded from Copilot indexing, and administrator configuration is required.",
           "product": "Purview",
           "sourceId": "MC1472601"
         },
         {
-          "title": "Permanent-deletion guidance adds legal-hold approval and recovery limits",
-          "detail": "The updated guidance now states that deleting items subject to legal holds requires explicit administrator approval. It also documents that SharePoint and OneDrive deletions bypass recycle bins, a protected copy may remain inaccessible for up to 90 days, and recovery is exceptional, support-mediated, and not guaranteed.",
-          "product": "Data Lifecycle",
-          "sourceId": "doc-2026-11-24-priority-cleanup-permanent-deletion-01"
+          "title": "Network Data Security guidance adds Azure Firewall prerequisites",
+          "detail": "The updated guidance documents Azure Firewall integration, including Purview licensing and Azure Firewall Premium with the AI Security add-on. Azure Firewall and Microsoft Entra Global Secure Access support all activities and actions, neither requires pay-as-you-go setup, and the integration requires a supported region.",
+          "product": "Data Loss Prevention",
+          "sourceId": "doc-2026-11-24-learn-about-microsoft-purview-network-data-security-07"
         },
         {
-          "title": "Auto-labeling guidance maps licensing by SKU and shared-location role",
-          "detail": "The updated Information Protection page directs administrators to the current per-SKU licensing matrix, explains requirements for different roles in shared locations, and documents how library defaults interact with existing labels and auto-labeling policies. It also adds guidance for interpreting policy failure codes.",
+          "title": "Auto-labeling guidance maps licensing to shared-location roles",
+          "detail": "The page now directs administrators to the current per-SKU licensing matrix, explains requirements by shared-location role, and documents how auto-labeling interacts with library defaults and existing labels. It also adds guidance for interpreting policy failure codes.",
           "product": "Information Protection",
-          "sourceId": "doc-2026-11-24-apply-sensitivity-label-automatically-02"
-        },
-        {
-          "title": "SharePoint default-label guidance spells out inheritance and precedence",
-          "detail": "The revised guidance explains label inheritance and the precedence and interactions between SharePoint library default labels and content-based auto-labeling policies. It adds conflict troubleshooting and identifies the eligible premium subscription requirement.",
-          "product": "Information Protection",
-          "sourceId": "doc-2026-11-24-sensitivity-labels-sharepoint-default-label-03"
+          "sourceId": "doc-2026-11-24-apply-sensitivity-label-automatically-03"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-24T12:44:02.422Z",
+      "generatedAt": "2026-11-24T23:34:08.270Z",
       "usage": {
-        "inputTokens": 1510,
-        "outputTokens": 3599,
-        "costUsd": 0.004621
+        "inputTokens": 2301,
+        "outputTokens": 11899,
+        "costUsd": 0.014739
       }
     }
   },
   "months": {
     "2026-11": {
-      "headline": "Purview will retire four DSPM partner integrations on December 7, 2026",
-      "overview": "The month’s clearest service-impacting deadline is the retirement of Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft data sources. A broad set of updated Data Governance pages carries a separate transition message: Unified Catalog and classic Purview data governance capabilities are being retired and consolidated in Microsoft Fabric, and new accounts can no longer be created. The other major developments are forward-looking Data Lifecycle Management and Data Loss Prevention controls; much of the remaining volume repeats this governance guidance or clarifies existing behavior.",
-      "adminImpact": "Review dependencies on the four DSPM partner integrations before December 7; Microsoft says no action is required but recommends reviewing dependencies if they are in use. Do not plan new Unified Catalog or classic Purview data governance accounts based on the updated guidance; the supplied updates provide no migration deadline or procedure. Priority cleanup requires explicit setup and eDiscovery administrator approval, while Azure Firewall DLP requires policy configuration. The supplied SharePoint archive notices give different rollout timing, so verify the applicable schedule before planning deployment.",
+      "headline": "Purview will retire four DSPM integrations for non-Microsoft data sources on December 7",
+      "overview": "November's most consequential service notice is the December 7, 2026 retirement of the Varonis, BigID, Cyera, and OneTrust DSPM integrations for non-Microsoft data sources; those integrations will stop ingesting and displaying data while other DSPM capabilities remain unaffected. A broad Data Governance documentation sweep now says Unified Catalog and classic Purview data governance capabilities are being retired and consolidated in Microsoft Fabric, and that new accounts can no longer be created. The month also brought a Data Lifecycle Management hard-delete workflow, Azure Firewall network-data protection for DLP, and SharePoint archiving under retention. Of 660 tracked records, 643 were updates and 582 were Data Governance items, making these concrete service and lifecycle changes the main exceptions to a documentation-heavy period.",
+      "adminImpact": "Before December 7, check whether tenants depend on the four DSPM integrations; the notice says no action is required, but dependencies should be reviewed if they are in use. Do not plan new Unified Catalog or classic Purview governance accounts; the supplied guidance states no migration procedure or deadline. For priority cleanup, arrange the explicit administrator setup and eDiscovery approval path before the early-December general availability window. Azure Firewall DLP rollout begins in preview and does not disrupt existing policies. If adopting SharePoint Archive, configure the retention-policy option and account for archived files being excluded from Copilot indexing.",
       "keyChanges": [
         {
-          "title": "DSPM partner integrations retire December 7",
-          "detail": "Purview will retire the Varonis, BigID, Cyera, and OneTrust integrations for non-Microsoft data sources on December 7, 2026. The integrations will no longer ingest or display data after retirement, while other DSPM capabilities remain unaffected.",
-          "product": "DSPM",
+          "title": "Purview will retire Varonis, BigID, Cyera, and OneTrust DSPM integrations",
+          "detail": "Microsoft will retire these integrations for non-Microsoft data sources on December 7, 2026. They will no longer ingest or display data, while other DSPM capabilities remain unaffected. The notice says no action is required, but tenants using them should review dependencies.",
+          "product": "Purview DSPM",
           "sourceId": "MC1545691"
         },
         {
-          "title": "Updated governance guidance rules out new accounts",
-          "detail": "Updated Microsoft Purview guidance now says Unified Catalog and classic Purview data governance capabilities are being retired and consolidated in Microsoft Fabric. New accounts can no longer be created.",
+          "title": "Unified Catalog guidance now says new accounts cannot be created",
+          "detail": "Updated guidance says classic Microsoft Purview data governance capabilities, formerly Azure Purview, are being consolidated in Microsoft Fabric and that new accounts can no longer be created. The page states no migration step or deadline.",
           "product": "Data Governance",
-          "sourceId": "doc-2026-11-13-get-started-with-protection-policies-preview-43"
+          "sourceId": "doc-2026-11-13-enterprise-glossary-in-unified-catalog-preview-277"
         },
         {
-          "title": "Priority cleanup adds approved hard deletion under retention",
-          "detail": "Data Lifecycle Management’s priority cleanup workflow is scheduled for general availability in early December 2026 after a mid-August preview. It lets administrators hard-delete specified OneDrive and SharePoint content, override retention policies, and requires explicit setup with eDiscovery administrator approval.",
+          "title": "Priority cleanup brings approved hard deletion for OneDrive and SharePoint",
+          "detail": "Data Lifecycle Management's priority cleanup workflow lets administrators hard-delete specific OneDrive and SharePoint content while overriding retention policies, with eDiscovery administrator approval. Microsoft lists a mid-August 2026 preview and early December 2026 general availability; explicit administrator setup is required.",
           "product": "Data Lifecycle Management",
           "sourceId": "MC1261587"
         },
         {
-          "title": "Azure Firewall integration extends DLP to network traffic",
-          "detail": "Purview DLP’s Azure Firewall integration began preview rollout in mid-November 2026 and is scheduled for general availability by late April 2027. It covers sensitive network traffic, including text, files, and AI interactions; tenant activation is automatic, but administrators must configure policies. Existing policies are not disrupted.",
+          "title": "DLP extends network data protection to Azure Firewall traffic",
+          "detail": "The Azure Firewall integration covers sensitive network traffic, including text, files, and AI interactions. Preview rollout starts in mid-November 2026 and general availability is targeted for late April 2027; the notice describes automatic tenant activation and says existing policies are not disrupted.",
           "product": "Data Loss Prevention",
           "sourceId": "MC1558038"
         },
         {
-          "title": "SharePoint retention policies gain an archive path",
-          "detail": "A November notice says Data Lifecycle Management will move inactive SharePoint files to Microsoft 365 Archive under retention policies starting in mid-January 2027. Archived files remain compliant and discoverable but are excluded from Copilot indexing, and administrator configuration is required. Another notice in the period gives September 2026 as the rollout start, creating a timing discrepancy.",
+          "title": "Retention policies will archive inactive SharePoint files outside Copilot indexing",
+          "detail": "Data Lifecycle Management will add an Archive option that moves inactive SharePoint files to Microsoft 365 Archive while preserving compliance and discoverability. Archived content is excluded from Copilot indexing, and administrator configuration is required.",
           "product": "Data Lifecycle Management",
           "sourceId": "MC1472601"
         }
@@ -691,16 +703,16 @@
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-24T12:44:02.422Z",
+      "generatedAt": "2026-11-24T23:34:08.270Z",
       "usage": {
-        "inputTokens": 6995,
-        "outputTokens": 7401,
-        "costUsd": 0.01028
+        "inputTokens": 6990,
+        "outputTokens": 9543,
+        "costUsd": 0.01285
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-24T12:44:02.422Z",
+  "generatedAt": "2026-11-24T23:34:08.270Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -779,22 +791,22 @@
       "costUsd": 0.026965
     },
     "2026-11-24": {
-      "inputTokens": 18571,
-      "outputTokens": 23924,
-      "requests": 6,
-      "costUsd": 0.032423
+      "inputTokens": 29981,
+      "outputTokens": 55083,
+      "requests": 9,
+      "costUsd": 0.072096
     }
   },
   "lastRun": {
-    "inputTokens": 9824,
-    "outputTokens": 13508,
+    "inputTokens": 11410,
+    "outputTokens": 31159,
     "requests": 3,
-    "costUsd": 0.018174
+    "costUsd": 0.039673
   },
   "totalUsage": {
-    "inputTokens": 201326,
-    "outputTokens": 243297,
-    "requests": 57,
-    "costUsd": 0.332223
+    "inputTokens": 212736,
+    "outputTokens": 274456,
+    "requests": 60,
+    "costUsd": 0.371896
   }
 }
