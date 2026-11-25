@@ -1,0 +1,157 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "Purview/audit-log-activities.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 2,
+      "changes": 6,
+      "patch": "diff --git a/Purview/audit-log-activities.md b/Purview/audit-log-activities.md\nindex 5eced38..85a6f49 100644\n--- a/Purview/audit-log-activities.md\n+++ b/Purview/audit-log-activities.md\n@@ -8,8 +8,8 @@ uhfHeaderId: MSDocsHeader-Purview\n description: Discover how to monitor and investigate activities in Microsoft 365 with the unified audit log. Search for specific events and export results.\n f1.keywords:\n - NOCSH\n-ms.author: v-lilkafka\n-author: kafkadesign\n+ms.author: chvukosw\n+author: chvukosw\n manager: laurawi\n ms.date: 2026-11-03T00:00:00.0000000Z\n audience: Admin\n@@ -697,6 +697,8 @@ The following table lists the Microsoft Fabric activities in Power BI that the M\n | Power BI MCP tool called to read semantic model metadata. | ReadByPowerBIMCP | Power BI MCP tool called to read semantic model metadata. |\r\n | Recover an artifact | ArtifactRecovered | A user recovered a previously soft-deleted artifact, such as a gateway or gateway cluster member, restoring it to active state. |\r\n | Refreshed AWS Databricks Catalog Shortcuts | RefreshedAWSDatabricksCatalogShortcuts | Refreshed AWS Databricks Catalog shortcuts is an AWSDatabricksCatalog activity which is generated when the refresh-catalog-metadata operation re-syncs the already-mirrored shortcuts against the underlying AWS Databricks Unity Catalog. |\r\n+| Run Graph Query | RunGraphQuery | Generated when a user runs a query against a Microsoft Fabric Graph instance. |\r\n+| Run Load Graph Data | RunLoadGraphData | Generated when a request to load or refresh data in a Microsoft Fabric Graph instance is processed. The activity status indicates whether the request succeeded or failed. |\r\n | Retrieved artifact's Logical Id | ArtifactLogicalIdRetrieved | Retrieved artifact's Logical Id. |\r\n | Retrieved PostgreSQL SQL audit policy | GetSqlAuditPolicyOnDatabase | Generated when a user retrieves the SQL audit policy settings for a PostgreSQL database artifact. The audit log records caller identity, operation result, and the affected PostgreSQL database artifact. |\r\n | Revoked consent to tenant relocation | TenantRelocationConsentRevoked | Tenant relocation consent revoked. |\r\n",
+      "baseCommitSha": "eb9b75b38d7196cee6e00ae6c36c2a7b35a56394",
+      "commitSha": "c110baa26f585bf81b0d36df3f3b2724afa569b8",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-25 00:52:18 +0000",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/audit-log-activities.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/audit-log-activities",
+      "eventId": "purview-docs:c110baa26f585bf81b0d36df3f3b2724afa569b8:modified:Purview/audit-log-activities.md",
+      "firstSeenAt": "2026-11-25T11:29:57.364Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Fabric Graph audit activities added",
+        "summary": "The audit activities page now documents Run Graph Query and Run Load Graph Data, including their activity names and when they are generated. Load/refresh entries include success or failure status.",
+        "adminImpact": "Administrators can use these entries to identify and interpret Fabric Graph operations in audit logs.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "Purview/data-security-investigations-billing.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 12,
+      "changes": 13,
+      "patch": "diff --git a/Purview/data-security-investigations-billing.md b/Purview/data-security-investigations-billing.md\nindex 53676ff..0d544b0 100644\n--- a/Purview/data-security-investigations-billing.md\n+++ b/Purview/data-security-investigations-billing.md\n@@ -270,15 +270,4 @@ Data storage charges start when you add items to the scope of an investigation.\n 2. [Delete all existing investigations](data-security-investigations-settings-investigation#delete-an-investigation) in your organization.\r\n 3. Verify that no active or pending investigations remain in your organization.\r\n \r\n-When you delete all investigations, you remove the associated data and stop storage billing for Data Security Investigations.\r\n-\r\n-### Stop AI capacity billing\r\n-\r\n-AI analysis is billed through compute units in Microsoft Azure. To stop compute unit billing, complete the following steps:\r\n-\r\n-1. Go to [Data Security Investigations](https://purview.microsoft.com/dsi) in the Microsoft Purview portal and sign in with a user account that has either the **Owner** or **Contributor** role for the Azure subscription associated with the Data Security Investigations compute unit resource.\r\n-2. Go to the **Subscription** where you deployed your Data Security Investigations resource.\r\n-3. Select the associated **Resource group** for Data Security Investigations.\r\n-4. Select and delete the **DSI compute unit capacity resource** (for example, `DataSecurityInvestigation-GUID`).\r\n-\r\n-When you delete the compute unit resource, all AI capacity and compute billing stops for Data Security Investigations.\n\\ No newline at end of file\n+When you delete all investigations, you remove the associated data and stop storage billing for Data Security Investigations.\n\\ No newline at end of file\n",
+      "baseCommitSha": "eb9b75b38d7196cee6e00ae6c36c2a7b35a56394",
+      "commitSha": "c110baa26f585bf81b0d36df3f3b2724afa569b8",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-25 00:52:18 +0000",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/data-security-investigations-billing.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/data-security-investigations-billing",
+      "eventId": "purview-docs:c110baa26f585bf81b0d36df3f3b2724afa569b8:modified:Purview/data-security-investigations-billing.md",
+      "firstSeenAt": "2026-11-25T11:29:57.380Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "AI capacity billing instructions removed",
+        "summary": "The page now states only that deleting all investigations stops storage billing. The steps for deleting the DSI compute unit capacity resource to stop AI capacity and compute billing were removed.",
+        "adminImpact": "Administrators will no longer find the AI billing stoppage procedure on this page.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "Purview/encryption-azure-ad-configuration.md",
+      "status": "modified",
+      "additions": 3,
+      "deletions": 2,
+      "changes": 5,
+      "patch": "diff --git a/Purview/encryption-azure-ad-configuration.md b/Purview/encryption-azure-ad-configuration.md\nindex ea18c67..5cdff4b 100644\n--- a/Purview/encryption-azure-ad-configuration.md\n+++ b/Purview/encryption-azure-ad-configuration.md\n@@ -152,8 +152,9 @@ Cross-tenant access settings enable cross-cloud access to encrypted documents. A\n \r\n The following scenarios are supported for cross-cloud access to encrypted content:\r\n \r\n-- Organizations in the Microsoft Azure Commercial cloud can allow access to organizations in the Microsoft Azure Government cloud or Microsoft Azure China (operated by 21Vianet) cloud without contacting Microsoft.\r\n-- Organizations in the Microsoft Azure China (operated by 21Vianet) cloud can allow access to organizations in the Microsoft Azure Commercial cloud without contacting Microsoft.\r\n+- Organizations in the Microsoft Azure Commercial cloud can allow access to organizations in the Microsoft Azure Government cloud or Microsoft Azure China (operated by 21Vianet) cloud.\r\n+- Organizations in the Microsoft Azure Government cloud can allow access to organizations in the Microsoft Azure Commercial cloud.\r\n+- Organizations in the Microsoft Azure China (operated by 21Vianet) cloud can allow access to organizations in the Microsoft Azure Commercial cloud.\r\n - Encrypted Word, Excel, and PowerPoint files can be shared with users in another cloud environment and viewed on Windows, MacOS, and mobile devices. This scenario doesn't apply to files shared via SharePoint or OneDrive sharing links, but rather to methods like direct email attachments, USB drive, file share, or shared and downloaded from SharePoint.\r\n - Encrypted PDFs and generically encrypted files (.pfile extension) can be shared with users in another cloud environment and viewed using the Microsoft Purview Information Protection Viewer on Windows.\r\n - The user can be, but isn't required to be, a guest in your organization.\r\n",
+      "baseCommitSha": "eb9b75b38d7196cee6e00ae6c36c2a7b35a56394",
+      "commitSha": "c110baa26f585bf81b0d36df3f3b2724afa569b8",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-25 00:52:18 +0000",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/encryption-azure-ad-configuration.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/encryption-azure-ad-configuration",
+      "eventId": "purview-docs:c110baa26f585bf81b0d36df3f3b2724afa569b8:modified:Purview/encryption-azure-ad-configuration.md",
+      "firstSeenAt": "2026-11-25T11:29:57.390Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Cross-cloud access guidance now lists Government-to-Commercial access",
+        "summary": "The page now lists Commercial-to-Government/China, Government-to-Commercial, and China-to-Commercial access. The phrase stating access could be enabled without contacting Microsoft was removed.",
+        "adminImpact": "Administrators should use the revised cloud-pairing list and contact guidance when reviewing encryption access configurations.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [
+    {
+      "id": "MC1530948",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-11-24",
+      "title": "Microsoft Purview | Information Protection: Auto-labeling support for legacy Microsoft Office file formats",
+      "summary": "Microsoft Purview auto-labeling will support legacy Office files (.doc, .xls, .ppt) in SharePoint and OneDrive starting late November 2026. Existing policies need a minor edit and rerun to apply this. New policies support these formats automatically in both simulation and enforcement modes.",
+      "product": {
+        "slug": "purview",
+        "name": "Microsoft Purview",
+        "short": "Purview",
+        "learn": "https://learn.microsoft.com/en-us/purview/",
+        "icon": "purview.svg"
+      },
+      "topic": {
+        "slug": "classification",
+        "name": "Labels and classification",
+        "icon": "/assets/topics/classification.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC1530948/",
+      "originalUrl": "https://mc.merill.net/message/MC1530948",
+      "body": "<p>Updated November 24, 2026: We have updated the timeline. Thank you for your patience.&nbsp;</p><p><b><b>What and why</b></b></p><p>Microsoft Purview service-side auto-labeling is adding support for legacy Microsoft Office file formats, including Word (.doc), Excel (.xls), and PowerPoint (.ppt). Organizations can automatically evaluate and apply sensitivity labels to these files in SharePoint and OneDrive. These legacy file formats will be supported in both simulation and enforcement.</p><p></p><p><b><b>Rollout schedule</b></b></p><ul><li><b>Public Preview:</b> Beginning in <b>late November 2026</b> (previously early November) and expected to complete by <b>early December 2026</b> (previously mid-November)</li><li><b>General Availability:</b> Beginning in <b>mid-December 2026</b> (previously late November) and expected to complete by <b>late December 2026</b> (previously late November)</li></ul><p></p><p><b><b>Impact on your organization</b></b></p><p><i>Who is affected</i></p><ul><li>Organizations using Microsoft Purview service-side auto-labeling policies for files stored in SharePoint and OneDrive</li></ul><p><i>Platforms and services</i></p><ul><li>Microsoft Purview</li><li>SharePoint</li><li>OneDrive</li><li>Microsoft Word (.doc)</li><li>Microsoft Excel (.xls)</li><li>Microsoft PowerPoint (.ppt)</li></ul><p><i>What will happen</i></p><ul><li>Service-side auto-labeling will support legacy Word (.doc), Excel (.xls), and PowerPoint (.ppt) files stored in SharePoint and OneDrive.</li><li>New auto-labeling policies will automatically support these file formats.</li><li>Existing auto-labeling policies require a small policy edit and another policy run to restart the crawl and evaluate legacy Office files.</li><li>For example, an admin can add or remove a comment in the policy, save the change, and then run the policy again.</li><li>These file formats will be supported in both simulation and enforcement.</li></ul><p></p><p><b><b>Action required and recommendations</b></b></p><p>If you want existing auto-labeling policies to evaluate legacy Office files:</p><ul><li>Review your sensitivity labels and auto-labeling policies, including the SharePoint and OneDrive locations in scope.</li><li>Identify the policies for which you want to extend coverage to legacy Office files.</li><li>Make a small edit to each existing policy, such as adding or removing a policy comment, and save the change.</li><li>Run the policy again to restart the crawl so that it can evaluate the newly supported file formats.</li><li>Before enabling a new or updated policy, run it in simulation mode and review the results to confirm that it identifies the intended content.</li></ul><p></p><p>New policies do not require the additional edit and policy run.</p><p><b>Learn more</b></p><ul><li><a href=\"https://sip.purview.microsoft.com/informationprotection/autolabeling\" rel=\"noopener noreferrer\">Auto-labeling policies | Microsoft Purview</a></li><li><a href=\"https://learn.microsoft.com/purview/apply-sensitivity-label-automatically?tabs=apply-label\" rel=\"noopener noreferrer\">Automatically apply a sensitivity label to Microsoft 365 data | Microsoft Learn</a></li></ul><p></p><p><b><b>Compliance considerations</b></b></p><table><tbody><tr><td>Question</td><td>Answer</td></tr><tr><td>Does the change alter how existing customer data is processed, stored, or accessed?</td><td><b>Yes.</b> The change expands the files that auto-labeling policies can evaluate and label to include legacy <code>.doc</code>, <code>.xls</code>, and <code>.ppt</code> files in SharePoint and OneDrive, according to the request.</td></tr><tr><td>Does the change include an admin control?</td><td><b>Yes.</b> Admins manage the capability through Microsoft Purview auto-labeling policies. Microsoft Learn identifies the Microsoft Purview portal's Information Protection &gt; Policies &gt; Auto-labeling policies surface for service-side auto-labeling.</td></tr></tbody></table>",
+      "category": "stayInformed",
+      "services": [
+        "Microsoft 365 suite",
+        "Microsoft Purview"
+      ],
+      "tags": [
+        "Updated message",
+        "New feature",
+        "User impact",
+        "Admin impact"
+      ],
+      "startDate": "2026-10-29T23:08:03Z",
+      "endDate": "2027-02-01T08:00:00Z",
+      "lastModifiedDateTime": "2026-11-24T21:41:08.977Z",
+      "version": "2026-11-24T21:41:08.977Z",
+      "eventId": "message-center:MC1530948:2026-11-24T21:41:08.977Z",
+      "firstSeenAt": "2026-11-25T11:30:10.007Z"
+    }
+  ],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 3,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 3 updated, and 0 removed Microsoft Purview documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Microsoft Purview",
+        "summary": "The audit activities page now documents Run Graph Query and Run Load Graph Data, including their activity names and when they are generated. Load/refresh entries include success or failure status. The page now states only that deleting all investigations stops storage billing. The steps for deleting the DSI compute unit capacity resource to stop AI capacity and compute billing were removed. The page now lists Commercial-to-Government/China, Government-to-Commercial, and China-to-Commercial access. The phrase stating access could be enabled without contacting Microsoft was removed.",
+        "sourceFiles": [
+          "Purview/audit-log-activities.md",
+          "Purview/data-security-investigations-billing.md",
+          "Purview/encryption-azure-ad-configuration.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Microsoft Purview",
+        "detail": "The audit activities page now documents Run Graph Query and Run Load Graph Data, including their activity names and when they are generated. Load/refresh entries include success or failure status. The page now states only that deleting all investigations stops storage billing. The steps for deleting the DSI compute unit capacity resource to stop AI capacity and compute billing were removed. The page now lists Commercial-to-Government/China, Government-to-Commercial, and China-to-Commercial access. The phrase stating access could be enabled without contacting Microsoft was removed."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}
