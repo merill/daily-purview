@@ -521,6 +521,40 @@
         "outputTokens": 2930,
         "costUsd": 0.003822
       }
+    },
+    "2026-11-26": {
+      "headline": "Message branding guidance now requires templates and Exchange-only DLP scope",
+      "overview": "Purview guidance now states that encrypted-message branding depends on an existing Message Encryption branding template and does not encrypt messages itself. The related DLP reference adds Exchange-only and internal-sender scope guidance, while Browser DLP documentation moves its Edge for Business baseline from version 144 to 158, covering the two latest stable versions.",
+      "adminImpact": "For branding workflows, verify the template exists, ensure messages are already encrypted, and use the appropriate Exchange mail flow or Purview DLP rule. DLP rules applying branding should be scoped only to Exchange; administrators should also review the external-recipient portal setting and check managed Edge for Business versions against the version 158 Browser DLP baseline.",
+      "keyChanges": [
+        {
+          "title": "Branding setup now documents the template, encryption, and rule boundaries",
+          "detail": "The guidance explains how to create branding templates with Exchange Online PowerShell and apply them through either an Exchange mail flow rule or a Purview DLP policy rule. It explicitly states that branding does not encrypt messages, that messages must already be encrypted, and that DLP rules must be scoped only to Exchange.",
+          "product": "Information Protection",
+          "sourceId": "doc-2026-11-26-add-your-organization-brand-to-encrypted-messages-01"
+        },
+        {
+          "title": "DLP reference adds internal-sender scope and portal-access guidance",
+          "detail": "The documented action requires an existing Microsoft Purview Message Encryption branding template and does not encrypt messages itself. The reference specifies Exchange-only policies for internal senders and documents the option controlling portal access for external recipients.",
+          "product": "Data Loss Prevention",
+          "sourceId": "doc-2026-11-26-dlp-policy-reference-03"
+        },
+        {
+          "title": "Browser DLP guidance updates its Edge for Business version baseline",
+          "detail": "The documented baseline changed from Edge for Business version 144 to version 158, covering the two latest stable versions. Administrators should check managed Edge versions when assessing Browser DLP support.",
+          "product": "Data Loss Prevention",
+          "sourceId": "doc-2026-11-26-dlp-browser-dlp-learn-02"
+        }
+      ],
+      "generatedBy": "openai",
+      "model": "gpt-5.6-luna",
+      "reasoningEffort": "xhigh",
+      "generatedAt": "2026-11-26T11:11:31.176Z",
+      "usage": {
+        "inputTokens": 1296,
+        "outputTokens": 1475,
+        "costUsd": 0.002029
+      }
     }
   },
   "weeks": {
@@ -663,102 +697,102 @@
       }
     },
     "2026-11-23": {
-      "headline": "Legacy Office auto-labeling expands as Purview separates Teams retention from Copilot",
-      "overview": "The period’s most consequential changes affect labeling and retention behavior. Purview auto-labeling will support .doc, .xls, and .ppt files in SharePoint and OneDrive from late November 2026, while legacy Teams retention policies become Teams-only in mid-January 2027 and will no longer cover Microsoft 365 Copilot interactions. Data Lifecycle Management is also advancing priority hard deletion and SharePoint archiving, while Communication Compliance is previewing more flexible alert controls. Other updates mainly add configuration guidance, including Azure Firewall prerequisites and rolling-date syntax for adaptive scopes.",
-      "adminImpact": "Edit and rerun existing auto-labeling policies if they must process legacy Office formats; new policies support those formats automatically. Create separate retention policies for Copilot data before the mid-January 2027 policy change. Priority cleanup requires eDiscovery administrator approval, and SharePoint archiving requires administrator configuration. For Communication Compliance, administrators can evaluate configurable alert frequency, recipients, pseudonymized usernames, role-based access, and audit logging during preview. Administrators using Purview Network Data Security with Azure Firewall should verify Purview licensing, Azure Firewall Premium with the AI Security add-on on all policy-associated firewalls, and supported-region availability.",
+      "headline": "Legacy Teams retention will stop covering Copilot data in January",
+      "overview": "The biggest governance change is a new retention boundary: starting in mid-January 2027, legacy Teams policies will no longer cover Microsoft 365 Copilot interactions. The week also brings approval-gated hard deletion for OneDrive and SharePoint, retention-aware SharePoint archiving, broader auto-labeling for legacy Office files, and new Insider Risk Management alert classifications.",
+      "adminImpact": "Before mid-January 2027, identify legacy Teams policies intended to cover Copilot and create separate Copilot retention policies. Establish the approval and setup process for Priority Cleanup, and configure SharePoint archiving if the capability fits the organization’s retention strategy. For existing auto-labeling policies, make the required minor edit and rerun them to cover legacy Office formats. No configuration change is required for Insider Risk Management alert classification, but analysts should be briefed on the new categories.",
       "keyChanges": [
         {
-          "title": "Legacy Office formats join SharePoint and OneDrive auto-labeling",
-          "detail": "Microsoft says auto-labeling will support .doc, .xls, and .ppt files in SharePoint and OneDrive starting in late November 2026. Existing policies need a minor edit and rerun; new policies support the formats automatically in both simulation and enforcement modes.",
-          "product": "Information Protection",
-          "sourceId": "MC1530948"
-        },
-        {
-          "title": "Legacy Teams retention policies will stop covering Copilot interactions",
-          "detail": "Starting in mid-January 2027, legacy Microsoft Teams retention policies will be treated as Teams-only and will exclude Microsoft 365 Copilot interactions. Separate retention policies are required to retain Copilot data, while existing Teams retention behavior remains unchanged.",
-          "product": "Purview Data Lifecycle Management",
+          "title": "Legacy Teams retention policies will exclude Copilot interactions",
+          "detail": "Starting in mid-January 2027, legacy Microsoft Teams retention policies will apply only to Teams data and will no longer cover Microsoft 365 Copilot interactions. Organizations that need Copilot coverage must create separate retention policies; existing Teams retention behavior remains unchanged.",
+          "product": "Microsoft Purview Data Lifecycle Management",
           "sourceId": "MC1481313"
         },
         {
-          "title": "Priority cleanup moves toward general availability for approved hard deletion",
-          "detail": "The priority cleanup workflow allows administrators to hard delete specified OneDrive and SharePoint content while overriding retention policies with eDiscovery administrator approval. Microsoft describes the rollout as preview from mid-August 2026 and general availability in early December 2026.",
-          "product": "Purview Data Lifecycle Management",
+          "title": "Priority Cleanup adds approval-gated hard deletion",
+          "detail": "Purview Data Lifecycle Management is introducing a priority cleanup workflow that can hard-delete selected OneDrive and SharePoint content while overriding retention policies, with eDiscovery administrator approval. The capability was planned for preview rollout in mid-August 2026 and general availability in early December 2026, and requires explicit administrator setup.",
+          "product": "Microsoft Purview Data Lifecycle Management",
           "sourceId": "MC1261587"
         },
         {
-          "title": "SharePoint retention policies gain an Archive option",
-          "detail": "Data Lifecycle Management will let administrators move inactive SharePoint files to Microsoft 365 Archive while maintaining compliance and discoverability. Archived content is excluded from Copilot indexing, and administrator configuration is required.",
-          "product": "Purview Data Lifecycle Management",
+          "title": "Retention policies gain an archive option for SharePoint files",
+          "detail": "Starting in mid-January 2027, Data Lifecycle Management retention policies will be able to archive inactive SharePoint files in Microsoft 365 Archive. Archived content remains compliant and discoverable, is excluded from Copilot indexing, and requires administrator configuration.",
+          "product": "Microsoft Purview Data Lifecycle Management",
           "sourceId": "MC1472601"
         },
         {
-          "title": "Communication Compliance previews configurable policy-alert controls",
-          "detail": "The preview adds controls for alert frequency and recipients, along with pseudonymized usernames, role-based access, and audit logs. Public preview is scheduled for October 2026, with general availability targeted for mid-August 2027.",
-          "product": "Purview Communication Compliance",
-          "sourceId": "MC920304"
+          "title": "Auto-labeling expands to legacy Office file formats",
+          "detail": "From late November 2026, Microsoft Purview auto-labeling will support .doc, .xls, and .ppt files in SharePoint and OneDrive. New policies support the formats automatically in simulation and enforcement modes; existing policies require a minor edit and rerun.",
+          "product": "Microsoft Purview Information Protection",
+          "sourceId": "MC1530948"
+        },
+        {
+          "title": "Insider Risk Management separates alert classification from status",
+          "detail": "Between December 2026 and January 2027, Insider Risk Management alerts will add True positive, Benign, and False positive classifications, separate from alert status, along with updated alert actions. No configuration changes are required.",
+          "product": "Microsoft Purview Insider Risk Management",
+          "sourceId": "MC1568697"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-25T23:10:43.355Z",
+      "generatedAt": "2026-11-26T11:11:31.176Z",
       "usage": {
-        "inputTokens": 3042,
-        "outputTokens": 6361,
-        "costUsd": 0.008242
+        "inputTokens": 3550,
+        "outputTokens": 5178,
+        "costUsd": 0.006924
       }
     }
   },
   "months": {
     "2026-11": {
-      "headline": "Copilot retention coverage splits as Purview governance guidance moves toward Fabric",
-      "overview": "November’s clearest operational change is a mid-January 2027 retention split: legacy Teams policies will apply only to Teams data and will no longer cover Microsoft 365 Copilot interactions. Updated Data Governance guidance also says Unified Catalog and classic Purview governance capabilities are being retired and consolidated in Microsoft Fabric, with no new accounts available. Other significant developments include the December 7 retirement of four DSPM partner integrations, priority hard deletion for SharePoint and OneDrive content, and a preview of DLP protection through Azure Firewall. Much of the remaining activity repeated the governance transition notice across documentation rather than introducing distinct capabilities.",
-      "adminImpact": "If Copilot retention coverage is required, create a separate retention policy before the mid-January 2027 change. Do not plan new Unified Catalog or classic Purview governance accounts based on the updated guidance; it provides no migration procedure or deadline. Review dependencies on Varonis, BigID, Cyera, and OneTrust before December 7, because those integrations will stop ingesting and displaying non-Microsoft data. Priority hard deletion requires explicit setup and eDiscovery administrator approval, while the Azure Firewall DLP rollout is described as not disrupting existing policies.",
+      "headline": "Legacy Teams retention policies will exclude Microsoft 365 Copilot interactions in January",
+      "overview": "November’s clearest compliance deadline is mid-January 2027, when legacy Teams retention policies will apply only to Teams data and no longer cover Microsoft 365 Copilot interactions. A large Data Governance documentation sweep now states that Unified Catalog and classic Purview data governance capabilities are being retired and consolidated in Microsoft Fabric, and that new accounts cannot be created. Other consequential announcements set a December 7 retirement date for four DSPM partner integrations, added DLP coverage for Azure Firewall traffic, and introduced approval-gated hard deletion for selected OneDrive and SharePoint content.",
+      "adminImpact": "Identify legacy Teams policies intended to cover Copilot and create separate Copilot retention policies where coverage is required. Before December 7, review dependencies on the Varonis, BigID, Cyera, and OneTrust DSPM integrations; tenants not using them require no action. Do not plan new Unified Catalog or classic Purview governance accounts. The Azure Firewall integration requires policy configuration, while Priority Cleanup requires explicit setup and eDiscovery administrator approval.",
       "keyChanges": [
         {
-          "title": "Legacy Teams retention policies will exclude Copilot interactions",
-          "detail": "Starting in mid-January 2027, legacy Microsoft Teams retention policies will be treated as Teams-only and will no longer cover Microsoft 365 Copilot interactions. Existing Teams retention behavior remains unchanged, but organizations must create separate retention policies for Copilot data when coverage is required.",
-          "product": "Data Lifecycle Management",
+          "title": "Legacy Teams retention policies become Teams-only in mid-January 2027",
+          "detail": "Legacy Microsoft Teams retention policies will exclude Microsoft 365 Copilot interactions and apply only to Teams data. Existing Teams retention behavior remains unchanged, but organizations that need Copilot coverage must create separate retention policies.",
+          "product": "Purview Data Lifecycle Management",
           "sourceId": "MC1481313"
         },
         {
-          "title": "Updated guidance ends new-account planning for classic Purview governance",
-          "detail": "The updated protection-policy guidance says Microsoft Purview Unified Catalog and classic data governance capabilities are being retired and consolidated in Microsoft Fabric. It also states that new accounts can no longer be created; the update supplies no migration procedure or deadline.",
-          "product": "Data Governance",
-          "sourceId": "doc-2026-11-13-get-started-with-protection-policies-preview-43"
-        },
-        {
-          "title": "Four DSPM partner integrations retire on December 7",
-          "detail": "Purview will retire the Varonis, BigID, Cyera, and OneTrust DSPM integrations for non-Microsoft data sources on December 7, 2026. They will stop ingesting and displaying data, while other DSPM capabilities remain unaffected.",
+          "title": "DSPM retires four partner integrations for non-Microsoft data",
+          "detail": "On December 7, 2026, the Varonis, BigID, Cyera, and OneTrust integrations will stop ingesting and displaying data from non-Microsoft sources. Other DSPM capabilities remain unaffected; Microsoft says to review dependencies if these integrations are in use.",
           "product": "DSPM",
           "sourceId": "MC1545691"
         },
         {
-          "title": "Priority cleanup adds approved hard deletion for SharePoint and OneDrive",
-          "detail": "Data Lifecycle Management is introducing a priority cleanup workflow to hard delete specific OneDrive and SharePoint content, including content otherwise covered by retention policies. The workflow requires eDiscovery administrator approval, with general availability scheduled for early December 2026 after its preview rollout.",
-          "product": "Data Lifecycle Management",
-          "sourceId": "MC1261587"
+          "title": "Data Governance guidance now says new accounts cannot be created",
+          "detail": "Updated guidance for self-service policies says Unified Catalog and classic Purview data governance capabilities are being retired and consolidated in Microsoft Fabric. It also states that new accounts can no longer be created, while existing capabilities remain available during the transition.",
+          "product": "Data Governance",
+          "sourceId": "doc-2026-11-13-self-service-policies-for-azure-sql-database-preview-156"
         },
         {
-          "title": "DLP begins protecting network traffic through Azure Firewall",
-          "detail": "The DLP integration with Azure Firewall protects sensitive network traffic, including text, files, and AI interactions. Rollout begins in preview from mid-November 2026 and is scheduled for general availability by late April 2027, with automatic tenant activation and policy configuration described in the notice.",
+          "title": "DLP adds Azure Firewall integration for sensitive network traffic",
+          "detail": "The integration begins rolling out in preview from mid-November 2026 and is scheduled for general availability in late April 2027. It covers sensitive network traffic including text, files, and AI interactions, with automatic tenant activation, policy configuration, and no disruption to existing policies.",
           "product": "Data Loss Prevention",
           "sourceId": "MC1558038"
+        },
+        {
+          "title": "Priority Cleanup enables approval-gated hard deletion under retention",
+          "detail": "Purview Data Lifecycle Management is introducing a workflow to hard-delete specific OneDrive and SharePoint content, overriding retention policies when an eDiscovery administrator approves the action. Rollout began in preview in mid-August 2026, with general availability scheduled for early December 2026; explicit administrator setup is required.",
+          "product": "Purview Data Lifecycle Management",
+          "sourceId": "MC1261587"
         }
       ],
       "generatedBy": "openai",
       "model": "gpt-5.6-luna",
       "reasoningEffort": "xhigh",
-      "generatedAt": "2026-11-25T23:10:43.355Z",
+      "generatedAt": "2026-11-26T11:11:31.176Z",
       "usage": {
-        "inputTokens": 7020,
-        "outputTokens": 5873,
-        "costUsd": 0.008452
+        "inputTokens": 6940,
+        "outputTokens": 6144,
+        "costUsd": 0.008761
       }
     }
   },
   "version": 3,
-  "generatedAt": "2026-11-25T23:10:43.355Z",
+  "generatedAt": "2026-11-26T11:11:31.176Z",
   "generator": {
     "model": "gpt-5.6-luna",
     "reasoningEffort": "xhigh"
@@ -847,18 +881,24 @@
       "outputTokens": 30105,
       "requests": 6,
       "costUsd": 0.040649
+    },
+    "2026-11-26": {
+      "inputTokens": 11786,
+      "outputTokens": 12797,
+      "requests": 3,
+      "costUsd": 0.017714
     }
   },
   "lastRun": {
-    "inputTokens": 11592,
-    "outputTokens": 15164,
+    "inputTokens": 11786,
+    "outputTokens": 12797,
     "requests": 3,
-    "costUsd": 0.020515
+    "costUsd": 0.017714
   },
   "totalUsage": {
-    "inputTokens": 235351,
-    "outputTokens": 304561,
-    "requests": 66,
-    "costUsd": 0.412545
+    "inputTokens": 247137,
+    "outputTokens": 317358,
+    "requests": 69,
+    "costUsd": 0.430259
   }
 }

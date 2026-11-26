@@ -1,0 +1,154 @@
+{
+  "newFiles": [],
+  "modifiedFiles": [
+    {
+      "filename": "Purview/add-your-organization-brand-to-encrypted-messages.md",
+      "status": "modified",
+      "additions": 54,
+      "deletions": 17,
+      "changes": 71,
+      "patch": "diff --git a/Purview/add-your-organization-brand-to-encrypted-messages.md b/Purview/add-your-organization-brand-to-encrypted-messages.md\nindex 6bed601..153a55f 100644\n--- a/Purview/add-your-organization-brand-to-encrypted-messages.md\n+++ b/Purview/add-your-organization-brand-to-encrypted-messages.md\n@@ -7,10 +7,10 @@ feedback_system: Standard\n uhfHeaderId: MSDocsHeader-Purview\n f1.keywords:\n - NOCSH\n-ms.author: kreagle\n-author: k-reagle\n-manager: laurawi\n-ms.date: 2026-06-22T00:00:00.0000000Z\n+ms.author: tommos\n+author: tommoser\n+manager: kkunes\n+ms.date: 2026-11-25T00:00:00.0000000Z\n audience: Admin\n ms.topic: how-to\n ms.service: purview\n@@ -41,12 +41,12 @@ item_type: Content\n source_path: Purview/add-your-organization-brand-to-encrypted-messages.md\n cmProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/cf9b82c5-b6dc-45f3-b005-b1bc5fc03bea\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/5cf46315-b33f-4e99-8224-a1592697eff9\n - https://authoring-docs-microsoft.poolparty.biz/devrel/57eae111-0f3b-497e-be07-450fd1409dea\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/1ae5c491-970a-4062-8301-6336e69f9026\n spProducts:\n - https://authoring-docs-microsoft.poolparty.biz/devrel/0c85d34e-bfd2-4466-957c-f0b61e9692df\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/715d24c3-3683-4219-82c5-1e3c813fb7fc\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/ac8bf8ab-8134-4c9a-9f2e-58b31575b492\n-- https://authoring-docs-microsoft.poolparty.biz/devrel/f2c3e52e-3667-4e8a-bf11-20b9eaccdc8c\n platformId: 797f2db8-e340-f817-40f9-7d7278ba7bf9\n ---\n \n@@ -55,15 +55,12 @@ platformId: 797f2db8-e340-f817-40f9-7d7278ba7bf9\n > \r\n > *[Microsoft Purview service description](/en-us/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-tenantlevel-services-licensing-guidance/microsoft-purview-service-description)*\r\n \r\n-Apply your company branding to customize the look of your organization's email messages and the encryption portal. You need to apply sufficient permissions to your work or school account before you can get started, for example Compliance Administrator. You customize branding in one of two ways, using Exchange Online PowerShell or Microsoft Purview Data Loss Prevention (DLP) policies.\r\n+Apply your company branding to customize the look of your organization's encrypted email messages and the encryption portal. You need to apply sufficient permissions to your work or school account before you can get started, for example Compliance Administrator.\r\n \r\n-For more information about using Microsoft Purview Data Loss Prevention (DLP) policies to add customized branding to encrypted messages, see these resources.\r\n+First, use Exchange Online PowerShell to create and customize branding templates. Then, apply a branding template to encrypted messages by using either:\r\n \r\n-- [Supported action: Exchange](dlp-policy-reference#supported-actions-exchange) for details on this action.\r\n-- [Design a data loss prevention policy](dlp-policy-design) if you're new to DLP and want to learn more about what goes into preparing to create a DLP policy.\r\n-- [Create and Deploy data loss prevention policies](dlp-create-deploy-policy) for examples on how to create and deploy a DLP policy.\r\n-\r\n-The following sections describe how to use Exchange Online PowerShell to customize branding.\r\n+- An Exchange mail flow rule.\r\n+- A Microsoft Purview Data Loss Prevention (DLP) policy rule.\r\n \r\n Use the Get-OMEConfiguration and Set-OMEConfiguration cmdlets in Exchange Online PowerShell to customize these parts of encrypted email messages:\r\n \r\n@@ -76,7 +73,7 @@ Use the Get-OMEConfiguration and Set-OMEConfiguration cmdlets in Exchange Online\n \r\n You can also revert back to the default look and feel at any time.\r\n \r\n-If you'd like more control, use Microsoft Purview Advanced Message Encryption to create multiple templates for encrypted emails originating from your organization. Use these templates to control parts of the end-user experience. For example, specify whether recipients can use Google, Yahoo, and Microsoft Accounts to sign in to the encryption portal. Use templates to fulfill several use cases, such as:\r\n+If you'd like more control, use Microsoft Purview Advanced Message Encryption to create multiple templates for encrypted emails originating from your organization. Use these templates to control parts of the end-user experience. For example, specify the authentication options available in the encryption portal. Use templates to fulfill several use cases, such as:\r\n \r\n - Individual departments, such as Finance, Sales, and so on.\r\n - Different products\r\n@@ -84,7 +81,7 @@ If you'd like more control, use Microsoft Purview Advanced Message Encryption to\n - Whether you want to allow emails to be revoked\r\n - Whether you want emails sent to external recipients to expire after a specified number of days.\r\n \r\n-Once you've created the templates, apply them to encrypted emails sent from your online mailbox by using Exchange mail flow rules. If you have Microsoft Purview Advanced Message Encryption, you can revoke any email that you have branded.\r\n+Once you've created the templates, apply them to encrypted emails sent from your online mailbox by using Exchange mail flow rules or DLP policy rules. If you have Microsoft Purview Advanced Message Encryption, you can revoke any email that you have branded.\r\n \r\n Important\r\n \r\n@@ -118,7 +115,7 @@ Use Exchange Online PowerShell to modify one branding template at a time. If you\n | Disclaimer statement in the email that contains the encrypted message | `Set-OMEConfiguration -Identity \"<OMEConfigurationName>\" -DisclaimerText \"<Disclaimer statement. String of up to 1024 characters.>\"`<br>**Example:**<br><br>`Set-OMEConfiguration -Identity \"Branding Template 1\" -DisclaimerText \"This message is confidential for the use of the addressee only.\"` |\r\n | Text that appears at the top of the encrypted mail viewing portal | `Set-OMEConfiguration -Identity \"<OMEConfigurationName>\" -PortalText \"<Text for your portal. String of up to 128 characters.>\"`<br>**Example:**<br><br>`Set-OMEConfiguration -Identity \"Message encryption cfonfiguration\" -PortalText \"ContosoPharma secure email portal.\"` |\r\n | To enable or disable authentication with a one-time pass code for this custom template | `Set-OMEConfiguration -Identity \"<OMEConfigurationName>\" -OTPEnabled <$true|$false>`<br>**Examples:**To enable one-time passcodes for this custom template <br><br>`Set-OMEConfiguration -Identity \"Branding Template 1\" -OTPEnabled $true`<br><br> To disable one-time passcodes for this custom template <br><br>`Set-OMEConfiguration -Identity \"Branding Template 1\" -OTPEnabled $false` |\r\n-| To enable or disable authentication with Microsoft, Google, or Yahoo identities for this custom template | `Set-OMEConfiguration -Identity \"<OMEConfigurationName>\" -SocialIdSignIn <$true|$false>`<br>**Examples:**To enable social IDs for this custom template <br><br>`Set-OMEConfiguration -Identity \"Branding Template 1\" -SocialIdSignIn $true`<br><br> To disable social IDs for this custom template <br><br>`Set-OMEConfiguration -Identity \"Branding Template 1\" -SocialIdSignIn $false` |\r\n+| To enable or disable authentication with supported social identities for this custom template | `Set-OMEConfiguration -Identity \"<OMEConfigurationName>\" -SocialIdSignIn <$true|$false>`<br>**Examples:**To enable social IDs for this custom template <br><br>`Set-OMEConfiguration -Identity \"Branding Template 1\" -SocialIdSignIn $true`<br><br> To disable social IDs for this custom template <br><br>`Set-OMEConfiguration -Identity \"Branding Template 1\" -SocialIdSignIn $false` |\r\n \r\n ## Create an encrypted message branding template (Advanced Message Encryption)\r\n \r\n@@ -181,7 +178,21 @@ To remove a custom branding template:\n \r\n     For more information, see [Remove-OMEConfiguration](/en-us/powershell/module/exchange/remove-omeconfiguration).\r\n \r\n-## Create an Exchange mail flow rule that applies your custom branding to encrypted emails sent from your online organization to external recipients\r\n+## Apply a branding template to encrypted messages\r\n+\r\n+A branding rule doesn't encrypt a message by itself. Before the branding action runs, the message must be encrypted manually in Outlook or Outlook on the web, or automatically by a DLP policy or Exchange mail flow rule.\r\n+\r\n+Choose the rule type that best matches how your organization identifies messages and how you want external recipients to open them.\r\n+\r\n+| Consideration | Exchange mail flow rule | DLP policy rule |\r\n+| --- | --- | --- |\r\n+| Admin portal | Exchange admin center | Microsoft Purview portal |\r\n+| Rule scope | Uses Exchange mail flow rule conditions | Uses DLP conditions and must be scoped only to Exchange |\r\n+| Sender requirement | Configure **The sender is located** as **Inside the organization** | Configure **Content is received from** as **People inside my organization** |\r\n+| Encryption | Can encrypt and apply branding in the same mail flow rule, or apply branding to a message encrypted earlier | Can encrypt and apply branding in the same DLP rule, or apply branding to a message encrypted by another supported method |\r\n+| Portal access | The branding action doesn't provide a choice between enforced portal access and the native encrypted-message experience | The rule can enforce portal access or allow the native experience in supported clients |\r\n+\r\n+### Use an Exchange mail flow rule\r\n \r\n Important\r\n \r\n@@ -211,6 +222,32 @@ To ensure Microsoft Purview Message Encryption applies your custom branding, set\n \r\n     Select **add action** if you want to specify another action, or select **Save**, and then select **OK**.\r\n \r\n+### Use a DLP policy rule\r\n+\r\n+Before you begin, create and configure the branding template as described in Work with branding templates. The DLP policy must be scoped only to Exchange, and the rule must apply to messages from people inside your organization.\r\n+\r\n+1. Sign in to the [Microsoft Purview portal](https://purview.microsoft.com).\r\n+2. Go to **Solutions** &gt; **Data Loss Prevention** &gt; **Policies**.\r\n+3. Select **Enterprise applications & devices**\r\n+4. Create a custom DLP policy, or select an existing policy and edit it.\r\n+5. On the page where you choose locations, select **Exchange email** and clear all other locations.\r\n+6. Create or edit an advanced DLP rule.\r\n+7. Under **Conditions**, add **Content is received from**, and select **People inside my organization**. Add any other conditions that identify the encrypted messages to brand.\r\n+8. Make sure messages that match the rule are encrypted by adding a new condition, **Message type is** and selecting **Encrypted**.\r\n+\r\n+    1. To encrypt them in the same DLP rule, under **Actions**, add **Restrict access or encrypt the content in Microsoft 365 locations**, and then select **Encrypt email messages**. This is unnecessary if another supported method encrypts the messages before the branding action runs.\r\n+9. Under **Actions**, add **Apply branding to encrypted messages**.\r\n+10. Under **Select brand template**, select the OME branding template to apply.\r\n+11. Choose whether to select **Make external recipients open message in the encrypted message portal**:\r\n+\r\n+    - Selected (the default for new rules): External recipients open the message in the encrypted message portal. External Outlook recipients don't use the native inline viewing experience.\r\n+    - Cleared: External Outlook recipients can use the native inline viewing experience. Recipients whose email service or client doesn't support inline viewing continue to use the encrypted message portal.\r\n+\r\n+    Important\r\n+\r\n+    When this setting is selected, Outlook.com and Hotmail recipients are directed to the encrypted message portal and can't use Microsoft consumer-account single sign-on. Clearing the setting preserves the native experience for supported Outlook.com and Hotmail recipients.\r\n+12. Save the rule, finish creating or editing the policy, and choose the appropriate policy mode. For deployment guidance, see [Create and deploy data loss prevention policies](dlp-create-deploy-policy).\r\n+\r\n ## Background color reference\r\n \r\n The color names that you can use for the background color are limited. Instead of a color name, you can use a hex code value (`#RRGGBB`). You can use a hex code value that corresponds to a color name, or you can use a custom hex code value. Be sure to enclose the hex code value in quotation marks (for example, `\"#f0f8ff\"`).\r\n",
+      "baseCommitSha": "c110baa26f585bf81b0d36df3f3b2724afa569b8",
+      "commitSha": "e42eb2034709c4b6b454c9331f4bbe400a24769e",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-26 00:31:28 +0000",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/add-your-organization-brand-to-encrypted-messages.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/add-your-organization-brand-to-encrypted-messages",
+      "eventId": "purview-docs:e42eb2034709c4b6b454c9331f4bbe400a24769e:modified:Purview/add-your-organization-brand-to-encrypted-messages.md",
+      "firstSeenAt": "2026-11-26T11:11:11.807Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Updated guidance for applying branding to encrypted messages",
+        "summary": "The article now explains creating branding templates with Exchange Online PowerShell and applying them through either an Exchange mail flow rule or a Purview DLP policy rule. It clarifies that branding does not encrypt messages and adds rule-scope guidance.",
+        "adminImpact": "Choose the rule type that fits your process. DLP rules must be scoped only to Exchange, and messages must already be encrypted before branding is applied.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "Purview/dlp-browser-dlp-learn.md",
+      "status": "modified",
+      "additions": 1,
+      "deletions": 1,
+      "changes": 2,
+      "patch": "diff --git a/Purview/dlp-browser-dlp-learn.md b/Purview/dlp-browser-dlp-learn.md\nindex c2f8320..af43ea7 100644\n--- a/Purview/dlp-browser-dlp-learn.md\n+++ b/Purview/dlp-browser-dlp-learn.md\n@@ -143,7 +143,7 @@ DLP policies for cloud apps in the browser work directly in Edge for Business.\n \r\n ### Edge for Business\r\n \r\n-These features are available in the two latest stable versions of Edge for Business, starting with version 144. For more information on Edge for Business versions, see [Microsoft Edge Releases](/en-us/deployedge/microsoft-edge-release-schedule#microsoft-edge-releases).\r\n+These features are available in the two latest stable versions of Edge for Business, starting with version 158. For more information on Edge for Business versions, see [Microsoft Edge Releases](/en-us/deployedge/microsoft-edge-release-schedule#microsoft-edge-releases).\r\n \r\n Important\r\n \r\n",
+      "baseCommitSha": "c110baa26f585bf81b0d36df3f3b2724afa569b8",
+      "commitSha": "e42eb2034709c4b6b454c9331f4bbe400a24769e",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-26 00:31:28 +0000",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/dlp-browser-dlp-learn.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/dlp-browser-dlp-learn",
+      "eventId": "purview-docs:e42eb2034709c4b6b454c9331f4bbe400a24769e:modified:Purview/dlp-browser-dlp-learn.md",
+      "firstSeenAt": "2026-11-26T11:11:11.821Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Browser DLP now requires Edge for Business version 158 or later",
+        "summary": "The documented baseline for Browser DLP features changed from Edge for Business version 144 to version 158, covering the two latest stable versions.",
+        "adminImpact": "Check managed Edge for Business versions to ensure Browser DLP features remain supported.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "Purview/dlp-policy-reference.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 4,
+      "changes": 10,
+      "patch": "diff --git a/Purview/dlp-policy-reference.md b/Purview/dlp-policy-reference.md\nindex 53ba484..5466cbf 100644\n--- a/Purview/dlp-policy-reference.md\n+++ b/Purview/dlp-policy-reference.md\n@@ -6,9 +6,9 @@ breadcrumb_path: /purview/breadcrumb/toc.json\n feedback_system: Standard\n uhfHeaderId: MSDocsHeader-Purview\n f1.keywords: CSH\n-ms.author: kreagle\n-author: k-reagle\n-manager: laurawi\n+ms.author: shpalta\n+author: tommoser\n+manager: adamf\n ms.date: 2026-11-03T00:00:00.0000000Z\n audience: Admin\n ms.topic: reference\n@@ -956,7 +956,9 @@ The following table lists the actions that Exchange supports, and indicates whet\n \r\n Tip\r\n \r\n-For the **Apply branding to encrypted messages** action, if you already have Microsoft Purview Message Encryption implemented, the templates automatically show up in the drop-down list. If you want to implement Microsoft Purview Message Encryption, see [Add your organization's brand to your Microsoft Purview Message Encryption encrypted messages](add-your-organization-brand-to-encrypted-messages) for background on message encryption and how to create and configure your branding templates.\r\n+The **Apply branding to encrypted messages** action requires an existing Microsoft Purview Message Encryption branding template. Available templates automatically appear in the action's dropdown list. This action doesn't encrypt the message by itself.\r\n+\r\n+Use this action in a policy that's scoped only to Exchange and in a rule that applies to messages from people inside your organization. You can also choose whether external recipients must use the encrypted message portal. For prerequisites, portal-access behavior, and configuration steps, see [Use a DLP policy rule to apply branding](add-your-organization-brand-to-encrypted-messages#use-a-dlp-policy-rule).\r\n \r\n For more information on the actions that Exchange supports, including PowerShell values, see: [Data loss prevention Exchange conditions and actions reference](dlp-exchange-conditions-and-actions).\r\n \r\n",
+      "baseCommitSha": "c110baa26f585bf81b0d36df3f3b2724afa569b8",
+      "commitSha": "e42eb2034709c4b6b454c9331f4bbe400a24769e",
+      "commitMessage": "Mirror Learn: 3 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-26 00:31:28 +0000",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/dlp-policy-reference.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/dlp-policy-reference",
+      "eventId": "purview-docs:e42eb2034709c4b6b454c9331f4bbe400a24769e:modified:Purview/dlp-policy-reference.md",
+      "firstSeenAt": "2026-11-26T11:11:12.115Z",
+      "englishSummary": {
+        "category": "Doc update",
+        "headline": "Guidance updated for encrypted-message branding",
+        "summary": "The article now states that the action requires an existing Microsoft Purview Message Encryption branding template, does not encrypt messages itself, and should be used in Exchange-only policies for internal senders. It also documents the external-recipient portal option.",
+        "adminImpact": "Administrators configuring this action should verify the branding template, policy scope, and desired portal-access behavior.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    }
+  ],
+  "deletedFiles": [],
+  "messageCenterItems": [
+    {
+      "id": "MC1568697",
+      "source": "mc",
+      "sourceLabel": "Message Center",
+      "date": "2026-11-25",
+      "title": "Microsoft Purview: Insider Risk Management-Introducing IRM Alert classification",
+      "summary": "Microsoft Purview Insider Risk Management will introduce alert classification as True positive, Benign, or False positive to improve risk reporting and tuning. Rolling out from December 2026 to January 2027, it separates classification from alert status and updates alert actions. No configuration changes required; notify analysts accordingly.",
+      "product": {
+        "slug": "purview",
+        "name": "Microsoft Purview",
+        "short": "Purview",
+        "learn": "https://learn.microsoft.com/en-us/purview/",
+        "icon": "purview.svg"
+      },
+      "topic": {
+        "slug": "reporting",
+        "name": "Alerts, reports and investigation",
+        "icon": "/assets/topics/reporting.svg"
+      },
+      "changeType": "Message",
+      "url": "/message-center/MC1568697/",
+      "originalUrl": "https://mc.merill.net/message/MC1568697",
+      "body": "<p><b><b>What and Why:</b></b></p><p>Insider risk management will be introducing the ability to classify alerts as True positive, Benign (operational), and False positive. This will be available on all alerts where analysts can choose from a list of predefined classification reasons. Alert classification will help tenants to better classify risk within alerts to support reporting and tuning needs. This will replace existing dismissal reason.</p><p>Microsoft Purview Insider Risk Management correlates various signals to identify potential malicious or inadvertent insider risks, such as IP theft, data leakage, and security violations. Insider Risk Management enables customers to create policies based on their own internal policies, governance, and organizational requirements. Built with privacy by design, users are pseudonymized by default, and role-based access controls and audit logs are in place to help ensure user-level privacy.</p><p><b><b>Rollout Schedule:</b></b></p><p>Public Preview: We will begin rolling out early December 2026 and expect to complete by mid-December 2026.</p><p>Global: We will begin rolling out on mid-January 2027 and expect to complete by late January 2027.</p><p><b><b>Impact on Your Organization:</b></b></p><p>Alert classification will be managed independently from the alert’s workflow status, such as Needs review, Confirmed, Dismissed, or Resolved. Changing an alert’s classification will not automatically change its status, and changing its status will not overwrite its classification. This provides more precise investigation outcomes and maintains classification consistency for alerts shared between Microsoft Purview and Microsoft Defender.</p><p>The alert action experience will also be updated. The existing Confirm and Dismiss actions will be consolidated under a Manage action, and a separate Classify action will allow analysts to add or update the alert classification.</p><p>Steps to view:</p><ul><li>In the Microsoft Purview portal, go to Insider Risk Management &gt; Alerts.</li><li>Review the new Classification column in the Alerts queue.</li><li>Select an alert to open its details.</li><li>Select Classify.</li><li>Choose True positive, False positive, or Benign Positive, and select the applicable reason.</li><li>Select Manage to access the existing alert workflow actions, including confirming, dismissing, or assigning the alert.</li></ul><p></p><p><b><b>Action Required/Recommendations:</b></b></p><p>No configuration changes are required before this update rolls out. Admins should notify Insider Risk Management analysts and investigators about the new Classification field and the updated alert actions.</p><p>Organizations should also review their investigation procedures and internal guidance to define when analysts should use each classification:</p><ul><li>True positive: The detected activity occurred and the investigation determined that it represents meaningful business risk.</li><li>Informational, expected activity: The activity occurred, but it was authorized, expected for the user's role, or otherwise supported by valid business context.</li><li>False positive: The alert does not accurately represent the activity or risk, such as an incorrect attribution, duplicate alert, trusted automated process, or overly broad policy threshold.</li></ul><p><a href=\"https://purview.microsoft.com/insiderriskmgmt/alertspage\" rel=\"noopener noreferrer\">Microsoft Purview Insider Risk Management alerts</a></p><p><a href=\"https://learn.microsoft.com/en-us/purview/insider-risk-management-activities\" rel=\"noopener noreferrer\">Learn more about Insider Risk Management activities</a></p><p><b><b>Compliance considerations:</b></b></p><p>No compliance considerations identified, review as appropriate for your organization.</p>",
+      "category": "planForChange",
+      "services": [
+        "Microsoft Purview"
+      ],
+      "tags": [
+        "New feature",
+        "Admin impact"
+      ],
+      "startDate": "2026-11-25T23:35:04Z",
+      "endDate": "2027-03-29T07:00:00Z",
+      "lastModifiedDateTime": "2026-11-25T23:35:32.883Z",
+      "version": "2026-11-25T23:35:32.883Z",
+      "eventId": "message-center:MC1568697:2026-11-25T23:35:32.883Z",
+      "firstSeenAt": "2026-11-26T11:11:30.949Z"
+    }
+  ],
+  "summary": {
+    "totalCommits": 1,
+    "totalFiles": 3,
+    "authors": [
+      "github-actions[bot]"
+    ]
+  },
+  "englishSummary": {
+    "overview": "Today's report includes 0 new, 3 updated, and 0 removed Microsoft Purview documentation files across 1 documentation area.",
+    "groups": [
+      {
+        "category": "Doc update",
+        "title": "Microsoft Purview",
+        "summary": "The article now explains creating branding templates with Exchange Online PowerShell and applying them through either an Exchange mail flow rule or a Purview DLP policy rule. It clarifies that branding does not encrypt messages and adds rule-scope guidance. The documented baseline for Browser DLP features changed from Edge for Business version 144 to version 158, covering the two latest stable versions. The article now states that the action requires an existing Microsoft Purview Message Encryption branding template, does not encrypt messages itself, and should be used in Exchange-only policies for internal senders. It also documents the external-recipient portal option.",
+        "sourceFiles": [
+          "Purview/add-your-organization-brand-to-encrypted-messages.md",
+          "Purview/dlp-browser-dlp-learn.md",
+          "Purview/dlp-policy-reference.md"
+        ]
+      }
+    ],
+    "highlights": [
+      {
+        "category": "Doc update",
+        "headline": "Microsoft Purview",
+        "detail": "The article now explains creating branding templates with Exchange Online PowerShell and applying them through either an Exchange mail flow rule or a Purview DLP policy rule. It clarifies that branding does not encrypt messages and adds rule-scope guidance. The documented baseline for Browser DLP features changed from Edge for Business version 144 to version 158, covering the two latest stable versions. The article now states that the action requires an existing Microsoft Purview Message Encryption branding template, does not encrypt messages itself, and should be used in Exchange-only policies for internal senders. It also documents the external-recipient portal option."
+      }
+    ],
+    "generatedBy": "fallback"
+  }
+}
