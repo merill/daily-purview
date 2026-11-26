@@ -78,6 +78,110 @@
         "generatedBy": "openai",
         "model": "gpt-5.6-luna"
       }
+    },
+    {
+      "filename": "Purview/communication-compliance-investigate-remediate.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 0,
+      "changes": 4,
+      "patch": "diff --git a/Purview/communication-compliance-investigate-remediate.md b/Purview/communication-compliance-investigate-remediate.md\nindex 9ee5997..290752e 100644\n--- a/Purview/communication-compliance-investigate-remediate.md\n+++ b/Purview/communication-compliance-investigate-remediate.md\n@@ -266,6 +266,10 @@ Select a message to view the complete message header and body information. Sever\n \r\n ### Summarize a message by using Copilot in Microsoft Purview\r\n \r\n+Important\r\n+\r\n+The **Copilot summarization** capability in Microsoft Purview Communication Compliance is temporarily unavailable. During this time, reviewers can't generate contextual summaries of communications flagged for potential policy violations. Other Communication Compliance review and investigation capabilities remain available. For updates on availability, check Message Center in the Microsoft 365 admin center.\r\n+\r\n You can use Copilot in Microsoft Purview to get a contextual summary of a Teams, email, or Viva Engage message included in a policy match. The summary is in the context of one or more [Microsoft provided trainable classifiers](classifier-tc-definitions) that flag the message (for example, stock manipulation). This feature saves time for investigators if the message content is lengthy.\r\n \r\n Copilot in Microsoft Purview summarizes the entire message, including any video recordings, meetings transcripts, or attachments (docx, pdf, or txt files).\r\n",
+      "baseCommitSha": "e42eb2034709c4b6b454c9331f4bbe400a24769e",
+      "commitSha": "6c5242ad93f6103d387d479abbd29799a054656e",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-26 14:00:25 +0000",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/communication-compliance-investigate-remediate.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/communication-compliance-investigate-remediate",
+      "eventId": "purview-docs:6c5242ad93f6103d387d479abbd29799a054656e:modified:Purview/communication-compliance-investigate-remediate.md",
+      "firstSeenAt": "2026-11-26T23:07:47.317Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Copilot summarization is temporarily unavailable",
+        "summary": "Microsoft Purview Communication Compliance reviewers cannot generate contextual summaries for communications flagged for potential policy violations.",
+        "adminImpact": "Reviewers will need to investigate flagged communications without Copilot-generated contextual summaries until the capability becomes available again.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "Purview/communication-compliance.md",
+      "status": "modified",
+      "additions": 4,
+      "deletions": 0,
+      "changes": 4,
+      "patch": "diff --git a/Purview/communication-compliance.md b/Purview/communication-compliance.md\nindex 3485c5c..5ec7578 100644\n--- a/Purview/communication-compliance.md\n+++ b/Purview/communication-compliance.md\n@@ -123,6 +123,10 @@ Built-in remediation workflows help you quickly identify and take action on mess\n - **Attachment detection**: You can check, detect, and investigate linked content (Modern attachments) from OneDrive and Microsoft Teams that match policy classifiers and conditions for Microsoft Teams messages. Attachment content is automatically extracted to a text file for detailed review and action.\r\n - **Summarize message content for policy matches**: Save time for investigators by [using Microsoft Copilot in Microsoft Purview](communication-compliance-investigate-remediate#summarize-a-message-by-using-copilot-in-microsoft-purview) to summarize lengthy Teams, email, or Viva Engage messages. Copilot in Microsoft Purview creates a summary of the conversation, including recordings, meeting transcripts, and attachments.\r\n \r\n+    Important\r\n+\r\n+    The **Copilot summarization** capability in Microsoft Purview Communication Compliance is temporarily unavailable. During this time, reviewers can't generate contextual summaries of communications flagged for potential policy violations. Other Communication Compliance review and investigation capabilities remain available. For updates on availability, check Message Center in the Microsoft 365 admin center.\r\n+\r\n ### Actionable insights\r\n \r\n New interactive dashboards for alerts, policy matches, actions, and trends help you quickly view the status of pending and resolved alerts in your organization.\r\n",
+      "baseCommitSha": "e42eb2034709c4b6b454c9331f4bbe400a24769e",
+      "commitSha": "6c5242ad93f6103d387d479abbd29799a054656e",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-26 14:00:25 +0000",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/communication-compliance.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/communication-compliance",
+      "eventId": "purview-docs:6c5242ad93f6103d387d479abbd29799a054656e:modified:Purview/communication-compliance.md",
+      "firstSeenAt": "2026-11-26T23:07:47.329Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Copilot summarization is temporarily unavailable",
+        "summary": "Communication Compliance reviewers cannot generate contextual summaries for communications flagged for potential policy violations.",
+        "adminImpact": "Review workflows that rely on Copilot-generated summaries are affected; no administrator action is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "Purview/data-security-investigations-scope.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 0,
+      "changes": 6,
+      "patch": "diff --git a/Purview/data-security-investigations-scope.md b/Purview/data-security-investigations-scope.md\nindex 275faae..49d20f6 100644\n--- a/Purview/data-security-investigations-scope.md\n+++ b/Purview/data-security-investigations-scope.md\n@@ -41,8 +41,10 @@ item_type: Content\n source_path: Purview/data-security-investigations-scope.md\n cmProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/12ed19f9-ebdf-4c8a-8bcd-7a681836774d\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/fcc3cd4a-59ea-47a2-9cc1-784142a5a25d\n spProducts:\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/3a764584-4f97-452b-8f1d-36f19b12f6ae\n+- https://authoring-docs-microsoft.poolparty.biz/devrel/d7a55faf-a992-4e27-aa3a-eadc9830e778\n platformId: 1ac67201-e9e3-af89-029b-e08a9777a469\n ---\n \n@@ -93,6 +95,10 @@ For example, to view only email and email attachments, expand the **File class**\n \r\n ### View item details\r\n \r\n+Important\r\n+\r\n+The **Summarize** capability for investigation items is temporarily unavailable for all tenants. During this time, the **Summarize** option doesn't appear when you review an item, and you can't generate a summary of an item. Other AI capabilities in Data Security Investigations, such as categorization, vector search, and examination, aren't affected. For updates on availability, check Message center in the Microsoft 365 admin center.\r\n+\r\n Select a data item to display more information about the item. Use the [investigation scope viewers](data-security-investigations-scope-views) to examine source, plain text, metadata, and audit details for the selected item.\r\n \r\n ### Item actions\r\n",
+      "baseCommitSha": "e42eb2034709c4b6b454c9331f4bbe400a24769e",
+      "commitSha": "6c5242ad93f6103d387d479abbd29799a054656e",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-26 14:00:25 +0000",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/data-security-investigations-scope.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/data-security-investigations-scope",
+      "eventId": "purview-docs:6c5242ad93f6103d387d479abbd29799a054656e:modified:Purview/data-security-investigations-scope.md",
+      "firstSeenAt": "2026-11-26T23:07:47.339Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Summarize is temporarily unavailable in Data Security Investigations",
+        "summary": "The Summarize capability for investigation items is unavailable for all tenants. The Summarize option no longer appears when reviewing an item, and summaries cannot be generated.",
+        "adminImpact": "Investigators cannot use item summarization during this period. No administrator action is specified.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
+    },
+    {
+      "filename": "Purview/edisc-review-set-view.md",
+      "status": "modified",
+      "additions": 6,
+      "deletions": 2,
+      "changes": 8,
+      "patch": "diff --git a/Purview/edisc-review-set-view.md b/Purview/edisc-review-set-view.md\nindex 36aed7e..5e54543 100644\n--- a/Purview/edisc-review-set-view.md\n+++ b/Purview/edisc-review-set-view.md\n@@ -41,13 +41,13 @@ monikers: []\n item_type: Content\n source_path: Purview/edisc-review-set-view.md\n cmProducts:\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/03921bea-3752-4ddc-98c2-5aa70db91565\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/46e3c7c4-fe77-4a6e-b40a-44c569819fa5\n - https://authoring-docs-microsoft.poolparty.biz/devrel/63959238-cb90-4871-a33d-4a5519097e47\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/03921bea-3752-4ddc-98c2-5aa70db91565\n spProducts:\n+- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/09911d3e-3eb9-4c8d-ab86-ce80d8d36bbd\n - https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/d0c6fab8-2d7d-4bb0-bf40-589e08d7c132\n - https://authoring-docs-microsoft.poolparty.biz/devrel/78d87f42-5582-4a6b-90be-7db2f12b34e6\n-- https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/09911d3e-3eb9-4c8d-ab86-ce80d8d36bbd\n platformId: 4d4b60bc-4fd2-66ae-201d-a533ef23e91c\n ---\n \n@@ -139,6 +139,10 @@ The **Copilot activity** view displays the Microsoft 365 Copilot and Microsoft 3\n \r\n ## Summarize an item by using Microsoft Security Copilot\r\n \r\n+Important\r\n+\r\n+The **Summarize** capability for review set items is temporarily unavailable for all tenants. During this time, the **Summarize** option doesn't appear for review set items, and you can't generate a summary of an item or ask Security Copilot questions about an item. Other Security Copilot capabilities in eDiscovery, such as drafting KeyQL queries from natural language and summarizing cases, searches, and holds, aren't affected. For updates on availability, check Message center in the Microsoft 365 admin center.\r\n+\r\n You can use [Security Copilot in Microsoft Purview](copilot-in-purview-overview) to provide a contextual summary of most items in a review set. The summary is based on the text included in a selected item. The contextual summary saves time for reviewers by quickly identifying information helpful when tagging or exporting items.\r\n \r\n Security Copilot summarizes the entire item, including any documents, meetings transcripts, or attachments. Most common document file types are supported.\r\n",
+      "baseCommitSha": "e42eb2034709c4b6b454c9331f4bbe400a24769e",
+      "commitSha": "6c5242ad93f6103d387d479abbd29799a054656e",
+      "commitMessage": "Mirror Learn: 4 changed",
+      "commitAuthor": "github-actions[bot]",
+      "commitDate": "2026-11-26 14:00:25 +0000",
+      "githubUrl": "https://github.com/merill/purview-docs-mirror/blob/main/Purview/edisc-review-set-view.md",
+      "publicDocsUrl": "https://learn.microsoft.com/en-us/purview/edisc-review-set-view",
+      "eventId": "purview-docs:6c5242ad93f6103d387d479abbd29799a054656e:modified:Purview/edisc-review-set-view.md",
+      "firstSeenAt": "2026-11-26T23:07:47.348Z",
+      "englishSummary": {
+        "category": "Feature update",
+        "headline": "Summarize is temporarily unavailable for review set items",
+        "summary": "The documentation now states that Summarize is unavailable for all tenants. The option is hidden, and administrators cannot generate item summaries or ask Security Copilot questions about review set items.",
+        "adminImpact": "Administrators should expect these review set functions to be unavailable during the temporary disruption.",
+        "actionRequired": false,
+        "generatedBy": "openai",
+        "model": "gpt-5.6-luna"
+      }
     }
   ],
   "deletedFiles": [],
@@ -122,23 +226,27 @@
     }
   ],
   "summary": {
-    "totalCommits": 1,
-    "totalFiles": 3,
+    "totalCommits": 2,
+    "totalFiles": 7,
     "authors": [
       "github-actions[bot]"
     ]
   },
   "englishSummary": {
-    "overview": "Today's report includes 0 new, 3 updated, and 0 removed Microsoft Purview documentation files across 1 documentation area.",
+    "overview": "Today's report includes 0 new, 7 updated, and 0 removed Microsoft Purview documentation files across 1 documentation area.",
     "groups": [
       {
         "category": "Doc update",
         "title": "Microsoft Purview",
-        "summary": "The article now explains creating branding templates with Exchange Online PowerShell and applying them through either an Exchange mail flow rule or a Purview DLP policy rule. It clarifies that branding does not encrypt messages and adds rule-scope guidance. The documented baseline for Browser DLP features changed from Edge for Business version 144 to version 158, covering the two latest stable versions. The article now states that the action requires an existing Microsoft Purview Message Encryption branding template, does not encrypt messages itself, and should be used in Exchange-only policies for internal senders. It also documents the external-recipient portal option.",
+        "summary": "The article now explains creating branding templates with Exchange Online PowerShell and applying them through either an Exchange mail flow rule or a Purview DLP policy rule. It clarifies that branding does not encrypt messages and adds rule-scope guidance. The documented baseline for Browser DLP features changed from Edge for Business version 144 to version 158, covering the two latest stable versions. The article now states that the action requires an existing Microsoft Purview Message Encryption branding template, does not encrypt messages itself, and should be used in Exchange-only policies for internal senders. It also documents the external-recipient portal option. Microsoft Purview Co",
         "sourceFiles": [
           "Purview/add-your-organization-brand-to-encrypted-messages.md",
           "Purview/dlp-browser-dlp-learn.md",
-          "Purview/dlp-policy-reference.md"
+          "Purview/dlp-policy-reference.md",
+          "Purview/communication-compliance-investigate-remediate.md",
+          "Purview/communication-compliance.md",
+          "Purview/data-security-investigations-scope.md",
+          "Purview/edisc-review-set-view.md"
         ]
       }
     ],
@@ -146,7 +254,7 @@
       {
         "category": "Doc update",
         "headline": "Microsoft Purview",
-        "detail": "The article now explains creating branding templates with Exchange Online PowerShell and applying them through either an Exchange mail flow rule or a Purview DLP policy rule. It clarifies that branding does not encrypt messages and adds rule-scope guidance. The documented baseline for Browser DLP features changed from Edge for Business version 144 to version 158, covering the two latest stable versions. The article now states that the action requires an existing Microsoft Purview Message Encryption branding template, does not encrypt messages itself, and should be used in Exchange-only policies for internal senders. It also documents the external-recipient portal option."
+        "detail": "The article now explains creating branding templates with Exchange Online PowerShell and applying them through either an Exchange mail flow rule or a Purview DLP policy rule. It clarifies that branding does not encrypt messages and adds rule-scope guidance. The documented baseline for Browser DLP features changed from Edge for Business version 144 to version 158, covering the two latest stable versions. The article now states that the action requires an existing Microsoft Purview Message Encryption branding template, does not encrypt messages itself, and should be used in Exchange-only policies for internal senders. It also documents the external-recipient portal option. Microsoft Purview Co"
       }
     ],
     "generatedBy": "fallback"
